@@ -1,2 +1,2 @@
-# ujikom
- ujikopentensi 2021
+# BRN Project
+menggunakan laravel 8 dan postgresql
