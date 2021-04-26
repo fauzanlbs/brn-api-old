@@ -1,0 +1,119 @@
+openapi: 3.0.3
+info:
+    title: getContact
+    description: ''
+    version: 1.0.0
+servers:
+    -
+        url: 'http://get-contact.test'
+paths:
+    /api/customer:
+        post:
+            summary: 'Masuk sebagai pelanggan'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                400:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: 'Nomor telepon sudah digunakan sebelumnya'
+                                properties:
+                                    message: { type: string, example: 'Nomor telepon sudah digunakan sebelumnya' }
+            tags:
+                - Pelanggan
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                name:
+                                    type: string
+                                    description: nama.
+                                    example: 'arya anggara'
+                                address:
+                                    type: string
+                                    description: 'alamat lengkap.'
+                                    example: 'jl. letkol basir surya, tasikmalaya, jawa barat'
+                                phoneNumber:
+                                    type: string
+                                    description: 'nomor telepon.'
+                                    example: '6282127586566'
+                            required:
+                                - phoneNumber
+            security: []
+    /api/customer-contacts:
+        post:
+            summary: 'Membuat data list kontak dari pelanggan'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: ''
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    contacts: [{ customerId: 1, displayName: 'Arya DN', givenName: 'Arya GN', middleName: 'Arya MN', prefix: prefix, suffix: suffix, familyName: 'Arya FN', company: Neosantara, jobTitle: Developer, emails: [{ label: label, value: arya@gmail.com }, []], phones: [{ label: label, value: '082323232323' }, []], postalAddresses: 'Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia', birthday: '2020-12-20', androidAccountType: voluptas, androidAccountName: 'Arya AC' }, { customerId: 1, displayName: 'Arya DN', givenName: 'Arya GN', company: Neosantara, jobTitle: Developer, emails: [[], []], phones: [[], []] }]
+                                properties:
+                                    contacts: { type: array, example: [{ customerId: 1, displayName: 'Arya DN', givenName: 'Arya GN', middleName: 'Arya MN', prefix: prefix, suffix: suffix, familyName: 'Arya FN', company: Neosantara, jobTitle: Developer, emails: [{ label: label, value: arya@gmail.com }, []], phones: [{ label: label, value: '082323232323' }, []], postalAddresses: 'Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia', birthday: '2020-12-20', androidAccountType: voluptas, androidAccountName: 'Arya AC' }, { customerId: 1, displayName: 'Arya DN', givenName: 'Arya GN', company: Neosantara, jobTitle: Developer, emails: [[], []], phones: [[], []] }], items: { type: object } }
+            tags:
+                - Pelanggan
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                contacts:
+                                    type: array
+                                    description: 'List dari kontak.'
+                                    example: [[], []]
+                                    items: { type: object, properties: { customerId: { type: integer, description: 'valid id pelanggan.', example: 1 }, displayName: { type: string, description: nama., example: 'Arya DN' }, givenName: { type: string, description: nama., example: 'Arya GN' }, middleName: { type: string, description: nama., example: 'Arya MN' }, prefix: { type: string, description: prefix., example: prefix }, suffix: { type: string, description: suffix., example: suffix }, familyName: { type: string, description: nama., example: 'Arya FN' }, company: { type: string, description: perusahaan., example: Neosantara }, jobTitle: { type: string, description: 'nama pekerjaan.', example: Developer }, emails: { type: array, description: 'List dari email.', example: [[], []], items: { type: object, properties: { label: { type: string, description: 'label email.', example: label }, value: { type: string, description: 'value email.', example: arya@gmail.com } } } }, phones: { type: array, description: 'List dari nomor telepon.', example: [[], []], items: { type: object, properties: { label: { type: string, description: 'label phone.', example: label }, value: { type: string, description: 'value phone.', example: '082323232323' } } } }, postalAddresses: { type: string, description: alamat., example: 'Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia' }, birthday: { type: string, description: ., example: '2020-12-20' }, androidAccountType: { type: string, description: 'android account type.', example: voluptas }, androidAccountName: { type: string, description: nama., example: 'Arya AC' } }, required: [emails, phones] }
+                            required:
+                                - contacts
+            security: []
+components:
+    securitySchemes:
+        default:
+            type: http
+            scheme: bearer
+            description: ''
+security:
+    -
+        default: []

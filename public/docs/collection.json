@@ -1,0 +1,92 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "get-contact.test"
+        }
+    ],
+    "info": {
+        "name": "getContact",
+        "_postman_id": "55825183-26a6-444d-9d90-9405843d54e1",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Pelanggan",
+            "description": "",
+            "item": [
+                {
+                    "name": "Masuk sebagai pelanggan",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/customer"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"name\": \"arya anggara\",\n    \"address\": \"jl. letkol basir surya, tasikmalaya, jawa barat\",\n    \"phoneNumber\": \"6282127586566\"\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Membuat data list kontak dari pelanggan",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/customer-contacts",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/customer-contacts"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"contacts\": [\n        {\n            \"customerId\": 1,\n            \"displayName\": \"Arya DN\",\n            \"givenName\": \"Arya GN\",\n            \"middleName\": \"Arya MN\",\n            \"prefix\": \"prefix\",\n            \"suffix\": \"suffix\",\n            \"familyName\": \"Arya FN\",\n            \"company\": \"Neosantara\",\n            \"jobTitle\": \"Developer\",\n            \"emails\": [\n                {\n                    \"label\": \"label\",\n                    \"value\": \"arya@gmail.com\"\n                },\n                []\n            ],\n            \"phones\": [\n                {\n                    \"label\": \"label\",\n                    \"value\": \"082323232323\"\n                },\n                []\n            ],\n            \"postalAddresses\": \"Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia\",\n            \"birthday\": \"2020-12-20\",\n            \"androidAccountType\": \"voluptas\",\n            \"androidAccountName\": \"Arya AC\"\n        },\n        {\n            \"customerId\": 1,\n            \"displayName\": \"Arya DN\",\n            \"givenName\": \"Arya GN\",\n            \"company\": \"Neosantara\",\n            \"jobTitle\": \"Developer\",\n            \"emails\": [\n                [],\n                []\n            ],\n            \"phones\": [\n                [],\n                []\n            ]\n        }\n    ]\n}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "bearer"
+    }
+}
