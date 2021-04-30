@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PingController;
+use App\Http\Controllers\PointController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Customer
-Route::post('/customer', [CustomerController::class, 'custumer']);
-Route::post('/customer-contacts', [CustomerController::class, 'storeCustomerContact']);
+// Ping
+Route::get('ping', [PingController::class, 'index']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+
+    Route::prefix('point')->group(function () {
+        Route::get('/missions', [PointController::class, 'missions']);
+        Route::get('/histories', [PointController::class, 'histories']);
+    });
+});

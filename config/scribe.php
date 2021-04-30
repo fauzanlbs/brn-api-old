@@ -240,9 +240,7 @@ INTRO,
     /*
      * The base URL to be used in examples. If this is empty, Scribe will use the value of config('app.url').
      */
-    // ! Generate api sebelum upload ke hosting
     'base_url' => config('app.url'),
-    // 'base_url' => "https://sisko.anggawebs.com",
 
     /*
      * Generate a Postman collection (v2.1.0) in addition to HTML docs.

@@ -2,26 +2,26 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
+use App\Traits\CollectsPoints;
+use App\Traits\HasProfilePhoto;
+use App\Traits\UserRegularFunction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Rinvex\Addresses\Traits\Addressable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasApiTokens;
     use HasFactory;
-    use HasProfilePhoto;
     use Notifiable;
-    use TwoFactorAuthenticatable;
+    use UserRegularFunction;
+    use HasProfilePhoto;
+    use Addressable;
     use HasRoles;
-    use Searchable;
-
-    protected $searchableFields = ['*'];
+    use CollectsPoints;
 
     /**
      * The attributes that are mass assignable.
@@ -32,7 +32,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'status_code',
         'profile_photo_path'
     ];
 
@@ -44,9 +43,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
-        'profile_photo_path',
     ];
 
     /**
@@ -66,4 +62,22 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    /**
+     * Get the providers for the user.
+     */
+    public function socialAccounts()
+    {
+        return $this->hasMany(SocialAccount::class);
+    }
+
+
+    /**
+     * Get the personal information for the user.
+     */
+    public function personalInformation()
+    {
+        return $this->hasOne(UserPersonalInformation::class);
+    }
 }

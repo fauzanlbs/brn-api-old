@@ -1,0 +1,20 @@
+{
+    "data": {
+        "id": 123,
+        "label": "Default Address",
+        "given_name": "Abdelrahman",
+        "family_name": "Omran",
+        "organization": "Rinvex",
+        "country_code": "id",
+        "street": "56 john doe st.",
+        "state": "Alexandria",
+        "city": "Alexandria",
+        "postal_code": "21614",
+        "latitude": null,
+        "longitude": null,
+        "is_primary": false,
+        "is_billing": false,
+        "is_shipping": false
+    },
+    "message": "some message"
+}

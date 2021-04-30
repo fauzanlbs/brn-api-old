@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Sisko Documentation</title>
+    <title>Buser Rent Car Nasional Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -45,7 +45,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: April 10 2021</li>
+            <li>Last updated: April 30 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -57,234 +57,46 @@
 Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari menu navigasi di kiri atas pada ponsel).</aside>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script>
-    var baseUrl = "https://sisko.com";
+    var baseUrl = "http://api.brn.com";
 </script>
-<script src="js/tryitout-2.4.2.js"></script>
+<script src="js/tryitout-2.5.3.js"></script>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">https://sisko.com</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<pre><code class="language-yaml">http://api.brn.com</code></pre><h1>Authenticating requests</h1>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Pelanggan</h1>
-<h2>Masuk sebagai pelanggan</h2>
+<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Point</h1>
+<h2>Mendapatkan list data misi.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://get-contact.test/api/customer" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{"name":"arya anggara","address":"jl. letkol basir surya, tasikmalaya, jawa barat","phoneNumber":"6282127586566"}'
-</code></pre>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/point/missions" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://get-contact.test/api/customer"
+    "http://api.brn.com/api/point/missions"
 );
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Accept": "application/json",
-    "Content-Type": "application/json",
 };
 
-let body = {
-    "name": "arya anggara",
-    "address": "jl. letkol basir surya, tasikmalaya, jawa barat",
-    "phoneNumber": "6282127586566"
-}
-
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers,
-    body: JSON.stringify(body),
 }).then(response =&gt; response.json());</code></pre>
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://get-contact.test/api/customer',
+$response = $client-&gt;get(
+    'http://api.brn.com/api/point/missions',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'name' =&gt; 'arya anggara',
-            'address' =&gt; 'jl. letkol basir surya, tasikmalaya, jawa barat',
-            'phoneNumber' =&gt; '6282127586566',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<blockquote>
-<p>Example response (400):</p>
-</blockquote>
-<pre><code class="language-json">{
-    "message": "Nomor telepon sudah digunakan sebelumnya"
-}</code></pre>
-<div id="execution-results-POSTapi-customer" hidden>
-    <blockquote>Received response<span id="execution-response-status-POSTapi-customer"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-customer"></code></pre>
-</div>
-<div id="execution-error-POSTapi-customer" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-customer"></code></pre>
-</div>
-<form id="form-POSTapi-customer" data-method="POST" data-path="api/customer" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json","Content-Type":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-customer', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-customer" onclick="tryItOut('POSTapi-customer');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-customer" onclick="cancelTryOut('POSTapi-customer');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-customer" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-black">POST</small>
- <b><code>api/customer</code></b>
-</p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-<p>
-<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="name" data-endpoint="POSTapi-customer" data-component="body"  hidden>
-<br>
-nama.</p>
-<p>
-<b><code>address</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="address" data-endpoint="POSTapi-customer" data-component="body"  hidden>
-<br>
-alamat lengkap.</p>
-<p>
-<b><code>phoneNumber</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
-<input type="text" name="phoneNumber" data-endpoint="POSTapi-customer" data-component="body" required  hidden>
-<br>
-nomor telepon.</p>
-
-</form>
-<h2>Membuat data list kontak dari pelanggan</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X POST \
-    "http://get-contact.test/api/customer-contacts" \
-    -H "Accept: application/json" \
-    -H "Content-Type: application/json" \
-    -d '{"contacts":[{"customerId":1,"displayName":"Arya DN","givenName":"Arya GN","middleName":"Arya MN","prefix":"prefix","suffix":"suffix","familyName":"Arya FN","company":"Neosantara","jobTitle":"Developer","emails":[{"label":"label","value":"arya@gmail.com"},[]],"phones":[{"label":"label","value":"082323232323"},[]],"postalAddresses":"Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia","birthday":"2020-12-20","androidAccountType":"voluptas","androidAccountName":"Arya AC"},{"customerId":1,"displayName":"Arya DN","givenName":"Arya GN","company":"Neosantara","jobTitle":"Developer","emails":[[],[]],"phones":[[],[]]}]}'
-</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://get-contact.test/api/customer-contacts"
-);
-
-let headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json",
-};
-
-let body = {
-    "contacts": [
-        {
-            "customerId": 1,
-            "displayName": "Arya DN",
-            "givenName": "Arya GN",
-            "middleName": "Arya MN",
-            "prefix": "prefix",
-            "suffix": "suffix",
-            "familyName": "Arya FN",
-            "company": "Neosantara",
-            "jobTitle": "Developer",
-            "emails": [
-                {
-                    "label": "label",
-                    "value": "arya@gmail.com"
-                },
-                []
-            ],
-            "phones": [
-                {
-                    "label": "label",
-                    "value": "082323232323"
-                },
-                []
-            ],
-            "postalAddresses": "Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia",
-            "birthday": "2020-12-20",
-            "androidAccountType": "voluptas",
-            "androidAccountName": "Arya AC"
-        },
-        {
-            "customerId": 1,
-            "displayName": "Arya DN",
-            "givenName": "Arya GN",
-            "company": "Neosantara",
-            "jobTitle": "Developer",
-            "emails": [
-                [],
-                []
-            ],
-            "phones": [
-                [],
-                []
-            ]
-        }
-    ]
-}
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;post(
-    'http://get-contact.test/api/customer-contacts',
-    [
-        'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-        ],
-        'json' =&gt; [
-            'contacts' =&gt; [
-                [
-                    'customerId' =&gt; 1,
-                    'displayName' =&gt; 'Arya DN',
-                    'givenName' =&gt; 'Arya GN',
-                    'middleName' =&gt; 'Arya MN',
-                    'prefix' =&gt; 'prefix',
-                    'suffix' =&gt; 'suffix',
-                    'familyName' =&gt; 'Arya FN',
-                    'company' =&gt; 'Neosantara',
-                    'jobTitle' =&gt; 'Developer',
-                    'emails' =&gt; [
-                        [
-                            'label' =&gt; 'label',
-                            'value' =&gt; 'arya@gmail.com',
-                        ],
-                        [],
-                    ],
-                    'phones' =&gt; [
-                        [
-                            'label' =&gt; 'label',
-                            'value' =&gt; '082323232323',
-                        ],
-                        [],
-                    ],
-                    'postalAddresses' =&gt; 'Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia',
-                    'birthday' =&gt; '2020-12-20',
-                    'androidAccountType' =&gt; 'voluptas',
-                    'androidAccountName' =&gt; 'Arya AC',
-                ],
-                [
-                    'customerId' =&gt; 1,
-                    'displayName' =&gt; 'Arya DN',
-                    'givenName' =&gt; 'Arya GN',
-                    'company' =&gt; 'Neosantara',
-                    'jobTitle' =&gt; 'Developer',
-                    'emails' =&gt; [
-                        [],
-                        [],
-                    ],
-                    'phones' =&gt; [
-                        [],
-                        [],
-                    ],
-                ],
-            ],
         ],
     ]
 );
@@ -294,188 +106,235 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example response (200):</p>
 </blockquote>
 <pre><code class="language-json">{
-    "contacts": [
+    "data": [
         {
-            "customerId": 1,
-            "displayName": "Arya DN",
-            "givenName": "Arya GN",
-            "middleName": "Arya MN",
-            "prefix": "prefix",
-            "suffix": "suffix",
-            "familyName": "Arya FN",
-            "company": "Neosantara",
-            "jobTitle": "Developer",
-            "emails": [
-                {
-                    "label": "label",
-                    "value": "arya@gmail.com"
-                },
-                []
-            ],
-            "phones": [
-                {
-                    "label": "label",
-                    "value": "082323232323"
-                },
-                []
-            ],
-            "postalAddresses": "Jl.letkol basir surya no 1124, tasikmalaya, jawa baarat, indonesia",
-            "birthday": "2020-12-20",
-            "androidAccountType": "voluptas",
-            "androidAccountName": "Arya AC"
+            "id": 1,
+            "active": true,
+            "name": "Daily Check In",
+            "description": "Check In setiap hari",
+            "points": 10,
+            "parent_id": null,
+            "childrens": []
         },
         {
-            "customerId": 1,
-            "displayName": "Arya DN",
-            "givenName": "Arya GN",
-            "company": "Neosantara",
-            "jobTitle": "Developer",
-            "emails": [
-                [],
-                []
-            ],
-            "phones": [
-                [],
-                []
+            "id": 4,
+            "active": true,
+            "name": "Grades",
+            "description": null,
+            "points": 100,
+            "parent_id": null,
+            "childrens": [
+                {
+                    "id": 5,
+                    "active": true,
+                    "name": "Excellent",
+                    "description": null,
+                    "points": 600,
+                    "parent_id": 4,
+                    "childrens": [
+                        {
+                            "id": 6,
+                            "active": true,
+                            "name": "Excellent",
+                            "description": null,
+                            "points": 100,
+                            "parent_id": 5,
+                            "childrens": []
+                        }
+                    ]
+                }
             ]
         }
-    ]
+    ],
+    "links": {
+        "first": "https:\/\/api.brn.com\/api\/point\/missions?page=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "https:\/\/api.brn.com\/api\/point\/missions",
+        "per_page": 10,
+        "to": 10
+    }
 }</code></pre>
-<div id="execution-results-POSTapi-customer-contacts" hidden>
-    <blockquote>Received response<span id="execution-response-status-POSTapi-customer-contacts"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-customer-contacts"></code></pre>
+<div id="execution-results-GETapi-point-missions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-point-missions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-point-missions"></code></pre>
 </div>
-<div id="execution-error-POSTapi-customer-contacts" hidden>
+<div id="execution-error-GETapi-point-missions" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-customer-contacts"></code></pre>
+    <pre><code id="execution-error-message-GETapi-point-missions"></code></pre>
 </div>
-<form id="form-POSTapi-customer-contacts" data-method="POST" data-path="api/customer-contacts" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json","Content-Type":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-customer-contacts', this);">
+<form id="form-GETapi-point-missions" data-method="GET" data-path="api/point/missions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-point-missions', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-customer-contacts" onclick="tryItOut('POSTapi-customer-contacts');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-customer-contacts" onclick="cancelTryOut('POSTapi-customer-contacts');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-customer-contacts" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-point-missions" onclick="tryItOut('GETapi-point-missions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-point-missions" onclick="cancelTryOut('GETapi-point-missions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-point-missions" hidden>Send Request 💥</button>
     </h3>
 <p>
-<small class="badge badge-black">POST</small>
- <b><code>api/customer-contacts</code></b>
+<small class="badge badge-green">GET</small>
+ <b><code>api/point/missions</code></b>
 </p>
-<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
-<details>
-<summary>
-<b><code>contacts</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
-<br>
-List dari kontak.</summary>
-<br>
-<p>
-<b><code>contacts[].customerId</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="contacts.0.customerId" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-valid id pelanggan.</p>
-<p>
-<b><code>contacts[].displayName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.displayName" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama.</p>
-<p>
-<b><code>contacts[].givenName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.givenName" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama.</p>
-<p>
-<b><code>contacts[].middleName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.middleName" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama.</p>
-<p>
-<b><code>contacts[].prefix</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.prefix" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-prefix.</p>
-<p>
-<b><code>contacts[].suffix</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.suffix" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-suffix.</p>
-<p>
-<b><code>contacts[].familyName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.familyName" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama.</p>
-<p>
-<b><code>contacts[].company</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.company" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-perusahaan.</p>
-<p>
-<b><code>contacts[].jobTitle</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.jobTitle" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama pekerjaan.</p>
-<p>
-<details>
-<summary>
-<b><code>contacts[].emails</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
-<br>
-List dari email.</summary>
-<br>
-<p>
-<b><code>contacts[].emails[].label</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.emails.0.label" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-label email.</p>
-<p>
-<b><code>contacts[].emails[].value</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.emails.0.value" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-value email.</p>
-</details>
+<label id="auth-GETapi-point-missions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-point-missions" data-component="header"></label>
 </p>
+</form>
+<h2>Mendapatkan list data histori point.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/point/histories" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/point/histories"
+);
 
-<p>
-<details>
-<summary>
-<b><code>contacts[].phones</code></b>&nbsp;&nbsp;<small>object[]</small>  &nbsp;
-<br>
-List dari nomor telepon.</summary>
-<br>
-<p>
-<b><code>contacts[].phones[].label</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.phones.0.label" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-label phone.</p>
-<p>
-<b><code>contacts[].phones[].value</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.phones.0.value" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-value phone.</p>
-</details>
-</p>
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
 
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/point/histories',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 2,
+            "active": true,
+            "name": "Completed Lesson",
+            "description": null,
+            "points": 100,
+            "get_it_at": "2021-05-29T19:46:48.000000Z"
+        },
+        {
+            "id": 1,
+            "active": true,
+            "name": "Daily Check In",
+            "description": "Check In setiap hari",
+            "points": 10,
+            "get_it_at": "2021-04-29T19:46:48.000000Z"
+        }
+    ],
+    "links": {
+        "first": "https:\/\/api.brn.com\/api\/point\/missions?page=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "https:\/\/api.brn.com\/api\/point\/missions",
+        "per_page": 10,
+        "to": 10
+    }
+}</code></pre>
+<div id="execution-results-GETapi-point-histories" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-point-histories"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-point-histories"></code></pre>
+</div>
+<div id="execution-error-GETapi-point-histories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-point-histories"></code></pre>
+</div>
+<form id="form-GETapi-point-histories" data-method="GET" data-path="api/point/histories" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-point-histories', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-point-histories" onclick="tryItOut('GETapi-point-histories');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-point-histories" onclick="cancelTryOut('GETapi-point-histories');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-point-histories" hidden>Send Request 💥</button>
+    </h3>
 <p>
-<b><code>contacts[].postalAddresses</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.postalAddresses" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-alamat.</p>
-<p>
-<b><code>contacts[].birthday</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.birthday" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-.</p>
-<p>
-<b><code>contacts[].androidAccountType</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.androidAccountType" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-android account type.</p>
-<p>
-<b><code>contacts[].androidAccountName</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="contacts.0.androidAccountName" data-endpoint="POSTapi-customer-contacts" data-component="body"  hidden>
-<br>
-nama.</p>
-</details>
+<small class="badge badge-green">GET</small>
+ <b><code>api/point/histories</code></b>
 </p>
+<p>
+<label id="auth-GETapi-point-histories" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-point-histories" data-component="header"></label>
+</p>
+</form><h1>Server</h1>
+<h2>Ping the server.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/ping" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/ping"
+);
 
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/ping',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "status": "ok",
+    "timestamp": "2021-04-30T11:59:51.367557Z",
+    "host": "127.0.0.1"
+}</code></pre>
+<div id="execution-results-GETapi-ping" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-ping"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-ping"></code></pre>
+</div>
+<div id="execution-error-GETapi-ping" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-ping"></code></pre>
+</div>
+<form id="form-GETapi-ping" data-method="GET" data-path="api/ping" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-ping', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-ping" onclick="tryItOut('GETapi-ping');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-ping" onclick="cancelTryOut('GETapi-ping');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-ping" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/ping</code></b>
+</p>
 </form>
     </div>
     <div class="dark-box">
