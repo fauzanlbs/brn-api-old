@@ -21,6 +21,14 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-*.lock
-.env
-.phpstorm*
+
+public/docs/collection.json
+public/docs/index.html
+public/docs/openapi.yaml
+resources/docs/.filemtimes
+resources/docs/authentication.md
+resources/docs/index.md
+resources/docs/groups/authentication.md
+resources/docs/groups/profile.md
+resources/docs/groups/server.md
+resources/docs/groups/point.md
