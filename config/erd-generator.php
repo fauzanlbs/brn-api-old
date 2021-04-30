@@ -9,6 +9,8 @@ return [
     'directories' => [
         base_path('app'),
         base_path() . '/vendor/rinvex/laravel-addresses/src/',
+        base_path() . '/vendor/beyondcode/laravel-comments/src/',
+        base_path() . '/vendor/cyrildewit/eloquent-viewable/src/',
         base_path() . '/vendor/laravel/sanctum/src/',
         base_path() . '/vendor/spatie/laravel-permission/src/Models',
     ],

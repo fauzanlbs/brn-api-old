@@ -66,7 +66,1622 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <pre><code class="language-yaml">http://api.brn.com</code></pre><h1>Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Point</h1>
+<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Artikel</h1>
+<h2>Mendapatkan list data artikel.</h2>
+<p>Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/articles?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles"
+);
+
+let params = {
+    "search": "Berita hari ini",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "filter[title]": "Berita hari ini",
+    "filter[slug]": "berita-hari-ini",
+    "filter[created_at]": "2020-12-24",
+    "filter[featured]": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/articles',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'Berita hari ini',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'filter[title]'=&gt; 'Berita hari ini',
+            'filter[slug]'=&gt; 'berita-hari-ini',
+            'filter[created_at]'=&gt; '2020-12-24',
+            'filter[featured]'=&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 16,
+            "slug": "performance-checklist",
+            "image": "articles\/1.jpeg",
+            "image_url": "http:\/\/api.brn.com\/storage\/articles\/1.jpeg",
+            "title": "The Ultimate Performance Checklist For Laravel Apps",
+            "content": "We can all agree that we prefer an app that loads faster to one that's slow...",
+            "status": "PUBLISHED",
+            "date": "2021-04-29T17:00:00.000000Z",
+            "featured": false,
+            "created_at": "2021-04-30T13:45:33.000000Z",
+            "updated_at": "2021-04-30T13:45:33.000000Z",
+            "likes_count": 5,
+            "views_count": 631,
+            "comments_count": 5,
+            "categories": [
+                {
+                    "id": 9,
+                    "slug": "performance",
+                    "name": "performance",
+                    "description": "tips for yout aplication"
+                }
+            ],
+            "author": {
+                "roles": [
+                    {
+                        "name": "admin"
+                    }
+                ],
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": "http:\/\/api.brn.com\/api\/articles?page%5Bnumber%5D=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles",
+        "per_page": 15,
+        "to": 15
+    }
+}</code></pre>
+<div id="execution-results-GETapi-articles" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-articles"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles"></code></pre>
+</div>
+<div id="execution-error-GETapi-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles"></code></pre>
+</div>
+<form id="form-GETapi-articles" data-method="GET" data-path="api/articles" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-articles', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-articles" onclick="tryItOut('GETapi-articles');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-articles" onclick="cancelTryOut('GETapi-articles');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-articles" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/articles</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Mencari data artikel.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>filter[title]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[title]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan judul.
+</p>
+<p>
+<b><code>filter[slug]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[slug]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan slug.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+<p>
+<b><code>filter[featured]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="filter[featured]" data-endpoint="GETapi-articles" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
+</p>
+</form>
+<h2>Mendapatkan detailt data artikel.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/articles/1" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1"
+);
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/articles/1',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": {
+        "id": 1,
+        "slug": "performance-checklist",
+        "image": "articles\/1.jpeg",
+        "image_url": "http:\/\/api.brn.com\/storage\/articles\/1.jpeg",
+        "title": "The Ultimate Performance Checklist For Laravel Apps",
+        "content": "We can all agree that we prefer an app that loads faster to one that's slow...",
+        "status": "PUBLISHED",
+        "date": "2021-04-29T17:00:00.000000Z",
+        "featured": false,
+        "created_at": "2021-04-30T13:45:33.000000Z",
+        "updated_at": "2021-04-30T13:45:33.000000Z",
+        "likes_count": 5,
+        "views_count": 631,
+        "comments_count": 5,
+        "categories": [
+            {
+                "id": 9,
+                "slug": "performance",
+                "name": "performance",
+                "description": "tips for yout aplication"
+            }
+        ],
+        "author": {
+            "roles": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "name": "Admin Arya Anggara",
+            "email": "aryaanggara.dev@gmail.com",
+            "profile_photo_path": null,
+            "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+            "created_at": "2021-04-30T16:05:56.000000Z"
+        }
+    }
+}</code></pre>
+<div id="execution-results-GETapi-articles--article-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-articles--article-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles--article-"></code></pre>
+</div>
+<div id="execution-error-GETapi-articles--article-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles--article-"></code></pre>
+</div>
+<form id="form-GETapi-articles--article-" data-method="GET" data-path="api/articles/{article}" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-articles--article-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-articles--article-" onclick="tryItOut('GETapi-articles--article-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-articles--article-" onclick="cancelTryOut('GETapi-articles--article-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-articles--article-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/articles/{article}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="GETapi-articles--article-" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+</form>
+<h2>Mendapatkan list data artikel bedasarkan kategori.</h2>
+<p>Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/articles/categories/nihil?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/categories/nihil"
+);
+
+let params = {
+    "search": "Berita hari ini",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "filter[title]": "Berita hari ini",
+    "filter[slug]": "berita-hari-ini",
+    "filter[created_at]": "2020-12-24",
+    "filter[featured]": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/articles/categories/nihil',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'Berita hari ini',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'filter[title]'=&gt; 'Berita hari ini',
+            'filter[slug]'=&gt; 'berita-hari-ini',
+            'filter[created_at]'=&gt; '2020-12-24',
+            'filter[featured]'=&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 16,
+            "slug": "performance-checklist",
+            "image": "articles\/1.jpeg",
+            "image_url": "http:\/\/api.brn.com\/storage\/articles\/1.jpeg",
+            "title": "The Ultimate Performance Checklist For Laravel Apps",
+            "content": "We can all agree that we prefer an app that loads faster to one that's slow...",
+            "status": "PUBLISHED",
+            "date": "2021-04-29T17:00:00.000000Z",
+            "featured": false,
+            "created_at": "2021-04-30T13:45:33.000000Z",
+            "updated_at": "2021-04-30T13:45:33.000000Z",
+            "likes_count": 5,
+            "views_count": 631,
+            "comments_count": 5,
+            "categories": [
+                {
+                    "id": 9,
+                    "slug": "performance",
+                    "name": "performance",
+                    "description": "tips for yout aplication"
+                }
+            ],
+            "author": {
+                "roles": [
+                    {
+                        "name": "admin"
+                    }
+                ],
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": "http:\/\/api.brn.com\/api\/articles?page%5Bnumber%5D=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles",
+        "per_page": 15,
+        "to": 15
+    }
+}</code></pre>
+<div id="execution-results-GETapi-articles-categories--slug-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-articles-categories--slug-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles-categories--slug-"></code></pre>
+</div>
+<div id="execution-error-GETapi-articles-categories--slug-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles-categories--slug-"></code></pre>
+</div>
+<form id="form-GETapi-articles-categories--slug-" data-method="GET" data-path="api/articles/categories/{slug}" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-articles-categories--slug-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-articles-categories--slug-" onclick="tryItOut('GETapi-articles-categories--slug-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-articles-categories--slug-" onclick="cancelTryOut('GETapi-articles-categories--slug-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-articles-categories--slug-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/articles/categories/{slug}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>slug</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="slug" data-endpoint="GETapi-articles-categories--slug-" data-component="url" required  hidden>
+<br>
+
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Mencari data artikel.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>filter[title]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[title]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan judul.
+</p>
+<p>
+<b><code>filter[slug]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[slug]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan slug.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+<p>
+<b><code>filter[featured]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="filter[featured]" data-endpoint="GETapi-articles-categories--slug-" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
+</p>
+</form>
+<h2>Mendapatkan list data komentar artikel.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/articles/1/comments?page[number]=1&amp;page[size]=2" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1/comments"
+);
+
+let params = {
+    "page[number]": "1",
+    "page[size]": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/articles/1/comments',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 4,
+            "comment": "Semangat Terus !!!",
+            "likes_count": 1,
+            "created_at": "2021-04-30T18:14:44.000000Z",
+            "user": {
+                "id": 1,
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles\/2\/comments?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles\/2\/comments",
+        "per_page": 15,
+        "to": 2
+    }
+}</code></pre>
+<div id="execution-results-GETapi-articles--article--comments" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-articles--article--comments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles--article--comments"></code></pre>
+</div>
+<div id="execution-error-GETapi-articles--article--comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles--article--comments"></code></pre>
+</div>
+<form id="form-GETapi-articles--article--comments" data-method="GET" data-path="api/articles/{article}/comments" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-articles--article--comments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-articles--article--comments" onclick="tryItOut('GETapi-articles--article--comments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-articles--article--comments" onclick="cancelTryOut('GETapi-articles--article--comments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-articles--article--comments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/articles/{article}/comments</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="GETapi-articles--article--comments" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-articles--article--comments" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-articles--article--comments" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+</form>
+<h2>Mendapatkan list data user yang menyukai artikel.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/articles/1/likes?page[number]=1&amp;page[size]=2" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1/likes"
+);
+
+let params = {
+    "page[number]": "1",
+    "page[size]": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/articles/1/likes',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "created_at": "2021-04-30T17:54:45.000000Z",
+            "user": {
+                "id": 1,
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles\/3\/liked?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles\/3\/liked",
+        "per_page": 15,
+        "to": 1
+    }
+}</code></pre>
+<div id="execution-results-GETapi-articles--article--likes" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-articles--article--likes"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles--article--likes"></code></pre>
+</div>
+<div id="execution-error-GETapi-articles--article--likes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles--article--likes"></code></pre>
+</div>
+<form id="form-GETapi-articles--article--likes" data-method="GET" data-path="api/articles/{article}/likes" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-articles--article--likes', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-articles--article--likes" onclick="tryItOut('GETapi-articles--article--likes');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-articles--article--likes" onclick="cancelTryOut('GETapi-articles--article--likes');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-articles--article--likes" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/articles/{article}/likes</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="GETapi-articles--article--likes" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-articles--article--likes" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-articles--article--likes" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+</form>
+<h2>Menambahan komentar artikel.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.brn.com/api/articles/1/comments" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"Semangat terus :)"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1/comments"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "comment": "Semangat terus :)"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.brn.com/api/articles/1/comments',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'comment' =&gt; 'Semangat terus :)',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil menambahkan komentar.",
+}</code></pre>
+<div id="execution-results-POSTapi-articles--article--comments" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-articles--article--comments"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles--article--comments"></code></pre>
+</div>
+<div id="execution-error-POSTapi-articles--article--comments" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles--article--comments"></code></pre>
+</div>
+<form id="form-POSTapi-articles--article--comments" data-method="POST" data-path="api/articles/{article}/comments" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json","Content-Type":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles--article--comments', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-articles--article--comments" onclick="tryItOut('POSTapi-articles--article--comments');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-articles--article--comments" onclick="cancelTryOut('POSTapi-articles--article--comments');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-articles--article--comments" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/articles/{article}/comments</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-articles--article--comments" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-articles--article--comments" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="POSTapi-articles--article--comments" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="comment" data-endpoint="POSTapi-articles--article--comments" data-component="body" required  hidden>
+<br>
+isi komentar.
+</p>
+
+</form>
+<h2>Menyukai artikel.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.brn.com/api/articles/1/liked" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1/liked"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.brn.com/api/articles/1/liked',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil menyukai artikel",
+}</code></pre>
+<div id="execution-results-POSTapi-articles--article--liked" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-articles--article--liked"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles--article--liked"></code></pre>
+</div>
+<div id="execution-error-POSTapi-articles--article--liked" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles--article--liked"></code></pre>
+</div>
+<form id="form-POSTapi-articles--article--liked" data-method="POST" data-path="api/articles/{article}/liked" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles--article--liked', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-articles--article--liked" onclick="tryItOut('POSTapi-articles--article--liked');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-articles--article--liked" onclick="cancelTryOut('POSTapi-articles--article--liked');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-articles--article--liked" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/articles/{article}/liked</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-articles--article--liked" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-articles--article--liked" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="POSTapi-articles--article--liked" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+</form>
+<h2>Batalkan menyukai artikel.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://api.brn.com/api/articles/1/liked" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/articles/1/liked"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://api.brn.com/api/articles/1/liked',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil membatalkan menyukai artikel",
+}</code></pre>
+<div id="execution-results-DELETEapi-articles--article--liked" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-articles--article--liked"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-articles--article--liked"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-articles--article--liked" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-articles--article--liked"></code></pre>
+</div>
+<form id="form-DELETEapi-articles--article--liked" data-method="DELETE" data-path="api/articles/{article}/liked" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-articles--article--liked', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-articles--article--liked" onclick="tryItOut('DELETEapi-articles--article--liked');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-articles--article--liked" onclick="cancelTryOut('DELETEapi-articles--article--liked');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-articles--article--liked" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/articles/{article}/liked</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-articles--article--liked" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-articles--article--liked" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="article" data-endpoint="DELETEapi-articles--article--liked" data-component="url" required  hidden>
+<br>
+valid id article.
+</p>
+</form><h1>Kategori</h1>
+<h2>Mendapatkan list kategori.</h2>
+<p>Dibagian ini Anda bisa mendapatkan list data kategori.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/categories?search=motivasi&amp;page[number]=2&amp;page[size]=2&amp;sort=name&amp;filter[name]=motivasi&amp;filter[slug]=motivasi" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/categories"
+);
+
+let params = {
+    "search": "motivasi",
+    "page[number]": "2",
+    "page[size]": "2",
+    "sort": "name",
+    "filter[name]": "motivasi",
+    "filter[slug]": "motivasi",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/categories',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'motivasi',
+            'page[number]'=&gt; '2',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'name',
+            'filter[name]'=&gt; 'motivasi',
+            'filter[slug]'=&gt; 'motivasi',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 2,
+            "slug": "Motivasi",
+            "name": "Motivasi untuk pantang menyerah",
+            "description": null
+        },
+        {
+            "id": 1,
+            "slug": "Berita",
+            "name": "Bertia terbaru",
+            "description": null
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/categories?page=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/categories",
+        "per_page": 15,
+        "to": 9
+    }
+}</code></pre>
+<div id="execution-results-GETapi-categories" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-categories"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-categories"></code></pre>
+</div>
+<div id="execution-error-GETapi-categories" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-categories"></code></pre>
+</div>
+<form id="form-GETapi-categories" data-method="GET" data-path="api/categories" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-categories', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-categories" onclick="tryItOut('GETapi-categories');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-categories" onclick="cancelTryOut('GETapi-categories');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-categories" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/categories</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Mencari data kategori.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -name.
+</p>
+<p>
+<b><code>filter[name]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[name]" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan nama.
+</p>
+<p>
+<b><code>filter[slug]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[slug]" data-endpoint="GETapi-categories" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan slug.
+</p>
+</form><h1>Komentar</h1>
+<h2>Mendapatkan list data user yang menyukai komentar.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/comments/1/likes?page[number]=1&amp;page[size]=2" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1/likes"
+);
+
+let params = {
+    "page[number]": "1",
+    "page[size]": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/comments/1/likes',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "created_at": "2021-04-30T17:54:45.000000Z",
+            "user": {
+                "id": 1,
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles\/3\/liked?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles\/3\/liked",
+        "per_page": 15,
+        "to": 1
+    }
+}</code></pre>
+<div id="execution-results-GETapi-comments--comment--likes" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-comments--comment--likes"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-comments--comment--likes"></code></pre>
+</div>
+<div id="execution-error-GETapi-comments--comment--likes" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-comments--comment--likes"></code></pre>
+</div>
+<form id="form-GETapi-comments--comment--likes" data-method="GET" data-path="api/comments/{comment}/likes" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-comments--comment--likes', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-comments--comment--likes" onclick="tryItOut('GETapi-comments--comment--likes');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-comments--comment--likes" onclick="cancelTryOut('GETapi-comments--comment--likes');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-comments--comment--likes" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/comments/{comment}/likes</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="GETapi-comments--comment--likes" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-comments--comment--likes" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-comments--comment--likes" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+</form>
+<h2>Mendapatkan list data balasan komentar.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/comments/1/replies?page[number]=1&amp;page[size]=2" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1/replies"
+);
+
+let params = {
+    "page[number]": "1",
+    "page[size]": "2",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/comments/1/replies',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 4,
+            "comment": "Semangat Terus !!!",
+            "likes_count": 1,
+            "created_at": "2021-04-30T18:14:44.000000Z",
+            "user": {
+                "id": 1,
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/articles\/2\/comments?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/articles\/2\/comments",
+        "per_page": 15,
+        "to": 2
+    }
+}</code></pre>
+<div id="execution-results-GETapi-comments--comment--replies" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-comments--comment--replies"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-comments--comment--replies"></code></pre>
+</div>
+<div id="execution-error-GETapi-comments--comment--replies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-comments--comment--replies"></code></pre>
+</div>
+<form id="form-GETapi-comments--comment--replies" data-method="GET" data-path="api/comments/{comment}/replies" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-comments--comment--replies', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-comments--comment--replies" onclick="tryItOut('GETapi-comments--comment--replies');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-comments--comment--replies" onclick="cancelTryOut('GETapi-comments--comment--replies');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-comments--comment--replies" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/comments/{comment}/replies</code></b>
+</p>
+<p>
+<label id="auth-GETapi-comments--comment--replies" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-comments--comment--replies" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="GETapi-comments--comment--replies" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-comments--comment--replies" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-comments--comment--replies" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+</form>
+<h2>Menambahan Balasan Komentar.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.brn.com/api/comments/1/replies" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: application/json" \
+    -d '{"comment":"Semangat terus :)"}'
+</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1/replies"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+    "Content-Type": "application/json",
+};
+
+let body = {
+    "comment": "Semangat terus :)"
+}
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.brn.com/api/comments/1/replies',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'json' =&gt; [
+            'comment' =&gt; 'Semangat terus :)',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil menambahkan komentar.",
+}</code></pre>
+<div id="execution-results-POSTapi-comments--comment--replies" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-comments--comment--replies"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-comments--comment--replies"></code></pre>
+</div>
+<div id="execution-error-POSTapi-comments--comment--replies" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-comments--comment--replies"></code></pre>
+</div>
+<form id="form-POSTapi-comments--comment--replies" data-method="POST" data-path="api/comments/{comment}/replies" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json","Content-Type":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-comments--comment--replies', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-comments--comment--replies" onclick="tryItOut('POSTapi-comments--comment--replies');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-comments--comment--replies" onclick="cancelTryOut('POSTapi-comments--comment--replies');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-comments--comment--replies" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/comments/{comment}/replies</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-comments--comment--replies" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-comments--comment--replies" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="POSTapi-comments--comment--replies" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="comment" data-endpoint="POSTapi-comments--comment--replies" data-component="body" required  hidden>
+<br>
+isi komentar.
+</p>
+
+</form>
+<h2>Menghapus komentar.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://api.brn.com/api/comments/1" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://api.brn.com/api/comments/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil menghapus komentar.",
+}</code></pre>
+<div id="execution-results-DELETEapi-comments--comment-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-comments--comment-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-comments--comment-"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-comments--comment-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-comments--comment-"></code></pre>
+</div>
+<form id="form-DELETEapi-comments--comment-" data-method="DELETE" data-path="api/comments/{comment}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-comments--comment-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-comments--comment-" onclick="tryItOut('DELETEapi-comments--comment-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-comments--comment-" onclick="cancelTryOut('DELETEapi-comments--comment-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-comments--comment-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/comments/{comment}</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-comments--comment-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-comments--comment-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="DELETEapi-comments--comment-" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+</form>
+<h2>Menyukai komentar.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://api.brn.com/api/comments/1/liked" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1/liked"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'http://api.brn.com/api/comments/1/liked',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil menyukai komentar",
+}</code></pre>
+<div id="execution-results-POSTapi-comments--comment--liked" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-comments--comment--liked"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-comments--comment--liked"></code></pre>
+</div>
+<div id="execution-error-POSTapi-comments--comment--liked" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-comments--comment--liked"></code></pre>
+</div>
+<form id="form-POSTapi-comments--comment--liked" data-method="POST" data-path="api/comments/{comment}/liked" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-comments--comment--liked', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-comments--comment--liked" onclick="tryItOut('POSTapi-comments--comment--liked');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-comments--comment--liked" onclick="cancelTryOut('POSTapi-comments--comment--liked');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-comments--comment--liked" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/comments/{comment}/liked</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-comments--comment--liked" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-comments--comment--liked" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="POSTapi-comments--comment--liked" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+</form>
+<h2>Batalkan menyukai komentar.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "http://api.brn.com/api/comments/1/liked" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/comments/1/liked"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'http://api.brn.com/api/comments/1/liked',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil membatalkan menyukai komentar",
+}</code></pre>
+<div id="execution-results-DELETEapi-comments--comment--liked" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-comments--comment--liked"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-comments--comment--liked"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-comments--comment--liked" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-comments--comment--liked"></code></pre>
+</div>
+<form id="form-DELETEapi-comments--comment--liked" data-method="DELETE" data-path="api/comments/{comment}/liked" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-comments--comment--liked', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-comments--comment--liked" onclick="tryItOut('DELETEapi-comments--comment--liked');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-comments--comment--liked" onclick="cancelTryOut('DELETEapi-comments--comment--liked');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-comments--comment--liked" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/comments/{comment}/liked</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-comments--comment--liked" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-comments--comment--liked" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>comment</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="comment" data-endpoint="DELETEapi-comments--comment--liked" data-component="url" required  hidden>
+<br>
+valid id comment.
+</p>
+</form><h1>Point</h1>
 <h2>Mendapatkan list data misi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
@@ -313,7 +1928,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-04-30T11:59:51.367557Z",
+    "timestamp": "2021-04-30T19:52:57.389567Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\CollectsPoints;
 use App\Traits\HasProfilePhoto;
 use App\Traits\UserRegularFunction;
+use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Rinvex\Addresses\Traits\Addressable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Commentator
 {
     use HasApiTokens;
     use HasFactory;
@@ -22,6 +23,16 @@ class User extends Authenticatable
     use Addressable;
     use HasRoles;
     use CollectsPoints;
+
+    /**
+     * Check if a comment for a specific model needs to be approved.
+     * @param mixed $model
+     * @return bool
+     */
+    public function needsCommentApproval($model): bool
+    {
+        return false;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -79,5 +90,13 @@ class User extends Authenticatable
     public function personalInformation()
     {
         return $this->hasOne(UserPersonalInformation::class);
+    }
+
+    /**
+     * Get the articles where created by this user.
+     */
+    public function articles()
+    {
+        return $this->hasOne(Article::class);
     }
 }

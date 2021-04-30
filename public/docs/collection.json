@@ -10,11 +10,1386 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "77c222cd-0a03-4240-8fe2-c5f4f2915120",
+        "_postman_id": "3da09005-9970-47ad-8b7c-d39cd6f90e8f",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Artikel",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Mencari data artikel.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Btitle%5D",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Penyortiran berdasarkan judul.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bslug%5D",
+                                    "value": "berita-hari-ini",
+                                    "description": "Penyortiran berdasarkan slug.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bfeatured%5D",
+                                    "value": "1",
+                                    "description": "Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content<\/i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Mencari data artikel.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Btitle%5D",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Penyortiran berdasarkan judul.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bslug%5D",
+                                            "value": "berita-hari-ini",
+                                            "description": "Penyortiran berdasarkan slug.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bfeatured%5D",
+                                            "value": "1",
+                                            "description": "Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content<\/i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 16,\n            \"slug\": \"performance-checklist\",\n            \"image\": \"articles\\\/1.jpeg\",\n            \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/articles\\\/1.jpeg\",\n            \"title\": \"The Ultimate Performance Checklist For Laravel Apps\",\n            \"content\": \"We can all agree that we prefer an app that loads faster to one that's slow...\",\n            \"status\": \"PUBLISHED\",\n            \"date\": \"2021-04-29T17:00:00.000000Z\",\n            \"featured\": false,\n            \"created_at\": \"2021-04-30T13:45:33.000000Z\",\n            \"updated_at\": \"2021-04-30T13:45:33.000000Z\",\n            \"likes_count\": 5,\n            \"views_count\": 631,\n            \"comments_count\": 5,\n            \"categories\": [\n                {\n                    \"id\": 9,\n                    \"slug\": \"performance\",\n                    \"name\": \"performance\",\n                    \"description\": \"tips for yout aplication\"\n                }\n            ],\n            \"author\": {\n                \"roles\": [\n                    {\n                        \"name\": \"admin\"\n                    }\n                ],\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan detailt data artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan detailt data artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"slug\": \"performance-checklist\",\n        \"image\": \"articles\\\/1.jpeg\",\n        \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/articles\\\/1.jpeg\",\n        \"title\": \"The Ultimate Performance Checklist For Laravel Apps\",\n        \"content\": \"We can all agree that we prefer an app that loads faster to one that's slow...\",\n        \"status\": \"PUBLISHED\",\n        \"date\": \"2021-04-29T17:00:00.000000Z\",\n        \"featured\": false,\n        \"created_at\": \"2021-04-30T13:45:33.000000Z\",\n        \"updated_at\": \"2021-04-30T13:45:33.000000Z\",\n        \"likes_count\": 5,\n        \"views_count\": 631,\n        \"comments_count\": 5,\n        \"categories\": [\n            {\n                \"id\": 9,\n                \"slug\": \"performance\",\n                \"name\": \"performance\",\n                \"description\": \"tips for yout aplication\"\n            }\n        ],\n        \"author\": {\n            \"roles\": [\n                {\n                    \"name\": \"admin\"\n                }\n            ],\n            \"name\": \"Admin Arya Anggara\",\n            \"email\": \"aryaanggara.dev@gmail.com\",\n            \"profile_photo_path\": null,\n            \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n            \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n        }\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data artikel bedasarkan kategori.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/categories\/:slug",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Mencari data artikel.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Btitle%5D",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Penyortiran berdasarkan judul.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bslug%5D",
+                                    "value": "berita-hari-ini",
+                                    "description": "Penyortiran berdasarkan slug.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bfeatured%5D",
+                                    "value": "1",
+                                    "description": "Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
+                            "variable": [
+                                {
+                                    "id": "slug",
+                                    "key": "slug",
+                                    "value": "nihil",
+                                    "description": ""
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content<\/i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data artikel bedasarkan kategori. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/categories\/:slug",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Mencari data artikel.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Btitle%5D",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Penyortiran berdasarkan judul.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bslug%5D",
+                                            "value": "berita-hari-ini",
+                                            "description": "Penyortiran berdasarkan slug.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bfeatured%5D",
+                                            "value": "1",
+                                            "description": "Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
+                                    "variable": [
+                                        {
+                                            "id": "slug",
+                                            "key": "slug",
+                                            "value": "nihil",
+                                            "description": ""
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content<\/i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 16,\n            \"slug\": \"performance-checklist\",\n            \"image\": \"articles\\\/1.jpeg\",\n            \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/articles\\\/1.jpeg\",\n            \"title\": \"The Ultimate Performance Checklist For Laravel Apps\",\n            \"content\": \"We can all agree that we prefer an app that loads faster to one that's slow...\",\n            \"status\": \"PUBLISHED\",\n            \"date\": \"2021-04-29T17:00:00.000000Z\",\n            \"featured\": false,\n            \"created_at\": \"2021-04-30T13:45:33.000000Z\",\n            \"updated_at\": \"2021-04-30T13:45:33.000000Z\",\n            \"likes_count\": 5,\n            \"views_count\": 631,\n            \"comments_count\": 5,\n            \"categories\": [\n                {\n                    \"id\": 9,\n                    \"slug\": \"performance\",\n                    \"name\": \"performance\",\n                    \"description\": \"tips for yout aplication\"\n                }\n            ],\n            \"author\": {\n                \"roles\": [\n                    {\n                        \"name\": \"admin\"\n                    }\n                ],\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data komentar artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article\/comments",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data komentar artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article\/comments",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"comment\": \"Semangat Terus !!!\",\n            \"likes_count\": 1,\n            \"created_at\": \"2021-04-30T18:14:44.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data user yang menyukai artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article\/likes",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data user yang menyukai artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article\/likes",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"created_at\": \"2021-04-30T17:54:45.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked\",\n        \"per_page\": 15,\n        \"to\": 1\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahan komentar artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahan komentar artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article\/comments",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menyukai artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menyukai artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Batalkan menyukai artikel.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/articles\/:article\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                            "variable": [
+                                {
+                                    "id": "article",
+                                    "key": "article",
+                                    "value": "1",
+                                    "description": "valid id article."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Batalkan menyukai artikel. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/articles\/:article\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "article",
+                                            "key": "article",
+                                            "value": "1",
+                                            "description": "valid id article."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Kategori",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list kategori.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/categories",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "motivasi",
+                                    "description": "Mencari data kategori.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "name",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -name.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bname%5D",
+                                    "value": "motivasi",
+                                    "description": "Penyortiran berdasarkan nama.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bslug%5D",
+                                    "value": "motivasi",
+                                    "description": "Penyortiran berdasarkan slug.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data kategori.",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list kategori. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/categories",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "motivasi",
+                                            "description": "Mencari data kategori.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "name",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -name.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bname%5D",
+                                            "value": "motivasi",
+                                            "description": "Penyortiran berdasarkan nama.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bslug%5D",
+                                            "value": "motivasi",
+                                            "description": "Penyortiran berdasarkan slug.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data kategori.",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"slug\": \"Motivasi\",\n            \"name\": \"Motivasi untuk pantang menyerah\",\n            \"description\": null\n        },\n        {\n            \"id\": 1,\n            \"slug\": \"Berita\",\n            \"name\": \"Bertia terbaru\",\n            \"description\": null\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/categories?page=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/categories\",\n        \"per_page\": 15,\n        \"to\": 9\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Komentar",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data user yang menyukai komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/likes",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data user yang menyukai komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment\/likes",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"created_at\": \"2021-04-30T17:54:45.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked\",\n        \"per_page\": 15,\n        \"to\": 1\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data balasan komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/replies",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data balasan komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment\/replies",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"comment\": \"Semangat Terus !!!\",\n            \"likes_count\": 1,\n            \"created_at\": \"2021-04-30T18:14:44.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahan Balasan Komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/replies",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahan Balasan Komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment\/replies",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menghapus komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menghapus komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menyukai komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menyukai komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Batalkan menyukai komentar.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/comments\/:comment\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                            "variable": [
+                                {
+                                    "id": "comment",
+                                    "key": "comment",
+                                    "value": "1",
+                                    "description": "valid id comment."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Batalkan menyukai komentar. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/comments\/:comment\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "comment",
+                                            "key": "comment",
+                                            "value": "1",
+                                            "description": "valid id comment."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                }
+            ]
+        },
         {
             "name": "Point",
             "description": "",
@@ -168,7 +1543,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-04-30T11:59:51.367557Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-04-30T19:52:57.389567Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }
