@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\CollectsPoints;
 use App\Traits\HasProfilePhoto;
 use App\Traits\UserRegularFunction;
+use BeyondCode\Comments\Contracts\Commentator;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Rinvex\Addresses\Traits\Addressable;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements Commentator
 {
     use HasApiTokens;
     use HasFactory;
@@ -22,6 +23,16 @@ class User extends Authenticatable
     use Addressable;
     use HasRoles;
     use CollectsPoints;
+
+    /**
+     * Check if a comment for a specific model needs to be approved.
+     * @param mixed $model
+     * @return bool
+     */
+    public function needsCommentApproval($model): bool
+    {
+        return false;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -79,5 +90,40 @@ class User extends Authenticatable
     public function personalInformation()
     {
         return $this->hasOne(UserPersonalInformation::class);
+    }
+
+
+    /**
+     * Get the articles where created by this user.
+     */
+    public function articles()
+    {
+        return $this->hasOne(Article::class);
+    }
+
+
+    /**
+     * Get the daily check in   for the user.
+     */
+    public function dailyCheckIn()
+    {
+        return $this->hasMany(DailyCheckIn::class);
+    }
+
+
+    /**
+     * Get the course where created by this user.
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    /**
+     * Get my learnings course.
+     */
+    public function myLearnings()
+    {
+        return $this->belongsToMany(Course::class, 'course_user', 'user_id', 'course_id');
     }
 }

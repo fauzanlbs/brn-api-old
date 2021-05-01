@@ -17,6 +17,7 @@ class CreatePointsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('active')->default(true);
             $table->string('name');
+            $table->string('image')->nullable();
             $table->string('key')->unique();
             $table->string('description')->nullable();
             $table->bigInteger('points');

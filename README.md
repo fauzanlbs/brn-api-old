@@ -1,6 +1,6 @@
 # API BRN 
 
-RESTful API Auth BRN made from [Laravel 8](https://laravel.com/)
+RESTful API Master BRN made from [Laravel 8](https://laravel.com/)
 
 ## Installation
 

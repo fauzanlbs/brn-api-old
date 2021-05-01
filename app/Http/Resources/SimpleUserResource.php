@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PointResource extends JsonResource
+class SimpleUserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,14 +16,12 @@ class PointResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "active" => $this->active,
+            "roles" => RoleResource::collection($this->whenLoaded('roles')),
             "name" => $this->name,
-            "description" => $this->description,
-            "image" =>  $this->image,
-            "image_url" =>  $this->image_url,
-            "points" => $this->points,
-            "parent_id" => $this->parent_id,
-            "childrens" => PointResource::collection($this->descendants),
+            "email" => $this->email,
+            "profile_photo_path" => $this->profile_photo_path,
+            "profile_photo_url" => $this->profile_photo_url,
+            "created_at" => $this->created_at,
         ];
     }
 }
