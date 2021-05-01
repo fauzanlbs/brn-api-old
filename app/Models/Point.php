@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ImageUrlable;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Kalnoy\Nestedset\NodeTrait;
 
 class Point extends Model
 {
-    use NodeTrait, SoftDeletes;
+    use NodeTrait, SoftDeletes, ImageUrlable;
 
     /**
      * The attributes that are mass assignable.
@@ -20,10 +21,19 @@ class Point extends Model
     protected $fillable = [
         'name',
         'key',
+        'image',
         'description',
         'points',
     ];
 
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'image_url',
+    ];
 
     /**
      * The attributes that should be cast to native types.

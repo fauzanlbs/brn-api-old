@@ -116,7 +116,7 @@ class ArticleController extends Controller
 
 
     /**
-     * Mendapatkan detailt data artikel.
+     * Mendapatkan detail data artikel.
      *
      * @urlParam article int required valid id article. Example: 1
      *

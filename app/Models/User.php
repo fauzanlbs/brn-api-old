@@ -92,11 +92,21 @@ class User extends Authenticatable implements Commentator
         return $this->hasOne(UserPersonalInformation::class);
     }
 
+
     /**
      * Get the articles where created by this user.
      */
     public function articles()
     {
         return $this->hasOne(Article::class);
+    }
+
+
+    /**
+     * Get the daily check in   for the user.
+     */
+    public function dailyCheckIn()
+    {
+        return $this->hasMany(DailyCheckIn::class);
     }
 }

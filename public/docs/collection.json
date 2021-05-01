@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "3da09005-9970-47ad-8b7c-d39cd6f90e8f",
+        "_postman_id": "29182825-f128-4cab-a36f-c533c7e9d07e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -171,7 +171,7 @@
                     ]
                 },
                 {
-                    "name": "Mendapatkan detailt data artikel.",
+                    "name": "Mendapatkan detail data artikel.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -203,7 +203,7 @@
                     },
                     "response": [
                         {
-                            "name": "Mendapatkan detailt data artikel. Response #1",
+                            "name": "Mendapatkan detail data artikel. Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "nihil",
+                                    "value": "nulla",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "nihil",
+                                            "value": "nulla",
                                             "description": ""
                                         }
                                     ]
@@ -784,6 +784,59 @@
                                     ]
                                 },
                                 "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Daily Check in",
+            "description": "",
+            "item": [
+                {
+                    "name": "Check in hari ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/check-in",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/check-in"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Check in hari ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/check-in",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/check-in"
+                                },
+                                "method": "GET",
                                 "header": [
                                     {
                                         "key": "Accept",
@@ -1543,7 +1596,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-04-30T19:52:57.389567Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-01T11:46:42.592694Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }

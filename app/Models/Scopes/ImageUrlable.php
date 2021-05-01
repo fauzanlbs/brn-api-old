@@ -13,6 +13,8 @@ trait ImageUrlable
      */
     public function getImageUrlAttribute()
     {
-        return Storage::disk('public')->url($this->image ?? ('https://ui-avatars.com/api/?name=' . urlencode($this->name) . '&color=7F9CF5&background=EBF4FF'));
+        return $this->image
+            ? Storage::disk('public')->url($this->image)
+            : ('https://ui-avatars.com/api/?name=' . urlencode($this->name ?? $this->title) . '&color=7F9CF5&background=EBF4FF');
     }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
@@ -61,4 +62,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/missions', [PointController::class, 'missions']);
         Route::get('/histories', [PointController::class, 'histories']);
     });
+
+    Route::get('/check-in', [DailyCheckInController::class, 'checkIn']);
 });

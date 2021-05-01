@@ -247,7 +247,7 @@ Penyortiran berdasarkan tanggal dibuat.
 Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 </p>
 </form>
-<h2>Mendapatkan detailt data artikel.</h2>
+<h2>Mendapatkan detail data artikel.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -352,10 +352,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/categories/nihil?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "http://api.brn.com/api/articles/categories/nulla?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/categories/nihil"
+    "http://api.brn.com/api/articles/categories/nulla"
 );
 
 let params = {
@@ -382,7 +382,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/categories/nihil',
+    'http://api.brn.com/api/articles/categories/nulla',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -996,6 +996,71 @@ print_r(json_decode((string) $body));</code></pre>
 <input type="number" name="article" data-endpoint="DELETEapi-articles--article--liked" data-component="url" required  hidden>
 <br>
 valid id article.
+</p>
+</form><h1>Daily Check in</h1>
+<h2>Check in hari ini.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/check-in" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/check-in"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/check-in',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Berhasil check in hari ini.",
+}</code></pre>
+<div id="execution-results-GETapi-check-in" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-check-in"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-check-in"></code></pre>
+</div>
+<div id="execution-error-GETapi-check-in" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-check-in"></code></pre>
+</div>
+<form id="form-GETapi-check-in" data-method="GET" data-path="api/check-in" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-check-in', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-check-in" onclick="tryItOut('GETapi-check-in');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-check-in" onclick="cancelTryOut('GETapi-check-in');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-check-in" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/check-in</code></b>
+</p>
+<p>
+<label id="auth-GETapi-check-in" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-check-in" data-component="header"></label>
 </p>
 </form><h1>Kategori</h1>
 <h2>Mendapatkan list kategori.</h2>
@@ -1928,7 +1993,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-04-30T19:52:57.389567Z",
+    "timestamp": "2021-05-01T11:46:42.592694Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
