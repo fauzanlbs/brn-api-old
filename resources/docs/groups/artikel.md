@@ -322,13 +322,13 @@ Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilim
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles/categories/nulla?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
+    -G "http://api.brn.com/api/articles/categories/eligendi?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/categories/nulla"
+    "http://api.brn.com/api/articles/categories/eligendi"
 );
 
 let params = {
@@ -359,7 +359,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles/categories/nulla',
+    'http://api.brn.com/api/articles/categories/eligendi',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -941,7 +941,7 @@ print_r(json_decode((string) $body));
 ```json
 
 {
- "message": "Berhasil menyukai artikel",
+ "message": "Berhasil menyukai artikel.",
 }
 ```
 <div id="execution-results-POSTapi-articles--article--liked" hidden>
@@ -1030,7 +1030,7 @@ print_r(json_decode((string) $body));
 ```json
 
 {
- "message": "Berhasil membatalkan menyukai artikel",
+ "message": "Berhasil membatalkan menyukai artikel.",
 }
 ```
 <div id="execution-results-DELETEapi-articles--article--liked" hidden>

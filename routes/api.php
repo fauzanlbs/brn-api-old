@@ -3,6 +3,8 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PingController;
@@ -45,6 +47,32 @@ Route::prefix('articles')->group(function () {
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'getCategories']);
 });
+
+Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware('auth:sanctum');
+Route::prefix('courses')->group(function () {
+    Route::get('/', [CourseController::class, 'getCourses']);
+    Route::post('/{course}', [CourseController::class, 'getCourseDetail']);
+    Route::get('/{course}/comments', [CourseController::class, 'getCourseComments']);
+    Route::get('/{course}/likes', [CourseController::class, 'getCourseLikes']);
+
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::post('/{course}/enroll', [CourseController::class, 'enrollCourse']);
+        Route::post('/{course}/comments', [CommentController::class, 'addCommentCourse']);
+        Route::post('/{course}/liked', [LikeController::class, 'likeCourse']);
+        Route::delete('/{course}/liked', [LikeController::class, 'unlikeCourse']);
+
+        Route::prefix('/{course}/lessons')->group(function () {
+            Route::get('/', [CourseLessonController::class, 'getCourseLessons']);
+            Route::get('/{courseLesson}/comments', [CourseLessonController::class, 'getCourseLessonComments']);
+            Route::get('/{courseLesson}/likes', [CourseLessonController::class, 'getCourseLessonLikes']);
+
+            Route::post('/{courseLesson}/comments', [CommentController::class, 'addCommentCourseLesson']);
+            Route::post('/{courseLesson}/liked', [LikeController::class, 'likeCourseLesson']);
+            Route::delete('/{courseLesson}/liked', [LikeController::class, 'unlikeCourseLesson']);
+        });
+    });
+});
+
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 

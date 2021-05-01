@@ -267,7 +267,7 @@ paths:
                 in: path
                 name: slug
                 description: ''
-                example: nulla
+                example: eligendi
                 required: true
                 schema:
                     type: string
@@ -463,7 +463,7 @@ paths:
                         text/plain:
                             schema:
                                 type: string
-                                example: "{\n \"message\": \"Berhasil menyukai artikel\",\n}"
+                                example: "{\n \"message\": \"Berhasil menyukai artikel.\",\n}"
             tags:
                 - Artikel
         delete:
@@ -491,7 +491,7 @@ paths:
                         text/plain:
                             schema:
                                 type: string
-                                example: "{\n \"message\": \"Berhasil membatalkan menyukai artikel\",\n}"
+                                example: "{\n \"message\": \"Berhasil membatalkan menyukai artikel.\",\n}"
             tags:
                 - Artikel
         parameters:
@@ -858,7 +858,7 @@ paths:
                         text/plain:
                             schema:
                                 type: string
-                                example: "{\n \"message\": \"Berhasil menyukai komentar\",\n}"
+                                example: "{\n \"message\": \"Berhasil menyukai komentar.\",\n}"
             tags:
                 - Komentar
         delete:
@@ -886,7 +886,7 @@ paths:
                         text/plain:
                             schema:
                                 type: string
-                                example: "{\n \"message\": \"Berhasil membatalkan menyukai komentar\",\n}"
+                                example: "{\n \"message\": \"Berhasil membatalkan menyukai komentar.\",\n}"
             tags:
                 - Komentar
         parameters:
@@ -894,6 +894,870 @@ paths:
                 in: path
                 name: comment
                 description: 'valid id comment.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    /api/my-courses:
+        get:
+            summary: 'Mendapatkan list data kursus yang diikuti.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data kurus yang diikuti.'
+                    example: 'Berita hari ini'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data kurus yang diikuti.'
+                        example: 'Berita hari ini'
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: query
+                    name: 'filter[name]'
+                    description: 'Penyortiran berdasarkan judul.'
+                    example: 'Marketing Di Social Media'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan judul.'
+                        example: 'Marketing Di Social Media'
+                -
+                    in: query
+                    name: 'filter[description]'
+                    description: 'Penyortiran berdasarkan deskripsi.'
+                    example: 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan deskripsi.'
+                        example: 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media'
+                -
+                    in: query
+                    name: 'filter[created_at]'
+                    description: 'Penyortiran berdasarkan tanggal dibuat.'
+                    example: '2020-12-24'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tanggal dibuat.'
+                        example: '2020-12-24'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, user_id: 1, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' }]
+                                    links: { first: 'http://api.brn.com/api/courses?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses?page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, user_id: 1, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/courses?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses?page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses', per_page: 15, to: 15 } }
+            tags:
+                - Kursus
+    /api/courses:
+        get:
+            summary: 'Mendapatkan list data kursus.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data kursus. note: sebelum Anda bisa melihat pembelajaran/video kursus Anda harus mengikut kursus nya terlebih dahulu'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data kursus.'
+                    example: 'Berita hari ini'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data kursus.'
+                        example: 'Berita hari ini'
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: query
+                    name: 'filter[name]'
+                    description: 'Penyortiran berdasarkan judul.'
+                    example: 'Marketing Di Social Media'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan judul.'
+                        example: 'Marketing Di Social Media'
+                -
+                    in: query
+                    name: 'filter[description]'
+                    description: 'Penyortiran berdasarkan deskripsi.'
+                    example: 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan deskripsi.'
+                        example: 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media'
+                -
+                    in: query
+                    name: 'filter[created_at]'
+                    description: 'Penyortiran berdasarkan tanggal dibuat.'
+                    example: '2020-12-24'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tanggal dibuat.'
+                        example: '2020-12-24'
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, user_id: 1, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' }]
+                                    links: { first: 'http://api.brn.com/api/courses?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses?page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, user_id: 1, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/courses?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses?page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses', per_page: 15, to: 15 } }
+            tags:
+                - Kursus
+            security: []
+    '/api/courses/{course}':
+        post:
+            summary: 'Mendapatkan detail data kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 1, user_id: 1, user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-05-01T12:58:23.000000Z' }, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', status: enabled, lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' }
+                                properties:
+                                    data: { type: object, example: { id: 1, user_id: 1, user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-05-01T12:58:23.000000Z' }, image: null, image_url: 'https://ui-avatars.com/api/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF', name: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', status: enabled, lessons_count: 7, likes_count: 321, comments_count: 5, created_at: '2021-05-01T12:58:24.000000Z', updated_at: '2021-05-01T12:58:24.000000Z' } }
+            tags:
+                - Kursus
+            security: []
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/comments':
+        get:
+            summary: 'Mendapatkan list data komentar kursus.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 4, comment: 'Semangat Terus !!!', likes_count: 1, created_at: '2021-04-30T18:14:44.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }]
+                                    links: { first: 'http://api.brn.com/api/articles/2/comments?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/2/comments', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 4, comment: 'Semangat Terus !!!', likes_count: 1, created_at: '2021-04-30T18:14:44.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/articles/2/comments?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/2/comments', per_page: 15, to: 2 } }
+            tags:
+                - Kursus
+            security: []
+        post:
+            summary: 'Menambahan komentar kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil menambahkan komentar.\",\n}"
+            tags:
+                - Kursus
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                comment:
+                                    type: string
+                                    description: 'isi komentar.'
+                                    example: 'Semangat terus :)'
+                            required:
+                                - comment
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/likes':
+        get:
+            summary: 'Mendapatkan list data user yang menyukai kursus.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ created_at: '2021-04-30T17:54:45.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }]
+                                    links: { first: 'http://api.brn.com/api/articles/3/liked?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/3/liked', per_page: 15, to: 1 }
+                                properties:
+                                    data: { type: array, example: [{ created_at: '2021-04-30T17:54:45.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/articles/3/liked?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/3/liked', per_page: 15, to: 1 } }
+            tags:
+                - Kursus
+            security: []
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/enroll':
+        post:
+            summary: 'Enroll kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil enroll kursus.\",\n}"
+            tags:
+                - Kursus
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/liked':
+        post:
+            summary: 'Menyukai kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil menyukai kursus.\",\n}"
+            tags:
+                - Kursus
+        delete:
+            summary: 'Batalkan menyukai kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil membatalkan menyukai kursus.\",\n}"
+            tags:
+                - Kursus
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/lessons':
+        get:
+            summary: 'Mendapatkan list data pembelajaran/video kursus.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data pembelajaran/video kursus.'
+                    example: 'Berita hari ini'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data pembelajaran/video kursus.'
+                        example: 'Berita hari ini'
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, title: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', youtube_url: 'https: //www.youtube.com/watch?v=x9f3RAsNZhU&list=RDx9f3RAsNZhU&start_radio=1&ab_channel=EditraTamba', likes_count: 321, comments_count: 5, updated_at: '2021-05-01T12:58:24.000000Z' }]
+                                    links: { first: 'http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses/1/lessons', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, title: 'Microsoft Excel dari dasar hingga mahir', description: 'Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.', youtube_url: 'https: //www.youtube.com/watch?v=x9f3RAsNZhU&list=RDx9f3RAsNZhU&start_radio=1&ab_channel=EditraTamba', likes_count: 321, comments_count: 5, updated_at: '2021-05-01T12:58:24.000000Z' }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/courses/1/lessons', per_page: 15, to: 15 } }
+            tags:
+                - Kursus
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/lessons/{courseLesson}/comments':
+        get:
+            summary: 'Mendapatkan list data komentar pembelajaran/video kursus.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 4, comment: 'Semangat Terus !!!', likes_count: 1, created_at: '2021-04-30T18:14:44.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }]
+                                    links: { first: 'http://api.brn.com/api/articles/2/comments?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/2/comments', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 4, comment: 'Semangat Terus !!!', likes_count: 1, created_at: '2021-04-30T18:14:44.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/articles/2/comments?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/2/comments', per_page: 15, to: 2 } }
+            tags:
+                - Kursus
+        post:
+            summary: 'Menambahan komentar pembelajaran/video kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil menambahkan komentar.\",\n}"
+            tags:
+                - Kursus
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                comment:
+                                    type: string
+                                    description: 'isi komentar.'
+                                    example: 'Semangat terus :)'
+                            required:
+                                - comment
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+            -
+                in: path
+                name: courseLesson
+                description: 'valid id courseLesson.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/lessons/{courseLesson}/likes':
+        get:
+            summary: 'Mendapatkan list data user yang menyukai pembelajaran/video kursus.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ created_at: '2021-04-30T17:54:45.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }]
+                                    links: { first: 'http://api.brn.com/api/articles/3/liked?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/3/liked', per_page: 15, to: 1 }
+                                properties:
+                                    data: { type: array, example: [{ created_at: '2021-04-30T17:54:45.000000Z', user: { id: 1, name: 'Admin Arya Anggara', email: aryaanggara.dev@gmail.com, profile_photo_path: null, profile_photo_url: 'https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF', created_at: '2021-04-30T16:05:56.000000Z' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/articles/3/liked?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/articles/3/liked', per_page: 15, to: 1 } }
+            tags:
+                - Kursus
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+            -
+                in: path
+                name: courseLesson
+                description: 'valid id courseLesson.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/courses/{course}/lessons/{courseLesson}/liked':
+        post:
+            summary: 'Menyukai pembelajaran/video kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil menyukai pembelejaran/video kursus.\",\n}"
+            tags:
+                - Kursus
+        delete:
+            summary: 'Batalkan menyukai pembelajaran/video kursus.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        text/plain:
+                            schema:
+                                type: string
+                                example: "{\n \"message\": \"Berhasil membatalkan menyukai pembelejaran/video kursus.\",\n}"
+            tags:
+                - Kursus
+        parameters:
+            -
+                in: path
+                name: course
+                description: 'valid id course.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+            -
+                in: path
+                name: courseLesson
+                description: 'valid id courseLesson.'
                 example: 1
                 required: true
                 schema:
@@ -991,11 +1855,11 @@ paths:
                                 type: object
                                 example:
                                     status: ok
-                                    timestamp: '2021-05-01T11:46:42.592694Z'
+                                    timestamp: '2021-05-01T15:10:01.887638Z'
                                     host: 127.0.0.1
                                 properties:
                                     status: { type: string, example: ok }
-                                    timestamp: { type: string, example: '2021-05-01T11:46:42.592694Z' }
+                                    timestamp: { type: string, example: '2021-05-01T15:10:01.887638Z' }
                                     host: { type: string, example: 127.0.0.1 }
             tags:
                 - Server

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Comment;
+use App\Models\Course;
+use App\Models\CourseLesson;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 
@@ -29,14 +31,14 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @response {
-     *  "message": "Berhasil menyukai artikel",
+     *  "message": "Berhasil menyukai artikel.",
      * }
      */
     public function likeArticle(Request $request, Article $article)
     {
         $article->like($request->user()->id);
 
-        return $this->responseMessage('Berhasil menyukai artikel');
+        return $this->responseMessage('Berhasil menyukai artikel.');
     }
 
 
@@ -54,14 +56,132 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @response {
-     *  "message": "Berhasil membatalkan menyukai artikel",
+     *  "message": "Berhasil membatalkan menyukai artikel.",
      * }
      */
     public function unlikeArticle(Request $request, Article $article)
     {
         $article->unlike($request->user()->id);
 
-        return $this->responseMessage('Berhasil membatalkan menyukai artikel');
+        return $this->responseMessage('Berhasil membatalkan menyukai artikel.');
+    }
+
+
+    /**
+     * Menyukai kursus.
+     * @authenticated
+     *
+     * @group Kursus
+     *
+     * @urlParam course int required valid id course. Example: 1
+     *
+     * @param Request $request
+     * @param Course $course
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil menyukai kursus.",
+     * }
+     */
+    public function likeCourse(Request $request, Course $course)
+    {
+        $course->like($request->user()->id);
+
+        return $this->responseMessage('Berhasil menyukai kursus.');
+    }
+
+
+    /**
+     * Batalkan menyukai kursus.
+     * @authenticated
+     *
+     * @group Kursus
+     *
+     * @urlParam course int required valid id course. Example: 1
+     *
+     * @param Request $request
+     * @param Course $course
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil membatalkan menyukai kursus.",
+     * }
+     */
+    public function unlikeCourse(Request $request, Course $course)
+    {
+        $course->unlike($request->user()->id);
+
+        return $this->responseMessage('Berhasil membatalkan menyukai kursus.');
+    }
+
+
+    /**
+     * Menyukai pembelajaran/video kursus.
+     * @authenticated
+     *
+     * @group Kursus
+     *
+     * @urlParam course int required valid id course. Example: 1
+     * @urlParam courseLesson int required valid id courseLesson. Example: 1
+     *
+     * @param Request $request
+     * @param Course $course
+     * @param CourseLesson $courseLesson
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil menyukai pembelejaran/video kursus.",
+     * }
+     */
+    public function likeCourseLesson(Request $request, Course $course, CourseLesson $courseLesson)
+    {
+        $uid = $request->user()->id;
+
+        $alreadyEnrolled = $course->students()->where('user_id', $uid)->exists();
+        if (!$alreadyEnrolled) {
+            return $this->responseMessage('Anda harus mengikuti kursus dari pembelajaran/video ini terlebih dahulu sebelum menyukai.');
+        }
+
+        $courseLesson->like($request->user()->id);
+
+        return $this->responseMessage('Berhasil menyukai pembelejaran/video kursus.');
+    }
+
+
+    /**
+     * Batalkan menyukai pembelajaran/video kursus.
+     * @authenticated
+     *
+     * @group Kursus
+     *
+     * @urlParam course int required valid id course. Example: 1
+     * @urlParam courseLesson int required valid id courseLesson. Example: 1
+     *
+     * @param Request $request
+     * @param Course $course
+     * @param CourseLesson $courseLesson
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil membatalkan menyukai pembelejaran/video kursus.",
+     * }
+     */
+    public function unlikeCourseLesson(Request $request, Course $course, CourseLesson $courseLesson)
+    {
+        $uid = $request->user()->id;
+
+        $alreadyEnrolled = $course->students()->where('user_id', $uid)->exists();
+        if (!$alreadyEnrolled) {
+            return $this->responseMessage('Anda harus mengikuti kursus dari pembelajaran/video ini terlebih dahulu sebelum membatalkan menyukai.');
+        }
+
+        $courseLesson->unlike($request->user()->id);
+
+        return $this->responseMessage('Berhasil membatalkan menyukai pembelejaran/video kursus.');
     }
 
 
@@ -79,14 +199,14 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @response {
-     *  "message": "Berhasil menyukai komentar",
+     *  "message": "Berhasil menyukai komentar.",
      * }
      */
     public function likeComment(Request $request, Comment $comment)
     {
         $comment->like($request->user()->id);
 
-        return $this->responseMessage('Berhasil menyukai artikel');
+        return $this->responseMessage('Berhasil menyukai artikel.');
     }
 
 
@@ -104,13 +224,13 @@ class LikeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @response {
-     *  "message": "Berhasil membatalkan menyukai komentar",
+     *  "message": "Berhasil membatalkan menyukai komentar.",
      * }
      */
     public function unlikeComment(Request $request, Comment $comment)
     {
         $comment->unlike($request->user()->id);
 
-        return $this->responseMessage('Berhasil membatalkan menyukai artikel');
+        return $this->responseMessage('Berhasil membatalkan menyukai artikel.');
     }
 }

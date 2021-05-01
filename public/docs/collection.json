@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "29182825-f128-4cab-a36f-c533c7e9d07e",
+        "_postman_id": "85b539c6-b66d-459b-9036-e01ebb0e265c",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "nulla",
+                                    "value": "eligendi",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "nulla",
+                                            "value": "eligendi",
                                             "description": ""
                                         }
                                     ]
@@ -1444,6 +1444,1363 @@
             ]
         },
         {
+            "name": "Kursus",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data kursus yang diikuti.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-courses",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Mencari data kurus yang diikuti.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bname%5D",
+                                    "value": "Marketing+Di+Social+Media",
+                                    "description": "Penyortiran berdasarkan judul.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bdescription%5D",
+                                    "value": "Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media",
+                                    "description": "Penyortiran berdasarkan deskripsi.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti."
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data kursus yang diikuti. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-courses",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Mencari data kurus yang diikuti.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bname%5D",
+                                            "value": "Marketing+Di+Social+Media",
+                                            "description": "Penyortiran berdasarkan judul.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bdescription%5D",
+                                            "value": "Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media",
+                                            "description": "Penyortiran berdasarkan deskripsi.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"image\": null,\n            \"image_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF\",\n            \"name\": \"Microsoft Excel dari dasar hingga mahir\",\n            \"description\": \"Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.\",\n            \"lessons_count\": 7,\n            \"likes_count\": 321,\n            \"comments_count\": 5,\n            \"created_at\": \"2021-05-01T12:58:24.000000Z\",\n            \"updated_at\": \"2021-05-01T12:58:24.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Mencari data kursus.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bname%5D",
+                                    "value": "Marketing+Di+Social+Media",
+                                    "description": "Penyortiran berdasarkan judul.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bdescription%5D",
+                                    "value": "Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media",
+                                    "description": "Penyortiran berdasarkan deskripsi.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data kursus. note: sebelum Anda bisa melihat pembelajaran\/video kursus Anda harus mengikut kursus nya terlebih dahulu",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Mencari data kursus.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bname%5D",
+                                            "value": "Marketing+Di+Social+Media",
+                                            "description": "Penyortiran berdasarkan judul.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bdescription%5D",
+                                            "value": "Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media",
+                                            "description": "Penyortiran berdasarkan deskripsi.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data kursus. note: sebelum Anda bisa melihat pembelajaran\/video kursus Anda harus mengikut kursus nya terlebih dahulu",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"image\": null,\n            \"image_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF\",\n            \"name\": \"Microsoft Excel dari dasar hingga mahir\",\n            \"description\": \"Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.\",\n            \"lessons_count\": 7,\n            \"likes_count\": 321,\n            \"comments_count\": 5,\n            \"created_at\": \"2021-05-01T12:58:24.000000Z\",\n            \"updated_at\": \"2021-05-01T12:58:24.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan detail data kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan detail data kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 1,\n        \"user_id\": 1,\n        \"user\": {\n            \"id\": 1,\n            \"name\": \"Admin Arya Anggara\",\n            \"email\": \"aryaanggara.dev@gmail.com\",\n            \"profile_photo_path\": null,\n            \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n            \"created_at\": \"2021-05-01T12:58:23.000000Z\"\n        },\n        \"image\": null,\n        \"image_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=0Dummy+Couse&color=7F9CF5&background=EBF4FF\",\n        \"name\": \"Microsoft Excel dari dasar hingga mahir\",\n        \"description\": \"Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.\",\n        \"status\": \"enabled\",\n        \"lessons_count\": 7,\n        \"likes_count\": 321,\n        \"comments_count\": 5,\n        \"created_at\": \"2021-05-01T12:58:24.000000Z\",\n        \"updated_at\": \"2021-05-01T12:58:24.000000Z\"\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data komentar kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/comments",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data komentar kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/comments",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"comment\": \"Semangat Terus !!!\",\n            \"likes_count\": 1,\n            \"created_at\": \"2021-04-30T18:14:44.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data user yang menyukai kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/likes",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data user yang menyukai kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/likes",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "",
+                                "auth": {
+                                    "type": "noauth"
+                                }
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"created_at\": \"2021-04-30T17:54:45.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked\",\n        \"per_page\": 15,\n        \"to\": 1\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Enroll kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/enroll",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Enroll kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/enroll",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahan komentar kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahan komentar kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/comments",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menyukai kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menyukai kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Batalkan menyukai kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Batalkan menyukai kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Berita+hari+ini",
+                                    "description": "Mencari data pembelajaran\/video kursus.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data pembelajaran\/video kursus."
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Berita+hari+ini",
+                                            "description": "Mencari data pembelajaran\/video kursus.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data pembelajaran\/video kursus."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"title\": \"Microsoft Excel dari dasar hingga mahir\",\n            \"description\": \"Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.\",\n            \"youtube_url\": \"https: \\\/\\\/www.youtube.com\\\/watch?v=x9f3RAsNZhU&list=RDx9f3RAsNZhU&start_radio=1&ab_channel=EditraTamba\",\n            \"likes_count\": 321,\n            \"comments_count\": 5,\n            \"updated_at\": \"2021-05-01T12:58:24.000000Z\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses\\\/1\\\/lessons?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses\\\/1\\\/lessons?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/courses\\\/1\\\/lessons\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data komentar pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                },
+                                {
+                                    "id": "courseLesson",
+                                    "key": "courseLesson",
+                                    "value": "1",
+                                    "description": "valid id courseLesson."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data komentar pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        },
+                                        {
+                                            "id": "courseLesson",
+                                            "key": "courseLesson",
+                                            "value": "1",
+                                            "description": "valid id courseLesson."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 4,\n            \"comment\": \"Semangat Terus !!!\",\n            \"likes_count\": 1,\n            \"created_at\": \"2021-04-30T18:14:44.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/2\\\/comments\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data user yang menyukai pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons\/:courseLesson\/likes",
+                            "query": [
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                },
+                                {
+                                    "id": "courseLesson",
+                                    "key": "courseLesson",
+                                    "value": "1",
+                                    "description": "valid id courseLesson."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data user yang menyukai pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons\/:courseLesson\/likes",
+                                    "query": [
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        },
+                                        {
+                                            "id": "courseLesson",
+                                            "key": "courseLesson",
+                                            "value": "1",
+                                            "description": "valid id courseLesson."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"created_at\": \"2021-04-30T17:54:45.000000Z\",\n            \"user\": {\n                \"id\": 1,\n                \"name\": \"Admin Arya Anggara\",\n                \"email\": \"aryaanggara.dev@gmail.com\",\n                \"profile_photo_path\": null,\n                \"profile_photo_url\": \"https:\\\/\\\/ui-avatars.com\\\/api\\\/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF\",\n                \"created_at\": \"2021-04-30T16:05:56.000000Z\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/articles\\\/3\\\/liked\",\n        \"per_page\": 15,\n        \"to\": 1\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahan komentar pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                },
+                                {
+                                    "id": "courseLesson",
+                                    "key": "courseLesson",
+                                    "value": "1",
+                                    "description": "valid id courseLesson."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahan komentar pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        },
+                                        {
+                                            "id": "courseLesson",
+                                            "key": "courseLesson",
+                                            "value": "1",
+                                            "description": "valid id courseLesson."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"comment\": \"Semangat terus :)\"\n}"
+                                },
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menyukai pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                },
+                                {
+                                    "id": "courseLesson",
+                                    "key": "courseLesson",
+                                    "value": "1",
+                                    "description": "valid id courseLesson."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Menyukai pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        },
+                                        {
+                                            "id": "courseLesson",
+                                            "key": "courseLesson",
+                                            "value": "1",
+                                            "description": "valid id courseLesson."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                },
+                {
+                    "name": "Batalkan menyukai pembelajaran\/video kursus.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "variable": [
+                                {
+                                    "id": "course",
+                                    "key": "course",
+                                    "value": "1",
+                                    "description": "valid id course."
+                                },
+                                {
+                                    "id": "courseLesson",
+                                    "key": "courseLesson",
+                                    "value": "1",
+                                    "description": "valid id courseLesson."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Batalkan menyukai pembelajaran\/video kursus. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "variable": [
+                                        {
+                                            "id": "course",
+                                            "key": "course",
+                                            "value": "1",
+                                            "description": "valid id course."
+                                        },
+                                        {
+                                            "id": "courseLesson",
+                                            "key": "courseLesson",
+                                            "value": "1",
+                                            "description": "valid id courseLesson."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "null"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Point",
             "description": "",
             "item": [
@@ -1596,7 +2953,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-01T11:46:42.592694Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-01T15:10:01.887638Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }

@@ -66,7 +66,7 @@ class Article extends Model implements Viewable
 
 
     /**
-     * Get the author that owns the personal information.
+     * Get the author that owns the article.
      */
     public function author()
     {

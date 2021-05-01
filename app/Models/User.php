@@ -109,4 +109,21 @@ class User extends Authenticatable implements Commentator
     {
         return $this->hasMany(DailyCheckIn::class);
     }
+
+
+    /**
+     * Get the course where created by this user.
+     */
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    /**
+     * Get my learnings course.
+     */
+    public function myLearnings()
+    {
+        return $this->belongsToMany(Course::class, 'course_user', 'user_id', 'course_id');
+    }
 }

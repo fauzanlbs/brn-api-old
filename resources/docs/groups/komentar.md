@@ -522,7 +522,7 @@ print_r(json_decode((string) $body));
 ```json
 
 {
- "message": "Berhasil menyukai komentar",
+ "message": "Berhasil menyukai komentar.",
 }
 ```
 <div id="execution-results-POSTapi-comments--comment--liked" hidden>
@@ -611,7 +611,7 @@ print_r(json_decode((string) $body));
 ```json
 
 {
- "message": "Berhasil membatalkan menyukai komentar",
+ "message": "Berhasil membatalkan menyukai komentar.",
 }
 ```
 <div id="execution-results-DELETEapi-comments--comment--liked" hidden>
