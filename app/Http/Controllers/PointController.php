@@ -17,7 +17,7 @@ class PointController extends Controller
      * @authenticated
      *
      * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @return UserPointHistoryResource
      *
      * @responseFile storage/responses/user-point-history-resource.response.json
      */
@@ -32,7 +32,7 @@ class PointController extends Controller
      * Mendapatkan list data misi.
      * @authenticated
      *
-     * @return \Illuminate\Http\Response
+     * @return PointResource
      *
      * @responseFile storage/responses/point-resource.response.json
      */
