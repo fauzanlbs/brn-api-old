@@ -3,10 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
-use Carbon\Carbon;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Rinvex\Categories\Models\Category;
 
 class ArticleSeeder extends Seeder
@@ -18,9 +16,6 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
-
-
-
         for ($i = 1; $i < 10; $i++) {
             $category = new Category();
             $category->name = ($i . 'Test Category');

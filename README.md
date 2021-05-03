@@ -84,11 +84,20 @@ php artisan generate:erd output.svg --format=svg
 * [laravel/laravel](https://github.com/laravel/laravel) - Web application framework with expressive, elegant syntax.
 * [laravel/sanctum](https://github.com/laravel/sanctum) - Provides a featherweight authentication system for SPAs and simple APIs.
 * [laravel/socialite](https://github.com/knuckleswtf/scribe) - It handles almost all of the boilerplate social authentication code you are dreading writing.
+* [spatie/laravel-permission](https://github.com/spatie/laravel-permission) - Associate users with permissions and roles
+* [spatie/laravel-query-builder](https://github.com/spatie/laravel-query-builder) - Build Eloquent queries from API requests.
+* [spatie/laravel-json-api-paginate](https://github.com/spatie/laravel-json-api-paginate) - A paginator that plays nice with the JSON API spec.
+* [beyondcode/laravel-er-diagram-generator](https://github.com/beyondcode/laravel-er-diagram-generator) - Generate entity relation diagrams by inspecting the relationships defined in your model files.
+* [beyondcode/laravel-comments](https://github.com/beyondcode/laravel-comments) - Add the ability to associate comments to your Laravel Eloquent models.
 * [knuckleswtf/scribe](https://github.com/knuckleswtf/scribe) - Generate API documentation for humans from your Laravel codebase.
 * [rinvex/laravel-addresses](https://github.com/rinvex/laravel-addresses) - Addressbook management.
 * [axlon/laravel-postal-code-validation](https://github.com/axlon/laravel-postal-code-validation) - Postal code validation for Laravel, based on Google's Address Data Service. 
-* [beyondcode/laravel-er-diagram-generator](https://github.com/beyondcode/laravel-er-diagram-generator) - Generate entity relation diagrams by inspecting the relationships defined in your model files.
-* [spatie/laravel-permission](https://github.com/spatie/laravel-permission) - Associate users with permissions and roles
 * [lazychaser/laravel-nestedset](https://github.com/lazychaser/laravel-nestedset) - working with trees in relational databases.
 * [fruitcake/laravel-cors](https://github.com/fruitcake/laravel-cors) -  allows you to send Cross-Origin Resource Sharing headers with Laravel middleware configuration.
+* [cviebrock/eloquent-sluggable](https://github.com/eloquent-viewable) - Easy creation of slugs for your Eloquent models in Laravel.
+* [cyrildewit/eloquent-viewable](https://github.com/cyrildewit/eloquent-viewable) - Eloquent Viewable.
+* [kalnoy/nestedset](https://github.com/lazychaser/laravel-nestedset) - Nested sets or Nested Set Model is a way to effectively store hierarchical data in a relational table.
+* [rtconner/laravel-likeable](https://github.com/rtconner/laravel-likeable) - Trait for Laravel Eloquent models to allow easy implementation of a "like" or "favorite" or "remember" feature.
+
+
   
