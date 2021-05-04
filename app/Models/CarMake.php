@@ -3,19 +3,20 @@
 namespace App\Models;
 
 use App\Models\Scopes\Searchable;
-use BeyondCode\Comments\Traits\HasComments;
-use Conner\Likeable\Likeable;
-use CyrildeWit\EloquentViewable\InteractsWithViews;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class CourseLesson extends Model
+class CarMake extends Model
 {
     use HasFactory;
     use Searchable;
-    use HasComments;
-    use InteractsWithViews;
-    use Likeable;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['make'];
 
     /**
      * The attributes that are mass searchable.
@@ -31,10 +32,15 @@ class CourseLesson extends Model
     */
 
     /**
-     * Get the course that owns the lesson.
+     * Get a car that uses this make
      */
-    public function course()
+    public function cars()
     {
-        return $this->belongsTo(Course::class);
+        return $this->hasMany(Car::class);
+    }
+
+    public function carModels()
+    {
+        return $this->hasMany(CarModel::class);
     }
 }

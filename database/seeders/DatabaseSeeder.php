@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\CarModel;
 use Illuminate\Database\Seeder;
+use Illuminate\Filesystem\Filesystem;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +16,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        $file = new Filesystem;
+        $file->cleanDirectory(storage_path('app/public'));
+
 
         $this->call([
             AboutSeeder::class,
@@ -22,6 +27,12 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ArticleSeeder::class,
             CourseSeeder::class,
+            CarColorSeeder::class,
+            CarTypeSeeder::class,
+            CarMakeSeeder::class,
+            CarModelSeeder::class,
+            CarFuelSeeder::class,
+            CarSeeder::class,
         ]);
     }
 }

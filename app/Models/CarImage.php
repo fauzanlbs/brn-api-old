@@ -2,27 +2,28 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class DailyCheckIn extends Model
+class CarImage extends Model
 {
     use HasFactory;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'date',
-    ];
-
+    protected $fillable = ['car_id', 'image'];
 
     /**
-     * @var bool
+     * The attributes that are mass searchable.
+     *
+     * @var array
      */
-    public $timestamps = false;
+    protected $searchableFields = ['*'];
 
     /*
     |--------------------------------------------------------------------------
@@ -31,10 +32,10 @@ class DailyCheckIn extends Model
     */
 
     /**
-     * Get the user where own this.
+     * Get a car that uses this image
      */
-    public function user()
+    public function car()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Car::class);
     }
 }

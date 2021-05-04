@@ -119,11 +119,21 @@ class User extends Authenticatable implements Commentator
         return $this->hasMany(Course::class);
     }
 
+
     /**
      * Get my learnings course.
      */
     public function myLearnings()
     {
         return $this->belongsToMany(Course::class, 'course_user', 'user_id', 'course_id');
+    }
+
+
+    /**
+     * Get my Cars.
+     */
+    public function myCars()
+    {
+        return $this->hasMany(Car::class);
     }
 }

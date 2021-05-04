@@ -30,6 +30,12 @@ class UserPersonalInformation extends Model
     }
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION
+    |--------------------------------------------------------------------------
+    */
+
     /**
      * Get the user that owns the personal information.
      */

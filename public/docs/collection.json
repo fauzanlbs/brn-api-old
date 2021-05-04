@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "e586f731-5c39-41a0-bc2e-5e0a84730e83",
+        "_postman_id": "51779f22-2c0b-4a29-90d7-99c07caee56a",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "sint",
+                                    "value": "explicabo",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "sint",
+                                            "value": "explicabo",
                                             "description": ""
                                         }
                                     ]
@@ -982,6 +982,509 @@
                             "header": null,
                             "cookie": [],
                             "body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"slug\": \"Motivasi\",\n            \"name\": \"Motivasi untuk pantang menyerah\",\n            \"description\": null\n        },\n        {\n            \"id\": 1,\n            \"slug\": \"Berita\",\n            \"name\": \"Bertia terbaru\",\n            \"description\": null\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/categories?page=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/categories\",\n        \"per_page\": 15,\n        \"to\": 9\n    }\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Kelola Mobil",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data warna mobil.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/colors",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "merah",
+                                    "description": "Mencari data warna mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "-color",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default color.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data warna mobil. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/cars\/colors",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "merah",
+                                            "description": "Mencari data warna mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "-color",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default color.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"color\": \"Phantom Black\"\n        },\n        {\n            \"id\": 2,\n            \"color\": \"Sepang Blue\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/colors?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/colors\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data bahan bakar mobil.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/fuels",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Diesel",
+                                    "description": "Mencari data bahan bakar mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "-fuel",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data bahan bakar mobil. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/cars\/fuels",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Diesel",
+                                            "description": "Mencari data bahan bakar mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "-fuel",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Diesel\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"Gasoline\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data model mobil.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/models",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "S40",
+                                    "description": "Mencari data model mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "-model",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default model.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcar_make_id%5D",
+                                    "value": "1",
+                                    "description": "Penyortiran berdasarkan id mobil.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data model mobil. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/cars\/models",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "S40",
+                                            "description": "Mencari data model mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "-model",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default model.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcar_make_id%5D",
+                                            "value": "1",
+                                            "description": "Penyortiran berdasarkan id mobil.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"S40\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"118D\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/models?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/models\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data jenis kelas mobil.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/types",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Sedan",
+                                    "description": "Mencari data jenis kelas mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "-class",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default class.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data jenis kelas mobil. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/cars\/types",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Sedan",
+                                            "description": "Mencari data jenis kelas mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "-class",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default class.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"class\": \"Compact\"\n        },\n        {\n            \"id\": 2,\n            \"class\": \"Middle\"\n        },\n        {\n            \"id\": 1,\n            \"class\": \"Premium\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/types?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/types\",\n        \"per_page\": 15,\n        \"to\": 3\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data produsen mobil.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/cars\/makes",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "BMW",
+                                    "description": "Mencari data produsen mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "-make",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default make.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data produsen mobil. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/cars\/makes",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "BMW",
+                                            "description": "Mencari data produsen mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "-make",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default make.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Audi\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"BMW\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
                         }
                     ]
                 }
@@ -2953,7 +3456,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-04T11:19:25.118407Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-04T14:21:29.397075Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }

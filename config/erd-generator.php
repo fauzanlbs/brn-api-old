@@ -114,18 +114,37 @@ return [
             'arrowhead' => 'tee',
             'arrowtail' => 'none',
         ],
-        'BelongsTo' => [
-            'dir' => 'both',
-            'color' => '#F77F00',
-            'arrowhead' => 'tee',
-            'arrowtail' => 'crow',
-        ],
         'HasMany' => [
             'dir' => 'both',
             'color' => '#FCBF49',
             'arrowhead' => 'crow',
             'arrowtail' => 'none',
         ],
+        'BelongsTo' => [
+            'dir' => 'both',
+            'color' => '#818CF8',
+            'arrowhead' => 'tee',
+            'arrowtail' => 'crow',
+        ],
+        'BelongsTo' => [
+            'dir' => 'both',
+            'color' => '#1D4ED8',
+            'arrowhead' => 'tee',
+            'arrowtail' => 'crow',
+        ],
+        'MorphMany' => [
+            'dir' => 'both',
+            'color' => '#BE185D',
+            'arrowhead' => 'crow',
+            'arrowtail' => 'none',
+        ],
+        'MorphTo' => [
+            'dir' => 'both',
+            'color' => '#EC4899',
+            'arrowhead' => 'crow',
+            'arrowtail' => 'none',
+        ],
+
     ]
 
 ];

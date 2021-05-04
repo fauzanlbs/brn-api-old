@@ -2,6 +2,11 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CarColorsController;
+use App\Http\Controllers\CarFuelController;
+use App\Http\Controllers\CarMakeController;
+use App\Http\Controllers\CarModelController;
+use App\Http\Controllers\CarTypeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
@@ -96,4 +101,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     });
 
     Route::get('/check-in', [DailyCheckInController::class, 'checkIn']);
+
+    Route::prefix('cars')->group(function () {
+        Route::get('/colors', [CarColorsController::class, 'index']);
+        Route::get('/makes', [CarMakeController::class, 'index']);
+        Route::get('/models', [CarModelController::class, 'index']);
+        Route::get('/types', [CarTypeController::class, 'index']);
+        Route::get('/fuels', [CarFuelController::class, 'index']);
+    });
 });
