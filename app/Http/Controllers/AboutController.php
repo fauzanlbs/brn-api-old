@@ -26,7 +26,7 @@ class AboutController extends Controller
     {
         $about = About::first();
         if (!$about) {
-            return $this->responseMessage('No Data Found', 404);
+            return $this->responseMessage(__('messages.no_data'), 404);
         }
 
         $about->histories = $this->transfom($about->histories);

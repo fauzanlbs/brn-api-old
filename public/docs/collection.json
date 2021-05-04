@@ -10,42 +10,11 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "7fd6729e-47eb-46ea-b7a5-667d554b37e2",
+        "_postman_id": "e586f731-5c39-41a0-bc2e-5e0a84730e83",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
     "item": [
-        {
-            "name": "About BRN",
-            "description": "",
-            "item": [
-                {
-                    "name": "Mendapatkan data tentang BRN.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "{{baseUrl}}",
-                            "path": "api\/about",
-                            "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/about"
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": []
-                }
-            ]
-        },
         {
             "name": "Artikel",
             "description": "",
@@ -332,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "voluptas",
+                                    "value": "sint",
                                     "description": ""
                                 }
                             ]
@@ -413,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "voluptas",
+                                            "value": "sint",
                                             "description": ""
                                         }
                                     ]
@@ -2984,9 +2953,40 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-03T12:14:52.466778Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-04T11:19:25.118407Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Tentang BRN",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan data tentang BRN.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/about",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/about"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

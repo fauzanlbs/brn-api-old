@@ -1,4 +1,4 @@
-# About BRN
+# Tentang BRN
 
 
 ## Mendapatkan data tentang BRN.

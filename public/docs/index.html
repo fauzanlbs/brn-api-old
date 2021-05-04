@@ -66,58 +66,7 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <pre><code class="language-yaml">http://api.brn.com</code></pre><h1>Authenticating requests</h1>
 <p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>About BRN</h1>
-<h2>Mendapatkan data tentang BRN.</h2>
-<blockquote>
-<p>Example request:</p>
-</blockquote>
-<pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/about" \
-    -H "Accept: application/json"</code></pre>
-<pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/about"
-);
-
-let headers = {
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre>
-<pre><code class="language-php">
-$client = new \GuzzleHttp\Client();
-$response = $client-&gt;get(
-    'http://api.brn.com/api/about',
-    [
-        'headers' =&gt; [
-            'Accept' =&gt; 'application/json',
-        ],
-    ]
-);
-$body = $response-&gt;getBody();
-print_r(json_decode((string) $body));</code></pre>
-<div id="execution-results-GETapi-about" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-about"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-about"></code></pre>
-</div>
-<div id="execution-error-GETapi-about" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-about"></code></pre>
-</div>
-<form id="form-GETapi-about" data-method="GET" data-path="api/about" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-about', this);">
-<h3>
-    Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-about" onclick="tryItOut('GETapi-about');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-about" onclick="cancelTryOut('GETapi-about');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-about" hidden>Send Request 💥</button>
-    </h3>
-<p>
-<small class="badge badge-green">GET</small>
- <b><code>api/about</code></b>
-</p>
-</form><h1>Artikel</h1>
+<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Artikel</h1>
 <h2>Mendapatkan list data artikel.</h2>
 <p>Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilimit 100 karekter, Anda bisa melihat semua di detail artikel</p>
 <blockquote>
@@ -403,10 +352,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/categories/voluptas?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "http://api.brn.com/api/articles/categories/sint?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/categories/voluptas"
+    "http://api.brn.com/api/articles/categories/sint"
 );
 
 let params = {
@@ -433,7 +382,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/categories/voluptas',
+    'http://api.brn.com/api/articles/categories/sint',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3615,7 +3564,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-05-03T12:14:52.466778Z",
+    "timestamp": "2021-05-04T11:19:25.118407Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
@@ -3636,6 +3585,57 @@ print_r(json_decode((string) $body));</code></pre>
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/ping</code></b>
+</p>
+</form><h1>Tentang BRN</h1>
+<h2>Mendapatkan data tentang BRN.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://api.brn.com/api/about" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://api.brn.com/api/about"
+);
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'http://api.brn.com/api/about',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<div id="execution-results-GETapi-about" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-about"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-about"></code></pre>
+</div>
+<div id="execution-error-GETapi-about" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-about"></code></pre>
+</div>
+<form id="form-GETapi-about" data-method="GET" data-path="api/about" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-about', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-about" onclick="tryItOut('GETapi-about');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-about" onclick="cancelTryOut('GETapi-about');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-about" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/about</code></b>
 </p>
 </form>
     </div>
