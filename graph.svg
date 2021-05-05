@@ -214,58 +214,58 @@
 <!-- appmodelscar -->
 <g id="node4" class="node">
 <title>appmodelscar</title>
-<polygon fill="none" stroke="#000000" points="1498.7203,-1384.5 1314.7203,-1384.5 1314.7203,-755.5 1498.7203,-755.5 1498.7203,-1384.5"/>
-<polygon fill="#d3d3d3" stroke="transparent" points="1314.7203,-1347 1314.7203,-1384 1498.7203,-1384 1498.7203,-1347 1314.7203,-1347"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1347 1314.7203,-1384 1498.7203,-1384 1498.7203,-1347 1314.7203,-1347"/>
+<polygon fill="none" stroke="#000000" points="1499.7203,-1384.5 1313.7203,-1384.5 1313.7203,-755.5 1499.7203,-755.5 1499.7203,-1384.5"/>
+<polygon fill="#d3d3d3" stroke="transparent" points="1313.7203,-1347 1313.7203,-1384 1499.7203,-1384 1499.7203,-1347 1313.7203,-1347"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1347 1313.7203,-1384 1499.7203,-1384 1499.7203,-1347 1313.7203,-1347"/>
 <text text-anchor="start" x="1394.2203" y="-1361.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">Car</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1310 1314.7203,-1347 1498.7203,-1347 1498.7203,-1310 1314.7203,-1310"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1310 1314.7203,-1347 1498.7203,-1347 1498.7203,-1310 1314.7203,-1310"/>
-<text text-anchor="start" x="1325.7203" y="-1324.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1273 1314.7203,-1310 1498.7203,-1310 1498.7203,-1273 1314.7203,-1273"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1273 1314.7203,-1310 1498.7203,-1310 1498.7203,-1273 1314.7203,-1273"/>
-<text text-anchor="start" x="1325.7203" y="-1287.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">user_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1236 1314.7203,-1273 1498.7203,-1273 1498.7203,-1236 1314.7203,-1236"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1236 1314.7203,-1273 1498.7203,-1273 1498.7203,-1236 1314.7203,-1236"/>
-<text text-anchor="start" x="1325.7203" y="-1250.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_make_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1199 1314.7203,-1236 1498.7203,-1236 1498.7203,-1199 1314.7203,-1199"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1199 1314.7203,-1236 1498.7203,-1236 1498.7203,-1199 1314.7203,-1199"/>
-<text text-anchor="start" x="1325.7203" y="-1213.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_type_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1162 1314.7203,-1199 1498.7203,-1199 1498.7203,-1162 1314.7203,-1162"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1162 1314.7203,-1199 1498.7203,-1199 1498.7203,-1162 1314.7203,-1162"/>
-<text text-anchor="start" x="1325.7203" y="-1176.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_fuel_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1125 1314.7203,-1162 1498.7203,-1162 1498.7203,-1125 1314.7203,-1125"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1125 1314.7203,-1162 1498.7203,-1162 1498.7203,-1125 1314.7203,-1125"/>
-<text text-anchor="start" x="1325.7203" y="-1139.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_model_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1088 1314.7203,-1125 1498.7203,-1125 1498.7203,-1088 1314.7203,-1088"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1088 1314.7203,-1125 1498.7203,-1125 1498.7203,-1088 1314.7203,-1088"/>
-<text text-anchor="start" x="1325.7203" y="-1102.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_color_id (bigint)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1051 1314.7203,-1088 1498.7203,-1088 1498.7203,-1051 1314.7203,-1051"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1051 1314.7203,-1088 1498.7203,-1088 1498.7203,-1051 1314.7203,-1051"/>
-<text text-anchor="start" x="1325.7203" y="-1065.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">status (string)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-1014 1314.7203,-1051 1498.7203,-1051 1498.7203,-1014 1314.7203,-1014"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-1014 1314.7203,-1051 1498.7203,-1051 1498.7203,-1014 1314.7203,-1014"/>
-<text text-anchor="start" x="1325.7203" y="-1028.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">is_approved (boolean)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-977 1314.7203,-1014 1498.7203,-1014 1498.7203,-977 1314.7203,-977"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-977 1314.7203,-1014 1498.7203,-1014 1498.7203,-977 1314.7203,-977"/>
-<text text-anchor="start" x="1325.7203" y="-991.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">police_number (string)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-940 1314.7203,-977 1498.7203,-977 1498.7203,-940 1314.7203,-940"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-940 1314.7203,-977 1498.7203,-977 1498.7203,-940 1314.7203,-940"/>
-<text text-anchor="start" x="1325.7203" y="-954.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">year (date)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-903 1314.7203,-940 1498.7203,-940 1498.7203,-903 1314.7203,-903"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-903 1314.7203,-940 1498.7203,-940 1498.7203,-903 1314.7203,-903"/>
-<text text-anchor="start" x="1325.7203" y="-917.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">isAutomatic (boolean)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-866 1314.7203,-903 1498.7203,-903 1498.7203,-866 1314.7203,-866"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-866 1314.7203,-903 1498.7203,-903 1498.7203,-866 1314.7203,-866"/>
-<text text-anchor="start" x="1325.7203" y="-880.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">capacity (boolean)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-829 1314.7203,-866 1498.7203,-866 1498.7203,-829 1314.7203,-829"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-829 1314.7203,-866 1498.7203,-866 1498.7203,-829 1314.7203,-829"/>
-<text text-anchor="start" x="1325.7203" y="-843.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">equipment (text)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-792 1314.7203,-829 1498.7203,-829 1498.7203,-792 1314.7203,-792"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-792 1314.7203,-829 1498.7203,-829 1498.7203,-792 1314.7203,-792"/>
-<text text-anchor="start" x="1325.7203" y="-806.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">created_at (datetime)</text>
-<polygon fill="#ffffff" stroke="transparent" points="1314.7203,-755 1314.7203,-792 1498.7203,-792 1498.7203,-755 1314.7203,-755"/>
-<polygon fill="none" stroke="#000000" points="1314.7203,-755 1314.7203,-792 1498.7203,-792 1498.7203,-755 1314.7203,-755"/>
-<text text-anchor="start" x="1325.7203" y="-769.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">updated_at (datetime)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1310 1313.7203,-1347 1499.7203,-1347 1499.7203,-1310 1313.7203,-1310"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1310 1313.7203,-1347 1499.7203,-1347 1499.7203,-1310 1313.7203,-1310"/>
+<text text-anchor="start" x="1324.7203" y="-1324.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1273 1313.7203,-1310 1499.7203,-1310 1499.7203,-1273 1313.7203,-1273"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1273 1313.7203,-1310 1499.7203,-1310 1499.7203,-1273 1313.7203,-1273"/>
+<text text-anchor="start" x="1324.7203" y="-1287.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">user_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1236 1313.7203,-1273 1499.7203,-1273 1499.7203,-1236 1313.7203,-1236"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1236 1313.7203,-1273 1499.7203,-1273 1499.7203,-1236 1313.7203,-1236"/>
+<text text-anchor="start" x="1324.7203" y="-1250.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_make_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1199 1313.7203,-1236 1499.7203,-1236 1499.7203,-1199 1313.7203,-1199"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1199 1313.7203,-1236 1499.7203,-1236 1499.7203,-1199 1313.7203,-1199"/>
+<text text-anchor="start" x="1324.7203" y="-1213.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_type_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1162 1313.7203,-1199 1499.7203,-1199 1499.7203,-1162 1313.7203,-1162"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1162 1313.7203,-1199 1499.7203,-1199 1499.7203,-1162 1313.7203,-1162"/>
+<text text-anchor="start" x="1324.7203" y="-1176.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_fuel_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1125 1313.7203,-1162 1499.7203,-1162 1499.7203,-1125 1313.7203,-1125"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1125 1313.7203,-1162 1499.7203,-1162 1499.7203,-1125 1313.7203,-1125"/>
+<text text-anchor="start" x="1324.7203" y="-1139.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_model_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1088 1313.7203,-1125 1499.7203,-1125 1499.7203,-1088 1313.7203,-1088"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1088 1313.7203,-1125 1499.7203,-1125 1499.7203,-1088 1313.7203,-1088"/>
+<text text-anchor="start" x="1324.7203" y="-1102.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">car_color_id (bigint)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1051 1313.7203,-1088 1499.7203,-1088 1499.7203,-1051 1313.7203,-1051"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1051 1313.7203,-1088 1499.7203,-1088 1499.7203,-1051 1313.7203,-1051"/>
+<text text-anchor="start" x="1324.7203" y="-1065.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">status (string)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-1014 1313.7203,-1051 1499.7203,-1051 1499.7203,-1014 1313.7203,-1014"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-1014 1313.7203,-1051 1499.7203,-1051 1499.7203,-1014 1313.7203,-1014"/>
+<text text-anchor="start" x="1324.7203" y="-1028.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">is_approved (boolean)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-977 1313.7203,-1014 1499.7203,-1014 1499.7203,-977 1313.7203,-977"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-977 1313.7203,-1014 1499.7203,-1014 1499.7203,-977 1313.7203,-977"/>
+<text text-anchor="start" x="1324.7203" y="-991.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">police_number (string)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-940 1313.7203,-977 1499.7203,-977 1499.7203,-940 1313.7203,-940"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-940 1313.7203,-977 1499.7203,-977 1499.7203,-940 1313.7203,-940"/>
+<text text-anchor="start" x="1324.7203" y="-954.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">year (date)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-903 1313.7203,-940 1499.7203,-940 1499.7203,-903 1313.7203,-903"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-903 1313.7203,-940 1499.7203,-940 1499.7203,-903 1313.7203,-903"/>
+<text text-anchor="start" x="1324.7203" y="-917.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">is_automatic (boolean)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-866 1313.7203,-903 1499.7203,-903 1499.7203,-866 1313.7203,-866"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-866 1313.7203,-903 1499.7203,-903 1499.7203,-866 1313.7203,-866"/>
+<text text-anchor="start" x="1324.7203" y="-880.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">capacity (boolean)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-829 1313.7203,-866 1499.7203,-866 1499.7203,-829 1313.7203,-829"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-829 1313.7203,-866 1499.7203,-866 1499.7203,-829 1313.7203,-829"/>
+<text text-anchor="start" x="1324.7203" y="-843.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">equipment (text)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-792 1313.7203,-829 1499.7203,-829 1499.7203,-792 1313.7203,-792"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-792 1313.7203,-829 1499.7203,-829 1499.7203,-792 1313.7203,-792"/>
+<text text-anchor="start" x="1324.7203" y="-806.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">created_at (datetime)</text>
+<polygon fill="#ffffff" stroke="transparent" points="1313.7203,-755 1313.7203,-792 1499.7203,-792 1499.7203,-755 1313.7203,-755"/>
+<polygon fill="none" stroke="#000000" points="1313.7203,-755 1313.7203,-792 1499.7203,-792 1499.7203,-755 1313.7203,-755"/>
+<text text-anchor="start" x="1324.7203" y="-769.8" font-family="Helvetica Neue" font-size="14.00" fill="#333333">updated_at (datetime)</text>
 </g>
 <!-- appmodelscarmake -->
 <g id="node5" class="node">
@@ -290,13 +290,13 @@
 <!-- appmodelscar&#45;&gt;appmodelscarmake -->
 <g id="edge3" class="edge">
 <title>appmodelscar:car_make_id&#45;&gt;appmodelscarmake:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1502.8362,-1264.3379C1526.0212,-1316.9388 1639.8815,-1575.2593 1656.6549,-1613.3141"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1502.7537,-1264.1506 1502.8381,-1253.185 1500.737,-1259.5753 1498.7203,-1255 1498.7203,-1255 1498.7203,-1255 1500.737,-1259.5753 1494.6026,-1256.815 1502.7537,-1264.1506 1502.7537,-1264.1506"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1662.8923,-1615.0682 1653.7417,-1619.1017 1652.935,-1617.2715 1662.0856,-1613.2381 1662.8923,-1615.0682"/>
-<polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1658.7203,-1618 1656.7036,-1613.4247 "/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1503.8105,-1264.3379C1526.8505,-1316.9388 1639.9992,-1575.2593 1656.6678,-1613.3141"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1503.7326,-1264.1598 1503.8423,-1253.1945 1501.7264,-1259.5799 1499.7203,-1255 1499.7203,-1255 1499.7203,-1255 1501.7264,-1259.5799 1495.5984,-1256.8055 1503.7326,-1264.1598 1503.7326,-1264.1598"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1662.899,-1615.0779 1653.7392,-1619.0902 1652.9367,-1617.2582 1662.0966,-1613.2459 1662.899,-1615.0779"/>
+<polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1658.7203,-1618 1656.7142,-1613.4201 "/>
 <text text-anchor="middle" x="1583.7203" y="-1451.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1543.2456" y="-1427.626" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1543.2456" y="-1412.626" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carMake</text>
+<text text-anchor="middle" x="1543.7391" y="-1427.626" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1543.7391" y="-1412.626" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carMake</text>
 </g>
 <!-- appmodelscartype -->
 <g id="node6" class="node">
@@ -321,13 +321,13 @@
 <!-- appmodelscar&#45;&gt;appmodelscartype -->
 <g id="edge4" class="edge">
 <title>appmodelscar:car_type_id&#45;&gt;appmodelscartype:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1508.0844,-1222.0667C1530.657,-1231.8696 1586.2203,-1256 1586.2203,-1256 1586.2203,-1256 1641.7281,-1336.3906 1655.6051,-1356.4883"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1507.8927,-1221.9835 1500.5129,-1213.8724 1503.3065,-1219.9917 1498.7203,-1218 1498.7203,-1218 1498.7203,-1218 1503.3065,-1219.9917 1496.9278,-1222.1276 1507.8927,-1221.9835 1507.8927,-1221.9835"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1508.9774,-1222.0667C1531.292,-1231.8696 1586.2203,-1256 1586.2203,-1256 1586.2203,-1256 1641.7281,-1336.3906 1655.6051,-1356.4883"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1508.8758,-1222.0221 1501.5303,-1213.88 1504.2981,-1220.0111 1499.7203,-1218 1499.7203,-1218 1499.7203,-1218 1504.2981,-1220.0111 1497.9104,-1222.12 1508.8758,-1222.0221 1508.8758,-1222.0221"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1662.2666,-1357.3361 1654.0376,-1363.0181 1652.9012,-1361.3723 1661.1302,-1355.6903 1662.2666,-1357.3361"/>
 <polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1658.7203,-1361 1655.8793,-1356.8855 "/>
 <text text-anchor="middle" x="1583.7203" y="-1259.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1560.2117" y="-1289.9944" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1560.2117" y="-1274.9944" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carType</text>
+<text text-anchor="middle" x="1560.4442" y="-1290.3311" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1560.4442" y="-1275.3311" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carType</text>
 </g>
 <!-- appmodelscarfuel -->
 <g id="node7" class="node">
@@ -352,13 +352,13 @@
 <!-- appmodelscar&#45;&gt;appmodelscarfuel -->
 <g id="edge5" class="edge">
 <title>appmodelscar:car_fuel_id&#45;&gt;appmodelscarfuel:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1502.3717,-1171.6171C1518.3379,-1130.5887 1581.2203,-969 1581.2203,-969 1581.2203,-969 1636.3937,-951.2021 1653.6353,-945.6403"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1502.347,-1171.6808 1494.5267,-1179.368 1500.5337,-1176.3404 1498.7203,-1181 1498.7203,-1181 1498.7203,-1181 1500.5337,-1176.3404 1502.914,-1182.632 1502.347,-1171.6808 1502.347,-1171.6808"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1503.3274,-1171.6171C1519.1002,-1130.5887 1581.2203,-969 1581.2203,-969 1581.2203,-969 1636.3937,-951.2021 1653.6353,-945.6403"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1503.3087,-1171.666 1495.52,-1179.3852 1501.5145,-1176.333 1499.7203,-1181 1499.7203,-1181 1499.7203,-1181 1501.5145,-1176.333 1503.9207,-1182.6148 1503.3087,-1171.666 1503.3087,-1171.666"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1656.2335,-939.5485 1659.3037,-949.0656 1657.4003,-949.6796 1654.3301,-940.1625 1656.2335,-939.5485"/>
 <polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1658.7203,-944 1653.9618,-945.5351 "/>
 <text text-anchor="middle" x="1583.7203" y="-972.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1592.0933" y="-1023.6538" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1592.0933" y="-1008.6538" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carFuel</text>
+<text text-anchor="middle" x="1592.4255" y="-1023.5975" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1592.4255" y="-1008.5975" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carFuel</text>
 </g>
 <!-- appmodelscarmodel -->
 <g id="node8" class="node">
@@ -386,13 +386,13 @@
 <!-- appmodelscar&#45;&gt;appmodelscarmodel -->
 <g id="edge6" class="edge">
 <title>appmodelscar:car_model_id&#45;&gt;appmodelscarmodel:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1508.9707,-1145.0774C1565.9585,-1151.0674 1841.2203,-1180 1841.2203,-1180 1841.2203,-1180 1960.8482,-1238.4136 1986.0822,-1250.7352"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1508.6656,-1145.0454 1499.1908,-1139.5247 1503.6929,-1144.5227 1498.7203,-1144 1498.7203,-1144 1498.7203,-1144 1503.6929,-1144.5227 1498.2499,-1148.4753 1508.6656,-1145.0454 1508.6656,-1145.0454"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1509.9408,-1145.0774C1566.7622,-1151.0674 1841.2203,-1180 1841.2203,-1180 1841.2203,-1180 1960.8482,-1238.4136 1986.0822,-1250.7352"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1509.6652,-1145.0485 1500.1921,-1139.5248 1504.6928,-1144.5242 1499.7203,-1144 1499.7203,-1144 1499.7203,-1144 1504.6928,-1144.5242 1499.2485,-1148.4752 1509.6652,-1145.0485 1509.6652,-1145.0485"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1992.0157,-1248.0682 1987.6278,-1257.0542 1985.8306,-1256.1766 1990.2185,-1247.1906 1992.0157,-1248.0682"/>
 <polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1990.7203,-1253 1986.2274,-1250.8061 "/>
 <text text-anchor="middle" x="1749.7203" y="-1183.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1718.7585" y="-1159.7646" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1718.7585" y="-1144.7646" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carModel</text>
+<text text-anchor="middle" x="1719.241" y="-1159.789" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1719.241" y="-1144.789" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carModel</text>
 </g>
 <!-- appmodelscarcolor -->
 <g id="node9" class="node">
@@ -417,24 +417,24 @@
 <!-- appmodelscar&#45;&gt;appmodelscarcolor -->
 <g id="edge7" class="edge">
 <title>appmodelscar:car_color_id&#45;&gt;appmodelscarcolor:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1500.5985,-1096.7556C1512.8786,-1029.773 1581.2203,-657 1581.2203,-657 1581.2203,-657 1642.6943,-553.8823 1656.1418,-531.3253"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1500.5237,-1097.1639 1494.2941,-1106.1885 1499.622,-1102.082 1498.7203,-1107 1498.7203,-1107 1498.7203,-1107 1499.622,-1102.082 1503.1466,-1107.8115 1500.5237,-1097.1639 1500.5237,-1097.1639"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1501.5757,-1096.7556C1513.707,-1029.773 1581.2203,-657 1581.2203,-657 1581.2203,-657 1642.6943,-553.8823 1656.1418,-531.3253"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1501.5025,-1097.1601 1495.2924,-1106.198 1500.6114,-1102.08 1499.7203,-1107 1499.7203,-1107 1499.7203,-1107 1500.6114,-1102.08 1504.1483,-1107.802 1501.5025,-1097.1601 1501.5025,-1097.1601"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1653.9135,-525.2986 1662.503,-530.4193 1661.4789,-532.1372 1652.8894,-527.0165 1653.9135,-525.2986"/>
 <polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1658.7203,-527 1656.16,-531.2947 "/>
 <text text-anchor="middle" x="1583.7203" y="-660.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1590.6015" y="-793.7209" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1590.6015" y="-778.7209" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carColor</text>
+<text text-anchor="middle" x="1590.9353" y="-793.6926" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1590.9353" y="-778.6926" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carColor</text>
 </g>
 <!-- appmodelscar&#45;&gt;appmodelsuser -->
 <g id="edge8" class="edge">
 <title>appmodelscar:user_id&#45;&gt;appmodelsuser:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1311.9082,-1301.8667C1296.9312,-1354.4144 1227.2203,-1599 1227.2203,-1599 1227.2203,-1599 1160.1938,-2903.2238 1155.481,-2994.927"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1311.9793,-1301.617 1319.048,-1293.2335 1313.3498,-1296.8085 1314.7203,-1292 1314.7203,-1292 1314.7203,-1292 1313.3498,-1296.8085 1310.3927,-1290.7665 1311.9793,-1301.617 1311.9793,-1301.617"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1310.9403,-1301.8667C1296.1345,-1354.4144 1227.2203,-1599 1227.2203,-1599 1227.2203,-1599 1160.1938,-2903.2238 1155.481,-2994.927"/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1311.0083,-1301.6252 1318.0517,-1293.2204 1312.3643,-1296.8126 1313.7203,-1292 1313.7203,-1292 1313.7203,-1292 1312.3643,-1296.8126 1309.389,-1290.7796 1311.0083,-1301.6252 1311.0083,-1301.6252"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1160.2651,-2999.258 1150.2783,-2998.7446 1150.381,-2996.7472 1160.3678,-2997.2607 1160.2651,-2999.258"/>
 <polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1155.2203,-3000 1155.4771,-2995.0066 "/>
 <text text-anchor="middle" x="1229.7203" y="-1602.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1162.7794" y="-2131.4839" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1162.7794" y="-2116.4839" font-family="Helvetica Neue" font-size="14.00" fill="#000000">user</text>
+<text text-anchor="middle" x="1162.7726" y="-2131.6157" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1162.7726" y="-2116.6157" font-family="Helvetica Neue" font-size="14.00" fill="#000000">user</text>
 </g>
 <!-- appmodelscarimage -->
 <g id="node11" class="node">
@@ -462,20 +462,20 @@
 <!-- appmodelscar&#45;&gt;appmodelscarimage -->
 <g id="edge9" class="edge">
 <title>appmodelscar:id&#45;&gt;appmodelscarimage:car_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1498.7203,-1329C1498.7203,-1329 1634.1213,-1791.9022 1655.8067,-1866.0388"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1655.9129,-1866.4022 1654.4013,-1877.2634 1657.3166,-1871.2011 1658.7203,-1876 1658.7203,-1876 1658.7203,-1876 1657.3166,-1871.2011 1663.0394,-1874.7366 1655.9129,-1866.4022 1655.9129,-1866.4022"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1499.7203,-1329C1499.7203,-1329 1634.2751,-1791.9022 1655.8249,-1866.0388"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1655.929,-1866.3974 1654.3992,-1877.2561 1657.3247,-1871.1987 1658.7203,-1876 1658.7203,-1876 1658.7203,-1876 1657.3247,-1871.1987 1663.0415,-1874.7439 1655.929,-1866.3974 1655.929,-1866.3974"/>
 <text text-anchor="middle" x="1583.7203" y="-1622.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1539.2635" y="-1586.3194" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1539.2635" y="-1571.3194" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carImages</text>
+<text text-anchor="middle" x="1539.7726" y="-1586.3194" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1539.7726" y="-1571.3194" font-family="Helvetica Neue" font-size="14.00" fill="#000000">carImages</text>
 </g>
 <!-- appmodelscarmake&#45;&gt;appmodelscar -->
 <g id="edge13" class="edge">
 <title>appmodelscarmake:id&#45;&gt;appmodelscar:car_make_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-1618C1658.7203,-1618 1581.2203,-1481 1581.2203,-1481 1581.2203,-1481 1517.774,-1307.1954 1502.1602,-1264.4232"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1502.1495,-1264.3937 1502.9475,-1253.4569 1500.4349,-1259.6968 1498.7203,-1255 1498.7203,-1255 1498.7203,-1255 1500.4349,-1259.6968 1494.4932,-1256.5431 1502.1495,-1264.3937 1502.1495,-1264.3937"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-1618C1658.7203,-1618 1581.2203,-1481 1581.2203,-1481 1581.2203,-1481 1518.543,-1307.1954 1503.1185,-1264.4232"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1503.1128,-1264.407 1503.9535,-1253.4734 1501.4165,-1259.7035 1499.7203,-1255 1499.7203,-1255 1499.7203,-1255 1501.4165,-1259.7035 1495.4872,-1256.5266 1503.1128,-1264.407 1503.1128,-1264.407"/>
 <text text-anchor="middle" x="1583.7203" y="-1492.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1535.6776" y="-1465.4406" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1535.6776" y="-1450.4406" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
+<text text-anchor="middle" x="1535.8675" y="-1465.5455" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1535.8675" y="-1450.5455" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
 </g>
 <!-- appmodelscarmake&#45;&gt;appmodelscarmodel -->
 <g id="edge14" class="edge">
@@ -489,29 +489,29 @@
 <!-- appmodelscartype&#45;&gt;appmodelscar -->
 <g id="edge17" class="edge">
 <title>appmodelscartype:id&#45;&gt;appmodelscar:car_type_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-1361C1658.7203,-1361 1538.3981,-1253.462 1506.4375,-1224.8972"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1506.1764,-1224.6639 1501.7191,-1214.6448 1502.4484,-1221.3319 1498.7203,-1218 1498.7203,-1218 1498.7203,-1218 1502.4484,-1221.3319 1495.7216,-1221.3552 1506.1764,-1224.6639 1506.1764,-1224.6639"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-1361C1658.7203,-1361 1539.1501,-1253.462 1507.3892,-1224.8972"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1507.1556,-1224.6871 1502.7295,-1214.6541 1503.438,-1221.3435 1499.7203,-1218 1499.7203,-1218 1499.7203,-1218 1503.438,-1221.3435 1496.7111,-1221.3459 1507.1556,-1224.6871 1507.1556,-1224.6871"/>
 <text text-anchor="middle" x="1583.7203" y="-1297.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1615.5789" y="-1311.7486" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1615.5789" y="-1296.7486" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
+<text text-anchor="middle" x="1616.0548" y="-1311.7486" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1616.0548" y="-1296.7486" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
 </g>
 <!-- appmodelscarfuel&#45;&gt;appmodelscar -->
 <g id="edge11" class="edge">
 <title>appmodelscarfuel:id&#45;&gt;appmodelscar:car_fuel_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-944C1658.7203,-944 1532.9171,-1130.346 1504.4148,-1172.565"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1504.3157,-1172.7119 1494.9907,-1178.4821 1501.518,-1176.856 1498.7203,-1181 1498.7203,-1181 1498.7203,-1181 1501.518,-1176.856 1502.45,-1183.5179 1504.3157,-1172.7119 1504.3157,-1172.7119"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-944C1658.7203,-944 1533.7034,-1130.346 1505.3792,-1172.565"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1505.2916,-1172.6957 1495.9834,-1178.4929 1502.506,-1176.8478 1499.7203,-1181 1499.7203,-1181 1499.7203,-1181 1502.506,-1176.8478 1503.4573,-1183.5071 1505.2916,-1172.6957 1505.2916,-1172.6957"/>
 <text text-anchor="middle" x="1583.7203" y="-1059.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1548.5676" y="-1077.0825" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1548.5676" y="-1062.0825" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
+<text text-anchor="middle" x="1549.0498" y="-1077.0825" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1549.0498" y="-1062.0825" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
 </g>
 <!-- appmodelscarmodel&#45;&gt;appmodelscar -->
 <g id="edge15" class="edge">
 <title>appmodelscarmodel:id&#45;&gt;appmodelscar:car_model_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1990.7203,-1253C1990.7203,-1253 1841.2203,-763 1841.2203,-763 1841.2203,-763 1658.2203,-763 1658.2203,-763 1658.2203,-763 1527.2247,-1075.9111 1502.6631,-1134.582"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1502.582,-1134.7757 1494.5694,-1142.2622 1500.6512,-1139.3878 1498.7203,-1144 1498.7203,-1144 1498.7203,-1144 1500.6512,-1139.3878 1502.8713,-1145.7378 1502.582,-1134.7757 1502.582,-1134.7757"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1990.7203,-1253C1990.7203,-1253 1841.2203,-763 1841.2203,-763 1841.2203,-763 1658.2203,-763 1658.2203,-763 1658.2203,-763 1528.046,-1075.9111 1503.6383,-1134.582"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1503.5614,-1134.7671 1495.5655,-1142.2715 1501.6409,-1139.3835 1499.7203,-1144 1499.7203,-1144 1499.7203,-1144 1501.6409,-1139.3835 1503.8752,-1145.7285 1503.5614,-1134.7671 1503.5614,-1134.7671"/>
 <text text-anchor="middle" x="1749.7203" y="-766.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1771.4553" y="-751.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1771.4553" y="-736.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
+<text text-anchor="middle" x="1771.6431" y="-751.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1771.6431" y="-736.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
 </g>
 <!-- appmodelscarmodel&#45;&gt;appmodelscarmake -->
 <g id="edge16" class="edge">
@@ -527,11 +527,11 @@
 <!-- appmodelscarcolor&#45;&gt;appmodelscar -->
 <g id="edge10" class="edge">
 <title>appmodelscarcolor:id&#45;&gt;appmodelscar:car_color_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-527C1658.7203,-527 1581.2203,-618 1581.2203,-618 1581.2203,-618 1512.2907,-1026.5645 1500.4435,-1096.7865"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1500.384,-1097.1393 1494.283,-1106.2513 1499.5522,-1102.0697 1498.7203,-1107 1498.7203,-1107 1498.7203,-1107 1499.5522,-1102.0697 1503.1576,-1107.7487 1500.384,-1097.1393 1500.384,-1097.1393"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1658.7203,-527C1658.7203,-527 1581.2203,-618 1581.2203,-618 1581.2203,-618 1513.1263,-1026.5645 1501.4226,-1096.7865"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1501.3644,-1097.1361 1495.2816,-1106.2602 1500.5424,-1102.068 1499.7203,-1107 1499.7203,-1107 1499.7203,-1107 1500.5424,-1102.068 1504.1591,-1107.7398 1501.3644,-1097.1361 1501.3644,-1097.1361"/>
 <text text-anchor="middle" x="1583.7203" y="-621.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1583.7744" y="-817.2614" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1583.7744" y="-802.2614" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
+<text text-anchor="middle" x="1584.1467" y="-817.2418" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1584.1467" y="-802.2418" font-family="Helvetica Neue" font-size="14.00" fill="#000000">cars</text>
 </g>
 <!-- appmodelsuser&#45;&gt;appmodelsarticle -->
 <g id="edge42" class="edge">
@@ -546,11 +546,11 @@
 <!-- appmodelsuser&#45;&gt;appmodelscar -->
 <g id="edge47" class="edge">
 <title>appmodelsuser:id&#45;&gt;appmodelscar:user_id</title>
-<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1155.2203,-3000C1155.2203,-3000 1227.2203,-1550 1227.2203,-1550 1227.2203,-1550 1295.7162,-1348.035 1311.5024,-1301.4883"/>
-<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1311.5085,-1301.4702 1318.9819,-1293.4453 1313.1144,-1296.7351 1314.7203,-1292 1314.7203,-1292 1314.7203,-1292 1313.1144,-1296.7351 1310.4588,-1290.5547 1311.5085,-1301.4702 1311.5085,-1301.4702"/>
+<path fill="none" stroke="#fcbf49" stroke-width="1.8" d="M1155.2203,-3000C1155.2203,-3000 1227.2203,-1550 1227.2203,-1550 1227.2203,-1550 1294.9334,-1348.035 1310.5392,-1301.4883"/>
+<polygon fill="#fcbf49" stroke="#fcbf49" stroke-width="1.8" points="1310.5415,-1301.4813 1317.9869,-1293.4305 1312.1309,-1296.7407 1313.7203,-1292 1313.7203,-1292 1313.7203,-1292 1312.1309,-1296.7407 1309.4537,-1290.5695 1310.5415,-1301.4813 1310.5415,-1301.4813"/>
 <text text-anchor="middle" x="1229.7203" y="-1553.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1164.7274" y="-2162.7541" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
-<text text-anchor="middle" x="1164.7274" y="-2147.7541" font-family="Helvetica Neue" font-size="14.00" fill="#000000">myCars</text>
+<text text-anchor="middle" x="1164.7198" y="-2162.9078" font-family="Helvetica Neue" font-size="14.00" fill="#000000">HasMany</text>
+<text text-anchor="middle" x="1164.7198" y="-2147.9078" font-family="Helvetica Neue" font-size="14.00" fill="#000000">myCars</text>
 </g>
 <!-- appmodelscourse -->
 <g id="node12" class="node">
@@ -957,13 +957,13 @@
 <!-- appmodelscarimage&#45;&gt;appmodelscar -->
 <g id="edge12" class="edge">
 <title>appmodelscarimage:car_id&#45;&gt;appmodelscar:id</title>
-<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1655.3903,-1866.375C1640.5563,-1823.5 1581.2203,-1652 1581.2203,-1652 1581.2203,-1652 1510.512,-1375.1661 1500.0162,-1334.0736"/>
+<path fill="none" stroke="#1d4ed8" stroke-width="1.8" d="M1655.3903,-1866.375C1640.5563,-1823.5 1581.2203,-1652 1581.2203,-1652 1581.2203,-1652 1511.3691,-1375.1661 1501.0005,-1334.0736"/>
 <polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1655.4506,-1866.5496 1654.4677,-1877.4714 1657.0855,-1871.2748 1658.7203,-1876 1658.7203,-1876 1658.7203,-1876 1657.0855,-1871.2748 1662.973,-1874.5286 1655.4506,-1866.5496 1655.4506,-1866.5496"/>
-<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1494.1233,-1331.2063 1503.8123,-1328.7315 1504.3073,-1330.6692 1494.6183,-1333.1441 1494.1233,-1331.2063"/>
-<polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1498.7203,-1329 1499.9578,-1333.8445 "/>
+<polygon fill="#1d4ed8" stroke="#1d4ed8" stroke-width="1.8" points="1495.1169,-1331.193 1504.8131,-1328.7463 1505.3024,-1330.6855 1495.6063,-1333.1322 1495.1169,-1331.193"/>
+<polyline fill="none" stroke="#1d4ed8" stroke-width="1.8" points="1499.7203,-1329 1500.9437,-1333.8481 "/>
 <text text-anchor="middle" x="1583.7203" y="-1667.8" font-family="Helvetica Neue" font-size="14.00" fill="#000000"> </text>
-<text text-anchor="middle" x="1532.1871" y="-1621.7304" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
-<text text-anchor="middle" x="1532.1871" y="-1606.7304" font-family="Helvetica Neue" font-size="14.00" fill="#000000">car</text>
+<text text-anchor="middle" x="1532.3595" y="-1621.8115" font-family="Helvetica Neue" font-size="14.00" fill="#000000">BelongsTo</text>
+<text text-anchor="middle" x="1532.3595" y="-1606.8115" font-family="Helvetica Neue" font-size="14.00" fill="#000000">car</text>
 </g>
 <!-- appmodelscourse&#45;&gt;appmodelscomment -->
 <g id="edge26" class="edge">

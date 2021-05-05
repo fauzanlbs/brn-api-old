@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\ImageUrlable;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -10,6 +11,7 @@ class CarImage extends Model
 {
     use HasFactory;
     use Searchable;
+    use ImageUrlable;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +26,15 @@ class CarImage extends Model
      * @var array
      */
     protected $searchableFields = ['*'];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'image_url',
+    ];
 
     /*
     |--------------------------------------------------------------------------

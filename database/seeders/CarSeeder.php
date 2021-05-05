@@ -44,7 +44,7 @@ class CarSeeder extends Seeder
             $car->is_approved = $faker->boolean();
             $car->police_number = $pn;
             $car->year = strval($faker->date('Y', now()));
-            $car->isAutomatic = $faker->boolean();
+            $car->is_automatic = $faker->boolean();
             $car->capacity = $faker->numberBetween(2, 8);
             $car->save();
 

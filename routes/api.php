@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CarColorsController;
+use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarFuelController;
 use App\Http\Controllers\CarMakeController;
 use App\Http\Controllers\CarModelController;
@@ -108,5 +109,14 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/models', [CarModelController::class, 'index']);
         Route::get('/types', [CarTypeController::class, 'index']);
         Route::get('/fuels', [CarFuelController::class, 'index']);
+    });
+
+    Route::prefix('my-cars')->group(function () {
+        Route::get('/', [CarController::class, 'getUserCars']);
+        Route::get('/{car}', [CarController::class, 'getUserCarDetail']);
+        Route::post('/', [CarController::class, 'store']);
+        Route::post('/{car}', [CarController::class, 'update']);
+        Route::delete('/{car}', [CarController::class, 'destroy']);
+        Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
 });

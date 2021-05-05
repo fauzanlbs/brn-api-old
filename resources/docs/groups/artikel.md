@@ -322,13 +322,13 @@ Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilim
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles/categories/explicabo?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
+    -G "http://api.brn.com/api/articles/categories/odio?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/categories/explicabo"
+    "http://api.brn.com/api/articles/categories/odio"
 );
 
 let params = {
@@ -359,7 +359,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles/categories/explicabo',
+    'http://api.brn.com/api/articles/categories/odio',
     [
         'headers' => [
             'Accept' => 'application/json',

@@ -21,11 +21,11 @@ class CreateCarsTable extends Migration
             $table->unsignedBigInteger('car_fuel_id');
             $table->unsignedBigInteger('car_model_id');
             $table->unsignedBigInteger('car_color_id');
-            $table->enum('status', ['active', 'lost']);
+            $table->enum('status', ['active', 'lost'])->default('active');
             $table->boolean('is_approved')->default(false);
             $table->string('police_number');
             $table->year('year');
-            $table->boolean('isAutomatic')->default(false);
+            $table->boolean('is_automatic')->default(false);
             $table->tinyInteger('capacity');
             $table->text('equipment')->nullable();
 

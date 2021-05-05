@@ -27,7 +27,7 @@ class Car extends Model
         'is_approved',
         'police_number',
         'year',
-        'isAutomatic',
+        'is_automatic',
         'capacity',
         'equipment',
     ];
@@ -41,8 +41,7 @@ class Car extends Model
 
     protected $casts = [
         'is_approved' => 'boolean',
-        'isAutomatic' => 'boolean',
-        'year' => 'date:Y-m-d',
+        'is_automatic' => 'boolean',
     ];
 
 

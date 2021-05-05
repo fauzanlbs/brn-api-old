@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "51779f22-2c0b-4a29-90d7-99c07caee56a",
+        "_postman_id": "4ca6b96d-a3aa-4d8b-b1e5-87ed0fc40d93",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "explicabo",
+                                    "value": "odio",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "explicabo",
+                                            "value": "odio",
                                             "description": ""
                                         }
                                     ]
@@ -1089,17 +1089,17 @@
                     ]
                 },
                 {
-                    "name": "Mendapatkan list data bahan bakar mobil.",
+                    "name": "Mendapatkan list data produsen mobil.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "{{baseUrl}}",
-                            "path": "api\/cars\/fuels",
+                            "path": "api\/cars\/makes",
                             "query": [
                                 {
                                     "key": "search",
-                                    "value": "Diesel",
-                                    "description": "Mencari data bahan bakar mobil.",
+                                    "value": "BMW",
+                                    "description": "Mencari data produsen mobil.",
                                     "disabled": false
                                 },
                                 {
@@ -1116,12 +1116,12 @@
                                 },
                                 {
                                     "key": "sort",
-                                    "value": "-fuel",
-                                    "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
+                                    "value": "-make",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default make.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
                         },
                         "method": "GET",
                         "header": [
@@ -1135,17 +1135,17 @@
                     },
                     "response": [
                         {
-                            "name": "Mendapatkan list data bahan bakar mobil. Response #1",
+                            "name": "Mendapatkan list data produsen mobil. Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/cars\/fuels",
+                                    "path": "api\/cars\/makes",
                                     "query": [
                                         {
                                             "key": "search",
-                                            "value": "Diesel",
-                                            "description": "Mencari data bahan bakar mobil.",
+                                            "value": "BMW",
+                                            "description": "Mencari data produsen mobil.",
                                             "disabled": false
                                         },
                                         {
@@ -1162,12 +1162,12 @@
                                         },
                                         {
                                             "key": "sort",
-                                            "value": "-fuel",
-                                            "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
+                                            "value": "-make",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default make.",
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1181,7 +1181,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Diesel\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"Gasoline\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Audi\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"BMW\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
                         }
                     ]
                 },
@@ -1392,17 +1392,17 @@
                     ]
                 },
                 {
-                    "name": "Mendapatkan list data produsen mobil.",
+                    "name": "Mendapatkan list data bahan bakar mobil.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "{{baseUrl}}",
-                            "path": "api\/cars\/makes",
+                            "path": "api\/cars\/fuels",
                             "query": [
                                 {
                                     "key": "search",
-                                    "value": "BMW",
-                                    "description": "Mencari data produsen mobil.",
+                                    "value": "Diesel",
+                                    "description": "Mencari data bahan bakar mobil.",
                                     "disabled": false
                                 },
                                 {
@@ -1419,12 +1419,12 @@
                                 },
                                 {
                                     "key": "sort",
-                                    "value": "-make",
-                                    "description": "Menyortir data ( key_name \/ -key_name ), default make.",
+                                    "value": "-fuel",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
                         },
                         "method": "GET",
                         "header": [
@@ -1438,17 +1438,17 @@
                     },
                     "response": [
                         {
-                            "name": "Mendapatkan list data produsen mobil. Response #1",
+                            "name": "Mendapatkan list data bahan bakar mobil. Response #1",
                             "originalRequest": {
                                 "url": {
                                     "protocol": "http",
                                     "host": "{{baseUrl}}",
-                                    "path": "api\/cars\/makes",
+                                    "path": "api\/cars\/fuels",
                                     "query": [
                                         {
                                             "key": "search",
-                                            "value": "BMW",
-                                            "description": "Mencari data produsen mobil.",
+                                            "value": "Diesel",
+                                            "description": "Mencari data bahan bakar mobil.",
                                             "disabled": false
                                         },
                                         {
@@ -1465,12 +1465,12 @@
                                         },
                                         {
                                             "key": "sort",
-                                            "value": "-make",
-                                            "description": "Menyortir data ( key_name \/ -key_name ), default make.",
+                                            "value": "-fuel",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default fuel.",
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1484,7 +1484,539 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Audi\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"BMW\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/makes\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"fuel\": \"Diesel\"\n        },\n        {\n            \"id\": 2,\n            \"fuel\": \"Gasoline\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/cars\\\/fuels\",\n        \"per_page\": 15,\n        \"to\": 2\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan list data mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Avansa",
+                                    "description": "Mencari data mobil pengguna saat ini.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "include",
+                                    "value": "carImages",
+                                    "description": "Include akan memuat relasi, relasi yang tersedia:  #1 carMake : Produsen mobil.  #2 carType : Jenis kelas.  #3 carFuel : Bahan bakar.  #4 carModel : Model mobil.  #5 carColor : Warna.  #6 carImages : List gambar mobil. Untuk multiple include Anda cukup menambahkan koma (,).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bstatus%5D",
+                                    "value": "lost",
+                                    "description": "Penyortiran berdasarkan status.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bis_approved%5D",
+                                    "value": "true",
+                                    "description": "Penyortiran berdasarkan diterima (1=true 0=false).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bpolice_number%5D",
+                                    "value": "Y+3168+XP",
+                                    "description": "Penyortiran berdasarkan nomor polisi.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Byear%5D",
+                                    "value": "2015",
+                                    "description": "Penyortiran berdasarkan tahun mobil.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bis_automatic%5D",
+                                    "value": "true",
+                                    "description": "Penyortiran berdasarkan is automatic (1=true 0=false).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcapacity%5D",
+                                    "value": "4",
+                                    "description": "Penyortiran berdasarkan kapasitas.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bequipment%5D",
+                                    "value": "nihil",
+                                    "description": "Penyortiran berdasarkan equipment.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=nihil&filter%5Bcreated_at%5D=2020-12-24"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Avansa",
+                                            "description": "Mencari data mobil pengguna saat ini.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "include",
+                                            "value": "carImages",
+                                            "description": "Include akan memuat relasi, relasi yang tersedia:  #1 carMake : Produsen mobil.  #2 carType : Jenis kelas.  #3 carFuel : Bahan bakar.  #4 carModel : Model mobil.  #5 carColor : Warna.  #6 carImages : List gambar mobil. Untuk multiple include Anda cukup menambahkan koma (,).",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bstatus%5D",
+                                            "value": "lost",
+                                            "description": "Penyortiran berdasarkan status.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bis_approved%5D",
+                                            "value": "true",
+                                            "description": "Penyortiran berdasarkan diterima (1=true 0=false).",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bpolice_number%5D",
+                                            "value": "Y+3168+XP",
+                                            "description": "Penyortiran berdasarkan nomor polisi.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Byear%5D",
+                                            "value": "2015",
+                                            "description": "Penyortiran berdasarkan tahun mobil.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bis_automatic%5D",
+                                            "value": "true",
+                                            "description": "Penyortiran berdasarkan is automatic (1=true 0=false).",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcapacity%5D",
+                                            "value": "4",
+                                            "description": "Penyortiran berdasarkan kapasitas.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bequipment%5D",
+                                            "value": "nihil",
+                                            "description": "Penyortiran berdasarkan equipment.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=nihil&filter%5Bcreated_at%5D=2020-12-24"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 24,\n            \"user_id\": 1,\n            \"status\": \"lost\",\n            \"is_approved\": true,\n            \"police_number\": \"K 7998 UG\",\n            \"year\": 1984,\n            \"is_automatic\": false,\n            \"capacity\": 2,\n            \"equipment\": null,\n            \"created_at\": \"2021-05-05T12:26:50.000000Z\",\n            \"updated_at\": \"2021-05-05T12:26:50.000000Z\",\n            \"car_make\": {\n                \"id\": 3,\n                \"make\": \"BMW\"\n            },\n            \"car_type\": {\n                \"id\": 1,\n                \"class\": \"Premium\"\n            },\n            \"car_fuel\": {\n                \"id\": 3,\n                \"fuel\": \"Electric\"\n            },\n            \"car_model\": {\n                \"id\": 1,\n                \"car_make_id\": 1,\n                \"model\": \"A4\"\n            },\n            \"car_color\": {\n                \"id\": 1,\n                \"color\": \"Phantom Black\"\n            },\n            \"car_images\": [\n                {\n                    \"id\": 47,\n                    \"car_id\": 24,\n                    \"image\": \"\\\/cars\\\/628078224-K7998UG.png\",\n                    \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/cars\\\/628078224-K7998UG.png\"\n                },\n                {\n                    \"id\": 48,\n                    \"car_id\": 24,\n                    \"image\": \"\\\/cars\\\/194609309-K7998UG.png\",\n                    \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/cars\\\/194609309-K7998UG.png\"\n                }\n            ]\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-cars\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan detail data mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars\/:car",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "variable": [
+                                {
+                                    "id": "car",
+                                    "key": "car",
+                                    "value": "1",
+                                    "description": "valid id car."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan detail data mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars\/:car",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "variable": [
+                                        {
+                                            "id": "car",
+                                            "key": "car",
+                                            "value": "1",
+                                            "description": "valid id car."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 24,\n        \"user_id\": 1,\n        \"status\": \"lost\",\n        \"is_approved\": true,\n        \"police_number\": \"K 7998 UG\",\n        \"year\": 1984,\n        \"is_automatic\": false,\n        \"capacity\": 2,\n        \"equipment\": null,\n        \"created_at\": \"2021-05-05T12:26:50.000000Z\",\n        \"updated_at\": \"2021-05-05T12:26:50.000000Z\",\n        \"car_make\": {\n            \"id\": 3,\n            \"make\": \"BMW\"\n        },\n        \"car_type\": {\n            \"id\": 1,\n            \"class\": \"Premium\"\n        },\n        \"car_fuel\": {\n            \"id\": 3,\n            \"fuel\": \"Electric\"\n        },\n        \"car_model\": {\n            \"id\": 1,\n            \"car_make_id\": 1,\n            \"model\": \"A4\"\n        },\n        \"car_color\": {\n            \"id\": 1,\n            \"color\": \"Phantom Black\"\n        },\n        \"car_images\": [\n            {\n                \"id\": 47,\n                \"car_id\": 24,\n                \"image\": \"\\\/cars\\\/628078224-K7998UG.png\",\n                \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/cars\\\/628078224-K7998UG.png\"\n            },\n            {\n                \"id\": 48,\n                \"car_id\": 24,\n                \"image\": \"\\\/cars\\\/194609309-K7998UG.png\",\n                \"image_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/cars\\\/194609309-K7998UG.png\"\n            }\n        ]\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahkan mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"praesentium\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                        },
+                        "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahkan mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"praesentium\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                                },
+                                "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"some message\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Memperbaharui salah satu mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars\/:car",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "variable": [
+                                {
+                                    "id": "car",
+                                    "key": "car",
+                                    "value": "1",
+                                    "description": "valid id car. Defaults to 'id'."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"non\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                        },
+                        "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Memperbaharui salah satu mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars\/:car",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "variable": [
+                                        {
+                                            "id": "car",
+                                            "key": "car",
+                                            "value": "1",
+                                            "description": "valid id car. Defaults to 'id'."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"non\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                                },
+                                "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"some message\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menghapus salah satu mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars\/:car",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "variable": [
+                                {
+                                    "id": "car",
+                                    "key": "car",
+                                    "value": "1",
+                                    "description": "valid id car. Defaults to 'id'."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Menghapus salah satu mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars\/:car",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "variable": [
+                                        {
+                                            "id": "car",
+                                            "key": "car",
+                                            "value": "1",
+                                            "description": "valid id car. Defaults to 'id'."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"some message\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menghapus salah satu gambar mobil pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-cars\/car-images\/:carImage",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
+                            "variable": [
+                                {
+                                    "id": "carImage",
+                                    "key": "carImage",
+                                    "value": "1",
+                                    "description": "valid id carImage. Defaults to 'id'."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Menghapus salah satu gambar mobil pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-cars\/car-images\/:carImage",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
+                                    "variable": [
+                                        {
+                                            "id": "carImage",
+                                            "key": "carImage",
+                                            "value": "1",
+                                            "description": "valid id carImage. Defaults to 'id'."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"some message\"\n}"
                         }
                     ]
                 }
@@ -3456,7 +3988,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-04T14:21:29.397075Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-05T15:31:53.187702Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }
