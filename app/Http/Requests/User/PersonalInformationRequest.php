@@ -10,6 +10,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam gender string Jenis kelamin (male, female). Example: male
  * @bodyParam place_of_birth string Tempat lahir. Example: Jakarta
  * @bodyParam date_of_birth string Tanggal lahir. Example: 2002-12-25
+ * @bodyParam company_name string nama perusahaan. Example: Neosantara
+ * @bodyParam company_logo file logo perusahaan.
+ * @bodyParam siupsku_number string nomor siupsku. Example: 123123
+ * @bodyParam siupsku_image file gambar siupsku.
  */
 class PersonalInformationRequest extends FormRequest
 {
@@ -26,6 +30,10 @@ class PersonalInformationRequest extends FormRequest
             'gender' => 'nullable|in:male,female',
             'place_of_birth' => 'nullable|max:45',
             'date_of_birth' => 'nullable|date_format:Y-m-d',
+            'company_name' => 'nullable|string|max:255',
+            'company_logo' => 'nullable|image|max:5000',
+            'siupsku_number' => 'nullable|string|max:255',
+            'siupsku_image' => 'nullable|image|max:5000',
         ];
     }
 }

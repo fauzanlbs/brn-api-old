@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "4ca6b96d-a3aa-4d8b-b1e5-87ed0fc40d93",
+        "_postman_id": "5309b9ac-0388-4c6b-b779-8d46699d9599",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "odio",
+                                    "value": "et",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "odio",
+                                            "value": "et",
                                             "description": ""
                                         }
                                     ]
@@ -1564,7 +1564,7 @@
                                 },
                                 {
                                     "key": "filter%5Bequipment%5D",
-                                    "value": "nihil",
+                                    "value": "quo",
                                     "description": "Penyortiran berdasarkan equipment.",
                                     "disabled": false
                                 },
@@ -1575,7 +1575,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=nihil&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=quo&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -1664,7 +1664,7 @@
                                         },
                                         {
                                             "key": "filter%5Bequipment%5D",
-                                            "value": "nihil",
+                                            "value": "quo",
                                             "description": "Penyortiran berdasarkan equipment.",
                                             "disabled": false
                                         },
@@ -1675,7 +1675,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=nihil&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=quo&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1779,7 +1779,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"praesentium\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"quia\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                     },
@@ -1807,7 +1807,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"praesentium\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"quia\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                             },
@@ -1848,7 +1848,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"non\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"voluptas\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                     },
@@ -1884,7 +1884,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"non\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"voluptas\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                             },
@@ -3988,7 +3988,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-05T15:31:53.187702Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-05T16:25:58.904349Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }
