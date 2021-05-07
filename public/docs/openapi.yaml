@@ -267,7 +267,7 @@ paths:
                 in: path
                 name: slug
                 description: ''
-                example: et
+                example: modi
                 required: true
                 schema:
                     type: string
@@ -1131,12 +1131,12 @@ paths:
                     in: query
                     name: 'filter[equipment]'
                     description: 'Penyortiran berdasarkan equipment.'
-                    example: quo
+                    example: ut
                     required: false
                     schema:
                         type: string
                         description: 'Penyortiran berdasarkan equipment.'
-                        example: quo
+                        example: ut
                 -
                     in: query
                     name: 'filter[created_at]'
@@ -1211,9 +1211,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'some message'
+                                    message: ...
                                 properties:
-                                    message: { type: string, example: 'some message' }
+                                    message: { type: string, example: ... }
             tags:
                 - 'Kelola Mobil'
             requestBody:
@@ -1262,7 +1262,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: quia
+                                    example: fuga
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -1338,9 +1338,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'some message'
+                                    message: ...
                                 properties:
-                                    message: { type: string, example: 'some message' }
+                                    message: { type: string, example: ... }
             tags:
                 - 'Kelola Mobil'
             requestBody:
@@ -1389,7 +1389,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: voluptas
+                                    example: iure
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -1426,9 +1426,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'some message'
+                                    message: ...
                                 properties:
-                                    message: { type: string, example: 'some message' }
+                                    message: { type: string, example: ... }
             tags:
                 - 'Kelola Mobil'
         parameters:
@@ -1467,9 +1467,9 @@ paths:
                             schema:
                                 type: object
                                 example:
-                                    message: 'some message'
+                                    message: ...
                                 properties:
-                                    message: { type: string, example: 'some message' }
+                                    message: { type: string, example: ... }
             tags:
                 - 'Kelola Mobil'
         parameters:
@@ -2621,6 +2621,263 @@ paths:
                 required: true
                 schema:
                     type: integer
+    /api/my-case-reports:
+        get:
+            summary: 'Mendapatkan list data laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data laporan kasus pengguna saat ini.'
+                    example: Avansa
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data laporan kasus pengguna saat ini.'
+                        example: Avansa
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: query
+                    name: include
+                    description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
+                    example: voluptas
+                    required: false
+                    schema:
+                        type: string
+                        description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
+                        example: voluptas
+                -
+                    in: query
+                    name: 'filter[status]'
+                    description: 'Penyortiran berdasarkan status (pending, verified, progress, completed).'
+                    example: pending
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan status (pending, verified, progress, completed).'
+                        example: pending
+                -
+                    in: query
+                    name: 'filter[request_delete]'
+                    description: 'Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).'
+                    example: 1
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).'
+                        example: 1
+                -
+                    in: query
+                    name: 'filter[created_at]'
+                    description: 'Penyortiran berdasarkan tanggal dibuat.'
+                    example: '2020-12-24'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tanggal dibuat.'
+                        example: '2020-12-24'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }]
+                                    links: { first: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-case-report', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-case-report', per_page: 15, to: 15 } }
+            tags:
+                - 'Laporan kasus'
+        post:
+            summary: 'Menambahkan laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Laporan kasus'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                car_id:
+                                    type: integer
+                                    description: 'valid id <b>car</b>.'
+                                    example: 1
+                                location:
+                                    type: string
+                                    description: 'lokasi (lat, long).'
+                                    example: '31.2467601,29.9020376'
+                                chronology:
+                                    type: string
+                                    description: kronologi.
+                                    example: nostrum
+                                perpetrator:
+                                    type: object
+                                    description: Pelaku.
+                                    example: []
+                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: ratione } }
+                            required:
+                                - car_id
+                                - location
+                                - chronology
+                                - perpetrator
+    '/api/my-case-reports/{caseReport}':
+        get:
+            summary: 'Mendapatkan detail data laporan kasus pengguna saat ini.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }
+                                    message: 'Berhasil menambahkan laporan kasus.'
+                                properties:
+                                    data: { type: object, example: { id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } } }
+                                    message: { type: string, example: 'Berhasil menambahkan laporan kasus.' }
+            tags:
+                - 'Laporan kasus'
+        delete:
+            summary: 'Batalkan laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Laporan kasus'
+        parameters:
+            -
+                in: path
+                name: caseReport
+                description: 'valid id caseReport.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
     /api/point/missions:
         get:
             summary: 'Mendapatkan list data misi.'
@@ -2714,11 +2971,11 @@ paths:
                                 type: object
                                 example:
                                     status: ok
-                                    timestamp: '2021-05-05T16:25:58.904349Z'
+                                    timestamp: '2021-05-07T16:26:18.837970Z'
                                     host: 127.0.0.1
                                 properties:
                                     status: { type: string, example: ok }
-                                    timestamp: { type: string, example: '2021-05-05T16:25:58.904349Z' }
+                                    timestamp: { type: string, example: '2021-05-07T16:26:18.837970Z' }
                                     host: { type: string, example: 127.0.0.1 }
             tags:
                 - Server

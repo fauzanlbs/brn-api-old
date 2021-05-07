@@ -8,6 +8,7 @@ use App\Http\Controllers\CarFuelController;
 use App\Http\Controllers\CarMakeController;
 use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\CarTypeController;
+use App\Http\Controllers\CaseReportController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
@@ -118,5 +119,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::post('/{car}', [CarController::class, 'update']);
         Route::delete('/{car}', [CarController::class, 'destroy']);
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
+    });
+
+    Route::prefix('my-case-reports')->group(function () {
+        Route::get('/', [CaseReportController::class, 'getUserCaseReports']);
+        Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
+        Route::post('/', [CaseReportController::class, 'store']);
+        Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
     });
 });

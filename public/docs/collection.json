@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "5309b9ac-0388-4c6b-b779-8d46699d9599",
+        "_postman_id": "d7a521be-14f8-4fc6-b7d3-136f4924d968",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "et",
+                                    "value": "modi",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "et",
+                                            "value": "modi",
                                             "description": ""
                                         }
                                     ]
@@ -1564,7 +1564,7 @@
                                 },
                                 {
                                     "key": "filter%5Bequipment%5D",
-                                    "value": "quo",
+                                    "value": "ut",
                                     "description": "Penyortiran berdasarkan equipment.",
                                     "disabled": false
                                 },
@@ -1575,7 +1575,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=quo&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=ut&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -1664,7 +1664,7 @@
                                         },
                                         {
                                             "key": "filter%5Bequipment%5D",
-                                            "value": "quo",
+                                            "value": "ut",
                                             "description": "Penyortiran berdasarkan equipment.",
                                             "disabled": false
                                         },
@@ -1675,7 +1675,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=quo&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=ut&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1779,7 +1779,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"quia\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"fuga\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                     },
@@ -1807,13 +1807,13 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"quia\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"fuga\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"message\": \"some message\"\n}"
+                            "body": "{\n    \"message\": \"...\"\n}"
                         }
                     ]
                 },
@@ -1848,7 +1848,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"voluptas\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"iure\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                     },
@@ -1884,13 +1884,13 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"voluptas\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"iure\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"message\": \"some message\"\n}"
+                            "body": "{\n    \"message\": \"...\"\n}"
                         }
                     ]
                 },
@@ -1953,7 +1953,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"message\": \"some message\"\n}"
+                            "body": "{\n    \"message\": \"...\"\n}"
                         }
                     ]
                 },
@@ -2016,7 +2016,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"message\": \"some message\"\n}"
+                            "body": "{\n    \"message\": \"...\"\n}"
                         }
                     ]
                 }
@@ -3836,6 +3836,344 @@
             ]
         },
         {
+            "name": "Laporan kasus",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data laporan kasus pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-case-reports",
+                            "query": [
+                                {
+                                    "key": "search",
+                                    "value": "Avansa",
+                                    "description": "Mencari data laporan kasus pengguna saat ini.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bnumber%5D",
+                                    "value": "1",
+                                    "description": "Menyesuaikan URI paginator.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "page%5Bsize%5D",
+                                    "value": "2",
+                                    "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "sort",
+                                    "value": "created_at",
+                                    "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "include",
+                                    "value": "voluptas",
+                                    "description": "Include akan memuat relasi, relasi yang tersedia:\n #1 in-charge : Penanggung jawab kasus.  #1 car : Mobil, Anda bisa mengabukannya dengan (car-make, car-type, car-fuel, car-model, car-color, car-images). contoh car.car-color.  #1 perpetrator : tersangka.",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bstatus%5D",
+                                    "value": "pending",
+                                    "description": "Penyortiran berdasarkan status (pending, verified, progress, completed).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Brequest_delete%5D",
+                                    "value": "1",
+                                    "description": "Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "filter%5Bcreated_at%5D",
+                                    "value": "2020-12-24",
+                                    "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                    "disabled": false
+                                }
+                            ],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=voluptas&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan list data laporan kasus pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-case-reports",
+                                    "query": [
+                                        {
+                                            "key": "search",
+                                            "value": "Avansa",
+                                            "description": "Mencari data laporan kasus pengguna saat ini.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bnumber%5D",
+                                            "value": "1",
+                                            "description": "Menyesuaikan URI paginator.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "page%5Bsize%5D",
+                                            "value": "2",
+                                            "description": "Menyesuaikan jumlah data yang ditampilkan.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "sort",
+                                            "value": "created_at",
+                                            "description": "Menyortir data ( key_name \/ -key_name ), default -created_at.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "include",
+                                            "value": "voluptas",
+                                            "description": "Include akan memuat relasi, relasi yang tersedia:\n #1 in-charge : Penanggung jawab kasus.  #1 car : Mobil, Anda bisa mengabukannya dengan (car-make, car-type, car-fuel, car-model, car-color, car-images). contoh car.car-color.  #1 perpetrator : tersangka.",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bstatus%5D",
+                                            "value": "pending",
+                                            "description": "Penyortiran berdasarkan status (pending, verified, progress, completed).",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Brequest_delete%5D",
+                                            "value": "1",
+                                            "description": "Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).",
+                                            "disabled": false
+                                        },
+                                        {
+                                            "key": "filter%5Bcreated_at%5D",
+                                            "value": "2020-12-24",
+                                            "description": "Penyortiran berdasarkan tanggal dibuat.",
+                                            "disabled": false
+                                        }
+                                    ],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=voluptas&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": [\n        {\n            \"id\": 3,\n            \"user_id\": 1,\n            \"car_id\": 1,\n            \"in_charge_id\": null,\n            \"latitude\": 31.25,\n            \"longitude\": 29.9,\n            \"chronology\": \"quo\",\n            \"status\": \"pending\",\n            \"request_delete\": false,\n            \"created_at\": \"2021-05-07T15:18:57.000000Z\",\n            \"updated_at\": \"2021-05-07T15:18:57.000000Z\",\n            \"perpetrator\": {\n                \"id\": 3,\n                \"case_report_id\": 3,\n                \"nik\": \"123123123213123123123123\",\n                \"name\": \"Arya\",\n                \"phone_number\": \"08213123123\",\n                \"address\": \"Jalan letkol\",\n                \"profile_photo_path\": \"perpetrator\\\/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg\",\n                \"information\": \"asdasdasd\",\n                \"created_at\": \"2021-05-07T15:18:57.000000Z\",\n                \"updated_at\": \"2021-05-07T15:18:57.000000Z\",\n                \"profile_photo_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/perpetrator\\\/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-case-report?page%5Bnumber%5D=1\",\n        \"last\": null,\n        \"prev\": null,\n        \"next\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-case-report?page%5Bnumber%5D=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"path\": \"http:\\\/\\\/api.brn.com\\\/api\\\/my-case-report\",\n        \"per_page\": 15,\n        \"to\": 15\n    }\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Mendapatkan detail data laporan kasus pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-case-reports\/:caseReport",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                            "variable": [
+                                {
+                                    "id": "caseReport",
+                                    "key": "caseReport",
+                                    "value": "1",
+                                    "description": "valid id caseReport."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "name": "Mendapatkan detail data laporan kasus pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-case-reports\/:caseReport",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                                    "variable": [
+                                        {
+                                            "id": "caseReport",
+                                            "key": "caseReport",
+                                            "value": "1",
+                                            "description": "valid id caseReport."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"data\": {\n        \"id\": 3,\n        \"user_id\": 1,\n        \"car_id\": 1,\n        \"in_charge_id\": null,\n        \"latitude\": 31.25,\n        \"longitude\": 29.9,\n        \"chronology\": \"quo\",\n        \"status\": \"pending\",\n        \"request_delete\": false,\n        \"created_at\": \"2021-05-07T15:18:57.000000Z\",\n        \"updated_at\": \"2021-05-07T15:18:57.000000Z\",\n        \"perpetrator\": {\n            \"id\": 3,\n            \"case_report_id\": 3,\n            \"nik\": \"123123123213123123123123\",\n            \"name\": \"Arya\",\n            \"phone_number\": \"08213123123\",\n            \"address\": \"Jalan letkol\",\n            \"profile_photo_path\": \"perpetrator\\\/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg\",\n            \"information\": \"asdasdasd\",\n            \"created_at\": \"2021-05-07T15:18:57.000000Z\",\n            \"updated_at\": \"2021-05-07T15:18:57.000000Z\",\n            \"profile_photo_url\": \"http:\\\/\\\/api.brn.com\\\/storage\\\/perpetrator\\\/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg\"\n        }\n    },\n    \"message\": \"Berhasil menambahkan laporan kasus.\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Menambahkan laporan kasus pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-case-reports",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"nostrum\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"ratione\"\n    }\n}"
+                        },
+                        "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
+                    },
+                    "response": [
+                        {
+                            "name": "Menambahkan laporan kasus pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-case-reports",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"nostrum\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"ratione\"\n    }\n}"
+                                },
+                                "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"...\"\n}"
+                        }
+                    ]
+                },
+                {
+                    "name": "Batalkan laporan kasus pengguna saat ini.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/my-case-reports\/:caseReport",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                            "variable": [
+                                {
+                                    "id": "caseReport",
+                                    "key": "caseReport",
+                                    "value": "1",
+                                    "description": "valid id caseReport. Defaults to 'id'."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController."
+                    },
+                    "response": [
+                        {
+                            "name": "Batalkan laporan kasus pengguna saat ini. Response #1",
+                            "originalRequest": {
+                                "url": {
+                                    "protocol": "http",
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/my-case-reports\/:caseReport",
+                                    "query": [],
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                                    "variable": [
+                                        {
+                                            "id": "caseReport",
+                                            "key": "caseReport",
+                                            "value": "1",
+                                            "description": "valid id caseReport. Defaults to 'id'."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": "Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController."
+                            },
+                            "header": null,
+                            "cookie": [],
+                            "body": "{\n    \"message\": \"...\"\n}"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "Point",
             "description": "",
             "item": [
@@ -3988,7 +4326,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-05T16:25:58.904349Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-07T16:26:18.837970Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }
