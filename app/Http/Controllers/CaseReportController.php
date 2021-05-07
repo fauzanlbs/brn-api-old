@@ -8,6 +8,7 @@ use App\Models\Car;
 use App\Models\CaseReport;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
+use Propaganistas\LaravelPhone\PhoneNumber;
 use Spatie\QueryBuilder\QueryBuilder;
 
 /**
@@ -123,6 +124,7 @@ class CaseReportController extends Controller
         }
 
         $validated = $request->validated();
+        $validated['perpetrator']['phone_number'] = PhoneNumber::make($validated['perpetrator']['phone_number'], 'ID');
         $validated['user_id'] = $request->user()->id;
 
         $perpetratorRequest = $validated['perpetrator'];

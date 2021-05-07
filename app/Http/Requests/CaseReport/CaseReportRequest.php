@@ -4,7 +4,6 @@ namespace App\Http\Requests\CaseReport;
 
 use App\Rules\Location;
 use Illuminate\Foundation\Http\FormRequest;
-use Propaganistas\LaravelPhone\PhoneNumber;
 
 /**
  * @bodyParam car_id int required valid id <b>car</b>. Example: 1
@@ -20,18 +19,6 @@ use Propaganistas\LaravelPhone\PhoneNumber;
  */
 class CaseReportRequest extends FormRequest
 {
-    /**
-     * Prepare the data for validation.
-     *
-     * @return void
-     */
-    protected function prepareForValidation()
-    {
-        $this->merge([
-            'perpetrator.phone_number' => PhoneNumber::make($this->phone_number, 'ID'),
-        ]);
-    }
-
     /**
      * Get the validation rules that apply to the request.
      *
