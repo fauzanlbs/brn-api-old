@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Buser Rent Car Nasional",
-        "_postman_id": "d7a521be-14f8-4fc6-b7d3-136f4924d968",
+        "_postman_id": "54a31109-ea24-44fb-9072-29b8a1065d3d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -301,7 +301,7 @@
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "modi",
+                                    "value": "deserunt",
                                     "description": ""
                                 }
                             ]
@@ -382,7 +382,7 @@
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "modi",
+                                            "value": "deserunt",
                                             "description": ""
                                         }
                                     ]
@@ -1564,7 +1564,7 @@
                                 },
                                 {
                                     "key": "filter%5Bequipment%5D",
-                                    "value": "ut",
+                                    "value": "illo",
                                     "description": "Penyortiran berdasarkan equipment.",
                                     "disabled": false
                                 },
@@ -1575,7 +1575,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=ut&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=illo&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -1664,7 +1664,7 @@
                                         },
                                         {
                                             "key": "filter%5Bequipment%5D",
-                                            "value": "ut",
+                                            "value": "illo",
                                             "description": "Penyortiran berdasarkan equipment.",
                                             "disabled": false
                                         },
@@ -1675,7 +1675,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=ut&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=illo&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1779,7 +1779,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"fuga\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"esse\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                     },
@@ -1807,7 +1807,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"fuga\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"esse\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                             },
@@ -1848,7 +1848,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"iure\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"maxime\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                     },
@@ -1884,7 +1884,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"iure\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"maxime\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                             },
@@ -3873,7 +3873,7 @@
                                 },
                                 {
                                     "key": "include",
-                                    "value": "voluptas",
+                                    "value": "et",
                                     "description": "Include akan memuat relasi, relasi yang tersedia:\n #1 in-charge : Penanggung jawab kasus.  #1 car : Mobil, Anda bisa mengabukannya dengan (car-make, car-type, car-fuel, car-model, car-color, car-images). contoh car.car-color.  #1 perpetrator : tersangka.",
                                     "disabled": false
                                 },
@@ -3896,7 +3896,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=voluptas&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -3943,7 +3943,7 @@
                                         },
                                         {
                                             "key": "include",
-                                            "value": "voluptas",
+                                            "value": "et",
                                             "description": "Include akan memuat relasi, relasi yang tersedia:\n #1 in-charge : Penanggung jawab kasus.  #1 car : Mobil, Anda bisa mengabukannya dengan (car-make, car-type, car-fuel, car-model, car-color, car-images). contoh car.car-color.  #1 perpetrator : tersangka.",
                                             "disabled": false
                                         },
@@ -3966,7 +3966,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=voluptas&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -4070,7 +4070,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"nostrum\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"ratione\"\n    }\n}"
+                            "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"molestiae\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"soluta\"\n    }\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
                     },
@@ -4098,7 +4098,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"nostrum\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"ratione\"\n    }\n}"
+                                    "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"molestiae\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"soluta\"\n    }\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
                             },
@@ -4170,6 +4170,37 @@
                             "body": "{\n    \"message\": \"...\"\n}"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "name": "Onboarding",
+            "description": "",
+            "item": [
+                {
+                    "name": "Mendapatkan list data onboarding.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "{{baseUrl}}",
+                            "path": "api\/onboardings",
+                            "query": [],
+                            "raw": "http:\/\/{{baseUrl}}\/api\/onboardings"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         },
@@ -4326,7 +4357,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-07T16:26:18.837970Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-07T16:52:30.074215Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }

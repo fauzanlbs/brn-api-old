@@ -267,7 +267,7 @@ paths:
                 in: path
                 name: slug
                 description: ''
-                example: modi
+                example: deserunt
                 required: true
                 schema:
                     type: string
@@ -1131,12 +1131,12 @@ paths:
                     in: query
                     name: 'filter[equipment]'
                     description: 'Penyortiran berdasarkan equipment.'
-                    example: ut
+                    example: illo
                     required: false
                     schema:
                         type: string
                         description: 'Penyortiran berdasarkan equipment.'
-                        example: ut
+                        example: illo
                 -
                     in: query
                     name: 'filter[created_at]'
@@ -1262,7 +1262,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: fuga
+                                    example: esse
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -1389,7 +1389,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: iure
+                                    example: maxime
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -2670,12 +2670,12 @@ paths:
                     in: query
                     name: include
                     description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
-                    example: voluptas
+                    example: et
                     required: false
                     schema:
                         type: string
                         description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
-                        example: voluptas
+                        example: et
                 -
                     in: query
                     name: 'filter[status]'
@@ -2793,12 +2793,12 @@ paths:
                                 chronology:
                                     type: string
                                     description: kronologi.
-                                    example: nostrum
+                                    example: molestiae
                                 perpetrator:
                                     type: object
                                     description: Pelaku.
                                     example: []
-                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: ratione } }
+                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: soluta } }
                             required:
                                 - car_id
                                 - location
@@ -2878,6 +2878,22 @@ paths:
                 required: true
                 schema:
                     type: integer
+    /api/onboardings:
+        get:
+            summary: 'Mendapatkan list data onboarding.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Onboarding
+            security: []
     /api/point/missions:
         get:
             summary: 'Mendapatkan list data misi.'
@@ -2971,11 +2987,11 @@ paths:
                                 type: object
                                 example:
                                     status: ok
-                                    timestamp: '2021-05-07T16:26:18.837970Z'
+                                    timestamp: '2021-05-07T16:52:30.074215Z'
                                     host: 127.0.0.1
                                 properties:
                                     status: { type: string, example: ok }
-                                    timestamp: { type: string, example: '2021-05-07T16:26:18.837970Z' }
+                                    timestamp: { type: string, example: '2021-05-07T16:52:30.074215Z' }
                                     host: { type: string, example: 127.0.0.1 }
             tags:
                 - Server

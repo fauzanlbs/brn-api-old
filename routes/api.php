@@ -15,6 +15,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,10 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// Onboarding
+Route::get('/onboardings', [OnboardingController::class, 'index']);
+
 
 // Aboout
 Route::get('/about', [AboutController::class, 'getAbout']);

@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\CarModel;
 use Illuminate\Database\Seeder;
 use Illuminate\Filesystem\Filesystem;
 
@@ -21,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([
+            OnboardingSeeder::class,
             AboutSeeder::class,
             PointSeeder::class,
             RoleSeeder::class,
