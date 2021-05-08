@@ -147,53 +147,6 @@ return [
     */
 
     'attributes' => [
-
-        // Academy Class
-        'class.name' => 'Nama kelas',
-        'class.skill_competence' => 'Skil kopentensi kelas',
-        'class.status' => 'Status kelas',
-        'class.school_year_id' => 'tahun ajaran kelas',
-
-        // User
-        'user.name' => 'Nama',
-        'user.email' => "Alamat Email",
-        'user.status_code' => 'Status',
-        'user.personal_information.phone_number' => 'Nomor telepon',
-        'user.personal_information.gender' => 'Jenis kelamin',
-        'user.personal_information.place_of_birth' => 'Tempat lahir',
-        'user.personal_information.date_of_birth' => 'Tanggal lahir',
-        'user.personal_information.religion' => 'Agama',
-        'user.additional_information.nis' => 'Nomor Induk Siswa',
-        'user.additional_information.nisn' => 'Nomor Induk Siswa Nasional',
-        'user.additional_information.entry_year' => 'Tahun Masuk',
-        'user.additional_information.academy_class_student_id' => 'Kelas siswa',
-        'user.address.full_address' => 'Alamat lengkap',
-        'user.address.neighbourhood' => 'RT',
-        'user.address.hamlet' => 'RW',
-        'user.address.urban_village' => 'Kelurahan',
-        'user.address.sub_district' => 'Kecamatan',
-        'user.address.city' => 'Kota',
-        'user.address.postal_code' => 'Kode pos',
-        'user.password' => 'Kata Sandi',
-
-        'role' => 'Wewenang',
-
-        // School year
-        'schoolYear.school_year' => 'Tahun masuk',
-        'schoolYear.title' => 'Judul',
-        'schoolYear.start_date' => 'Tanggal mulai',
-        'schoolYear.end_date' => 'Tanggal selesai',
-
-        // School Fee
-        'schoolFee.year' => 'Tahun',
-        'schoolFee.nominal' => 'Nominal',
-        'schoolFee.active' => 'Status',
-        'payment.user_id'  => 'Pengguna',
-        'payment.student_id'  => 'Siswa',
-        'payment.school_fee_id'  => 'Sumbangan pembayaran pendidikan',
-        'payment.note'  => 'Keterangan',
-        'payment.date_paid'  => 'Tanggal bayar',
-        'payment.month'  => 'Bulan dibayar',
-        'payment.amount'  => 'Jumlah',
+        // 'user.name' => 'Nama',
     ],
 ];

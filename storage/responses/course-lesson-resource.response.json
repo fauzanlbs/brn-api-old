@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Microsoft Excel dari dasar hingga mahir",
+            "description": "Kuasai Microsoft Excel 365 dan 2019 dengan cepat dan mudah.",
+            "youtube_url": "https: //www.youtube.com/watch?v=x9f3RAsNZhU&list=RDx9f3RAsNZhU&start_radio=1&ab_channel=EditraTamba",
+            "likes_count": 321,
+            "comments_count": 5,
+            "updated_at": "2021-05-01T12:58:24.000000Z"
+        }
+    ],
+    "links": {
+        "first": "http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": "http://api.brn.com/api/courses/1/lessons?page%5Bnumber%5D=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http://api.brn.com/api/courses/1/lessons",
+        "per_page": 15,
+        "to": 15
+    }
+}
