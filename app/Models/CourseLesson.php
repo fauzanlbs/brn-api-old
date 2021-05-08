@@ -17,7 +17,18 @@ class CourseLesson extends Model
     use InteractsWithViews;
     use Likeable;
 
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
     protected $searchableFields = ['*'];
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Get the course that owns the lesson.

@@ -17,6 +17,11 @@ class Course extends Model
     use Likeable;
     use ImageUrlable;
 
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
     protected $searchableFields = ['*'];
 
     /**
@@ -28,6 +33,11 @@ class Course extends Model
         'image_url',
     ];
 
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Get the user that owns the course.
@@ -54,6 +64,12 @@ class Course extends Model
     {
         return $this->belongsToMany(User::class, 'course_user', 'course_id', 'user_id');
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Scoping where course is enabled

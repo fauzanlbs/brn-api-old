@@ -28,6 +28,11 @@ class Article extends Model implements Viewable
     use Likeable;
     use ImageUrlable;
 
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
     protected $searchableFields = ['*'];
 
     /**
@@ -72,6 +77,8 @@ class Article extends Model implements Viewable
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES

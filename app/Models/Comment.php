@@ -101,6 +101,11 @@ class Comment extends Model
         throw new Exception('Could not determine the commentator model name.');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | RELATION
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Get all of the replies comments.

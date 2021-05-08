@@ -20,4 +20,5 @@ return [
 
     // Custom
     'not_allowed' => 'Permintaan :name :include tidak dibolehkan. :name yang diizinkan adalah `:allowed`.',
+    'no_data' => 'Data tidak ditemukan.'
 ];

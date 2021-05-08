@@ -7,22 +7,6 @@ servers:
     -
         url: 'http://api.brn.com'
 paths:
-    /api/about:
-        get:
-            summary: 'Mendapatkan data tentang BRN.'
-            description: ''
-            parameters:
-                -
-                    in: header
-                    name: Accept
-                    description: ''
-                    example: application/json
-                    schema:
-                        type: string
-            responses: {  }
-            tags:
-                - 'About BRN'
-            security: []
     /api/articles:
         get:
             summary: 'Mendapatkan list data artikel.'
@@ -283,7 +267,7 @@ paths:
                 in: path
                 name: slug
                 description: ''
-                example: voluptas
+                example: deserunt
                 required: true
                 schema:
                     type: string
@@ -638,6 +622,865 @@ paths:
             tags:
                 - Kategori
             security: []
+    /api/cars/colors:
+        get:
+            summary: 'Mendapatkan list data warna mobil.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data warna mobil.'
+                    example: merah
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data warna mobil.'
+                        example: merah
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default color.'
+                    example: '-color'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default color.'
+                        example: '-color'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, color: 'Phantom Black' }, { id: 2, color: 'Sepang Blue' }]
+                                    links: { first: 'http://api.brn.com/api/cars/colors?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/colors', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, color: 'Phantom Black' }, { id: 2, color: 'Sepang Blue' }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/cars/colors?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/colors', per_page: 15, to: 2 } }
+            tags:
+                - 'Kelola Mobil'
+    /api/cars/makes:
+        get:
+            summary: 'Mendapatkan list data produsen mobil.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data produsen mobil.'
+                    example: BMW
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data produsen mobil.'
+                        example: BMW
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default make.'
+                    example: '-make'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default make.'
+                        example: '-make'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, fuel: Audi }, { id: 2, fuel: BMW }]
+                                    links: { first: 'http://api.brn.com/api/cars/makes?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/makes', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, fuel: Audi }, { id: 2, fuel: BMW }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/cars/makes?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/makes', per_page: 15, to: 2 } }
+            tags:
+                - 'Kelola Mobil'
+    /api/cars/models:
+        get:
+            summary: 'Mendapatkan list data model mobil.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data model mobil.'
+                    example: S40
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data model mobil.'
+                        example: S40
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default model.'
+                    example: '-model'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default model.'
+                        example: '-model'
+                -
+                    in: query
+                    name: 'filter[car_make_id]'
+                    description: 'Penyortiran berdasarkan id mobil.'
+                    example: 1
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Penyortiran berdasarkan id mobil.'
+                        example: 1
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, fuel: S40 }, { id: 2, fuel: 118D }]
+                                    links: { first: 'http://api.brn.com/api/cars/models?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/models', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, fuel: S40 }, { id: 2, fuel: 118D }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/cars/models?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/models', per_page: 15, to: 2 } }
+            tags:
+                - 'Kelola Mobil'
+    /api/cars/types:
+        get:
+            summary: 'Mendapatkan list data jenis kelas mobil.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data jenis kelas mobil.'
+                    example: Sedan
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data jenis kelas mobil.'
+                        example: Sedan
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default class.'
+                    example: '-class'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default class.'
+                        example: '-class'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 3, class: Compact }, { id: 2, class: Middle }, { id: 1, class: Premium }]
+                                    links: { first: 'http://api.brn.com/api/cars/types?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/types', per_page: 15, to: 3 }
+                                properties:
+                                    data: { type: array, example: [{ id: 3, class: Compact }, { id: 2, class: Middle }, { id: 1, class: Premium }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/cars/types?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/types', per_page: 15, to: 3 } }
+            tags:
+                - 'Kelola Mobil'
+    /api/cars/fuels:
+        get:
+            summary: 'Mendapatkan list data bahan bakar mobil.'
+            description: ''
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data bahan bakar mobil.'
+                    example: Diesel
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data bahan bakar mobil.'
+                        example: Diesel
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default fuel.'
+                    example: '-fuel'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default fuel.'
+                        example: '-fuel'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 1, fuel: Diesel }, { id: 2, fuel: Gasoline }]
+                                    links: { first: 'http://api.brn.com/api/cars/fuels?page%5Bnumber%5D=1', last: null, prev: null, next: null }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/fuels', per_page: 15, to: 2 }
+                                properties:
+                                    data: { type: array, example: [{ id: 1, fuel: Diesel }, { id: 2, fuel: Gasoline }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/cars/fuels?page%5Bnumber%5D=1', last: null, prev: null, next: null } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/cars/fuels', per_page: 15, to: 2 } }
+            tags:
+                - 'Kelola Mobil'
+    /api/my-cars:
+        get:
+            summary: 'Mendapatkan list data mobil pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data mobil pengguna saat ini.'
+                    example: Avansa
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data mobil pengguna saat ini.'
+                        example: Avansa
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: query
+                    name: include
+                    description: 'Include akan memuat relasi, relasi yang tersedia: <br> #1 <b>carMake</b> : Produsen mobil. <br> #2 <b>carType</b> : Jenis kelas. <br> #3 <b>carFuel</b> : Bahan bakar. <br> #4 <b>carModel</b> : Model mobil. <br> #5 <b>carColor</b> : Warna. <br> #6 <b>carImages</b> : List gambar mobil. <br>Untuk <b>multiple include</b> Anda cukup menambahkan <i>koma</i> (,).'
+                    example: carImages
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Include akan memuat relasi, relasi yang tersedia: <br> #1 <b>carMake</b> : Produsen mobil. <br> #2 <b>carType</b> : Jenis kelas. <br> #3 <b>carFuel</b> : Bahan bakar. <br> #4 <b>carModel</b> : Model mobil. <br> #5 <b>carColor</b> : Warna. <br> #6 <b>carImages</b> : List gambar mobil. <br>Untuk <b>multiple include</b> Anda cukup menambahkan <i>koma</i> (,).'
+                        example: carImages
+                -
+                    in: query
+                    name: 'filter[status]'
+                    description: 'Penyortiran berdasarkan status.'
+                    example: lost
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan status.'
+                        example: lost
+                -
+                    in: query
+                    name: 'filter[is_approved]'
+                    description: 'Penyortiran berdasarkan diterima (1=true 0=false).'
+                    example: 'true'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan diterima (1=true 0=false).'
+                        example: 'true'
+                -
+                    in: query
+                    name: 'filter[police_number]'
+                    description: 'Penyortiran berdasarkan nomor polisi.'
+                    example: 'Y 3168 XP'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan nomor polisi.'
+                        example: 'Y 3168 XP'
+                -
+                    in: query
+                    name: 'filter[year]'
+                    description: 'Penyortiran berdasarkan tahun mobil.'
+                    example: '2015'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tahun mobil.'
+                        example: '2015'
+                -
+                    in: query
+                    name: 'filter[is_automatic]'
+                    description: 'Penyortiran berdasarkan is automatic (1=true 0=false).'
+                    example: 'true'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan is automatic (1=true 0=false).'
+                        example: 'true'
+                -
+                    in: query
+                    name: 'filter[capacity]'
+                    description: 'Penyortiran berdasarkan kapasitas.'
+                    example: 4
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Penyortiran berdasarkan kapasitas.'
+                        example: 4
+                -
+                    in: query
+                    name: 'filter[equipment]'
+                    description: 'Penyortiran berdasarkan equipment.'
+                    example: illo
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan equipment.'
+                        example: illo
+                -
+                    in: query
+                    name: 'filter[created_at]'
+                    description: 'Penyortiran berdasarkan tanggal dibuat.'
+                    example: '2020-12-24'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tanggal dibuat.'
+                        example: '2020-12-24'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 24, user_id: 1, status: lost, is_approved: true, police_number: 'K 7998 UG', year: 1984, is_automatic: false, capacity: 2, equipment: null, created_at: '2021-05-05T12:26:50.000000Z', updated_at: '2021-05-05T12:26:50.000000Z', car_make: { id: 3, make: BMW }, car_type: { id: 1, class: Premium }, car_fuel: { id: 3, fuel: Electric }, car_model: { id: 1, car_make_id: 1, model: A4 }, car_color: { id: 1, color: 'Phantom Black' }, car_images: [{ id: 47, car_id: 24, image: /cars/628078224-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/628078224-K7998UG.png' }, { id: 48, car_id: 24, image: /cars/194609309-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/194609309-K7998UG.png' }] }]
+                                    links: { first: 'http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-cars', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 24, user_id: 1, status: lost, is_approved: true, police_number: 'K 7998 UG', year: 1984, is_automatic: false, capacity: 2, equipment: null, created_at: '2021-05-05T12:26:50.000000Z', updated_at: '2021-05-05T12:26:50.000000Z', car_make: { id: 3, make: BMW }, car_type: { id: 1, class: Premium }, car_fuel: { id: 3, fuel: Electric }, car_model: { id: 1, car_make_id: 1, model: A4 }, car_color: { id: 1, color: 'Phantom Black' }, car_images: [{ id: 47, car_id: 24, image: /cars/628078224-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/628078224-K7998UG.png' }, { id: 48, car_id: 24, image: /cars/194609309-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/194609309-K7998UG.png' }] }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-cars', per_page: 15, to: 15 } }
+            tags:
+                - 'Kelola Mobil'
+        post:
+            summary: 'Menambahkan mobil pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Kelola Mobil'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                car_make_id:
+                                    type: integer
+                                    description: 'valid id <b>carMake</b>.'
+                                    example: 1
+                                car_type_id:
+                                    type: integer
+                                    description: 'valid id <b>carType</b>.'
+                                    example: 1
+                                car_fuel_id:
+                                    type: integer
+                                    description: 'valid id <b>carFuel</b>.'
+                                    example: 1
+                                car_model_id:
+                                    type: integer
+                                    description: 'valid id <b>carModel</b>.'
+                                    example: 1
+                                car_color_id:
+                                    type: integer
+                                    description: 'valid id <b>carColor</b>.'
+                                    example: 1
+                                police_number:
+                                    type: string
+                                    description: 'nomor polisi.'
+                                    example: 'K 7998 UG'
+                                year:
+                                    type: string
+                                    description: tahun.
+                                    example: '2015'
+                                is_automatic:
+                                    type: boolean
+                                    description: 'apakah automatic?.'
+                                    example: false
+                                capacity:
+                                    type: string
+                                    description: 'kapasitas mobil.'
+                                    example: '4'
+                                equipment:
+                                    type: string
+                                    description: eqipment.
+                                    example: esse
+                                files:
+                                    type: array
+                                    description: 'List gambar.'
+                                    example: [[], []]
+                                    items: { type: object, properties: { image: { type: image, description: 'file gambar.', example: path } } }
+                            required:
+                                - police_number
+                                - year
+                                - is_automatic
+                                - capacity
+    '/api/my-cars/{car}':
+        get:
+            summary: 'Mendapatkan detail data mobil pengguna saat ini.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 24, user_id: 1, status: lost, is_approved: true, police_number: 'K 7998 UG', year: 1984, is_automatic: false, capacity: 2, equipment: null, created_at: '2021-05-05T12:26:50.000000Z', updated_at: '2021-05-05T12:26:50.000000Z', car_make: { id: 3, make: BMW }, car_type: { id: 1, class: Premium }, car_fuel: { id: 3, fuel: Electric }, car_model: { id: 1, car_make_id: 1, model: A4 }, car_color: { id: 1, color: 'Phantom Black' }, car_images: [{ id: 47, car_id: 24, image: /cars/628078224-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/628078224-K7998UG.png' }, { id: 48, car_id: 24, image: /cars/194609309-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/194609309-K7998UG.png' }] }
+                                properties:
+                                    data: { type: object, example: { id: 24, user_id: 1, status: lost, is_approved: true, police_number: 'K 7998 UG', year: 1984, is_automatic: false, capacity: 2, equipment: null, created_at: '2021-05-05T12:26:50.000000Z', updated_at: '2021-05-05T12:26:50.000000Z', car_make: { id: 3, make: BMW }, car_type: { id: 1, class: Premium }, car_fuel: { id: 3, fuel: Electric }, car_model: { id: 1, car_make_id: 1, model: A4 }, car_color: { id: 1, color: 'Phantom Black' }, car_images: [{ id: 47, car_id: 24, image: /cars/628078224-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/628078224-K7998UG.png' }, { id: 48, car_id: 24, image: /cars/194609309-K7998UG.png, image_url: 'http://api.brn.com/storage/cars/194609309-K7998UG.png' }] } }
+            tags:
+                - 'Kelola Mobil'
+        post:
+            summary: 'Memperbaharui salah satu mobil pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Kelola Mobil'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                car_make_id:
+                                    type: integer
+                                    description: 'valid id <b>carMake</b>.'
+                                    example: 1
+                                car_type_id:
+                                    type: integer
+                                    description: 'valid id <b>carType</b>.'
+                                    example: 1
+                                car_fuel_id:
+                                    type: integer
+                                    description: 'valid id <b>carFuel</b>.'
+                                    example: 1
+                                car_model_id:
+                                    type: integer
+                                    description: 'valid id <b>carModel</b>.'
+                                    example: 1
+                                car_color_id:
+                                    type: integer
+                                    description: 'valid id <b>carColor</b>.'
+                                    example: 1
+                                police_number:
+                                    type: string
+                                    description: 'nomor polisi.'
+                                    example: 'K 7998 UG'
+                                year:
+                                    type: string
+                                    description: tahun.
+                                    example: '2015'
+                                is_automatic:
+                                    type: boolean
+                                    description: 'apakah automatic?.'
+                                    example: false
+                                capacity:
+                                    type: string
+                                    description: 'kapasitas mobil.'
+                                    example: '4'
+                                equipment:
+                                    type: string
+                                    description: eqipment.
+                                    example: maxime
+                                files:
+                                    type: array
+                                    description: 'List gambar.'
+                                    example: [[], []]
+                                    items: { type: object, properties: { image: { type: image, description: 'file gambar.', example: path } } }
+                            required:
+                                - police_number
+                                - year
+                                - is_automatic
+                                - capacity
+        delete:
+            summary: 'Menghapus salah satu mobil pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Kelola Mobil'
+        parameters:
+            -
+                in: path
+                name: car
+                description: 'valid id car.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    '/api/my-cars/car-images/{carImage}':
+        delete:
+            summary: 'Menghapus salah satu gambar mobil pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Kelola Mobil'
+        parameters:
+            -
+                in: path
+                name: carImage
+                description: 'valid id carImage. Defaults to ''id''.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
     '/api/comments/{comment}/likes':
         get:
             summary: 'Mendapatkan list data user yang menyukai komentar.'
@@ -1778,6 +2621,279 @@ paths:
                 required: true
                 schema:
                     type: integer
+    /api/my-case-reports:
+        get:
+            summary: 'Mendapatkan list data laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.'
+            parameters:
+                -
+                    in: query
+                    name: search
+                    description: 'Mencari data laporan kasus pengguna saat ini.'
+                    example: Avansa
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Mencari data laporan kasus pengguna saat ini.'
+                        example: Avansa
+                -
+                    in: query
+                    name: 'page[number]'
+                    description: 'Menyesuaikan URI paginator.'
+                    example: '1'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan URI paginator.'
+                        example: '1'
+                -
+                    in: query
+                    name: 'page[size]'
+                    description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                    example: '2'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyesuaikan jumlah data yang ditampilkan.'
+                        example: '2'
+                -
+                    in: query
+                    name: sort
+                    description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                    example: created_at
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Menyortir data ( key_name / -key_name ), default -created_at.'
+                        example: created_at
+                -
+                    in: query
+                    name: include
+                    description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
+                    example: et
+                    required: false
+                    schema:
+                        type: string
+                        description: "Include akan memuat relasi, relasi yang tersedia:\n<br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka."
+                        example: et
+                -
+                    in: query
+                    name: 'filter[status]'
+                    description: 'Penyortiran berdasarkan status (pending, verified, progress, completed).'
+                    example: pending
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan status (pending, verified, progress, completed).'
+                        example: pending
+                -
+                    in: query
+                    name: 'filter[request_delete]'
+                    description: 'Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).'
+                    example: 1
+                    required: false
+                    schema:
+                        type: integer
+                        description: 'Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).'
+                        example: 1
+                -
+                    in: query
+                    name: 'filter[created_at]'
+                    description: 'Penyortiran berdasarkan tanggal dibuat.'
+                    example: '2020-12-24'
+                    required: false
+                    schema:
+                        type: string
+                        description: 'Penyortiran berdasarkan tanggal dibuat.'
+                        example: '2020-12-24'
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: [{ id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }]
+                                    links: { first: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=2' }
+                                    meta: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-case-report', per_page: 15, to: 15 }
+                                properties:
+                                    data: { type: array, example: [{ id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }], items: { type: object } }
+                                    links: { type: object, example: { first: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=1', last: null, prev: null, next: 'http://api.brn.com/api/my-case-report?page%5Bnumber%5D=2' } }
+                                    meta: { type: object, example: { current_page: 1, from: 1, path: 'http://api.brn.com/api/my-case-report', per_page: 15, to: 15 } }
+            tags:
+                - 'Laporan kasus'
+        post:
+            summary: 'Menambahkan laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Content-Type
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Laporan kasus'
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                car_id:
+                                    type: integer
+                                    description: 'valid id <b>car</b>.'
+                                    example: 1
+                                location:
+                                    type: string
+                                    description: 'lokasi (lat, long).'
+                                    example: '31.2467601,29.9020376'
+                                chronology:
+                                    type: string
+                                    description: kronologi.
+                                    example: molestiae
+                                perpetrator:
+                                    type: object
+                                    description: Pelaku.
+                                    example: []
+                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: soluta } }
+                            required:
+                                - car_id
+                                - location
+                                - chronology
+                                - perpetrator
+    '/api/my-case-reports/{caseReport}':
+        get:
+            summary: 'Mendapatkan detail data laporan kasus pengguna saat ini.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    data: { id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } }
+                                    message: 'Berhasil menambahkan laporan kasus.'
+                                properties:
+                                    data: { type: object, example: { id: 3, user_id: 1, car_id: 1, in_charge_id: null, latitude: 31.25, longitude: 29.9, chronology: quo, status: pending, request_delete: false, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', perpetrator: { id: 3, case_report_id: 3, nik: '123123123213123123123123', name: Arya, phone_number: '08213123123', address: 'Jalan letkol', profile_photo_path: perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg, information: asdasdasd, created_at: '2021-05-07T15:18:57.000000Z', updated_at: '2021-05-07T15:18:57.000000Z', profile_photo_url: 'http://api.brn.com/storage/perpetrator/yhSiQ9xZyU1iwULR2qwM4ApduYc899NQOevRDB4H.jpg' } } }
+                                    message: { type: string, example: 'Berhasil menambahkan laporan kasus.' }
+            tags:
+                - 'Laporan kasus'
+        delete:
+            summary: 'Batalkan laporan kasus pengguna saat ini.'
+            description: 'Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.'
+            parameters:
+                -
+                    in: header
+                    name: Authorization
+                    description: ''
+                    example: 'Bearer {YOUR_AUTH_KEY}'
+                    schema:
+                        type: string
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses:
+                200:
+                    description: '200'
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                example:
+                                    message: ...
+                                properties:
+                                    message: { type: string, example: ... }
+            tags:
+                - 'Laporan kasus'
+        parameters:
+            -
+                in: path
+                name: caseReport
+                description: 'valid id caseReport.'
+                example: 1
+                required: true
+                schema:
+                    type: integer
+    /api/onboardings:
+        get:
+            summary: 'Mendapatkan list data onboarding.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - Onboarding
+            security: []
     /api/point/missions:
         get:
             summary: 'Mendapatkan list data misi.'
@@ -1871,14 +2987,30 @@ paths:
                                 type: object
                                 example:
                                     status: ok
-                                    timestamp: '2021-05-03T12:14:52.466778Z'
+                                    timestamp: '2021-05-07T16:52:30.074215Z'
                                     host: 127.0.0.1
                                 properties:
                                     status: { type: string, example: ok }
-                                    timestamp: { type: string, example: '2021-05-03T12:14:52.466778Z' }
+                                    timestamp: { type: string, example: '2021-05-07T16:52:30.074215Z' }
                                     host: { type: string, example: 127.0.0.1 }
             tags:
                 - Server
+            security: []
+    /api/about:
+        get:
+            summary: 'Mendapatkan data tentang BRN.'
+            description: ''
+            parameters:
+                -
+                    in: header
+                    name: Accept
+                    description: ''
+                    example: application/json
+                    schema:
+                        type: string
+            responses: {  }
+            tags:
+                - 'Tentang BRN'
             security: []
 components:
     securitySchemes:

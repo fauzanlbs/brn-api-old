@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Article;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 use Rinvex\Categories\Models\Category;
 
 class ArticleSeeder extends Seeder
@@ -28,7 +29,13 @@ class ArticleSeeder extends Seeder
             $r->user_id = 1;
             $r->title = $faker->title();
             $r->content = $faker->text();
-            $r->image = 'articles/1.jpeg';
+
+            $cover = file_get_contents('https://via.placeholder.com/200.png?text=Gambar' . urlencode(' ' . $i .  ' ')  . 'article');
+            $filename = rand() . '-' . $i . '.png';
+            Storage::disk('public')->put('/articles/' . $filename, $cover);
+
+            $r->image = '/articles/' . $filename;
+
             $r->date = now();
             $r->save();
 
