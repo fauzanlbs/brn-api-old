@@ -10,13 +10,13 @@ Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilim
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
+    -G "http://brn-api.test/api/articles?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles"
+    "http://brn-api.test/api/articles"
 );
 
 let params = {
@@ -47,7 +47,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles',
+    'http://brn-api.test/api/articles',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -206,13 +206,13 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles/1" \
+    -G "http://brn-api.test/api/articles/1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1"
+    "http://brn-api.test/api/articles/1"
 );
 
 let headers = {
@@ -230,7 +230,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles/1',
+    'http://brn-api.test/api/articles/1',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -322,13 +322,21 @@ Dibagian ini Anda bisa mendapatkan list data artikel. note: <i>content</i> dilim
 
 ```bash
 curl -X GET \
+<<<<<<< Updated upstream
     -G "http://api.brn.com/api/articles/categories/deserunt?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
+=======
+    -G "http://brn-api.test/api/articles/categories/libero?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[title]=Berita+hari+ini&filter[slug]=berita-hari-ini&filter[created_at]=2020-12-24&filter[featured]=1" \
+>>>>>>> Stashed changes
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
+<<<<<<< Updated upstream
     "http://api.brn.com/api/articles/categories/deserunt"
+=======
+    "http://brn-api.test/api/articles/categories/libero"
+>>>>>>> Stashed changes
 );
 
 let params = {
@@ -359,7 +367,11 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
+<<<<<<< Updated upstream
     'http://api.brn.com/api/articles/categories/deserunt',
+=======
+    'http://brn-api.test/api/articles/categories/libero',
+>>>>>>> Stashed changes
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -525,13 +537,13 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles/1/comments?page[number]=1&page[size]=2" \
+    -G "http://brn-api.test/api/articles/1/comments?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1/comments"
+    "http://brn-api.test/api/articles/1/comments"
 );
 
 let params = {
@@ -556,7 +568,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles/1/comments',
+    'http://brn-api.test/api/articles/1/comments',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -658,13 +670,13 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/articles/1/likes?page[number]=1&page[size]=2" \
+    -G "http://brn-api.test/api/articles/1/likes?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1/likes"
+    "http://brn-api.test/api/articles/1/likes"
 );
 
 let params = {
@@ -689,7 +701,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/articles/1/likes',
+    'http://brn-api.test/api/articles/1/likes',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -789,7 +801,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/articles/1/comments" \
+    "http://brn-api.test/api/articles/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -799,7 +811,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1/comments"
+    "http://brn-api.test/api/articles/1/comments"
 );
 
 let headers = {
@@ -823,7 +835,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/articles/1/comments',
+    'http://brn-api.test/api/articles/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -897,14 +909,14 @@ isi komentar.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/articles/1/liked" \
+    "http://brn-api.test/api/articles/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1/liked"
+    "http://brn-api.test/api/articles/1/liked"
 );
 
 let headers = {
@@ -923,7 +935,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/articles/1/liked',
+    'http://brn-api.test/api/articles/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -986,14 +998,14 @@ valid id article.
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/articles/1/liked" \
+    "http://brn-api.test/api/articles/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/articles/1/liked"
+    "http://brn-api.test/api/articles/1/liked"
 );
 
 let headers = {
@@ -1012,7 +1024,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/articles/1/liked',
+    'http://brn-api.test/api/articles/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

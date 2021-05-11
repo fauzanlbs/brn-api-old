@@ -1,5 +1,6 @@
 # GENERATED. YOU SHOULDN'T MODIFY OR DELETE THIS FILE.
 # Scribe uses this file to know when you change something manually in your docs.
+<<<<<<< Updated upstream
 resources/docs/groups/artikel.md=1620406350
 resources/docs/groups/daily-check-in.md=1620406350
 resources/docs/groups/kategori.md=1620406350
@@ -14,3 +15,15 @@ resources/docs/index.md=1620406350
 resources/docs/authentication.md=1620406350
 resources/docs/groups/endpoints.md=1620406305
 resources/docs/groups/onboarding.md=1620406350
+=======
+resources/docs/groups/artikel.md=1620769701
+resources/docs/groups/daily-check-in.md=1620769701
+resources/docs/groups/kategori.md=1620769701
+resources/docs/groups/komentar.md=1620769701
+resources/docs/groups/kursus.md=1620769701
+resources/docs/groups/point.md=1620769701
+resources/docs/groups/server.md=1620769701
+resources/docs/groups/tentang-brn.md=1620769701
+resources/docs/index.md=1620769701
+resources/docs/authentication.md=1620769701
+>>>>>>> Stashed changes
