@@ -9,6 +9,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Course;
 use App\Models\CourseLesson;
+use App\Models\Discussion;
 use App\Models\Like;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
@@ -65,6 +66,31 @@ class CommentController extends Controller
     public function replyComment(CommentRequest $request, Comment $comment)
     {
         $comment->commentAsUser($request->user(), $request['comment']);
+
+        return $this->responseMessage('Berhasil menambahkan komentar.');
+    }
+
+
+    /**
+     * Menambahan komentar diskusi.
+     * @authenticated
+     *
+     * @group Forum Diskusi
+     *
+     * @urlParam discussion int required valid id discussion. Example: 1
+     *
+     * @param CommentRequest $request
+     * @param Discussion $discussion
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil menambahkan komentar.",
+     * }
+     */
+    public function addCommentDiscussion(CommentRequest $request, Discussion $discussion)
+    {
+        $discussion->commentAsUser($request->user(), $request['comment']);
 
         return $this->responseMessage('Berhasil menambahkan komentar.');
     }

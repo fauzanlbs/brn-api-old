@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Discussion\DiscussionRequest;
+use App\Http\Resources\CommentResource;
 use App\Http\Resources\DiscussionResource;
+use App\Http\Resources\LikeResource;
+use App\Models\Comment;
 use App\Models\Discussion;
+use App\Models\Like;
 use App\Repositories\Discussion\EloquentDiscussionRepository;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
@@ -169,5 +173,54 @@ class DiscussionController extends Controller
         $discussion->delete();
 
         return $this->responseMessage(__('messages.deleted', ['attr' => 'diskusi']));
+    }
+
+
+    /**
+     * Mendapatkan list data komentar diskusi.
+     *
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     *
+     * @urlParam discussion int required valid id discussion. Example: 1
+     *
+     * @param Discussion $discussion
+     * @return CommentResource
+     *
+     * @responseFile storage/responses/comment-resource.response.json
+     */
+    public function getDiscussionComments(Discussion $discussion)
+    {
+        $comments = Comment::with('commentator')
+            ->withCount(['likes', 'replies'])
+            ->where("commentable_type", "App\Models\Discussion")
+            ->where("commentable_id", $discussion->id)
+            ->jsonPaginate();
+
+        return CommentResource::collection($comments);
+    }
+
+
+    /**
+     * Mendapatkan list data user yang menyukai diskusi.
+     *
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     *
+     * @urlParam discussion int required valid id discussion. Example: 1
+     *
+     * @param Discussion $discussion
+     * @return LikeResource
+     *
+     * @responseFile storage/responses/like-resource.response.json
+     */
+    public function getDiscussionLikes(Discussion $discussion)
+    {
+        $likes = Like::with('user')
+            ->where("likeable_type", "App\Models\Discussion")
+            ->where("likeable_id", $discussion->id)
+            ->jsonPaginate();
+
+        return LikeResource::collection($likes);
     }
 }

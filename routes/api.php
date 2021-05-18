@@ -68,6 +68,17 @@ Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
     Route::post('/', [DiscussionController::class, 'store']);
     Route::post('/{discussion}', [DiscussionController::class, 'update']);
     Route::delete('/{discussion}', [DiscussionController::class, 'destroy']);
+
+    Route::get('/{discussion}/comments', [DiscussionController::class, 'getDiscussionComments']);
+
+    Route::get('/{discussion}/likes', [DiscussionController::class, 'getDiscussionLikes']);
+
+    Route::middleware(['auth:sanctum'])->group(function () {
+        Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
+
+        Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
+        Route::delete('/{discussion}/liked', [LikeController::class, 'unlikeDiscussion']);
+    });
 });
 
 
