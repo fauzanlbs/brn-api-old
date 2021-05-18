@@ -98,7 +98,16 @@ class User extends Authenticatable implements Commentator
      */
     public function articles()
     {
-        return $this->hasOne(Article::class);
+        return $this->hasMany(Article::class);
+    }
+
+
+    /**
+     * Get the discussion where created by this user.
+     */
+    public function discussions()
+    {
+        return $this->hasMany(Article::class);
     }
 
 

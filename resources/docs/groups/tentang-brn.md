@@ -10,13 +10,13 @@
 
 ```bash
 curl -X GET \
-    -G "http://brn-api.test/api/about" \
+    -G "https://brn-api.test/api/about" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/about"
+    "https://brn-api.test/api/about"
 );
 
 let headers = {
@@ -34,7 +34,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://brn-api.test/api/about',
+    'https://brn-api.test/api/about',
     [
         'headers' => [
             'Accept' => 'application/json',

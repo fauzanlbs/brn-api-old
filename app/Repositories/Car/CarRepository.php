@@ -8,12 +8,12 @@ use App\Models\Car;
 interface CarRepository
 {
     /**
-     * Create or update User
+     * Create or update car
      *
      * @param int $id
      * @param CarRequest $carRequest
      *
-     * @return User
+     * @return Car
      */
     public function createOrUpdate(?int $id, CarRequest $carRequest): Car;
 }

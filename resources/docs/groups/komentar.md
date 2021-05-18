@@ -10,13 +10,13 @@
 
 ```bash
 curl -X GET \
-    -G "http://brn-api.test/api/comments/1/likes?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/comments/1/likes?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1/likes"
+    "https://brn-api.test/api/comments/1/likes"
 );
 
 let params = {
@@ -41,7 +41,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://brn-api.test/api/comments/1/likes',
+    'https://brn-api.test/api/comments/1/likes',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -141,14 +141,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X GET \
-    -G "http://brn-api.test/api/comments/1/replies?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/comments/1/replies?page[number]=1&page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1/replies"
+    "https://brn-api.test/api/comments/1/replies"
 );
 
 let params = {
@@ -174,7 +174,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://brn-api.test/api/comments/1/replies',
+    'https://brn-api.test/api/comments/1/replies',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -281,7 +281,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X POST \
-    "http://brn-api.test/api/comments/1/replies" \
+    "https://brn-api.test/api/comments/1/replies" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -291,7 +291,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1/replies"
+    "https://brn-api.test/api/comments/1/replies"
 );
 
 let headers = {
@@ -315,7 +315,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://brn-api.test/api/comments/1/replies',
+    'https://brn-api.test/api/comments/1/replies',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -389,14 +389,14 @@ isi komentar.
 
 ```bash
 curl -X DELETE \
-    "http://brn-api.test/api/comments/1" \
+    "https://brn-api.test/api/comments/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1"
+    "https://brn-api.test/api/comments/1"
 );
 
 let headers = {
@@ -415,7 +415,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://brn-api.test/api/comments/1',
+    'https://brn-api.test/api/comments/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -478,14 +478,14 @@ valid id comment.
 
 ```bash
 curl -X POST \
-    "http://brn-api.test/api/comments/1/liked" \
+    "https://brn-api.test/api/comments/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1/liked"
+    "https://brn-api.test/api/comments/1/liked"
 );
 
 let headers = {
@@ -504,7 +504,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://brn-api.test/api/comments/1/liked',
+    'https://brn-api.test/api/comments/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -567,14 +567,14 @@ valid id comment.
 
 ```bash
 curl -X DELETE \
-    "http://brn-api.test/api/comments/1/liked" \
+    "https://brn-api.test/api/comments/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://brn-api.test/api/comments/1/liked"
+    "https://brn-api.test/api/comments/1/liked"
 );
 
 let headers = {
@@ -593,7 +593,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://brn-api.test/api/comments/1/liked',
+    'https://brn-api.test/api/comments/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

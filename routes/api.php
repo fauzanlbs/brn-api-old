@@ -14,6 +14,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
+use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
@@ -59,6 +60,16 @@ Route::prefix('articles')->group(function () {
         Route::delete('/{article}/liked', [LikeController::class, 'unlikeArticle']);
     });
 });
+
+// Discussion
+Route::get('/my-discussions/{filterCaseReports?}', [DiscussionController::class, 'getMyDiscussions'])->middleware('auth:sanctum');
+Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
+    Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
+    Route::post('/', [DiscussionController::class, 'store']);
+    Route::post('/{discussion}', [DiscussionController::class, 'update']);
+    Route::delete('/{discussion}', [DiscussionController::class, 'destroy']);
+});
+
 
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'getCategories']);
