@@ -352,10 +352,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/articles/categories/sunt?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://brn-api.test/api/articles/categories/illo?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/articles/categories/sunt"
+    "https://brn-api.test/api/articles/categories/illo"
 );
 
 let params = {
@@ -382,7 +382,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/articles/categories/sunt',
+    'https://brn-api.test/api/articles/categories/illo',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -1065,19 +1065,20 @@ print_r(json_decode((string) $body));</code></pre>
 </form><h1>Forum Diskusi</h1>
 <h2>Mendapatkan list data diskusi pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
-<p>Dibagian ini Anda bisa mendapatkan list data diskusi. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.</p>
+<p>Dibagian ini Anda bisa mendapatkan list data diskusi pengguna saat ini. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.</p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-discussions/case-reports?search=Mobil+baru&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Mobil+baru&amp;filter[slug]=mobil-baru&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://brn-api.test/api/my-discussions?only=case-reports&amp;search=Mobil+baru&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Mobil+baru&amp;filter[slug]=mobil-baru&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/my-discussions/case-reports"
+    "https://brn-api.test/api/my-discussions"
 );
 
 let params = {
+    "only": "case-reports",
     "search": "Mobil baru",
     "page[number]": "1",
     "page[size]": "2",
@@ -1102,13 +1103,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/my-discussions/case-reports',
+    'https://brn-api.test/api/my-discussions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
+            'only'=&gt; 'case-reports',
             'search'=&gt; 'Mobil baru',
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
@@ -1167,81 +1169,264 @@ print_r(json_decode((string) $body));</code></pre>
         "to": 1
     }
 }</code></pre>
-<div id="execution-results-GETapi-my-discussions--filterCaseReports--" hidden>
-    <blockquote>Received response<span id="execution-response-status-GETapi-my-discussions--filterCaseReports--"></span>:</blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-my-discussions--filterCaseReports--"></code></pre>
+<div id="execution-results-GETapi-my-discussions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-my-discussions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-my-discussions"></code></pre>
 </div>
-<div id="execution-error-GETapi-my-discussions--filterCaseReports--" hidden>
+<div id="execution-error-GETapi-my-discussions" hidden>
     <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-my-discussions--filterCaseReports--"></code></pre>
+    <pre><code id="execution-error-message-GETapi-my-discussions"></code></pre>
 </div>
-<form id="form-GETapi-my-discussions--filterCaseReports--" data-method="GET" data-path="api/my-discussions/{filterCaseReports?}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-my-discussions--filterCaseReports--', this);">
+<form id="form-GETapi-my-discussions" data-method="GET" data-path="api/my-discussions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-my-discussions', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
-        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-my-discussions--filterCaseReports--" onclick="tryItOut('GETapi-my-discussions--filterCaseReports--');">Try it out ⚡</button>
-    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-my-discussions--filterCaseReports--" onclick="cancelTryOut('GETapi-my-discussions--filterCaseReports--');" hidden>Cancel</button>&nbsp;&nbsp;
-    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-my-discussions--filterCaseReports--" hidden>Send Request 💥</button>
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-my-discussions" onclick="tryItOut('GETapi-my-discussions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-my-discussions" onclick="cancelTryOut('GETapi-my-discussions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-my-discussions" hidden>Send Request 💥</button>
     </h3>
 <p>
 <small class="badge badge-green">GET</small>
- <b><code>api/my-discussions/{filterCaseReports?}</code></b>
+ <b><code>api/my-discussions</code></b>
 </p>
 <p>
-<label id="auth-GETapi-my-discussions--filterCaseReports--" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="header"></label>
-</p>
-<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-<p>
-<b><code>filterCaseReports</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="filterCaseReports" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="url"  hidden>
-<br>
-valid string case-reports. Defaults null.
+<label id="auth-GETapi-my-discussions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-my-discussions" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
+<b><code>only</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="only" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>).
+</p>
+<p>
 <b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="search" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="search" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Mencari data diskusi.
 </p>
 <p>
 <b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="page[number]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="page[number]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Menyesuaikan URI paginator.
 </p>
 <p>
 <b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="page[size]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="page[size]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Menyesuaikan jumlah data yang ditampilkan.
 </p>
 <p>
 <b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="sort" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="sort" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Menyortir data ( key_name / -key_name ), default -created_at.
 </p>
 <p>
 <b><code>filter[title]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="filter[title]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="filter[title]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan judul.
 </p>
 <p>
 <b><code>filter[slug]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="filter[slug]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="filter[slug]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan slug.
 </p>
 <p>
 <b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="filter[created_at]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan tanggal dibuat.
 </p>
 <p>
 <b><code>filter[featured]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="filter[featured]" data-endpoint="GETapi-my-discussions--filterCaseReports--" data-component="query"  hidden>
+<input type="number" name="filter[featured]" data-endpoint="GETapi-my-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
+</p>
+</form>
+<h2>Mendapatkan list semua data diskusi.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>Dibagian ini Anda bisa mendapatkan list semua data diskus. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/discussions?only=case-reports&amp;search=Mobil+baru&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Mobil+baru&amp;filter[slug]=mobil-baru&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/discussions"
+);
+
+let params = {
+    "only": "case-reports",
+    "search": "Mobil baru",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "filter[title]": "Mobil baru",
+    "filter[slug]": "mobil-baru",
+    "filter[created_at]": "2020-12-24",
+    "filter[featured]": "1",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/discussions',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'only'=&gt; 'case-reports',
+            'search'=&gt; 'Mobil baru',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'filter[title]'=&gt; 'Mobil baru',
+            'filter[slug]'=&gt; 'mobil-baru',
+            'filter[created_at]'=&gt; '2020-12-24',
+            'filter[featured]'=&gt; '1',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [
+        {
+            "id": 12,
+            "case_report_id": null,
+            "slug": "slug",
+            "title": "title",
+            "description": "description",
+            "featured": false,
+            "created_at": "2021-05-18T07:18:28.000000Z",
+            "updated_at": "2021-05-18T07:18:28.000000Z",
+            "likes_count": 0,
+            "comments_count": 0,
+            "user": {
+                "id": 1,
+                "roles": [
+                    {
+                        "name": "admin"
+                    }
+                ],
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https:\/\/ui-avatars.com\/api\/?name=Admin+Arya+Anggara&amp;color=7F9CF5&amp;background=EBF4FF",
+                "created_at": "2021-05-18T06:44:10.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "https:\/\/brn-api.test\/api\/my-discussions?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "https:\/\/brn-api.test\/api\/my-discussions",
+        "per_page": 15,
+        "to": 1
+    }
+}</code></pre>
+<div id="execution-results-GETapi-discussions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-discussions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-discussions"></code></pre>
+</div>
+<div id="execution-error-GETapi-discussions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-discussions"></code></pre>
+</div>
+<form id="form-GETapi-discussions" data-method="GET" data-path="api/discussions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussions', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-discussions" onclick="tryItOut('GETapi-discussions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-discussions" onclick="cancelTryOut('GETapi-discussions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-discussions" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/discussions</code></b>
+</p>
+<p>
+<label id="auth-GETapi-discussions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-discussions" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>only</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="only" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>).
+</p>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Mencari data diskusi.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>filter[title]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[title]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan judul.
+</p>
+<p>
+<b><code>filter[slug]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[slug]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan slug.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+<p>
+<b><code>filter[featured]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="filter[featured]" data-endpoint="GETapi-discussions" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 </p>
@@ -1353,7 +1538,7 @@ valid id discussion.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"tempora"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"excepturi"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions"
@@ -1367,7 +1552,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "tempora"
+    "description": "excepturi"
 }
 
 fetch(url, {
@@ -1386,7 +1571,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'tempora',
+            'description' =&gt; 'excepturi',
         ],
     ]
 );
@@ -1446,7 +1631,7 @@ deskripsi diskusi.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"nemo"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"maiores"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1"
@@ -1460,7 +1645,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "nemo"
+    "description": "maiores"
 }
 
 fetch(url, {
@@ -1479,7 +1664,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'nemo',
+            'description' =&gt; 'maiores',
         ],
     ]
 );
@@ -1608,11 +1793,13 @@ valid id discussion. Defaults to 'id'.
 </p>
 </form>
 <h2>Mendapatkan list data komentar diskusi.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "https://brn-api.test/api/discussions/1/comments?page[number]=1&amp;page[size]=2" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1/comments"
@@ -1626,6 +1813,7 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Accept": "application/json",
 };
 
@@ -1639,6 +1827,7 @@ $response = $client-&gt;get(
     'https://brn-api.test/api/discussions/1/comments',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
@@ -1691,7 +1880,7 @@ print_r(json_decode((string) $body));</code></pre>
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-discussions--discussion--comments"></code></pre>
 </div>
-<form id="form-GETapi-discussions--discussion--comments" data-method="GET" data-path="api/discussions/{discussion}/comments" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussions--discussion--comments', this);">
+<form id="form-GETapi-discussions--discussion--comments" data-method="GET" data-path="api/discussions/{discussion}/comments" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussions--discussion--comments', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-discussions--discussion--comments" onclick="tryItOut('GETapi-discussions--discussion--comments');">Try it out ⚡</button>
@@ -1701,6 +1890,9 @@ print_r(json_decode((string) $body));</code></pre>
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/discussions/{discussion}/comments</code></b>
+</p>
+<p>
+<label id="auth-GETapi-discussions--discussion--comments" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-discussions--discussion--comments" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
@@ -1724,11 +1916,13 @@ Menyesuaikan jumlah data yang ditampilkan.
 </p>
 </form>
 <h2>Mendapatkan list data user yang menyukai diskusi.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
     -G "https://brn-api.test/api/discussions/1/likes?page[number]=1&amp;page[size]=2" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1/likes"
@@ -1742,6 +1936,7 @@ Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
 
 let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
     "Accept": "application/json",
 };
 
@@ -1755,6 +1950,7 @@ $response = $client-&gt;get(
     'https://brn-api.test/api/discussions/1/likes',
     [
         'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'query' =&gt; [
@@ -1804,7 +2000,7 @@ print_r(json_decode((string) $body));</code></pre>
     <blockquote>Request failed with error:</blockquote>
     <pre><code id="execution-error-message-GETapi-discussions--discussion--likes"></code></pre>
 </div>
-<form id="form-GETapi-discussions--discussion--likes" data-method="GET" data-path="api/discussions/{discussion}/likes" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussions--discussion--likes', this);">
+<form id="form-GETapi-discussions--discussion--likes" data-method="GET" data-path="api/discussions/{discussion}/likes" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-discussions--discussion--likes', this);">
 <h3>
     Request&nbsp;&nbsp;&nbsp;
         <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-discussions--discussion--likes" onclick="tryItOut('GETapi-discussions--discussion--likes');">Try it out ⚡</button>
@@ -1814,6 +2010,9 @@ print_r(json_decode((string) $body));</code></pre>
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/discussions/{discussion}/likes</code></b>
+</p>
+<p>
+<label id="auth-GETapi-discussions--discussion--likes" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-discussions--discussion--likes" data-component="header"></label>
 </p>
 <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
 <p>
@@ -2861,7 +3060,7 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=rerum&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=facilis&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -2880,7 +3079,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "rerum",
+    "filter[equipment]": "facilis",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -2916,7 +3115,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'rerum',
+            'filter[equipment]'=&gt; 'facilis',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -3222,7 +3421,7 @@ valid id car.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"sequi","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"eveniet","files":[{"image":"path"},[]]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars"
@@ -3244,14 +3443,12 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "sequi",
+    "equipment": "eveniet",
     "files": [
         {
             "image": "path"
         },
-        {
-            "image": "path"
-        }
+        []
     ]
 }
 
@@ -3279,14 +3476,12 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'sequi',
+            'equipment' =&gt; 'eveniet',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
-                [
-                    'image' =&gt; 'path',
-                ],
+                [],
             ],
         ],
     ]
@@ -3412,7 +3607,7 @@ file gambar.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"omnis","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"blanditiis","files":[{"image":"path"},{"image":"path"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars/1"
@@ -3434,12 +3629,14 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "omnis",
+    "equipment": "blanditiis",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ]
 }
 
@@ -3467,12 +3664,14 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'omnis',
+            'equipment' =&gt; 'blanditiis',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
-                [],
+                [
+                    'image' =&gt; 'path',
+                ],
             ],
         ],
     ]
@@ -5860,7 +6059,7 @@ valid id courseLesson.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=et&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=ut&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5872,7 +6071,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "et",
+    "include": "ut",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -5903,7 +6102,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'et',
+            'include'=&gt; 'ut',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -6139,7 +6338,7 @@ valid id caseReport.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"voluptas","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"aut"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"voluptatem","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"quia"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-case-reports"
@@ -6154,14 +6353,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "voluptas",
+    "chronology": "voluptatem",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "aut"
+        "information": "quia"
     }
 }
 
@@ -6182,14 +6381,14 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'car_id' =&gt; 1,
             'location' =&gt; '31.2467601,29.9020376',
-            'chronology' =&gt; 'voluptas',
+            'chronology' =&gt; 'voluptatem',
             'perpetrator' =&gt; [
                 'nik' =&gt; 123123123,
                 'name' =&gt; 'Arya Anggara',
                 'phone_number' =&gt; '0821123213',
                 'address' =&gt; 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' =&gt; 'path',
-                'information' =&gt; 'aut',
+                'information' =&gt; 'quia',
             ],
         ],
     ]
@@ -6660,7 +6859,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-05-18T09:04:08.224527Z",
+    "timestamp": "2021-05-18T13:46:17.075029Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
@@ -6714,6 +6913,68 @@ $response = $client-&gt;get(
 );
 $body = $response-&gt;getBody();
 print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "id": 1,
+    "title": "title",
+    "vesion_app": "1.0.0",
+    "copyright": "copyright",
+    "histories": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "organizational_regulations": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "tujuh_sapta_cipta": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "adarts": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "organizational_structures": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "playstore_url_app": "https:\/\/playsotre......",
+    "created_at": "2021-05-03T12:13:34.000000Z",
+    "updated_at": "2021-05-03T12:13:34.000000Z"
+}</code></pre>
 <div id="execution-results-GETapi-about" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-about"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-about"></code></pre>

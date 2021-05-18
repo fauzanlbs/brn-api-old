@@ -104,7 +104,20 @@ class Discussion extends Model
      */
     public function scopeCaseReport($query)
     {
-        return $query->where('finished_at', '!=', null);
+        return $query->where('case_report_id', '!=', null);
+    }
+
+
+    /**
+     * Scoping where discussion not for the case report
+     *
+     * @param Builder $query
+     *
+     * @return Builder
+     */
+    public function scopeNotCaseReport($query)
+    {
+        return $query->where('case_report_id', '!=', null);
     }
 
     /*

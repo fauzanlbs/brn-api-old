@@ -62,8 +62,9 @@ Route::prefix('articles')->group(function () {
 });
 
 // Discussion
-Route::get('/my-discussions/{filterCaseReports?}', [DiscussionController::class, 'getMyDiscussions'])->middleware('auth:sanctum');
+Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware('auth:sanctum');
 Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
+    Route::get('/', [DiscussionController::class, 'getDiscussions']);
     Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
     Route::post('/', [DiscussionController::class, 'store']);
     Route::post('/{discussion}', [DiscussionController::class, 'update']);

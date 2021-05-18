@@ -11,7 +11,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=et&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=ut&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -26,7 +26,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "et",
+    "include": "ut",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -61,7 +61,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'et',
+            'include'=> 'ut',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -323,7 +323,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"voluptas","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"aut"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"voluptatem","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"quia"}}'
 
 ```
 
@@ -341,14 +341,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "voluptas",
+    "chronology": "voluptatem",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "aut"
+        "information": "quia"
     }
 }
 
@@ -372,14 +372,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'voluptas',
+            'chronology' => 'voluptatem',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => 'path',
-                'information' => 'aut',
+                'information' => 'quia',
             ],
         ],
     ]

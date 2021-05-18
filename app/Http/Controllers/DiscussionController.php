@@ -33,9 +33,11 @@ class DiscussionController extends Controller
 
 
     /**
-     * Mendapatkan list data diskusi pengguna saat ini.
-     * Dibagian ini Anda bisa mendapatkan list data diskusi. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+     * Mendapatkan list semua data diskusi.
+     * Dibagian ini Anda bisa mendapatkan list semua data diskus. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
      * @authenticated
+     *
+     * @queryParam only string Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>). Example: case-reports
      *
      * @queryParam search string Mencari data diskusi. Example: Mobil baru
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
@@ -50,15 +52,56 @@ class DiscussionController extends Controller
      * @param Request $request
      * @return DiscussionResource
      *
-     * @urlParam filterCaseReports string valid string case-reports. Defaults null. Example: case-reports
+     * @responseFile storage/responses/discussion-resource.response.json
+     */
+    public function getDiscussions(Request $request)
+    {
+        return $this->discussions($request, false);
+    }
+
+
+    /**
+     * Mendapatkan list data diskusi pengguna saat ini.
+     * Dibagian ini Anda bisa mendapatkan list data diskusi pengguna saat ini. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+     * @authenticated
+     *
+     * @queryParam only string Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>). Example: case-reports
+     *
+     * @queryParam search string Mencari data diskusi. Example: Mobil baru
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
+     *
+     * @queryParam filter[title] string Penyortiran berdasarkan judul. Example: Mobil baru
+     * @queryParam filter[slug] string Penyortiran berdasarkan slug. Example: mobil-baru
+     * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     * @queryParam filter[featured] int Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1. Example: 1
+     *
+     * @param Request $request
+     * @return DiscussionResource
      *
      * @responseFile storage/responses/discussion-resource.response.json
      */
-    public function getMyDiscussions(Request $request, ?string $filterCaseReports = null)
+    public function getMyDiscussions(Request $request)
     {
-        if (isset($filterCaseReports) && $filterCaseReports != 'case-reports') {
+        return $this->discussions($request, true);
+    }
+
+
+    /**
+     * Get discussion data.
+     *
+     * @param Request $request
+     * @param bool $isCurrent
+     *
+     * @return DiscussionResource
+     */
+    private function discussions(Request $request, bool $isCurrent = false)
+    {
+        $only = $request->query('only');
+        if (isset($only) && $only != 'case-reports') {
             return response()->json([
-                'message' => 'Url filter tidak valid.'
+                'message' => 'Query paran `only` tidak valid.'
             ], 400);
         }
 
@@ -68,11 +111,15 @@ class DiscussionController extends Controller
             'created_at', 'title', 'slug', 'featured',
         ];
 
+        $uid = $request->user()->id;
+
         $discussions = QueryBuilder::for(Discussion::class)
-            ->when($filterCaseReports, function ($q) {
+            ->when($only, function ($q) {
                 return $q->caseReport();
             })
-            ->where('user_id', $request->user()->id)
+            ->when($isCurrent, function ($q) use ($uid) {
+                return $q->where('user_id', $uid);
+            })
             ->limitChars('description', 100)
             ->with(['user.roles'])
             ->withCount(['likes', 'comments'])
@@ -178,6 +225,7 @@ class DiscussionController extends Controller
 
     /**
      * Mendapatkan list data komentar diskusi.
+     * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
      * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
@@ -203,6 +251,7 @@ class DiscussionController extends Controller
 
     /**
      * Mendapatkan list data user yang menyukai diskusi.
+     * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
      * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
