@@ -14,6 +14,7 @@ use App\Models\Comment;
 use App\Models\Discussion;
 use App\Models\Like;
 use App\Repositories\Discussion\EloquentDiscussionRepository;
+use App\Royalty\Actions\DiscussionCaseReport;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -349,6 +350,10 @@ class DiscussionController extends Controller
     public function setFinished(Request $request, Discussion $discussion)
     {
         $this->authorize('update', $discussion);
+
+        if ($discussion->finished_at != null) {
+            return $this->responseMessage('Diskusi ini sudah diselesaikan sebelumnya', 400);
+        }
 
         $discussion->forceFill([
             'finished_at' => now()

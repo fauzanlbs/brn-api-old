@@ -20,5 +20,12 @@ class PointSeeder extends Seeder
             'description' => 'Check In setiap hari di aplikasi ' . config('app.name'),
             'points' => 10,
         ]);
+
+        Point::create([
+            'name' => 'Diskusi laporan kasus',
+            'key' => 'discussion-case-report',
+            'description' => 'Berpartisipasi di diskusi laporan kasus.',
+            'points' => 50,
+        ]);
     }
 }
