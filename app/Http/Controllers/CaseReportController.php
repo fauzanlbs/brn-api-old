@@ -120,7 +120,7 @@ class CaseReportController extends Controller
 
         $existsCaseReport = CaseReport::where('car_id', $car->id)->exists();
         if ($existsCaseReport) {
-            return $this->responseMessage('Laporan kasus dengan mobil yang dipilih sudah ada.', 404);
+            return $this->responseMessage('Laporan kasus dengan mobil yang dipilih sudah ada.', 400);
         }
 
         $validated = $request->validated();
