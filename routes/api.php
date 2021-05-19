@@ -66,9 +66,16 @@ Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])
 Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
     Route::get('/', [DiscussionController::class, 'getDiscussions']);
     Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
+
     Route::post('/', [DiscussionController::class, 'store']);
+    Route::post('/case-report', [DiscussionController::class, 'storeDiscussionCaseReport']);
+    Route::get('/{discussion}/case-report/members', [DiscussionController::class, 'getMember']);
+    Route::post('/{discussion}/case-report/members', [DiscussionController::class, 'addMember']);
+    Route::delete('/{discussion}/case-report/members', [DiscussionController::class, 'detachMember']);
     Route::post('/{discussion}', [DiscussionController::class, 'update']);
+
     Route::delete('/{discussion}', [DiscussionController::class, 'destroy']);
+    Route::patch('/{discussion}/set-finish', [DiscussionController::class, 'setFinished']);
 
     Route::get('/{discussion}/comments', [DiscussionController::class, 'getDiscussionComments']);
 

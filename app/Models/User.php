@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\Searchable;
 use App\Traits\CollectsPoints;
 use App\Traits\HasProfilePhoto;
 use App\Traits\UserRegularFunction;
@@ -23,6 +24,14 @@ class User extends Authenticatable implements Commentator
     use Addressable;
     use HasRoles;
     use CollectsPoints;
+    use Searchable;
+
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
+    protected $searchableFields = ['*'];
 
     /**
      * Check if a comment for a specific model needs to be approved.

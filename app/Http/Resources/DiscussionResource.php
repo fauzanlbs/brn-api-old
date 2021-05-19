@@ -21,10 +21,12 @@ class DiscussionResource extends JsonResource
             "title" =>  $this->title,
             "description" =>  $this->description,
             "featured" =>  $this->featured,
+            "finished_at" =>  $this->finished_at,
             "created_at" =>  $this->created_at,
             "updated_at" =>  $this->updated_at,
             "likes_count" =>  $this->likes_count,
             "comments_count" =>  $this->comments_count,
+            'invited_users_count' => $this->invited_users_count,
             "user" =>  new SimpleUserResource($this->whenLoaded('user')),
             "case_report" =>  new SimpleUserResource($this->whenLoaded('caseReport')),
         ];

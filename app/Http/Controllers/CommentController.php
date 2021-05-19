@@ -90,6 +90,14 @@ class CommentController extends Controller
      */
     public function addCommentDiscussion(CommentRequest $request, Discussion $discussion)
     {
+        if ($discussion->private && !$discussion->invitedUsers->contains($request->user()->id)) {
+            return $this->responseMessage(__('messages.cant'), 401);
+        }
+
+        if ($discussion->finished_at != null) {
+            return $this->responseMessage('Anda tidak bisa menambahkan komentar ke diskusi yang sudah di tandai sebagai selesai.');
+        }
+
         $discussion->commentAsUser($request->user(), $request['comment']);
 
         return $this->responseMessage('Berhasil menambahkan komentar.');

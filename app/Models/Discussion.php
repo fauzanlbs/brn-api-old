@@ -41,6 +41,7 @@ class Discussion extends Model
      */
     protected $casts = [
         'featured'  => 'boolean',
+        'private'  => 'boolean',
     ];
 
     /**
@@ -64,6 +65,15 @@ class Discussion extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+
+    /**
+     * Get the users that invited in this discussion.
+     */
+    public function invitedUsers()
+    {
+        return $this->belongsToMany(User::class);
     }
 
 

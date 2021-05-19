@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Discussion\DiscussionCaseReportRequest;
+use App\Http\Requests\Discussion\DiscussionMemberCaseReportRequest;
 use App\Http\Requests\Discussion\DiscussionRequest;
 use App\Http\Resources\CommentResource;
 use App\Http\Resources\DiscussionResource;
 use App\Http\Resources\LikeResource;
+use App\Http\Resources\SimpleUserResource;
+use App\Models\CaseReport;
 use App\Models\Comment;
 use App\Models\Discussion;
 use App\Models\Like;
@@ -148,12 +152,11 @@ class DiscussionController extends Controller
      */
     public function getDiscussionDetail(Discussion $discussion)
     {
-        $discussion->load(['user.roles', 'caseReport']);
-        $discussion->loadCount(['likes', 'comments']);
+        $discussion->load(['user.roles', 'caseReport',]);
+        $discussion->loadCount(['likes', 'comments', 'invitedUsers']);
 
         return new DiscussionResource($discussion);
     }
-
 
 
     /**
@@ -173,6 +176,112 @@ class DiscussionController extends Controller
         return (new DiscussionResource($discussion))->additional([
             'message' => __('messages.created', ['attr' => 'diskusi']),
         ]);
+    }
+
+
+    /**
+     * Menambahkan diskusi untuk laporan kasus.
+     * @authenticated
+     *
+     * @param DiscussionCaseReportRequest $request
+     * @return DiscussionResource
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function storeDiscussionCaseReport(DiscussionCaseReportRequest $request)
+    {
+        $existsDiscussionForThisCaseReport = Discussion::where('case_report_id', $request['case_report_id'])->exists();
+        if ($existsDiscussionForThisCaseReport) {
+            return $this->responseMessage('Diskusi untuk laporan kasus yang dipilih sudah dibuat sebelum nya', 400);
+        }
+
+        $discussion = $this->eloquentDiscussion->createOrUpdateDiscussionCaseReport(NULL, $request);
+
+        return (new DiscussionResource($discussion))->additional([
+            'message' => __('messages.created', ['attr' => 'diskusi untuk laporan kasus'])
+        ]);
+    }
+
+
+    /**
+     * Mendapatkan list data member diskusi.
+     * @authenticated
+     *
+     * @queryParam search string Mencari data member diskusi. Example: Arya Anggara
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     *
+     * @param Request $request
+     * @param Discussion $discussion
+     *
+     * @return SimpleUserResource
+     *
+     * @urlParam discussion int required valid id discussion. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/use-resourse.response.json
+     */
+    public function getMember(Request  $request, Discussion $discussion)
+    {
+        $search = $request->query('search');
+
+        $members = $discussion
+            ->invitedUsers()
+            ->when($search, function ($q, $search) {
+                return $q->search($search);
+            })
+            ->jsonPaginate();
+
+        return SimpleUserResource::collection($members);
+    }
+
+
+    /**
+     * Menambahkan member diskusi.
+     * @authenticated
+     *
+     * @param DiscussionMemberCaseReportRequest $request
+     * @param Discussion $discussion
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @urlParam discussion int required valid id discussion. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function addMember(DiscussionMemberCaseReportRequest $request, Discussion $discussion)
+    {
+        $this->authorize('update', $discussion);
+
+        $discussion->invitedUsers()->syncWithoutDetaching($request['user_ids']);
+
+        return $this->responseMessage(__('messages.created', ['attr' => 'member ke diskusi yang dipilih']));
+    }
+
+
+    /**
+     * Mengeluarkan member diskusi.
+     * @authenticated
+     *
+     * @param DiscussionMemberCaseReportRequest $request
+     * @param Discussion $discussion
+     *
+     * @return \Illuminate\Http\JsonResponse
+     *
+     * @urlParam discussion int required valid id discussion. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function detachMember(DiscussionMemberCaseReportRequest $request, Discussion $discussion)
+    {
+        $this->authorize('update', $discussion);
+
+        if (in_array($request->user()->id, $request['user_ids'])) {
+            return $this->responseMessage('Anda tidak bisa mengluarkan diri Anda sendiri.');
+        }
+
+        $discussion->invitedUsers()->detach($request['user_ids']);
+
+        return $this->responseMessage(__('messages.deleted', ['attr' => 'member dari diskusi yang dipilih']));
     }
 
 
@@ -200,6 +309,7 @@ class DiscussionController extends Controller
         ]);
     }
 
+
     /**
      * Menghapus salah satu diskusi pengguna saat ini.
      * Dibagian ini Anda bisa menghapus salah satu diskusi pengguna saat ini.
@@ -220,6 +330,32 @@ class DiscussionController extends Controller
         $discussion->delete();
 
         return $this->responseMessage(__('messages.deleted', ['attr' => 'diskusi']));
+    }
+
+
+    /**
+     * Menandai diskusi sebagai selesai.
+     * Setelah Anda menandai diskusi sebagai selesai pengguna lain tidak akan bisa menambahkan komentar.
+     * @authenticated
+     *
+     * @param Request $request
+     * @param \App\Models\Discussion $discussion
+     * @return DiscussionResource
+     *
+     * @urlParam discussion int required valid id discussion. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function setFinished(Request $request, Discussion $discussion)
+    {
+        $this->authorize('update', $discussion);
+
+        $discussion->forceFill([
+            'finished_at' => now()
+        ]);
+        $discussion->save();
+
+        return $this->responseMessage('Berhasil menandai diskusi sebagai selesai.');
     }
 
 
