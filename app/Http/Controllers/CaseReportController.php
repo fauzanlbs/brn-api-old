@@ -18,6 +18,62 @@ class CaseReportController extends Controller
 {
     use ResponseAPI;
 
+
+    /**
+     * Mendapatkan list data laporan kasus.
+     * Dibagian ini Anda bisa mendapatkan list data laporan kasus.
+     * @authenticated
+     *
+     * @queryParam search string Mencari data laporan kasus. Example: Avansa
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
+     *
+     * @queryParam include string Include akan memuat relasi, relasi yang tersedia:
+     * <br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka.
+     *
+     * @queryParam filter[status] string Penyortiran berdasarkan status (pending, verified, progress, completed). Example: pending
+     * @queryParam filter[request_delete] int Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false). Example: 1
+     * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     *
+     * @param Request $request
+     * @return CaseReportResource
+     *
+     * @responseFile storage/responses/case-report-resource.response.json
+     */
+    public function getCaseReports(Request $request)
+    {
+        $search = $request->query('search');
+
+        $allowed = [
+            'created_at', 'status', 'request_delete'
+        ];
+
+        $include = [
+            'inCharge', 'perpetrator',
+            'car',
+            'car.carMake',
+            'car.carType',
+            'car.carFuel',
+            'car.carModel',
+            'car.carColor',
+            'car.carImages',
+        ];
+
+        $caseReports = QueryBuilder::for(CaseReport::class)
+            ->when($search, function ($q, $search) {
+                return $q->search($search);
+            })
+            ->allowedIncludes($include)
+            ->allowedFilters($allowed)
+            ->allowedSorts($allowed)
+            ->defaultSort('-' . $allowed[0])
+            ->jsonPaginate();
+
+        return CaseReportResource::collection($caseReports);
+    }
+
+
     /**
      * Mendapatkan list data laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
@@ -61,7 +117,7 @@ class CaseReportController extends Controller
 
         $uid = $request->user()->id;
 
-        $userCars = QueryBuilder::for(CaseReport::class)
+        $userCaseReports = QueryBuilder::for(CaseReport::class)
             ->where('user_id', $uid)
             ->when($search, function ($q, $search) {
                 return $q->search($search);
@@ -72,7 +128,7 @@ class CaseReportController extends Controller
             ->defaultSort('-' . $allowed[0])
             ->jsonPaginate();
 
-        return CaseReportResource::collection($userCars);
+        return CaseReportResource::collection($userCaseReports);
     }
 
 

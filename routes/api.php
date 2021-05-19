@@ -156,6 +156,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
 
+    Route::get('/case-reports', [CaseReportController::class, 'getCaseReports']);
     Route::prefix('my-case-reports')->group(function () {
         Route::get('/', [CaseReportController::class, 'getUserCaseReports']);
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
