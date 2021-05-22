@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CommentRequest;
 use App\Http\Resources\CommentResource;
 use App\Http\Resources\LikeResource;
+use App\Http\Resources\SimpleUserResource;
 use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Course;
 use App\Models\CourseLesson;
 use App\Models\Discussion;
+use App\Models\Firebase;
 use App\Models\Like;
+use App\Models\User;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 
@@ -98,7 +101,49 @@ class CommentController extends Controller
             return $this->responseMessage('Anda tidak bisa menambahkan komentar ke diskusi yang sudah di tandai sebagai selesai.');
         }
 
-        $discussion->commentAsUser($request->user(), $request['comment']);
+        $newComment = $discussion->commentAsUser($request->user(), $request['comment']);
+
+        if ($discussion->private) {
+            $userIds = $discussion->invitedUsers()
+                ->pluck('user_id')->all();
+        } else {
+            $userIds = $discussion->comments()->select('user_id')->distinct()->pluck('user_id')->all();
+        }
+
+        $firebaseTokens = Firebase::whereIn('user_id', $userIds)
+            ->pluck('device_token')->all();
+
+        $data = [
+            "registration_ids" => $firebaseTokens,
+            "notification" => [
+                "title" => 'title',
+                "body" => [
+                    "tag" => 'discussion-comment',
+                    "discussion_id" => $discussion->id,
+                    "user" => new SimpleUserResource($request->user()),
+                    "comment" => $request['comment']
+                ],
+            ]
+        ];
+
+        $dataString = json_encode($data);
+
+        $headers = [
+            'Authorization: key=' . env('SERVER_API_KEY'),
+            'Content-Type: application/json',
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+        $r = curl_exec($ch);
+        return response()->json($r, 400);
 
         return $this->responseMessage('Berhasil menambahkan komentar.');
     }

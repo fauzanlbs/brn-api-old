@@ -154,4 +154,17 @@ class User extends Authenticatable implements Commentator
     {
         return $this->hasMany(Car::class);
     }
+
+    /**
+     * Get my Firebase data.
+     */
+    public function firebase()
+    {
+        return $this->hasOne(Firebase::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
 }

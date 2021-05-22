@@ -15,6 +15,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
@@ -162,5 +163,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
+    });
+
+    Route::prefix('firebase')->group(function () {
+        Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
     });
 });
