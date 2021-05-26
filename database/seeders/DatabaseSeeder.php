@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             CarModelSeeder::class,
             CarFuelSeeder::class,
             CarSeeder::class,
+            DonationSeeder::class,
         ]);
     }
 }

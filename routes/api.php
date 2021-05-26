@@ -15,6 +15,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\OnboardingController;
@@ -36,6 +37,8 @@ use Illuminate\Support\Facades\Route;
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
 
+// Donation
+Route::get('/donations', [DonationController::class, 'index']);
 
 // Aboout
 Route::get('/about', [AboutController::class, 'getAbout']);
