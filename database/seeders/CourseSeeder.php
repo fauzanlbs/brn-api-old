@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Article;
 use App\Models\Course;
 use App\Models\CourseLesson;
+use App\Models\CourseLessonTaskQuestion;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
 
@@ -33,6 +33,22 @@ class CourseSeeder extends Seeder
                 $lesson->description = $faker->text(15);
                 $lesson->youtube_url = 'https: //www.youtube.com/watch?v=x9f3RAsNZhU&list=RDx9f3RAsNZhU&start_radio=1&ab_channel=EditraTamba';
                 $lesson->save();
+
+                $options = [];
+
+                for ($x = 0; $x < 5; $x++) {
+                    $options[$x] = [
+                        'key' => $x,
+                        'body' => ('option-' . ($x + 1) . ', ' . $lesson->title),
+                    ];
+                }
+
+                $task = new CourseLessonTaskQuestion();
+                $task->course_lesson_id = $lesson->id;
+                $task->question = ('PG-' . ($i + 1) . ' lesson ' . $lesson->title . ' pilih salah satu jawaban di bawah ini!');
+                $task->options = $options;
+                $task->the_answer = $faker->numberBetween(0, 4);
+                $task->save();
             }
         }
     }

@@ -3,19 +3,13 @@
 namespace App\Models;
 
 use App\Models\Scopes\Searchable;
-use BeyondCode\Comments\Traits\HasComments;
-use Conner\Likeable\Likeable;
-use CyrildeWit\EloquentViewable\InteractsWithViews;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CourseLesson extends Model
+class CourseLessonTaskQuestion extends Model
 {
     use HasFactory;
     use Searchable;
-    use HasComments;
-    use InteractsWithViews;
-    use Likeable;
 
     /**
      * The attributes that are mass searchable.
@@ -24,6 +18,15 @@ class CourseLesson extends Model
      */
     protected $searchableFields = ['*'];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'options'  => 'array',
+    ];
+
     /*
     |--------------------------------------------------------------------------
     | RELATION
@@ -31,18 +34,10 @@ class CourseLesson extends Model
     */
 
     /**
-     * Get the course that owns the lesson.
+     * Get the course lesson that owns the task qustion.
      */
-    public function course()
+    public function courseLesson()
     {
-        return $this->belongsTo(Course::class);
-    }
-
-    /**
-     * Get the task questions.
-     */
-    public function taskQuestions()
-    {
-        return $this->hasMany(CourseLessonTaskQuestion::class);
+        return $this->belongsTo(CourseLesson::class);
     }
 }

@@ -1822,4 +1822,129 @@ valid id courseLesson.
 </form>
 
 
+## Mendapatkan list data pertanyaan tugas pembelajaran.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/courses/1/lessons/1/task-questions" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/courses/1/lessons/1/task-questions"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/courses/1/lessons/1/task-questions',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "course_lesson_id": 1,
+            "question": "PG-1 lesson 1 Dummy Lesson pilih salah satu jawaban di bawah ini!",
+            "options": [
+                {
+                    "key": 0,
+                    "body": "option-1, 1 Dummy Lesson"
+                },
+                {
+                    "key": 1,
+                    "body": "option-2, 1 Dummy Lesson"
+                },
+                {
+                    "key": 2,
+                    "body": "option-3, 1 Dummy Lesson"
+                },
+                {
+                    "key": 3,
+                    "body": "option-4, 1 Dummy Lesson"
+                },
+                {
+                    "key": 4,
+                    "body": "option-5, 1 Dummy Lesson"
+                }
+            ],
+            "the_answer": 3,
+            "created_at": "2021-05-29T07:27:14.000000Z",
+            "updated_at": "2021-05-29T07:27:14.000000Z"
+        }
+    ]
+}
+```
+<div id="execution-results-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-courses--course--lessons--courseLesson--task-questions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-courses--course--lessons--courseLesson--task-questions"></code></pre>
+</div>
+<div id="execution-error-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-courses--course--lessons--courseLesson--task-questions"></code></pre>
+</div>
+<form id="form-GETapi-courses--course--lessons--courseLesson--task-questions" data-method="GET" data-path="api/courses/{course}/lessons/{courseLesson}/task-questions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-courses--course--lessons--courseLesson--task-questions', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-courses--course--lessons--courseLesson--task-questions" onclick="tryItOut('GETapi-courses--course--lessons--courseLesson--task-questions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-courses--course--lessons--courseLesson--task-questions" onclick="cancelTryOut('GETapi-courses--course--lessons--courseLesson--task-questions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/courses/{course}/lessons/{courseLesson}/task-questions</code></b>
+</p>
+<p>
+<label id="auth-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>course</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="course" data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="url" required  hidden>
+<br>
+valid id course.
+</p>
+<p>
+<b><code>courseLesson</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="courseLesson" data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="url" required  hidden>
+<br>
+valid id courseLesson.
+</p>
+</form>
+
+
 

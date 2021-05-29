@@ -13,6 +13,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
+use App\Http\Controllers\CourseLessonTaskQuestionController;
 use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\DonationController;
@@ -119,6 +120,7 @@ Route::prefix('courses')->group(function () {
             Route::post('/{courseLesson}/comments', [CommentController::class, 'addCommentCourseLesson']);
             Route::post('/{courseLesson}/liked', [LikeController::class, 'likeCourseLesson']);
             Route::delete('/{courseLesson}/liked', [LikeController::class, 'unlikeCourseLesson']);
+            Route::get('/{courseLesson}/task-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestions']);
         });
     });
 });
