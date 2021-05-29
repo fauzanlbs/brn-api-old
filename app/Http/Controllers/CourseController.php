@@ -63,6 +63,7 @@ class CourseController extends Controller
 
     /**
      * Enroll kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam course int required valid id course. Example: 1
@@ -87,6 +88,7 @@ class CourseController extends Controller
     /**
      * Mendapatkan list data kursus yang diikuti.
      * Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data kurus yang diikuti. Example: Berita hari ini

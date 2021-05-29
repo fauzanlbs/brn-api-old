@@ -32,6 +32,7 @@ class CarController extends Controller
     /**
      * Mendapatkan list data mobil pengguna saat ini.
      * Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data mobil pengguna saat ini. Example: Avansa
@@ -84,6 +85,7 @@ class CarController extends Controller
 
     /**
      * Mendapatkan detail data mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam car int required valid id car. Example: 1
@@ -104,6 +106,7 @@ class CarController extends Controller
     /**
      * Menambahkan mobil pengguna saat ini.
      * Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param CarRequest $request
@@ -125,6 +128,7 @@ class CarController extends Controller
     /**
      * Memperbaharui salah satu mobil pengguna saat ini.
      * Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param CarRequest $request
@@ -150,6 +154,7 @@ class CarController extends Controller
     /**
      * Menghapus salah satu mobil pengguna saat ini.
      * Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
@@ -179,6 +184,7 @@ class CarController extends Controller
     /**
      * Menghapus salah satu gambar mobil pengguna saat ini.
      * Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request

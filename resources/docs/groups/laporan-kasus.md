@@ -6,12 +6,13 @@
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data laporan kasus.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=esse&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=ut&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -26,7 +27,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "esse",
+    "include": "ut",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -61,7 +62,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'esse',
+            'include'=> 'ut',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -200,12 +201,13 @@ Penyortiran berdasarkan tanggal dibuat.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=fugit&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=dignissimos&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -220,7 +222,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "fugit",
+    "include": "dignissimos",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -255,7 +257,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'fugit',
+            'include'=> 'dignissimos',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -393,7 +395,7 @@ Penyortiran berdasarkan tanggal dibuat.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -508,6 +510,7 @@ valid id caseReport.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -517,7 +520,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"dolorem","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"aut"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"corporis","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"hic"}}'
 
 ```
 
@@ -535,14 +538,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "dolorem",
+    "chronology": "corporis",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "aut"
+        "information": "hic"
     }
 }
 
@@ -566,14 +569,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'dolorem',
+            'chronology' => 'corporis',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => 'path',
-                'information' => 'aut',
+                'information' => 'hic',
             ],
         ],
     ]
@@ -686,6 +689,7 @@ informasi tambahan.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 

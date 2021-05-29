@@ -12,6 +12,7 @@ class CourseLessonTaskQuestionController extends Controller
 {
     /**
      * Mendapatkan list data pertanyaan tugas pembelajaran.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus

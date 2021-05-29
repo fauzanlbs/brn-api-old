@@ -17,6 +17,7 @@ class DailyCheckInController extends Controller
 
     /**
      * Check in hari ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request

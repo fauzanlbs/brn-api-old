@@ -6,6 +6,7 @@
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data diskusi pengguna saat ini. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -206,6 +207,7 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list semua data diskus. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -519,6 +521,7 @@ valid id discussion.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menambahkan diskusi pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -528,7 +531,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"adipisci"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"suscipit"}'
 
 ```
 
@@ -545,7 +548,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "adipisci"
+    "description": "suscipit"
 }
 
 fetch(url, {
@@ -567,7 +570,7 @@ $response = $client->post(
         ],
         'json' => [
             'title' => 'diskusi tentang rental mobil',
-            'description' => 'adipisci',
+            'description' => 'suscipit',
         ],
     ]
 );
@@ -626,7 +629,7 @@ deskripsi diskusi.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -735,7 +738,7 @@ valid id laporan kasus.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -848,7 +851,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -956,7 +959,7 @@ List dari id user.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1065,6 +1068,7 @@ List dari id user.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa memperbaharui salah satu diskusi pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1074,7 +1078,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"neque"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"esse"}'
 
 ```
 
@@ -1091,7 +1095,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "neque"
+    "description": "esse"
 }
 
 fetch(url, {
@@ -1113,7 +1117,7 @@ $response = $client->post(
         ],
         'json' => [
             'title' => 'diskusi tentang rental mobil',
-            'description' => 'neque',
+            'description' => 'esse',
         ],
     ]
 );
@@ -1180,6 +1184,7 @@ deskripsi diskusi.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menghapus salah satu diskusi pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1268,6 +1273,7 @@ valid id discussion. Defaults to 'id'.
 <small class="badge badge-darkred">requires authentication</small>
 
 Setelah Anda menandai diskusi sebagai selesai pengguna lain tidak akan bisa menambahkan komentar.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1355,7 +1361,7 @@ valid id discussion. Defaults to 'id'.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1495,7 +1501,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1632,7 +1638,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1740,7 +1746,7 @@ isi komentar.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1829,7 +1835,7 @@ valid id discussion.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 

@@ -6,6 +6,7 @@
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -707,7 +708,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -796,7 +797,7 @@ valid id course.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -904,7 +905,7 @@ isi komentar.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -993,7 +994,7 @@ valid id course.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1083,6 +1084,7 @@ valid id course.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1233,7 +1235,7 @@ Menyortir data ( key_name / -key_name ), default -created_at.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1379,7 +1381,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1522,7 +1524,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1636,7 +1638,7 @@ isi komentar.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1731,7 +1733,7 @@ valid id courseLesson.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1826,7 +1828,7 @@ valid id courseLesson.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 

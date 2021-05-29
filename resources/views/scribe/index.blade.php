@@ -64,7 +64,7 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">https://brn-api.test</code></pre><h1>Authenticating requests</h1>
-<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Artikel</h1>
 <h2>Mendapatkan list data artikel.</h2>
@@ -352,10 +352,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/articles/categories/quia?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://brn-api.test/api/articles/categories/ratione?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/articles/categories/quia"
+    "https://brn-api.test/api/articles/categories/ratione"
 );
 
 let params = {
@@ -382,7 +382,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/articles/categories/quia',
+    'https://brn-api.test/api/articles/categories/ratione',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -764,6 +764,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Menambahan komentar artikel.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -856,6 +857,7 @@ isi komentar.
 </form>
 <h2>Menyukai artikel.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -928,6 +930,7 @@ valid id article.
 </form>
 <h2>Batalkan menyukai artikel.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1000,6 +1003,7 @@ valid id article.
 </form><h1>Daily Check in</h1>
 <h2>Check in hari ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1297,6 +1301,7 @@ device token.
 <h2>Mendapatkan list data diskusi pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data diskusi pengguna saat ini. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1481,6 +1486,7 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 <h2>Mendapatkan list semua data diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list semua data diskus. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1761,6 +1767,7 @@ valid id discussion.
 <h2>Menambahkan diskusi pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menambahkan diskusi pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1769,7 +1776,7 @@ valid id discussion.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"adipisci"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"suscipit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions"
@@ -1783,7 +1790,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "adipisci"
+    "description": "suscipit"
 }
 
 fetch(url, {
@@ -1802,7 +1809,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'adipisci',
+            'description' =&gt; 'suscipit',
         ],
     ]
 );
@@ -1853,6 +1860,7 @@ deskripsi diskusi.
 </form>
 <h2>Menambahkan diskusi untuk laporan kasus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -1946,6 +1954,7 @@ valid id laporan kasus.
 </form>
 <h2>Mendapatkan list data member diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2043,6 +2052,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Menambahkan member diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2135,6 +2145,7 @@ List dari id user.
 </form>
 <h2>Mengeluarkan member diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2228,6 +2239,7 @@ List dari id user.
 <h2>Memperbaharui salah satu diskusi pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa memperbaharui salah satu diskusi pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2236,7 +2248,7 @@ List dari id user.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"neque"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"esse"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1"
@@ -2250,7 +2262,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "neque"
+    "description": "esse"
 }
 
 fetch(url, {
@@ -2269,7 +2281,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'neque',
+            'description' =&gt; 'esse',
         ],
     ]
 );
@@ -2328,6 +2340,7 @@ deskripsi diskusi.
 <h2>Menghapus salah satu diskusi pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menghapus salah satu diskusi pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2400,6 +2413,7 @@ valid id discussion. Defaults to 'id'.
 <h2>Menandai diskusi sebagai selesai.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Setelah Anda menandai diskusi sebagai selesai pengguna lain tidak akan bisa menambahkan komentar.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2471,6 +2485,7 @@ valid id discussion. Defaults to 'id'.
 </form>
 <h2>Mendapatkan list data komentar diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2594,6 +2609,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Mendapatkan list data user yang menyukai diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2714,6 +2730,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Menambahan komentar diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2806,6 +2823,7 @@ isi komentar.
 </form>
 <h2>Menyukai diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -2878,6 +2896,7 @@ valid id discussion.
 </form>
 <h2>Batalkan menyukai diskusi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3090,6 +3109,7 @@ Penyortiran berdasarkan slug.
 </form><h1>Kelola Mobil</h1>
 <h2>Mendapatkan list data warna mobil.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3216,6 +3236,7 @@ Menyortir data ( key_name / -key_name ), default color.
 </form>
 <h2>Mendapatkan list data produsen mobil.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3342,6 +3363,7 @@ Menyortir data ( key_name / -key_name ), default make.
 </form>
 <h2>Mendapatkan list data model mobil.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3476,6 +3498,7 @@ Penyortiran berdasarkan id mobil.
 </form>
 <h2>Mendapatkan list data jenis kelas mobil.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3606,6 +3629,7 @@ Menyortir data ( key_name / -key_name ), default class.
 </form>
 <h2>Mendapatkan list data bahan bakar mobil.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -3733,11 +3757,12 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <h2>Mendapatkan list data mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=et&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=excepturi&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -3756,7 +3781,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "et",
+    "filter[equipment]": "excepturi",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -3792,7 +3817,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'et',
+            'filter[equipment]'=&gt; 'excepturi',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -3971,6 +3996,7 @@ Penyortiran berdasarkan tanggal dibuat.
 </form>
 <h2>Mendapatkan detail data mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4090,6 +4116,7 @@ valid id car.
 <h2>Menambahkan mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4098,7 +4125,7 @@ valid id car.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"quo","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"rem","files":[{"image":"path"},{"image":"path"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars"
@@ -4120,12 +4147,14 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "quo",
+    "equipment": "rem",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ]
 }
 
@@ -4153,12 +4182,14 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'quo',
+            'equipment' =&gt; 'rem',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
-                [],
+                [
+                    'image' =&gt; 'path',
+                ],
             ],
         ],
     ]
@@ -4276,6 +4307,7 @@ file gambar.
 <h2>Memperbaharui salah satu mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4284,7 +4316,7 @@ file gambar.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"assumenda","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"hic","files":[{"image":"path"},{"image":"path"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars/1"
@@ -4306,7 +4338,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "assumenda",
+    "equipment": "hic",
     "files": [
         {
             "image": "path"
@@ -4341,7 +4373,7 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'assumenda',
+            'equipment' =&gt; 'hic',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
@@ -4473,6 +4505,7 @@ file gambar.
 <h2>Menghapus salah satu mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4545,6 +4578,7 @@ valid id car. Defaults to 'id'.
 <h2>Menghapus salah satu gambar mobil pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4729,6 +4763,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Mendapatkan list data balasan komentar.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4852,6 +4887,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Menambahan Balasan Komentar.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -4944,6 +4980,7 @@ isi komentar.
 </form>
 <h2>Menghapus komentar.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5016,6 +5053,7 @@ valid id comment.
 </form>
 <h2>Menyukai komentar.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5088,6 +5126,7 @@ valid id comment.
 </form>
 <h2>Batalkan menyukai komentar.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5161,6 +5200,7 @@ valid id comment.
 <h2>Mendapatkan list data kursus yang diikuti.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5779,6 +5819,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Enroll kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5851,6 +5892,7 @@ valid id course.
 </form>
 <h2>Menambahan komentar kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -5943,6 +5985,7 @@ isi komentar.
 </form>
 <h2>Menyukai kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6015,6 +6058,7 @@ valid id course.
 </form>
 <h2>Batalkan menyukai kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6088,6 +6132,7 @@ valid id course.
 <h2>Mendapatkan list data pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6222,6 +6267,7 @@ Menyortir data ( key_name / -key_name ), default -created_at.
 </form>
 <h2>Mendapatkan list data komentar pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6351,6 +6397,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Mendapatkan list data user yang menyukai pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6477,6 +6524,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 </form>
 <h2>Menambahan komentar pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6575,6 +6623,7 @@ isi komentar.
 </form>
 <h2>Menyukai pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6653,6 +6702,7 @@ valid id courseLesson.
 </form>
 <h2>Batalkan menyukai pembelajaran/video kursus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6731,6 +6781,7 @@ valid id courseLesson.
 </form>
 <h2>Mendapatkan list data pertanyaan tugas pembelajaran.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -6840,11 +6891,12 @@ valid id courseLesson.
 <h2>Mendapatkan list data laporan kasus.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data laporan kasus.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=esse&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=ut&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -6856,7 +6908,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "esse",
+    "include": "ut",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -6887,7 +6939,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'esse',
+            'include'=&gt; 'ut',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -7018,11 +7070,12 @@ Penyortiran berdasarkan tanggal dibuat.
 <h2>Mendapatkan list data laporan kasus pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=fugit&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=dignissimos&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -7034,7 +7087,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "fugit",
+    "include": "dignissimos",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -7065,7 +7118,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'fugit',
+            'include'=&gt; 'dignissimos',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -7195,6 +7248,7 @@ Penyortiran berdasarkan tanggal dibuat.
 </form>
 <h2>Mendapatkan detail data laporan kasus pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -7293,6 +7347,7 @@ valid id caseReport.
 <h2>Menambahkan laporan kasus pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -7301,7 +7356,7 @@ valid id caseReport.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"dolorem","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"aut"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"corporis","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"hic"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-case-reports"
@@ -7316,14 +7371,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "dolorem",
+    "chronology": "corporis",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "aut"
+        "information": "hic"
     }
 }
 
@@ -7344,14 +7399,14 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'car_id' =&gt; 1,
             'location' =&gt; '31.2467601,29.9020376',
-            'chronology' =&gt; 'dolorem',
+            'chronology' =&gt; 'corporis',
             'perpetrator' =&gt; [
                 'nik' =&gt; 123123123,
                 'name' =&gt; 'Arya Anggara',
                 'phone_number' =&gt; '0821123213',
                 'address' =&gt; 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' =&gt; 'path',
-                'information' =&gt; 'aut',
+                'information' =&gt; 'hic',
             ],
         ],
     ]
@@ -7456,6 +7511,7 @@ informasi tambahan.
 <h2>Batalkan laporan kasus pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.</p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -7578,6 +7634,7 @@ print_r(json_decode((string) $body));</code></pre>
 </form><h1>Point</h1>
 <h2>Mendapatkan list data misi.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -7694,6 +7751,7 @@ print_r(json_decode((string) $body));</code></pre>
 </form>
 <h2>Mendapatkan list data histori point.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
@@ -7822,7 +7880,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-05-29T07:35:55.922759Z",
+    "timestamp": "2021-05-29T08:41:27.822935Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>

@@ -20,6 +20,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Forum Diskusi
@@ -45,6 +46,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Forum Diskusi
@@ -70,6 +72,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai artikel.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Artikel
@@ -95,6 +98,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai artikel.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Artikel
@@ -120,6 +124,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -145,6 +150,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -170,6 +176,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -204,6 +211,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -238,6 +246,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Komentar
@@ -263,6 +272,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Komentar

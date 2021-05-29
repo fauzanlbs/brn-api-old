@@ -38,6 +38,7 @@ class DiscussionController extends Controller
     /**
      * Mendapatkan list semua data diskusi.
      * Dibagian ini Anda bisa mendapatkan list semua data diskus. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam only string Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>). Example: case-reports
@@ -66,6 +67,7 @@ class DiscussionController extends Controller
     /**
      * Mendapatkan list data diskusi pengguna saat ini.
      * Dibagian ini Anda bisa mendapatkan list data diskusi pengguna saat ini. note: <i>description</i> dilimit 100 karekter, Anda bisa melihat semua di detail diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam only string Penyortiran berdasarkan diskusi yang hanya di kususkan untuk laporan kasus, (<b>case-reports</b>). Example: case-reports
@@ -142,6 +144,7 @@ class DiscussionController extends Controller
      * Mendapatkan detail data diskusi.
      *
      * @urlParam discussion int required valid id discussion. Example: 1
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Discussion $discussion
@@ -161,6 +164,7 @@ class DiscussionController extends Controller
     /**
      * Menambahkan diskusi pengguna saat ini.
      * Dibagian ini Anda bisa menambahkan diskusi pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param DiscussionRequest $request
@@ -180,6 +184,7 @@ class DiscussionController extends Controller
 
     /**
      * Menambahkan diskusi untuk laporan kasus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param DiscussionCaseReportRequest $request
@@ -204,6 +209,7 @@ class DiscussionController extends Controller
 
     /**
      * Mendapatkan list data member diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data member diskusi. Example: Arya Anggara
@@ -236,6 +242,7 @@ class DiscussionController extends Controller
 
     /**
      * Menambahkan member diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param DiscussionMemberCaseReportRequest $request
@@ -259,6 +266,7 @@ class DiscussionController extends Controller
 
     /**
      * Mengeluarkan member diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param DiscussionMemberCaseReportRequest $request
@@ -287,6 +295,7 @@ class DiscussionController extends Controller
     /**
      * Memperbaharui salah satu diskusi pengguna saat ini.
      * Dibagian ini Anda bisa memperbaharui salah satu diskusi pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param DiscussionRequest $request
@@ -312,6 +321,7 @@ class DiscussionController extends Controller
     /**
      * Menghapus salah satu diskusi pengguna saat ini.
      * Dibagian ini Anda bisa menghapus salah satu diskusi pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
@@ -335,6 +345,7 @@ class DiscussionController extends Controller
     /**
      * Menandai diskusi sebagai selesai.
      * Setelah Anda menandai diskusi sebagai selesai pengguna lain tidak akan bisa menambahkan komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
@@ -364,6 +375,7 @@ class DiscussionController extends Controller
 
     /**
      * Mendapatkan list data komentar diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
@@ -390,6 +402,7 @@ class DiscussionController extends Controller
 
     /**
      * Mendapatkan list data user yang menyukai diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1

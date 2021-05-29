@@ -5,7 +5,7 @@
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 

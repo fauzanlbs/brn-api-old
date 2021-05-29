@@ -5,7 +5,7 @@
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -148,7 +148,7 @@ Menyortir data ( key_name / -key_name ), default color.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -291,7 +291,7 @@ Menyortir data ( key_name / -key_name ), default make.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -442,7 +442,7 @@ Penyortiran berdasarkan id mobil.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -589,7 +589,7 @@ Menyortir data ( key_name / -key_name ), default class.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -733,12 +733,13 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=et&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=excepturi&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -760,7 +761,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "et",
+    "filter[equipment]": "excepturi",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -800,7 +801,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'et',
+            'filter[equipment]'=> 'excepturi',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -987,7 +988,7 @@ Penyortiran berdasarkan tanggal dibuat.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1123,6 +1124,7 @@ valid id car.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1132,7 +1134,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"quo","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"rem","files":[{"image":"path"},{"image":"path"}]}'
 
 ```
 
@@ -1157,12 +1159,14 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "quo",
+    "equipment": "rem",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ]
 }
 
@@ -1193,12 +1197,14 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'quo',
+            'equipment' => 'rem',
             'files' => [
                 [
                     'image' => 'path',
                 ],
-                [],
+                [
+                    'image' => 'path',
+                ],
             ],
         ],
     ]
@@ -1324,6 +1330,7 @@ file gambar.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1333,7 +1340,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"assumenda","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"hic","files":[{"image":"path"},{"image":"path"}]}'
 
 ```
 
@@ -1358,7 +1365,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "assumenda",
+    "equipment": "hic",
     "files": [
         {
             "image": "path"
@@ -1396,7 +1403,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'assumenda',
+            'equipment' => 'hic',
             'files' => [
                 [
                     'image' => 'path',
@@ -1536,6 +1543,7 @@ file gambar.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
@@ -1624,6 +1632,7 @@ valid id car. Defaults to 'id'.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 

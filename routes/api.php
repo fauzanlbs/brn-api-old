@@ -58,7 +58,7 @@ Route::prefix('articles')->group(function () {
 
     Route::get('/{article}/likes', [ArticleController::class, 'getArticleLikes']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member'])->group(function () {
         Route::post('/{article}/comments', [CommentController::class, 'addCommentArticle']);
 
         Route::post('/{article}/liked', [LikeController::class, 'likeArticle']);
@@ -67,8 +67,8 @@ Route::prefix('articles')->group(function () {
 });
 
 // Discussion
-Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware('auth:sanctum');
-Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
+Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:member']);
+Route::prefix('discussions')->middleware(['auth:sanctum', 'role:member'])->group(function () {
     Route::get('/', [DiscussionController::class, 'getDiscussions']);
     Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
 
@@ -86,7 +86,7 @@ Route::prefix('discussions')->middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/{discussion}/likes', [DiscussionController::class, 'getDiscussionLikes']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member', 'role:member'])->group(function () {
         Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
 
         Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
@@ -99,14 +99,14 @@ Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'getCategories']);
 });
 
-Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware('auth:sanctum');
+Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware(['auth:sanctum', 'role:member']);
 Route::prefix('courses')->group(function () {
     Route::get('/', [CourseController::class, 'getCourses']);
     Route::post('/{course}', [CourseController::class, 'getCourseDetail']);
     Route::get('/{course}/comments', [CourseController::class, 'getCourseComments']);
     Route::get('/{course}/likes', [CourseController::class, 'getCourseLikes']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member'])->group(function () {
         Route::post('/{course}/enroll', [CourseController::class, 'enrollCourse']);
         Route::post('/{course}/comments', [CommentController::class, 'addCommentCourse']);
         Route::post('/{course}/liked', [LikeController::class, 'likeCourse']);
@@ -128,7 +128,7 @@ Route::prefix('courses')->group(function () {
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('comments')->group(function () {
         Route::get('/{comment}/replies', [CommentController::class, 'getCommentReplies']);

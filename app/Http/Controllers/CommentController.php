@@ -27,6 +27,7 @@ class CommentController extends Controller
 
     /**
      * Mendapatkan list data balasan komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
@@ -53,6 +54,7 @@ class CommentController extends Controller
 
     /**
      * Menambahan Balasan Komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam comment int required valid id comment. Example: 1
@@ -76,6 +78,7 @@ class CommentController extends Controller
 
     /**
      * Menambahan komentar diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Forum Diskusi
@@ -151,6 +154,7 @@ class CommentController extends Controller
 
     /**
      * Menambahan komentar artikel.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Artikel
@@ -176,6 +180,7 @@ class CommentController extends Controller
 
     /**
      * Menambahan komentar kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -201,6 +206,7 @@ class CommentController extends Controller
 
     /**
      * Menambahan komentar pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -235,6 +241,7 @@ class CommentController extends Controller
 
     /**
      * Menghapus komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam comment int required valid id comment. Example: 1

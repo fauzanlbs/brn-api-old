@@ -15,6 +15,7 @@ class CarColorsController extends Controller
 {
     /**
      * Mendapatkan list data warna mobil.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data warna mobil. Example: merah

@@ -23,6 +23,7 @@ class CourseLessonController extends Controller
     /**
      * Mendapatkan list data pembelajaran/video kursus.
      * Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data pembelajaran/video kursus. Example: Berita hari ini
@@ -69,6 +70,7 @@ class CourseLessonController extends Controller
 
     /**
      * Mendapatkan list data komentar pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
@@ -104,6 +106,7 @@ class CourseLessonController extends Controller
 
     /**
      * Mendapatkan list data user yang menyukai pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1

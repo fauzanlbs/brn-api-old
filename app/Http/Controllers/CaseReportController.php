@@ -22,6 +22,7 @@ class CaseReportController extends Controller
     /**
      * Mendapatkan list data laporan kasus.
      * Dibagian ini Anda bisa mendapatkan list data laporan kasus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data laporan kasus. Example: Avansa
@@ -77,6 +78,7 @@ class CaseReportController extends Controller
     /**
      * Mendapatkan list data laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data laporan kasus pengguna saat ini. Example: Avansa
@@ -134,6 +136,7 @@ class CaseReportController extends Controller
 
     /**
      * Mendapatkan detail data laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam caseReport int required valid id caseReport. Example: 1
@@ -158,6 +161,7 @@ class CaseReportController extends Controller
     /**
      * Menambahkan laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param CaseReportRequest $request
@@ -211,6 +215,7 @@ class CaseReportController extends Controller
     /**
      * Batalkan laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
