@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=qui" \
     -H "Accept: application/json"
 ```
 
@@ -21,6 +21,7 @@ const url = new URL(
 
 let params = {
     "include": "addresses,personal-information",
+    "roles": "qui",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -47,6 +48,7 @@ $response = $client->get(
         ],
         'query' => [
             'include'=> 'addresses,personal-information',
+            'roles'=> 'qui',
         ],
     ]
 );
@@ -108,6 +110,12 @@ print_r(json_decode((string) $body));
 <input type="text" name="include" data-endpoint="GETapi-members" data-component="query"  hidden>
 <br>
 Include akan memuat data dengan relasi, relasi yang tersedia: <br> #1 <b>roles</b> : Mendapatkan informasi wewenang pengguna <br> #2 <b>addresses</b> : Alamat yang didaftarkan. <br> #3 <b>personal-information</b> : Informasi pribadi.
+</p>
+<p>
+<b><code>roles</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="roles" data-endpoint="GETapi-members" data-component="query"  hidden>
+<br>
+Filter data berdasar kan role
 </p>
 </form>
 

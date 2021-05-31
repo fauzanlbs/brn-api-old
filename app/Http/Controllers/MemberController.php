@@ -19,6 +19,7 @@ class MemberController extends Controller
      * Mendapatkan list data anggota.
      *
      * @queryParam include string Include akan memuat data dengan relasi, relasi yang tersedia: <br> #1 <b>roles</b> : Mendapatkan informasi wewenang pengguna <br> #2 <b>addresses</b> : Alamat yang didaftarkan. <br> #3 <b>personal-information</b> : Informasi pribadi. Example: addresses,personal-information
+     * @queryParam roles string Filter data berdasar kan role
      *
      * @param Request $request
      * @return MemberResource
@@ -34,13 +35,18 @@ class MemberController extends Controller
             if (!is_array($includes)) return $includes;
         }
 
-        $user = User::role('member')->when($includes ?? false, function ($query, $includes) {
+        $roles = ['member'];
+        if ($request->query('roles')) {
+            array_push($roles, $request->query('roles'));
+        }
+
+        $users = User::role($roles)->when($includes ?? false, function ($query, $includes) {
             return $query->with($includes);
         })
             ->withSum('pointsRelation', 'points')
             ->jsonPaginate();
 
-        return  MemberResource::collection($user);
+        return  MemberResource::collection($users);
     }
 
 
