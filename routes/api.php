@@ -19,6 +19,7 @@ use App\Http\Controllers\DiscussionController;
 use App\Http\Controllers\DonationController;
 use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
@@ -34,6 +35,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// Members
+Route::prefix('members')->group(function () {
+    Route::get('/', [MemberController::class, 'getMembers']);
+    Route::get('/{user}', [MemberController::class, 'memberDetail']);
+});
 
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
