@@ -20,6 +20,8 @@ class MemberPersonalInformationResource extends JsonResource
             "date_of_birth" => $this->date_of_birth,
             "company_name" => $this->company_name,
             "company_logo" => $this->company_logo,
+            "area" => $this->area,
+            "region" => $this->region,
         ];
     }
 }

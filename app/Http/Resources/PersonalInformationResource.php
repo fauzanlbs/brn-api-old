@@ -26,6 +26,8 @@ class PersonalInformationResource extends JsonResource
             "company_logo" => $this->company_logo,
             "siupsku_number" => $this->siupsku_number,
             "siupsku_image" => $this->siupsku_image,
+            "area" => $this->area,
+            "region" => $this->region,
         ];
     }
 }

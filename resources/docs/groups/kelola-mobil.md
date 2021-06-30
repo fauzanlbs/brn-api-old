@@ -739,7 +739,7 @@ Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=dolore&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=ratione&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -761,7 +761,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "dolore",
+    "filter[equipment]": "ratione",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -801,7 +801,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'dolore',
+            'filter[equipment]'=> 'ratione',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -1134,7 +1134,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"vel","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"distinctio","files":[{"image":"path"},{"image":"path"}],"stnk_image":"qui","machine_number":"atque","chassis_number":"facere"}'
 
 ```
 
@@ -1159,13 +1159,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "vel",
+    "equipment": "distinctio",
     "files": [
         {
             "image": "path"
         },
-        []
-    ]
+        {
+            "image": "path"
+        }
+    ],
+    "stnk_image": "qui",
+    "machine_number": "atque",
+    "chassis_number": "facere"
 }
 
 fetch(url, {
@@ -1195,13 +1200,18 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'vel',
+            'equipment' => 'distinctio',
             'files' => [
                 [
                     'image' => 'path',
                 ],
-                [],
+                [
+                    'image' => 'path',
+                ],
             ],
+            'stnk_image' => 'qui',
+            'machine_number' => 'atque',
+            'chassis_number' => 'facere',
         ],
     ]
 );
@@ -1317,6 +1327,24 @@ file gambar.
 </p>
 </details>
 </p>
+<p>
+<b><code>stnk_image</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="stnk_image" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Fotor/Gambar STNK.
+</p>
+<p>
+<b><code>machine_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="machine_number" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Nomor Mesin.
+</p>
+<p>
+<b><code>chassis_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="chassis_number" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Nomor Rangka.
+</p>
 
 </form>
 
@@ -1336,7 +1364,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"non","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"suscipit","files":[{"image":"path"},{"image":"path"}],"stnk_image":"distinctio","machine_number":"enim","chassis_number":"fugit"}'
 
 ```
 
@@ -1361,13 +1389,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "non",
+    "equipment": "suscipit",
     "files": [
         {
             "image": "path"
         },
-        []
-    ]
+        {
+            "image": "path"
+        }
+    ],
+    "stnk_image": "distinctio",
+    "machine_number": "enim",
+    "chassis_number": "fugit"
 }
 
 fetch(url, {
@@ -1397,13 +1430,18 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'non',
+            'equipment' => 'suscipit',
             'files' => [
                 [
                     'image' => 'path',
                 ],
-                [],
+                [
+                    'image' => 'path',
+                ],
             ],
+            'stnk_image' => 'distinctio',
+            'machine_number' => 'enim',
+            'chassis_number' => 'fugit',
         ],
     ]
 );
@@ -1525,6 +1563,24 @@ List gambar.
 file gambar.
 </p>
 </details>
+</p>
+<p>
+<b><code>stnk_image</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="stnk_image" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Fotor/Gambar STNK.
+</p>
+<p>
+<b><code>machine_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="machine_number" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Nomor Mesin.
+</p>
+<p>
+<b><code>chassis_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="chassis_number" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Nomor Rangka.
 </p>
 
 </form>
