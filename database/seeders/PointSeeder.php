@@ -18,14 +18,21 @@ class PointSeeder extends Seeder
             'name' => 'Daily Check In',
             'key' => 'daily-check-in',
             'description' => 'Check In setiap hari di aplikasi ' . config('app.name'),
-            'points' => 10,
+            'points' => 1,
         ]);
 
         Point::create([
             'name' => 'Diskusi laporan kasus',
             'key' => 'discussion-case-report',
             'description' => 'Berpartisipasi di diskusi laporan kasus.',
-            'points' => 50,
+            'points' => 5,
+        ]);
+
+        Point::create([
+            'name' => 'Registrasi',
+            'key' => 'register-brn',
+            'description' => 'Hadiah Registrasi Di BRN.',
+            'points' => 10,
         ]);
     }
 }
