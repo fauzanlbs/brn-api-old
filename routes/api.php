@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CarColorsController;
 use App\Http\Controllers\CarController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
+use App\Http\Controllers\RegionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +37,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/areas', [AreaController::class, 'index']);
+
+// Regions
+Route::prefix('regions')->group(function () {
+    Route::get('/', [RegionController::class, 'index']);
+    Route::get('/{region}/areas', [RegionController::class, 'getAreaWhereRegion']);
+});
+
 
 // Members
 Route::prefix('members')->group(function () {

@@ -12,7 +12,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=asperiores&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=sint&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -27,7 +27,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "asperiores",
+    "include": "sint",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -62,7 +62,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'asperiores',
+            'include'=> 'sint',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -207,7 +207,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=nostrum&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=est&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -222,7 +222,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "nostrum",
+    "include": "est",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -257,7 +257,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'nostrum',
+            'include'=> 'est',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -520,7 +520,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"quam","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"voluptatum"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"consequuntur","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"enim"}}'
 
 ```
 
@@ -538,14 +538,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "quam",
+    "chronology": "consequuntur",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "voluptatum"
+        "information": "enim"
     }
 }
 
@@ -569,14 +569,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'quam',
+            'chronology' => 'consequuntur',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => 'path',
-                'information' => 'voluptatum',
+                'information' => 'enim',
             ],
         ],
     ]

@@ -2,46 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\DonationResource;
-use App\Models\Donation;
-use App\Traits\ResponseAPI;
+use App\Http\Resources\AreaResource;
+use App\Models\Area;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 
 /**
- * @group Donasi
+ * @group Daerah
  */
-class DonationController extends Controller
+class AreaController extends Controller
 {
     /**
-     * Mendapatkan list data donasi yang tersedia.
+     * Mendapatkan list data daerah yang tersedia.
      *
-     * @queryParam search string Mencari data artikel. Example: Berita hari ini
+     * @queryParam search string Mencari data daerah. Example: Tasik
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
      * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
      * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
      *
-     * @queryParam filter[title] string Penyortiran berdasarkan judul. Example: Berita hari ini
+     * @queryParam filter[area] string Penyortiran berdasarkan nana daerah. Example: Tasik
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
-     * @queryParam filter[donated_at] string Penyortiran berdasarkan tanggal akan di donasikan. Example: 2020-12-24
      *
      * @param Request $request
-     * @return DonationResource
+     * @return AreaResource
      *
-     * @responseFile storage/responses/donation-resource.response.json
+     * @responseFile storage/responses/area-resource.response.json
      */
     public function index(Request $request)
     {
         $search = $request->query('search');
 
         $allowed = [
-            'created_at', 'title', 'donated_at',
+            'created_at', 'area',
         ];
 
-        $articles = QueryBuilder::for(Donation::class)
-            ->limitChars('description', 100)
-            ->withCount(['donationUser',])
-            ->withSum('donationUser', 'nominal')
+        $areas = QueryBuilder::for(Area::class)
             ->when($search, function ($q, $search) {
                 return $q->search($search);
             })
@@ -50,6 +45,6 @@ class DonationController extends Controller
             ->defaultSort('-' . $allowed[0])
             ->jsonPaginate();
 
-        return DonationResource::collection($articles);
+        return AreaResource::collection($areas);
     }
 }

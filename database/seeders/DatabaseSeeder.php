@@ -34,6 +34,8 @@ class DatabaseSeeder extends Seeder
             CarFuelSeeder::class,
             CarSeeder::class,
             DonationSeeder::class,
+            RegionSeeder::class,
+            AreaSeeder::class,
         ]);
     }
 }
