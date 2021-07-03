@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CarColorsController;
@@ -81,6 +82,20 @@ Route::prefix('articles')->group(function () {
 
         Route::post('/{article}/liked', [LikeController::class, 'likeArticle']);
         Route::delete('/{article}/liked', [LikeController::class, 'unlikeArticle']);
+    });
+});
+
+// Agendas
+Route::prefix('agendas')->group(function () {
+    Route::get('/', [AgendaController::class, 'getAgendas']);
+    Route::get('/{agenda}', [AgendaController::class, 'getAgendaDetail']);
+
+    Route::middleware(['auth:sanctum', 'role:korda|korwil|admin'])->group(function () {
+        Route::post('/', [AgendaController::class, 'store']);
+        Route::post('/{agenda}', [AgendaController::class, 'update']);
+        Route::post('/{agenda}/image', [AgendaController::class, 'updateImage']);
+        Route::delete('/{agenda}', [AgendaController::class, 'destroy']);
+        Route::delete('/{agenda}/image', [AgendaController::class, 'destroyImage']);
     });
 });
 

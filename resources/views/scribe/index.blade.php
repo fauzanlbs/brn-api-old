@@ -45,7 +45,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: July 1 2021</li>
+            <li>Last updated: July 3 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -64,15 +64,924 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">https://brn-api.test</code></pre><h1>Authenticating requests</h1>
-<p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
-<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Anggota</h1>
+<p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Agenda</h1>
+<h2>Mendapatkan list data agenda.</h2>
+<p>Dibagian ini Anda bisa mendapatkan list data agenda.</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/agendas?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=user&amp;filter[type]=HUT&amp;filter[title]=sed&amp;filter[description]=eaque&amp;filter[address]=ullam&amp;filter[latitude]=31.2467601&amp;filter[longitude]=29.9020376&amp;filter[start_date]=2020-01-24&amp;filter[end_date]=2020-12-24&amp;filter[start_time]=12%3A00&amp;filter[end_time]=17%3A00&amp;filter[created_at]=2020-12-24" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas"
+);
+
+let params = {
+    "search": "Avansa",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "include": "user",
+    "filter[type]": "HUT",
+    "filter[title]": "sed",
+    "filter[description]": "eaque",
+    "filter[address]": "ullam",
+    "filter[latitude]": "31.2467601",
+    "filter[longitude]": "29.9020376",
+    "filter[start_date]": "2020-01-24",
+    "filter[end_date]": "2020-12-24",
+    "filter[start_time]": "12:00",
+    "filter[end_time]": "17:00",
+    "filter[created_at]": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/agendas',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'Avansa',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'include'=&gt; 'user',
+            'filter[type]'=&gt; 'HUT',
+            'filter[title]'=&gt; 'sed',
+            'filter[description]'=&gt; 'eaque',
+            'filter[address]'=&gt; 'ullam',
+            'filter[latitude]'=&gt; '31.2467601',
+            'filter[longitude]'=&gt; '29.9020376',
+            'filter[start_date]'=&gt; '2020-01-24',
+            'filter[end_date]'=&gt; '2020-12-24',
+            'filter[start_time]'=&gt; '12:00',
+            'filter[end_time]'=&gt; '17:00',
+            'filter[created_at]'=&gt; '2020-12-24',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<div id="execution-results-GETapi-agendas" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-agendas"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-agendas"></code></pre>
+</div>
+<div id="execution-error-GETapi-agendas" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-agendas"></code></pre>
+</div>
+<form id="form-GETapi-agendas" data-method="GET" data-path="api/agendas" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-agendas', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-agendas" onclick="tryItOut('GETapi-agendas');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-agendas" onclick="cancelTryOut('GETapi-agendas');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-agendas" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/agendas</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Mencari data agenda.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>include</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="include" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Include akan memuat relasi, relasi yang tersedia: <br> #1 <b>user</b> : Pengguna yang membuat agenda. <br> #2 <b>area</b> : Daerah.
+</p>
+<p>
+<b><code>filter[type]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[type]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tipe agenda.
+</p>
+<p>
+<b><code>filter[title]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[title]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan judul.
+</p>
+<p>
+<b><code>filter[description]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[description]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan deskripsi.
+</p>
+<p>
+<b><code>filter[address]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[address]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan deskripsi.
+</p>
+<p>
+<b><code>filter[latitude]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[latitude]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan latitude.
+</p>
+<p>
+<b><code>filter[longitude]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[longitude]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan longitude.
+</p>
+<p>
+<b><code>filter[start_date]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[start_date]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal mulai.
+</p>
+<p>
+<b><code>filter[end_date]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[end_date]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal selesai.
+</p>
+<p>
+<b><code>filter[start_time]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[start_time]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan jam mulai.
+</p>
+<p>
+<b><code>filter[end_time]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[end_time]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan jam selesai.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-agendas" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+</form>
+<h2>Mendapatkan detail data agenda.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/agendas/1" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas/1"
+);
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/agendas/1',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<div id="execution-results-GETapi-agendas--agenda-" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-agendas--agenda-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-agendas--agenda-"></code></pre>
+</div>
+<div id="execution-error-GETapi-agendas--agenda-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-agendas--agenda-"></code></pre>
+</div>
+<form id="form-GETapi-agendas--agenda-" data-method="GET" data-path="api/agendas/{agenda}" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-agendas--agenda-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-agendas--agenda-" onclick="tryItOut('GETapi-agendas--agenda-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-agendas--agenda-" onclick="cancelTryOut('GETapi-agendas--agenda-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-agendas--agenda-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/agendas/{agenda}</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="GETapi-agendas--agenda-" data-component="url" required  hidden>
+<br>
+valid id agenda.
+</p>
+</form>
+<h2>Menambahkan agenda.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>Dibagian ini Anda bisa menambahkan agenda.</p>
+<aside class="note">Harus memiliki akses <b>Admin</b>, <b>Korda</b> & <b>Korwil</b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://brn-api.test/api/agendas" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -F "area_id=1" \
+    -F "type=KOPDAR" \
+    -F "title=Acara Kopdar BRN." \
+    -F "description=Datang untuk menhadiri acara kopdar BRN pada tangal ****." \
+    -F "address=Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara." \
+    -F "start_date=2021-03-05" \
+    -F "end_date=2021-11-11" \
+    -F "start_time=08:00:00" \
+    -F "end_time=13:20:00" \
+    -F "location=31.2467601,29.9020376" \
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpQ3X3bg" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+    "Content-Type": "multipart/form-data",
+};
+
+const body = new FormData();
+body.append('area_id', '1');
+body.append('type', 'KOPDAR');
+body.append('title', 'Acara Kopdar BRN.');
+body.append('description', 'Datang untuk menhadiri acara kopdar BRN pada tangal ****.');
+body.append('address', 'Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara.');
+body.append('start_date', '2021-03-05');
+body.append('end_date', '2021-11-11');
+body.append('start_time', '08:00:00');
+body.append('end_time', '13:20:00');
+body.append('location', '31.2467601,29.9020376');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://brn-api.test/api/agendas',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'area_id',
+                'contents' =&gt; '1'
+            ],
+            [
+                'name' =&gt; 'type',
+                'contents' =&gt; 'KOPDAR'
+            ],
+            [
+                'name' =&gt; 'title',
+                'contents' =&gt; 'Acara Kopdar BRN.'
+            ],
+            [
+                'name' =&gt; 'description',
+                'contents' =&gt; 'Datang untuk menhadiri acara kopdar BRN pada tangal ****.'
+            ],
+            [
+                'name' =&gt; 'address',
+                'contents' =&gt; 'Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara.'
+            ],
+            [
+                'name' =&gt; 'start_date',
+                'contents' =&gt; '2021-03-05'
+            ],
+            [
+                'name' =&gt; 'end_date',
+                'contents' =&gt; '2021-11-11'
+            ],
+            [
+                'name' =&gt; 'start_time',
+                'contents' =&gt; '08:00:00'
+            ],
+            [
+                'name' =&gt; 'end_time',
+                'contents' =&gt; '13:20:00'
+            ],
+            [
+                'name' =&gt; 'location',
+                'contents' =&gt; '31.2467601,29.9020376'
+            ],
+            [
+                'name' =&gt; 'image',
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpQ3X3bg', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "..."
+}</code></pre>
+<div id="execution-results-POSTapi-agendas" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-agendas"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-agendas"></code></pre>
+</div>
+<div id="execution-error-POSTapi-agendas" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-agendas"></code></pre>
+</div>
+<form id="form-POSTapi-agendas" data-method="POST" data-path="api/agendas" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json","Content-Type":"multipart\/form-data"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-agendas', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-agendas" onclick="tryItOut('POSTapi-agendas');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-agendas" onclick="cancelTryOut('POSTapi-agendas');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-agendas" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/agendas</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-agendas" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-agendas" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>area_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="area_id" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+valid id <b>area</b>.
+</p>
+<p>
+<b><code>image</code></b>&nbsp;&nbsp;<small>file</small>     <i>optional</i> &nbsp;
+<input type="file" name="image" data-endpoint="POSTapi-agendas" data-component="body"  hidden>
+<br>
+file berupa gambar gambar.
+</p>
+<p>
+<b><code>type</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="type" data-endpoint="POSTapi-agendas" data-component="body"  hidden>
+<br>
+valid string in HUT,TOUR,KOPDAR,UNCATEGORIZED. Default UNCATEGORIZED.
+</p>
+<p>
+<b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="title" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+judul agenda.
+</p>
+<p>
+<b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="description" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+deskripsi agenda.
+</p>
+<p>
+<b><code>address</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="address" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+alamat.
+</p>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="start_date" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_date" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+tanggal selesai.
+</p>
+<p>
+<b><code>start_time</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="start_time" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+jam mulai.
+</p>
+<p>
+<b><code>end_time</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_time" data-endpoint="POSTapi-agendas" data-component="body" required  hidden>
+<br>
+jam selesai.
+</p>
+<p>
+<b><code>location</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="location" data-endpoint="POSTapi-agendas" data-component="body"  hidden>
+<br>
+lokasi (lat, long).
+</p>
+
+</form>
+<h2>Memperbaharui salah satu agenda.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>Dibagian ini Anda bisa memperbaharui salah satu agenda.</p>
+<aside class="note">Harus memiliki akses <b>Admin</b>, <b>Korda</b> & <b>Korwil</b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://brn-api.test/api/agendas/1" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -F "area_id=1" \
+    -F "type=KOPDAR" \
+    -F "title=Acara Kopdar BRN." \
+    -F "description=Datang untuk menhadiri acara kopdar BRN pada tangal ****." \
+    -F "address=Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara." \
+    -F "start_date=2021-03-05" \
+    -F "end_date=2021-11-11" \
+    -F "start_time=08:00:00" \
+    -F "end_time=13:20:00" \
+    -F "location=31.2467601,29.9020376" \
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phptNP7AM" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas/1"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+    "Content-Type": "multipart/form-data",
+};
+
+const body = new FormData();
+body.append('area_id', '1');
+body.append('type', 'KOPDAR');
+body.append('title', 'Acara Kopdar BRN.');
+body.append('description', 'Datang untuk menhadiri acara kopdar BRN pada tangal ****.');
+body.append('address', 'Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara.');
+body.append('start_date', '2021-03-05');
+body.append('end_date', '2021-11-11');
+body.append('start_time', '08:00:00');
+body.append('end_time', '13:20:00');
+body.append('location', '31.2467601,29.9020376');
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://brn-api.test/api/agendas/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'area_id',
+                'contents' =&gt; '1'
+            ],
+            [
+                'name' =&gt; 'type',
+                'contents' =&gt; 'KOPDAR'
+            ],
+            [
+                'name' =&gt; 'title',
+                'contents' =&gt; 'Acara Kopdar BRN.'
+            ],
+            [
+                'name' =&gt; 'description',
+                'contents' =&gt; 'Datang untuk menhadiri acara kopdar BRN pada tangal ****.'
+            ],
+            [
+                'name' =&gt; 'address',
+                'contents' =&gt; 'Gg. Basuki Rahmat  No. 460, Gorontalo 76653, Kaltara.'
+            ],
+            [
+                'name' =&gt; 'start_date',
+                'contents' =&gt; '2021-03-05'
+            ],
+            [
+                'name' =&gt; 'end_date',
+                'contents' =&gt; '2021-11-11'
+            ],
+            [
+                'name' =&gt; 'start_time',
+                'contents' =&gt; '08:00:00'
+            ],
+            [
+                'name' =&gt; 'end_time',
+                'contents' =&gt; '13:20:00'
+            ],
+            [
+                'name' =&gt; 'location',
+                'contents' =&gt; '31.2467601,29.9020376'
+            ],
+            [
+                'name' =&gt; 'image',
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phptNP7AM', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "..."
+}</code></pre>
+<div id="execution-results-POSTapi-agendas--agenda-" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-agendas--agenda-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-agendas--agenda-"></code></pre>
+</div>
+<div id="execution-error-POSTapi-agendas--agenda-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-agendas--agenda-"></code></pre>
+</div>
+<form id="form-POSTapi-agendas--agenda-" data-method="POST" data-path="api/agendas/{agenda}" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json","Content-Type":"multipart\/form-data"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-agendas--agenda-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-agendas--agenda-" onclick="tryItOut('POSTapi-agendas--agenda-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-agendas--agenda-" onclick="cancelTryOut('POSTapi-agendas--agenda-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-agendas--agenda-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/agendas/{agenda}</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-agendas--agenda-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-agendas--agenda-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="POSTapi-agendas--agenda-" data-component="url" required  hidden>
+<br>
+valid id agenda. Defaults to 'id'.
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>area_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="area_id" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+valid id <b>area</b>.
+</p>
+<p>
+<b><code>image</code></b>&nbsp;&nbsp;<small>file</small>     <i>optional</i> &nbsp;
+<input type="file" name="image" data-endpoint="POSTapi-agendas--agenda-" data-component="body"  hidden>
+<br>
+file berupa gambar gambar.
+</p>
+<p>
+<b><code>type</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="type" data-endpoint="POSTapi-agendas--agenda-" data-component="body"  hidden>
+<br>
+valid string in HUT,TOUR,KOPDAR,UNCATEGORIZED. Default UNCATEGORIZED.
+</p>
+<p>
+<b><code>title</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="title" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+judul agenda.
+</p>
+<p>
+<b><code>description</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="description" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+deskripsi agenda.
+</p>
+<p>
+<b><code>address</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="address" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+alamat.
+</p>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="start_date" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_date" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+tanggal selesai.
+</p>
+<p>
+<b><code>start_time</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="start_time" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+jam mulai.
+</p>
+<p>
+<b><code>end_time</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="end_time" data-endpoint="POSTapi-agendas--agenda-" data-component="body" required  hidden>
+<br>
+jam selesai.
+</p>
+<p>
+<b><code>location</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="location" data-endpoint="POSTapi-agendas--agenda-" data-component="body"  hidden>
+<br>
+lokasi (lat, long).
+</p>
+
+</form>
+<h2>Memperbaharui gambar agenda.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Admin</b>, <b>Korda</b> & <b>Korwil</b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "https://brn-api.test/api/agendas/1/image" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json" \
+    -H "Content-Type: multipart/form-data" \
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBaftuo" </code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas/1/image"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+    "Content-Type": "multipart/form-data",
+};
+
+const body = new FormData();
+body.append('image', document.querySelector('input[name="image"]').files[0]);
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;post(
+    'https://brn-api.test/api/agendas/1/image',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'multipart' =&gt; [
+            [
+                'name' =&gt; 'image',
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBaftuo', 'r')
+            ],
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">
+{
+ "message": "Gambar berhasil diperbaharui",
+ "data": {
+    "image_url" : "https:// ....."
+ },
+}</code></pre>
+<div id="execution-results-POSTapi-agendas--agenda--image" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-agendas--agenda--image"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-agendas--agenda--image"></code></pre>
+</div>
+<div id="execution-error-POSTapi-agendas--agenda--image" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-agendas--agenda--image"></code></pre>
+</div>
+<form id="form-POSTapi-agendas--agenda--image" data-method="POST" data-path="api/agendas/{agenda}/image" data-authed="1" data-hasfiles="1" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json","Content-Type":"multipart\/form-data"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-agendas--agenda--image', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-agendas--agenda--image" onclick="tryItOut('POSTapi-agendas--agenda--image');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-agendas--agenda--image" onclick="cancelTryOut('POSTapi-agendas--agenda--image');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-agendas--agenda--image" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/agendas/{agenda}/image</code></b>
+</p>
+<p>
+<label id="auth-POSTapi-agendas--agenda--image" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="POSTapi-agendas--agenda--image" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="POSTapi-agendas--agenda--image" data-component="url" required  hidden>
+<br>
+valid id agenda. Defaults to 'id'.
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>image</code></b>&nbsp;&nbsp;<small>file</small>  &nbsp;
+<input type="file" name="image" data-endpoint="POSTapi-agendas--agenda--image" data-component="body" required  hidden>
+<br>
+gambar.
+</p>
+
+</form>
+<h2>Menghapus salah satu agenda.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<p>Dibagian ini Anda bisa menghapus salah satu agenda.</p>
+<aside class="note">Harus memiliki akses <b>Admin</b>, <b>Korda</b> & <b>Korwil</b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://brn-api.test/api/agendas/1" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas/1"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'https://brn-api.test/api/agendas/1',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "..."
+}</code></pre>
+<div id="execution-results-DELETEapi-agendas--agenda-" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-agendas--agenda-"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-agendas--agenda-"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-agendas--agenda-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-agendas--agenda-"></code></pre>
+</div>
+<form id="form-DELETEapi-agendas--agenda-" data-method="DELETE" data-path="api/agendas/{agenda}" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-agendas--agenda-', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-agendas--agenda-" onclick="tryItOut('DELETEapi-agendas--agenda-');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-agendas--agenda-" onclick="cancelTryOut('DELETEapi-agendas--agenda-');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-agendas--agenda-" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/agendas/{agenda}</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-agendas--agenda-" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-agendas--agenda-" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="DELETEapi-agendas--agenda-" data-component="url" required  hidden>
+<br>
+valid id agenda. Defaults to 'id'.
+</p>
+</form>
+<h2>Menghapus gambar agenda.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Admin</b>, <b>Korda</b> & <b>Korwil</b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X DELETE \
+    "https://brn-api.test/api/agendas/1/image" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/agendas/1/image"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;delete(
+    'https://brn-api.test/api/agendas/1/image',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "..."
+}</code></pre>
+<div id="execution-results-DELETEapi-agendas--agenda--image" hidden>
+    <blockquote>Received response<span id="execution-response-status-DELETEapi-agendas--agenda--image"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-agendas--agenda--image"></code></pre>
+</div>
+<div id="execution-error-DELETEapi-agendas--agenda--image" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-agendas--agenda--image"></code></pre>
+</div>
+<form id="form-DELETEapi-agendas--agenda--image" data-method="DELETE" data-path="api/agendas/{agenda}/image" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('DELETEapi-agendas--agenda--image', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-DELETEapi-agendas--agenda--image" onclick="tryItOut('DELETEapi-agendas--agenda--image');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-DELETEapi-agendas--agenda--image" onclick="cancelTryOut('DELETEapi-agendas--agenda--image');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-DELETEapi-agendas--agenda--image" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-red">DELETE</small>
+ <b><code>api/agendas/{agenda}/image</code></b>
+</p>
+<p>
+<label id="auth-DELETEapi-agendas--agenda--image" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="DELETEapi-agendas--agenda--image" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="DELETEapi-agendas--agenda--image" data-component="url" required  hidden>
+<br>
+valid id agenda. Defaults to 'id'.
+</p>
+</form><h1>Anggota</h1>
 <h2>Mendapatkan list data anggota.</h2>
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&amp;roles=blanditiis" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&amp;roles=quibusdam" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/members"
@@ -80,7 +989,7 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 
 let params = {
     "include": "addresses,personal-information",
-    "roles": "blanditiis",
+    "roles": "quibusdam",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -103,7 +1012,7 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'include'=&gt; 'addresses,personal-information',
-            'roles'=&gt; 'blanditiis',
+            'roles'=&gt; 'quibusdam',
         ],
     ]
 );
@@ -559,10 +1468,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/articles/categories/eos?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://brn-api.test/api/articles/categories/alias?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/articles/categories/eos"
+    "https://brn-api.test/api/articles/categories/alias"
 );
 
 let params = {
@@ -589,7 +1498,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/articles/categories/eos',
+    'https://brn-api.test/api/articles/categories/alias',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -2124,7 +3033,7 @@ valid id discussion.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"ut"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"veritatis"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions"
@@ -2138,7 +3047,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "ut"
+    "description": "veritatis"
 }
 
 fetch(url, {
@@ -2157,7 +3066,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'ut',
+            'description' =&gt; 'veritatis',
         ],
     ]
 );
@@ -2596,7 +3505,7 @@ List dari id user.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"et"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"tenetur"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1"
@@ -2610,7 +3519,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "et"
+    "description": "tenetur"
 }
 
 fetch(url, {
@@ -2629,7 +3538,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'et',
+            'description' =&gt; 'tenetur',
         ],
     ]
 );
@@ -4110,7 +5019,7 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=placeat&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=dignissimos&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -4129,7 +5038,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "placeat",
+    "filter[equipment]": "dignissimos",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -4165,7 +5074,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'placeat',
+            'filter[equipment]'=&gt; 'dignissimos',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -4473,7 +5382,7 @@ valid id car.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"voluptatem","files":[{"image":"path"},{"image":"path"}],"stnk_image":"commodi","machine_number":"similique","chassis_number":"tempora"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"nisi","files":[{"image":"path"},{"image":"path"}],"stnk_image":"omnis","machine_number":"itaque","chassis_number":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars"
@@ -4495,7 +5404,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "voluptatem",
+    "equipment": "nisi",
     "files": [
         {
             "image": "path"
@@ -4504,9 +5413,9 @@ let body = {
             "image": "path"
         }
     ],
-    "stnk_image": "commodi",
-    "machine_number": "similique",
-    "chassis_number": "tempora"
+    "stnk_image": "omnis",
+    "machine_number": "itaque",
+    "chassis_number": "ut"
 }
 
 fetch(url, {
@@ -4533,7 +5442,7 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'voluptatem',
+            'equipment' =&gt; 'nisi',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
@@ -4542,9 +5451,9 @@ $response = $client-&gt;post(
                     'image' =&gt; 'path',
                 ],
             ],
-            'stnk_image' =&gt; 'commodi',
-            'machine_number' =&gt; 'similique',
-            'chassis_number' =&gt; 'tempora',
+            'stnk_image' =&gt; 'omnis',
+            'machine_number' =&gt; 'itaque',
+            'chassis_number' =&gt; 'ut',
         ],
     ]
 );
@@ -4688,7 +5597,7 @@ Nomor Rangka.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"tempore","files":[{"image":"path"},[]],"stnk_image":"pariatur","machine_number":"dicta","chassis_number":"eveniet"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"sit","files":[{"image":"path"},{"image":"path"}],"stnk_image":"deserunt","machine_number":"vel","chassis_number":"quaerat"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars/1"
@@ -4710,16 +5619,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "tempore",
+    "equipment": "sit",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ],
-    "stnk_image": "pariatur",
-    "machine_number": "dicta",
-    "chassis_number": "eveniet"
+    "stnk_image": "deserunt",
+    "machine_number": "vel",
+    "chassis_number": "quaerat"
 }
 
 fetch(url, {
@@ -4746,16 +5657,18 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'tempore',
+            'equipment' =&gt; 'sit',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
-                [],
+                [
+                    'image' =&gt; 'path',
+                ],
             ],
-            'stnk_image' =&gt; 'pariatur',
-            'machine_number' =&gt; 'dicta',
-            'chassis_number' =&gt; 'eveniet',
+            'stnk_image' =&gt; 'deserunt',
+            'machine_number' =&gt; 'vel',
+            'chassis_number' =&gt; 'quaerat',
         ],
     ]
 );
@@ -7288,7 +8201,7 @@ valid id courseLesson.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=sint&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=officia&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -7300,7 +8213,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "sint",
+    "include": "officia",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -7331,7 +8244,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'sint',
+            'include'=&gt; 'officia',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -7467,7 +8380,7 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=est&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=ut&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -7479,7 +8392,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "est",
+    "include": "ut",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -7510,7 +8423,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'est',
+            'include'=&gt; 'ut',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -7748,7 +8661,7 @@ valid id caseReport.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"consequuntur","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"enim"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"ea","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"minus"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-case-reports"
@@ -7763,14 +8676,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "consequuntur",
+    "chronology": "ea",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "enim"
+        "information": "minus"
     }
 }
 
@@ -7791,14 +8704,14 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'car_id' =&gt; 1,
             'location' =&gt; '31.2467601,29.9020376',
-            'chronology' =&gt; 'consequuntur',
+            'chronology' =&gt; 'ea',
             'perpetrator' =&gt; [
                 'nik' =&gt; 123123123,
                 'name' =&gt; 'Arya Anggara',
                 'phone_number' =&gt; '0821123213',
                 'address' =&gt; 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' =&gt; 'path',
-                'information' =&gt; 'enim',
+                'information' =&gt; 'minus',
             ],
         ],
     ]
@@ -8272,7 +9185,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-07-01T14:47:03.307717Z",
+    "timestamp": "2021-07-03T16:44:40.906314Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
