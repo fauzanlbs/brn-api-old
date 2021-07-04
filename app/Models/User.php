@@ -167,4 +167,9 @@ class User extends Authenticatable implements Commentator
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
+
+    public function absentAgendas()
+    {
+        return $this->belongsToMany(Agendas::class);
+    }
 }

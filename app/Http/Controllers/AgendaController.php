@@ -7,6 +7,9 @@ use App\Http\Requests\UpdateImageRequest;
 use App\Http\Resources\AgendaResource;
 use App\Models\Agenda;
 use App\Repositories\Agenda\EloquentAgendaRepository;
+use App\Royalty\Actions\HutPoint;
+use App\Royalty\Actions\KopdarPoint;
+use App\Royalty\Actions\TourPoint;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -77,6 +80,50 @@ class AgendaController extends Controller
             ->jsonPaginate();
 
         return AgendaResource::collection($agendas);
+    }
+
+
+    /**
+     * Absen Agenda.
+     * @authenticated
+     *
+     * @urlParam agenda int required valid id agenda. Example: 1
+     *
+     * @param Request $request
+     * @param \App\Models\Agenda $agenda
+     * @return \Illuminate\Http\Response
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function qrScan(Request $request, Agenda $agenda)
+    {
+        $uid = $request->user()->id;
+
+        $absentExists = $agenda->absentUsers->contains($uid);
+
+        // return if user already absent in this agenda
+        if ($absentExists) {
+            return $this->responseMessage('Anda sudah absen untuk agenda ini sebelumnya.', 400);
+        }
+
+        $agenda->absentUsers()->syncWithoutDetaching($uid);
+
+        switch ($agenda->type) {
+            case 'HUT':
+                $request->user()->givePoints(new HutPoint);
+                break;
+            case 'TOUR':
+                $request->user()->givePoints(new TourPoint);
+                break;
+            case 'KOPDAR':
+                $request->user()->givePoints(new KopdarPoint);
+                break;
+            default:
+                # tidak mendapatkan point...
+                break;
+        }
+
+        return $this->responseMessage('Berhasil Absen');
     }
 
 

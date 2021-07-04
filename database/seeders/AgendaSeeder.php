@@ -16,7 +16,7 @@ class AgendaSeeder extends Seeder
     public function run()
     {
         $faker  = Faker::create('id_ID');
-        for ($i = 1; $i < 25; $i++) {
+        for ($i = 1; $i < 10; $i++) {
             $agenda = new Agenda();
             $agenda->user_id = 1;
             $agenda->area_id = $faker->numberBetween(1, 2);
@@ -31,6 +31,9 @@ class AgendaSeeder extends Seeder
             $agenda->longitude = 29.9020376;
             $agenda->address = $faker->address;
             $agenda->save();
+
+            // generate qr code for absen
+            $agenda->generateQrCode();
         }
     }
 }

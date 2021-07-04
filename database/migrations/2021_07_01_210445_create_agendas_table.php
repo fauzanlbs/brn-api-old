@@ -28,6 +28,7 @@ class CreateAgendasTable extends Migration
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->string('address');
+            $table->string('qr_path')->nullable();
             $table->timestamps();
         });
     }

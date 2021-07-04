@@ -6,6 +6,8 @@ use App\Http\Requests\Agenda\AgendaRequest;
 use App\Models\Agenda;
 use App\Repositories\Agenda\AgendaRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class EloquentAgendaRepository implements AgendaRepository
 {
@@ -39,6 +41,8 @@ class EloquentAgendaRepository implements AgendaRepository
                 $agenda->update($agendaRequest);
             } else {
                 $agenda = Agenda::create($agendaRequest);
+
+                $agenda->generateQrCode();
             };
 
             if (isset($agendaRequest['image'])) {

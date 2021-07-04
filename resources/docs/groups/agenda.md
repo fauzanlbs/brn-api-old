@@ -10,7 +10,7 @@ Dibagian ini Anda bisa mendapatkan list data agenda.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/agendas?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=user&filter[type]=HUT&filter[title]=sed&filter[description]=eaque&filter[address]=ullam&filter[latitude]=31.2467601&filter[longitude]=29.9020376&filter[start_date]=2020-01-24&filter[end_date]=2020-12-24&filter[start_time]=12%3A00&filter[end_time]=17%3A00&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/agendas?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=user&filter[type]=HUT&filter[title]=optio&filter[description]=alias&filter[address]=ullam&filter[latitude]=31.2467601&filter[longitude]=29.9020376&filter[start_date]=2020-01-24&filter[end_date]=2020-12-24&filter[start_time]=12%3A00&filter[end_time]=17%3A00&filter[created_at]=2020-12-24" \
     -H "Accept: application/json"
 ```
 
@@ -26,8 +26,8 @@ let params = {
     "sort": "created_at",
     "include": "user",
     "filter[type]": "HUT",
-    "filter[title]": "sed",
-    "filter[description]": "eaque",
+    "filter[title]": "optio",
+    "filter[description]": "alias",
     "filter[address]": "ullam",
     "filter[latitude]": "31.2467601",
     "filter[longitude]": "29.9020376",
@@ -67,8 +67,8 @@ $response = $client->get(
             'sort'=> 'created_at',
             'include'=> 'user',
             'filter[type]'=> 'HUT',
-            'filter[title]'=> 'sed',
-            'filter[description]'=> 'eaque',
+            'filter[title]'=> 'optio',
+            'filter[description]'=> 'alias',
             'filter[address]'=> 'ullam',
             'filter[latitude]'=> '31.2467601',
             'filter[longitude]'=> '29.9020376',
@@ -303,7 +303,7 @@ curl -X POST \
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpQ3X3bg" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpRh7KKT" 
 ```
 
 ```javascript
@@ -390,7 +390,7 @@ $response = $client->post(
             ],
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpQ3X3bg', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpRh7KKT', 'r')
             ],
         ],
     ]
@@ -525,7 +525,7 @@ curl -X POST \
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phptNP7AM" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpS9CWzA" 
 ```
 
 ```javascript
@@ -612,7 +612,7 @@ $response = $client->post(
             ],
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phptNP7AM', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpS9CWzA', 'r')
             ],
         ],
     ]
@@ -743,7 +743,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: multipart/form-data" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBaftuo" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php8xZyiE" 
 ```
 
 ```javascript
@@ -780,7 +780,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBaftuo', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php8xZyiE', 'r')
             ],
         ],
     ]
@@ -1014,6 +1014,94 @@ print_r(json_decode((string) $body));
 <input type="number" name="agenda" data-endpoint="DELETEapi-agendas--agenda--image" data-component="url" required  hidden>
 <br>
 valid id agenda. Defaults to 'id'.
+</p>
+</form>
+
+
+## Absen Agenda.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/agendas/1/qr-scan" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/agendas/1/qr-scan"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/agendas/1/qr-scan',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "message": "..."
+}
+```
+<div id="execution-results-GETapi-agendas--agenda--qr-scan" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-agendas--agenda--qr-scan"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-agendas--agenda--qr-scan"></code></pre>
+</div>
+<div id="execution-error-GETapi-agendas--agenda--qr-scan" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-agendas--agenda--qr-scan"></code></pre>
+</div>
+<form id="form-GETapi-agendas--agenda--qr-scan" data-method="GET" data-path="api/agendas/{agenda}/qr-scan" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-agendas--agenda--qr-scan', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-agendas--agenda--qr-scan" onclick="tryItOut('GETapi-agendas--agenda--qr-scan');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-agendas--agenda--qr-scan" onclick="cancelTryOut('GETapi-agendas--agenda--qr-scan');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-agendas--agenda--qr-scan" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/agendas/{agenda}/qr-scan</code></b>
+</p>
+<p>
+<label id="auth-GETapi-agendas--agenda--qr-scan" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-agendas--agenda--qr-scan" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>agenda</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="agenda" data-endpoint="GETapi-agendas--agenda--qr-scan" data-component="url" required  hidden>
+<br>
+valid id agenda.
 </p>
 </form>
 

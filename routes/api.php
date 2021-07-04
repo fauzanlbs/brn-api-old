@@ -96,6 +96,7 @@ Route::prefix('agendas')->group(function () {
         Route::post('/{agenda}/image', [AgendaController::class, 'updateImage']);
         Route::delete('/{agenda}', [AgendaController::class, 'destroy']);
         Route::delete('/{agenda}/image', [AgendaController::class, 'destroyImage']);
+        Route::get('/{agenda}/qr-scan', [AgendaController::class, 'qrScan']);
     });
 });
 

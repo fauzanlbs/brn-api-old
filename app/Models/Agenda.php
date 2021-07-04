@@ -7,6 +7,8 @@ use App\Models\Scopes\Searchable;
 use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class Agenda extends Model
 {
@@ -30,6 +32,7 @@ class Agenda extends Model
      */
     protected $appends = [
         'image_url',
+        'qr_code_url',
     ];
 
     /**
@@ -49,6 +52,18 @@ class Agenda extends Model
      */
     protected $searchableFields = ['*'];
 
+    /**
+     * Get qr code url attribute
+     *
+     * @return string
+     */
+    public function getQrCodeUrlAttribute()
+    {
+        return $this->qr_path
+            ? Storage::disk('public')->url($this->qr_path)
+            : ('https://ui-avatars.com/api/?name=qr&color=7F9CF5&background=EBF4FF');
+    }
+
     public function area()
     {
         return $this->belongsTo(Area::class);
@@ -57,5 +72,27 @@ class Agenda extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * @return void
+     */
+    public function generateQrCode()
+    {
+        $uniqId = uniqid('a-');
+        $qrPath = 'qr-codes/' . $uniqId . 'A' . $this->id . '.svg';
+        $toUrl = config('app.url') . '/agendas/qr-scan/' . $this->id;
+
+        $qr = QrCode::format('svg')->size(250)->generate($toUrl);
+        Storage::disk('public')->put($qrPath, $qr);
+
+        $this->forceFill([
+            'qr_path' => $qrPath
+        ])->save();
+    }
+
+    public function absentUsers()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

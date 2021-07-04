@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             DonationSeeder::class,
             RegionSeeder::class,
             AreaSeeder::class,
+            AgendaSeeder::class,
         ]);
     }
 }
