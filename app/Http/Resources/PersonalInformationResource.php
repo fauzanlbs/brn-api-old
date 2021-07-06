@@ -27,6 +27,7 @@ class PersonalInformationResource extends JsonResource
             "siupsku_number" => $this->siupsku_number,
             "siupsku_image" => $this->siupsku_image,
             "area" => $this->area,
+            "area_code" => $this->area_code,
             "region" => $this->region,
         ];
     }

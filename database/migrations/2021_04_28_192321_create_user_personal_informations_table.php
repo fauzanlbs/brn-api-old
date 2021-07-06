@@ -29,6 +29,7 @@ class CreateUserPersonalInformationsTable extends Migration
             $table->integer('number_of_units')->nullable();
             $table->string('area_dialing_code')->nullable();
             $table->string('area')->nullable();
+            $table->string('area_code')->nullable();
             $table->string('region')->nullable();
 
             // user company

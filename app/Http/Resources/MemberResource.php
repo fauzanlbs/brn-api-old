@@ -16,12 +16,14 @@ class MemberResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "active" => $this->active,
             "points_relation_sum_points" => intval($this->points_relation_sum_points),
             "roles" => RoleResource::collection($this->whenLoaded('roles')),
             "name" => $this->name,
             "profile_photo_path" => $this->profile_photo_path,
             "profile_photo_url" => $this->profile_photo_url,
             "created_at" => $this->created_at,
+            "reason_for_inactivity" => $this->reason_for_inactivity,
             "addresses" =>  AddressResource::collection($this->whenLoaded('addresses')),
             "personal_information" =>  new MemberPersonalInformationResource($this->whenLoaded('personalInformation')),
         ];
