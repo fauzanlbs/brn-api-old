@@ -21,7 +21,7 @@ class CreatePerpetratorsTable extends Migration
             $table->string('phone_number');
             $table->mediumText('address');
             $table->string('profile_photo_path')->nullable();
-            $table->mediumText('information');
+            $table->mediumText('information')->nullable();
 
             $table->timestamps();
         });

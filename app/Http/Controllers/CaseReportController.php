@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CaseReport\CaseReportRequest;
+use App\Http\Requests\Perpetrator\PerpetratorRequest;
 use App\Http\Resources\CaseReport\CaseReportResource;
+use App\Http\Resources\CaseReport\PerpetratorResource;
 use App\Models\Car;
 use App\Models\CaseReport;
+use App\Models\Perpetrator;
+use App\Repositories\Perpetrator\EloquentPerpetratorRepository;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -17,6 +21,16 @@ use Spatie\QueryBuilder\QueryBuilder;
 class CaseReportController extends Controller
 {
     use ResponseAPI;
+
+    protected $eloquentPerpetrator;
+
+    /**
+     * @param EloquentPerpetratorRepository $eloquentPerpetrator
+     */
+    public function __construct(EloquentPerpetratorRepository $eloquentPerpetrator)
+    {
+        $this->eloquentPerpetrator = $eloquentPerpetrator;
+    }
 
 
     /**
@@ -235,5 +249,70 @@ class CaseReportController extends Controller
         ])->save();
 
         return $this->responseMessage('Berhasil.');
+    }
+
+
+    /**
+     * Menambahkan Pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param PerpetratorRequest $request
+     * @return PerpetratorResource
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function storePerpetrator(PerpetratorRequest $request)
+    {
+        $perpetrator = $this->eloquentPerpetrator->createOrUpdate(NULL, $request);
+
+        return (new PerpetratorResource($perpetrator))->additional([
+            'message' => __('messages.created', ['attr' => 'pelaku']),
+        ]);
+    }
+
+
+    /**
+     * Memperbaharui salah satu data pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param PerpetratorRequest $request
+     * @param \App\Models\Perpetrator $perpetrator
+     * @return PerpetratorResource
+     *
+     * @urlParam perpetrator int required valid id perpetrator. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function updatePerpetrator(PerpetratorRequest $request, Perpetrator $perpetrator)
+    {
+        $perpetrator = $this->eloquentPerpetrator->createOrUpdate($perpetrator->id, $request);
+
+        return (new PerpetratorResource($perpetrator))->additional([
+            'message' => __('messages.updated', ['attr' => 'pelaku']),
+        ]);
+    }
+
+
+    /**
+     * Menghapus salah satu pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param Request $request
+     * @param \App\Models\Perpetrator $perpetrator
+     * @return \Illuminate\Http\Response
+     *
+     * @urlParam car int required valid id car. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function destroyPerpetrator(Request $request, Perpetrator $perpetrator)
+    {
+        $perpetrator->deleteProfilePhoto();
+        $perpetrator->delete();
+
+        return $this->responseMessage(__('messages.deleted', ['attr' => 'pelaku']));
     }
 }

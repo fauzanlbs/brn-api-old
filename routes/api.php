@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BlackListController;
 use App\Http\Controllers\CarColorsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarFuelController;
@@ -38,6 +39,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// Perpetrator
+Route::prefix('perpetrators')->group(function () {
+    Route::get('/', [BlackListController::class, 'index']);
+    Route::get('/{perpetrator}', [BlackListController::class, 'getPerpetratorDetail']);
+});
 
 Route::get('/areas', [AreaController::class, 'index']);
 
@@ -120,7 +127,7 @@ Route::prefix('discussions')->middleware(['auth:sanctum', 'role:member'])->group
 
     Route::get('/{discussion}/likes', [DiscussionController::class, 'getDiscussionLikes']);
 
-    Route::middleware(['auth:sanctum', 'role:member', 'role:member'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member',])->group(function () {
         Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
 
         Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
@@ -202,6 +209,14 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
+    });
+
+    Route::prefix('perpetrators')->group(function () {
+        Route::middleware(['role:korda|korwil|admin'])->group(function () {
+            Route::post('/', [CaseReportController::class, 'storePerpetrator']);
+            Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
+            Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
+        });
     });
 
     Route::prefix('firebase')->group(function () {
