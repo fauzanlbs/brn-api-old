@@ -2,26 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\User\AddressRequest;
-use App\Http\Requests\User\PersonalInformationRequest;
-use App\Http\Requests\User\PhoneNumberRequest;
-use App\Http\Requests\User\UpdateProfilePhotoRequest;
-use App\Http\Requests\User\UserRequest;
-use App\Http\Resources\AddressResource;
-use App\Http\Resources\PersonalInformationResource;
-use App\Http\Resources\UserResource;
 use App\Models\Car;
 use App\Models\CaseReport;
-use App\Models\User;
-use App\Models\UserPersonalInformation;
-use App\Repositories\User\EloquentUserAddressRepository;
 use App\Traits\ResponseAPI;
-use App\Traits\UrlParamCheck;
 use Illuminate\Http\Request;
-use \Rinvex\Addresses\Models\Address;
 use Illuminate\Auth\Access\Response;
-use Kreait\Firebase\JWT\Error\IdTokenVerificationFailed;
-use Kreait\Firebase\JWT\IdTokenVerifier;
 
 /**
  * @group Profile
