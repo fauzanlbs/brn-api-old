@@ -21,6 +21,10 @@ class CourseSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             $course = new Course();
             $course->user_id = 1;
+            if ($i < 3) {
+                $course->is_diklat = true;
+                $course->level = $i + 1;
+            }
             $course->status = $faker->boolean() ? 'disabled' : 'enabled';
             $course->name = $i . 'Dummy Couse';
             $course->description = $faker->text(30);

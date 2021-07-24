@@ -30,6 +30,8 @@ class CourseController extends Controller
      *
      * @queryParam filter[name] string Penyortiran berdasarkan judul. Example: Marketing Di Social Media
      * @queryParam filter[description] string Penyortiran berdasarkan deskripsi. Example: Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media
+     * @queryParam filter[level] string Penyortiran berdasarkan level kursus. Example: 1
+     * @queryParam filter[is_diklat] string Penyortiran berdasarkan apakah kursus untuk diklat. Example: true
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
      *
      * @param Request $request
@@ -43,7 +45,7 @@ class CourseController extends Controller
         $search = $request->query('search');
 
         $allowed = [
-            'created_at', 'name', 'description',
+            'created_at', 'name', 'description', 'level', 'is_diklat'
         ];
 
         $courses = QueryBuilder::for(Course::class)
@@ -98,6 +100,8 @@ class CourseController extends Controller
      *
      * @queryParam filter[name] string Penyortiran berdasarkan judul. Example: Marketing Di Social Media
      * @queryParam filter[description] string Penyortiran berdasarkan deskripsi. Example: Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media
+     * @queryParam filter[level] string Penyortiran berdasarkan level kursus. Example: 1
+     * @queryParam filter[is_diklat] string Penyortiran berdasarkan apakah kursus untuk diklat. Example: true
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
      *
      * @param Request $request
@@ -111,7 +115,7 @@ class CourseController extends Controller
         $search = $request->query('search');
 
         $allowed = [
-            'created_at', 'name', 'description',
+            'created_at', 'name', 'description', 'level', 'is_diklat'
         ];
 
         $uid = $request->user()->id;

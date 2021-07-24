@@ -12,7 +12,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=tempore&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=dolor&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -27,7 +27,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "tempore",
+    "include": "dolor",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -62,7 +62,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'tempore',
+            'include'=> 'dolor',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -207,7 +207,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=autem&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=est&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -222,7 +222,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "autem",
+    "include": "est",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -257,7 +257,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'autem',
+            'include'=> 'est',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -557,14 +557,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'perferendis',
+            'chronology' => 'aut',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => null,
-                'information' => 'eos',
+                'information' => 'nesciunt',
             ],
         ],
     ]
@@ -780,8 +780,8 @@ curl -X POST \
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=alias" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpfeOV1x" 
+    -F "information=beatae" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpbklgyX" 
 ```
 
 ```javascript
@@ -801,7 +801,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'alias');
+body.append('information', 'beatae');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -844,11 +844,11 @@ $response = $client->post(
             ],
             [
                 'name' => 'information',
-                'contents' => 'alias'
+                'contents' => 'beatae'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpfeOV1x', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpbklgyX', 'r')
             ],
         ],
     ]
@@ -953,8 +953,8 @@ curl -X POST \
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=perspiciatis" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpiOnW2b" 
+    -F "information=repellat" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpu9FVDP" 
 ```
 
 ```javascript
@@ -974,7 +974,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'perspiciatis');
+body.append('information', 'repellat');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -1017,11 +1017,11 @@ $response = $client->post(
             ],
             [
                 'name' => 'information',
-                'contents' => 'perspiciatis'
+                'contents' => 'repellat'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpiOnW2b', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpu9FVDP', 'r')
             ],
         ],
     ]
@@ -1124,14 +1124,14 @@ informasi tambahan.
 
 ```bash
 curl -X DELETE \
-    "https://brn-api.test/api/perpetrators/est" \
+    "https://brn-api.test/api/perpetrators/atque" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://brn-api.test/api/perpetrators/est"
+    "https://brn-api.test/api/perpetrators/atque"
 );
 
 let headers = {
@@ -1150,7 +1150,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'https://brn-api.test/api/perpetrators/est',
+    'https://brn-api.test/api/perpetrators/atque',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

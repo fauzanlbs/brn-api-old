@@ -15,6 +15,8 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->integer('level')->nullable();
+            $table->boolean('is_diklat')->default(false);
             $table->foreignId('user_id')->constrained();
             $table->string('image')->nullable();
             $table->string('name');

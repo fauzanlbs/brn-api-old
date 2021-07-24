@@ -164,6 +164,7 @@ Route::prefix('courses')->group(function () {
             Route::get('/{courseLesson}/task-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestions']);
         });
     });
+    Route::get('/diklat-level-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestionWhereLevel'])->middleware('auth:sanctum');
 });
 
 

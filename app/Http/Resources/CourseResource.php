@@ -16,6 +16,8 @@ class CourseResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "level" => $this->level,
+            "is_diklat" => $this->is_diklat,
             "user_id" => $this->user_id,
             "user" =>  new SimpleUserResource($this->whenLoaded('user')),
             "image" => $this->image,

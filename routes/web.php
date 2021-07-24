@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\VerifyEmailController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,17 +17,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-
-Route::permanentRedirect('/login', '/')->name('login');
-
-// Verify email
-Route::get('/email/verify/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
-    ->middleware(['signed', 'throttle:6,1'])
-    ->name('verification.verify');
-
-// Verify Email Successfully
-Route::get('/email-verified-successfully', function (Request $request) {
-    return view('email-verified-successfully', [
-        'email' => $request->query('email'),
-    ]);
-})->name('ev.successfully');
