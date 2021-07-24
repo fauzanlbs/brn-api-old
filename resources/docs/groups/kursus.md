@@ -2101,8 +2101,8 @@ print_r(json_decode((string) $body));
 </p>
 <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
 <p>
-<b><code>level</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="level" data-endpoint="GETapi-courses-diklat-level-questions" data-component="query"  hidden>
+<b><code>level</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="level" data-endpoint="GETapi-courses-diklat-level-questions" data-component="query" required  hidden>
 <br>
 Penyortiran berdasarkan judul.
 </p>

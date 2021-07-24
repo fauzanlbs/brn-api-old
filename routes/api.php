@@ -26,6 +26,7 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
 use Illuminate\Support\Facades\Route;
 
@@ -222,5 +223,9 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('firebase')->group(function () {
         Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
     });
 });
