@@ -15,6 +15,7 @@ class CarModelController extends Controller
 {
     /**
      * Mendapatkan list data model mobil.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data model mobil. Example: S40

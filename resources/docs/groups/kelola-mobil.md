@@ -5,20 +5,20 @@
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/colors?search=merah&page[number]=1&page[size]=2&sort=-color" \
+    -G "https://brn-api.test/api/cars/colors?search=merah&page[number]=1&page[size]=2&sort=-color" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/colors"
+    "https://brn-api.test/api/cars/colors"
 );
 
 let params = {
@@ -46,7 +46,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/colors',
+    'https://brn-api.test/api/cars/colors',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -148,20 +148,20 @@ Menyortir data ( key_name / -key_name ), default color.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/makes?search=BMW&page[number]=1&page[size]=2&sort=-make" \
+    -G "https://brn-api.test/api/cars/makes?search=BMW&page[number]=1&page[size]=2&sort=-make" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/makes"
+    "https://brn-api.test/api/cars/makes"
 );
 
 let params = {
@@ -189,7 +189,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/makes',
+    'https://brn-api.test/api/cars/makes',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -291,20 +291,20 @@ Menyortir data ( key_name / -key_name ), default make.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/models?search=S40&page[number]=1&page[size]=2&sort=-model&filter[car_make_id]=1" \
+    -G "https://brn-api.test/api/cars/models?search=S40&page[number]=1&page[size]=2&sort=-model&filter[car_make_id]=1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/models"
+    "https://brn-api.test/api/cars/models"
 );
 
 let params = {
@@ -333,7 +333,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/models',
+    'https://brn-api.test/api/cars/models',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -442,20 +442,20 @@ Penyortiran berdasarkan id mobil.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/types?search=Sedan&page[number]=1&page[size]=2&sort=-class" \
+    -G "https://brn-api.test/api/cars/types?search=Sedan&page[number]=1&page[size]=2&sort=-class" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/types"
+    "https://brn-api.test/api/cars/types"
 );
 
 let params = {
@@ -483,7 +483,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/types',
+    'https://brn-api.test/api/cars/types',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -589,20 +589,20 @@ Menyortir data ( key_name / -key_name ), default class.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/fuels?search=Diesel&page[number]=1&page[size]=2&sort=-fuel" \
+    -G "https://brn-api.test/api/cars/fuels?search=Diesel&page[number]=1&page[size]=2&sort=-fuel" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/fuels"
+    "https://brn-api.test/api/cars/fuels"
 );
 
 let params = {
@@ -630,7 +630,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/fuels',
+    'https://brn-api.test/api/cars/fuels',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -733,19 +733,20 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=illo&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=quisquam&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://brn-api.test/api/my-cars"
 );
 
 let params = {
@@ -760,7 +761,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "illo",
+    "filter[equipment]": "quisquam",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -782,7 +783,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-cars',
+    'https://brn-api.test/api/my-cars',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -800,7 +801,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'illo',
+            'filter[equipment]'=> 'quisquam',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -987,20 +988,20 @@ Penyortiran berdasarkan tanggal dibuat.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-cars/1" \
+    -G "https://brn-api.test/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://brn-api.test/api/my-cars/1"
 );
 
 let headers = {
@@ -1019,7 +1020,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-cars/1',
+    'https://brn-api.test/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1123,22 +1124,23 @@ valid id car.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/my-cars" \
+    "https://brn-api.test/api/my-cars" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"esse","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"voluptatem","files":[{"image":"path"},{"image":"path"}],"stnk_image":"eligendi","machine_number":"itaque","chassis_number":"in"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://brn-api.test/api/my-cars"
 );
 
 let headers = {
@@ -1157,7 +1159,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "esse",
+    "equipment": "voluptatem",
     "files": [
         {
             "image": "path"
@@ -1165,7 +1167,10 @@ let body = {
         {
             "image": "path"
         }
-    ]
+    ],
+    "stnk_image": "eligendi",
+    "machine_number": "itaque",
+    "chassis_number": "in"
 }
 
 fetch(url, {
@@ -1179,7 +1184,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/my-cars',
+    'https://brn-api.test/api/my-cars',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1195,7 +1200,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'esse',
+            'equipment' => 'voluptatem',
             'files' => [
                 [
                     'image' => 'path',
@@ -1204,6 +1209,9 @@ $response = $client->post(
                     'image' => 'path',
                 ],
             ],
+            'stnk_image' => 'eligendi',
+            'machine_number' => 'itaque',
+            'chassis_number' => 'in',
         ],
     ]
 );
@@ -1319,6 +1327,24 @@ file gambar.
 </p>
 </details>
 </p>
+<p>
+<b><code>stnk_image</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="stnk_image" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Fotor/Gambar STNK.
+</p>
+<p>
+<b><code>machine_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="machine_number" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Nomor Mesin.
+</p>
+<p>
+<b><code>chassis_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="chassis_number" data-endpoint="POSTapi-my-cars" data-component="body"  hidden>
+<br>
+Nomor Rangka.
+</p>
 
 </form>
 
@@ -1328,22 +1354,23 @@ file gambar.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://brn-api.test/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"maxime","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"sit","files":[{"image":"path"},[]],"stnk_image":"dolore","machine_number":"asperiores","chassis_number":"aut"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://brn-api.test/api/my-cars/1"
 );
 
 let headers = {
@@ -1362,13 +1389,16 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "maxime",
+    "equipment": "sit",
     "files": [
         {
             "image": "path"
         },
         []
-    ]
+    ],
+    "stnk_image": "dolore",
+    "machine_number": "asperiores",
+    "chassis_number": "aut"
 }
 
 fetch(url, {
@@ -1382,7 +1412,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/my-cars/1',
+    'https://brn-api.test/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1398,13 +1428,16 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'maxime',
+            'equipment' => 'sit',
             'files' => [
                 [
                     'image' => 'path',
                 ],
                 [],
             ],
+            'stnk_image' => 'dolore',
+            'machine_number' => 'asperiores',
+            'chassis_number' => 'aut',
         ],
     ]
 );
@@ -1527,6 +1560,24 @@ file gambar.
 </p>
 </details>
 </p>
+<p>
+<b><code>stnk_image</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="stnk_image" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Fotor/Gambar STNK.
+</p>
+<p>
+<b><code>machine_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="machine_number" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Nomor Mesin.
+</p>
+<p>
+<b><code>chassis_number</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="chassis_number" data-endpoint="POSTapi-my-cars--car-" data-component="body"  hidden>
+<br>
+Nomor Rangka.
+</p>
 
 </form>
 
@@ -1536,19 +1587,20 @@ file gambar.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://brn-api.test/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://brn-api.test/api/my-cars/1"
 );
 
 let headers = {
@@ -1567,7 +1619,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/my-cars/1',
+    'https://brn-api.test/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1624,19 +1676,20 @@ valid id car. Defaults to 'id'.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/my-cars/car-images/1" \
+    "https://brn-api.test/api/my-cars/car-images/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/car-images/1"
+    "https://brn-api.test/api/my-cars/car-images/1"
 );
 
 let headers = {
@@ -1655,7 +1708,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/my-cars/car-images/1',
+    'https://brn-api.test/api/my-cars/car-images/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

@@ -6,19 +6,20 @@
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[level]=1&filter[is_diklat]=true&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-courses"
+    "https://brn-api.test/api/my-courses"
 );
 
 let params = {
@@ -28,6 +29,8 @@ let params = {
     "sort": "created_at",
     "filter[name]": "Marketing Di Social Media",
     "filter[description]": "Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media",
+    "filter[level]": "1",
+    "filter[is_diklat]": "true",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -49,7 +52,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-courses',
+    'https://brn-api.test/api/my-courses',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -62,6 +65,8 @@ $response = $client->get(
             'sort'=> 'created_at',
             'filter[name]'=> 'Marketing Di Social Media',
             'filter[description]'=> 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media',
+            'filter[level]'=> '1',
+            'filter[is_diklat]'=> 'true',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -165,6 +170,18 @@ Penyortiran berdasarkan judul.
 Penyortiran berdasarkan deskripsi.
 </p>
 <p>
+<b><code>filter[level]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[level]" data-endpoint="GETapi-my-courses" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan level kursus.
+</p>
+<p>
+<b><code>filter[is_diklat]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[is_diklat]" data-endpoint="GETapi-my-courses" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan apakah kursus untuk diklat.
+</p>
+<p>
 <b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="filter[created_at]" data-endpoint="GETapi-my-courses" data-component="query"  hidden>
 <br>
@@ -182,13 +199,13 @@ Dibagian ini Anda bisa mendapatkan list data kursus. note: sebelum Anda bisa mel
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[level]=1&filter[is_diklat]=true&filter[created_at]=2020-12-24" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses"
+    "https://brn-api.test/api/courses"
 );
 
 let params = {
@@ -198,6 +215,8 @@ let params = {
     "sort": "created_at",
     "filter[name]": "Marketing Di Social Media",
     "filter[description]": "Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media",
+    "filter[level]": "1",
+    "filter[is_diklat]": "true",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -218,7 +237,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses',
+    'https://brn-api.test/api/courses',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -230,6 +249,8 @@ $response = $client->get(
             'sort'=> 'created_at',
             'filter[name]'=> 'Marketing Di Social Media',
             'filter[description]'=> 'Di kursus ini anda akan belajar bagaiman cara berjualan online di Social Media',
+            'filter[level]'=> '1',
+            'filter[is_diklat]'=> 'true',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -330,6 +351,18 @@ Penyortiran berdasarkan judul.
 Penyortiran berdasarkan deskripsi.
 </p>
 <p>
+<b><code>filter[level]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[level]" data-endpoint="GETapi-courses" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan level kursus.
+</p>
+<p>
+<b><code>filter[is_diklat]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[is_diklat]" data-endpoint="GETapi-courses" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan apakah kursus untuk diklat.
+</p>
+<p>
 <b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
 <input type="text" name="filter[created_at]" data-endpoint="GETapi-courses" data-component="query"  hidden>
 <br>
@@ -347,13 +380,13 @@ Penyortiran berdasarkan tanggal dibuat.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1" \
+    "https://brn-api.test/api/courses/1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1"
+    "https://brn-api.test/api/courses/1"
 );
 
 let headers = {
@@ -371,7 +404,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1',
+    'https://brn-api.test/api/courses/1',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -449,13 +482,13 @@ valid id course.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/comments?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/courses/1/comments?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://brn-api.test/api/courses/1/comments"
 );
 
 let params = {
@@ -480,7 +513,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://brn-api.test/api/courses/1/comments',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -582,13 +615,13 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/likes?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/courses/1/likes?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/likes"
+    "https://brn-api.test/api/courses/1/likes"
 );
 
 let params = {
@@ -613,7 +646,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/likes',
+    'https://brn-api.test/api/courses/1/likes',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -707,20 +740,20 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/enroll" \
+    "https://brn-api.test/api/courses/1/enroll" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/enroll"
+    "https://brn-api.test/api/courses/1/enroll"
 );
 
 let headers = {
@@ -739,7 +772,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/enroll',
+    'https://brn-api.test/api/courses/1/enroll',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -796,13 +829,13 @@ valid id course.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/comments" \
+    "https://brn-api.test/api/courses/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -812,7 +845,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://brn-api.test/api/courses/1/comments"
 );
 
 let headers = {
@@ -836,7 +869,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://brn-api.test/api/courses/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -904,20 +937,20 @@ isi komentar.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://brn-api.test/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://brn-api.test/api/courses/1/liked"
 );
 
 let headers = {
@@ -936,7 +969,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://brn-api.test/api/courses/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -993,20 +1026,20 @@ valid id course.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://brn-api.test/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://brn-api.test/api/courses/1/liked"
 );
 
 let headers = {
@@ -1025,7 +1058,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://brn-api.test/api/courses/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1083,19 +1116,20 @@ valid id course.
 <small class="badge badge-darkred">requires authentication</small>
 
 Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at" \
+    -G "https://brn-api.test/api/courses/1/lessons?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons"
+    "https://brn-api.test/api/courses/1/lessons"
 );
 
 let params = {
@@ -1123,7 +1157,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons',
+    'https://brn-api.test/api/courses/1/lessons',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1233,20 +1267,20 @@ Menyortir data ( key_name / -key_name ), default -created_at.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/comments?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/courses/1/lessons/1/comments?page[number]=1&page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://brn-api.test/api/courses/1/lessons/1/comments"
 );
 
 let params = {
@@ -1272,7 +1306,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://brn-api.test/api/courses/1/lessons/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1379,20 +1413,20 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/likes?page[number]=1&page[size]=2" \
+    -G "https://brn-api.test/api/courses/1/lessons/1/likes?page[number]=1&page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/likes"
+    "https://brn-api.test/api/courses/1/lessons/1/likes"
 );
 
 let params = {
@@ -1418,7 +1452,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons/1/likes',
+    'https://brn-api.test/api/courses/1/lessons/1/likes',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1522,13 +1556,13 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/comments" \
+    "https://brn-api.test/api/courses/1/lessons/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -1538,7 +1572,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://brn-api.test/api/courses/1/lessons/1/comments"
 );
 
 let headers = {
@@ -1562,7 +1596,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://brn-api.test/api/courses/1/lessons/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1636,20 +1670,20 @@ isi komentar.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://brn-api.test/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://brn-api.test/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -1668,7 +1702,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://brn-api.test/api/courses/1/lessons/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1731,20 +1765,20 @@ valid id courseLesson.
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://brn-api.test/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://brn-api.test/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -1763,7 +1797,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://brn-api.test/api/courses/1/lessons/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1818,6 +1852,259 @@ valid id course.
 <input type="number" name="courseLesson" data-endpoint="DELETEapi-courses--course--lessons--courseLesson--liked" data-component="url" required  hidden>
 <br>
 valid id courseLesson.
+</p>
+</form>
+
+
+## Mendapatkan list data pertanyaan per 1 tugas pembelajaran.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/courses/1/lessons/1/task-questions" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/courses/1/lessons/1/task-questions"
+);
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/courses/1/lessons/1/task-questions',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "course_lesson_id": 1,
+            "question": "PG-1 lesson 1 Dummy Lesson pilih salah satu jawaban di bawah ini!",
+            "options": [
+                {
+                    "key": 0,
+                    "body": "option-1, 1 Dummy Lesson"
+                },
+                {
+                    "key": 1,
+                    "body": "option-2, 1 Dummy Lesson"
+                },
+                {
+                    "key": 2,
+                    "body": "option-3, 1 Dummy Lesson"
+                },
+                {
+                    "key": 3,
+                    "body": "option-4, 1 Dummy Lesson"
+                },
+                {
+                    "key": 4,
+                    "body": "option-5, 1 Dummy Lesson"
+                }
+            ],
+            "the_answer": 3,
+            "created_at": "2021-05-29T07:27:14.000000Z",
+            "updated_at": "2021-05-29T07:27:14.000000Z"
+        }
+    ]
+}
+```
+<div id="execution-results-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-courses--course--lessons--courseLesson--task-questions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-courses--course--lessons--courseLesson--task-questions"></code></pre>
+</div>
+<div id="execution-error-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-courses--course--lessons--courseLesson--task-questions"></code></pre>
+</div>
+<form id="form-GETapi-courses--course--lessons--courseLesson--task-questions" data-method="GET" data-path="api/courses/{course}/lessons/{courseLesson}/task-questions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-courses--course--lessons--courseLesson--task-questions', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-courses--course--lessons--courseLesson--task-questions" onclick="tryItOut('GETapi-courses--course--lessons--courseLesson--task-questions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-courses--course--lessons--courseLesson--task-questions" onclick="cancelTryOut('GETapi-courses--course--lessons--courseLesson--task-questions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/courses/{course}/lessons/{courseLesson}/task-questions</code></b>
+</p>
+<p>
+<label id="auth-GETapi-courses--course--lessons--courseLesson--task-questions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+<p>
+<b><code>course</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="course" data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="url" required  hidden>
+<br>
+valid id course.
+</p>
+<p>
+<b><code>courseLesson</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="courseLesson" data-endpoint="GETapi-courses--course--lessons--courseLesson--task-questions" data-component="url" required  hidden>
+<br>
+valid id courseLesson.
+</p>
+</form>
+
+
+## Mendapatkan list data pertanyaan tugas pembelajaran berdasarkan level diklat.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/courses/diklat-level-questions?level=Marketing+Di+Social+Media" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/courses/diklat-level-questions"
+);
+
+let params = {
+    "level": "Marketing Di Social Media",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/courses/diklat-level-questions',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'level'=> 'Marketing Di Social Media',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "course_lesson_id": 1,
+            "question": "PG-1 lesson 1 Dummy Lesson pilih salah satu jawaban di bawah ini!",
+            "options": [
+                {
+                    "key": 0,
+                    "body": "option-1, 1 Dummy Lesson"
+                },
+                {
+                    "key": 1,
+                    "body": "option-2, 1 Dummy Lesson"
+                },
+                {
+                    "key": 2,
+                    "body": "option-3, 1 Dummy Lesson"
+                },
+                {
+                    "key": 3,
+                    "body": "option-4, 1 Dummy Lesson"
+                },
+                {
+                    "key": 4,
+                    "body": "option-5, 1 Dummy Lesson"
+                }
+            ],
+            "the_answer": 3,
+            "created_at": "2021-05-29T07:27:14.000000Z",
+            "updated_at": "2021-05-29T07:27:14.000000Z"
+        }
+    ]
+}
+```
+<div id="execution-results-GETapi-courses-diklat-level-questions" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-courses-diklat-level-questions"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-courses-diklat-level-questions"></code></pre>
+</div>
+<div id="execution-error-GETapi-courses-diklat-level-questions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-courses-diklat-level-questions"></code></pre>
+</div>
+<form id="form-GETapi-courses-diklat-level-questions" data-method="GET" data-path="api/courses/diklat-level-questions" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-courses-diklat-level-questions', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-courses-diklat-level-questions" onclick="tryItOut('GETapi-courses-diklat-level-questions');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-courses-diklat-level-questions" onclick="cancelTryOut('GETapi-courses-diklat-level-questions');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-courses-diklat-level-questions" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/courses/diklat-level-questions</code></b>
+</p>
+<p>
+<label id="auth-GETapi-courses-diklat-level-questions" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-courses-diklat-level-questions" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>level</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="level" data-endpoint="GETapi-courses-diklat-level-questions" data-component="query" required  hidden>
+<br>
+Penyortiran berdasarkan judul.
 </p>
 </form>
 

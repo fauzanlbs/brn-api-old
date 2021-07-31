@@ -15,6 +15,7 @@ class CarMakeController extends Controller
 {
     /**
      * Mendapatkan list data produsen mobil.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data produsen mobil. Example: BMW

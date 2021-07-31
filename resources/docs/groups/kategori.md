@@ -10,13 +10,13 @@ Dibagian ini Anda bisa mendapatkan list data kategori.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/categories?search=motivasi&page[number]=2&page[size]=2&sort=name&filter[name]=motivasi&filter[slug]=motivasi" \
+    -G "https://brn-api.test/api/categories?search=motivasi&page[number]=2&page[size]=2&sort=name&filter[name]=motivasi&filter[slug]=motivasi" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/categories"
+    "https://brn-api.test/api/categories"
 );
 
 let params = {
@@ -45,7 +45,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/categories',
+    'https://brn-api.test/api/categories',
     [
         'headers' => [
             'Accept' => 'application/json',

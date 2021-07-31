@@ -16,11 +16,14 @@ class CreateCarsTable extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('car_make_id');
-            $table->unsignedBigInteger('car_type_id');
-            $table->unsignedBigInteger('car_fuel_id');
-            $table->unsignedBigInteger('car_model_id');
-            $table->unsignedBigInteger('car_color_id');
+            $table->string('stnk_image')->nullable();
+            $table->string('machine_number');
+            $table->string('chassis_number');
+            $table->unsignedBigInteger('car_make_id')->nullable();
+            $table->unsignedBigInteger('car_type_id')->nullable();
+            $table->unsignedBigInteger('car_fuel_id')->nullable();
+            $table->unsignedBigInteger('car_model_id')->nullable();
+            $table->unsignedBigInteger('car_color_id')->nullable();
             $table->enum('status', ['active', 'lost'])->default('active');
             $table->boolean('is_approved')->default(false);
             $table->string('police_number');

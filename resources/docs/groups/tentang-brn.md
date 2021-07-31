@@ -10,13 +10,13 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/about" \
+    -G "https://brn-api.test/api/about" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/about"
+    "https://brn-api.test/api/about"
 );
 
 let headers = {
@@ -34,7 +34,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/about',
+    'https://brn-api.test/api/about',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -46,6 +46,69 @@ print_r(json_decode((string) $body));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "id": 1,
+    "title": "title",
+    "vesion_app": "1.0.0",
+    "copyright": "copyright",
+    "histories": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "organizational_regulations": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "tujuh_sapta_cipta": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "adarts": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "organizational_structures": [
+        {
+            "key": 0,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        },
+        {
+            "key": 1,
+            "image": "http:\/\/api.brn.com\/storage\/..."
+        }
+    ],
+    "playstore_url_app": "https:\/\/playsotre......",
+    "created_at": "2021-05-03T12:13:34.000000Z",
+    "updated_at": "2021-05-03T12:13:34.000000Z"
+}
+```
 <div id="execution-results-GETapi-about" hidden>
     <blockquote>Received response<span id="execution-response-status-GETapi-about"></span>:</blockquote>
     <pre class="json"><code id="execution-response-content-GETapi-about"></code></pre>

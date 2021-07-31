@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Scopes\Searchable;
 use App\Traits\CollectsPoints;
 use App\Traits\HasProfilePhoto;
 use App\Traits\UserRegularFunction;
@@ -23,6 +24,14 @@ class User extends Authenticatable implements Commentator
     use Addressable;
     use HasRoles;
     use CollectsPoints;
+    use Searchable;
+
+    /**
+     * The attributes that are mass searchable.
+     *
+     * @var array
+     */
+    protected $searchableFields = ['*'];
 
     /**
      * Check if a comment for a specific model needs to be approved.
@@ -98,7 +107,16 @@ class User extends Authenticatable implements Commentator
      */
     public function articles()
     {
-        return $this->hasOne(Article::class);
+        return $this->hasMany(Article::class);
+    }
+
+
+    /**
+     * Get the discussion where created by this user.
+     */
+    public function discussions()
+    {
+        return $this->hasMany(Article::class);
     }
 
 
@@ -135,5 +153,23 @@ class User extends Authenticatable implements Commentator
     public function myCars()
     {
         return $this->hasMany(Car::class);
+    }
+
+    /**
+     * Get my Firebase data.
+     */
+    public function firebase()
+    {
+        return $this->hasOne(Firebase::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    public function absentAgendas()
+    {
+        return $this->belongsToMany(Agendas::class);
     }
 }

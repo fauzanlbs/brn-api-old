@@ -5,20 +5,20 @@
 
 <small class="badge badge-darkred">requires authentication</small>
 
-
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
 
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/check-in" \
+    -G "https://brn-api.test/api/check-in" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/check-in"
+    "https://brn-api.test/api/check-in"
 );
 
 let headers = {
@@ -37,7 +37,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/check-in',
+    'https://brn-api.test/api/check-in',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
