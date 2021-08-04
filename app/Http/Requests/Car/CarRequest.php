@@ -45,11 +45,11 @@ class CarRequest extends FormRequest
     {
         return [
             'user_id' => 'required',
-            'car_make_id' => 'required|exists:car_makes,id',
-            'car_type_id' => 'required|exists:car_types,id',
-            'car_fuel_id' => 'required|exists:car_fuels,id',
-            'car_model_id' => 'required|exists:car_models,id',
-            'car_color_id' => 'required|exists:car_colors,id',
+            'car_make_id' => 'nullable|exists:car_makes,id',
+            'car_type_id' => 'nullable|exists:car_types,id',
+            'car_fuel_id' => 'nullable|exists:car_fuels,id',
+            'car_model_id' => 'nullable|exists:car_models,id',
+            'car_color_id' => 'nullable|exists:car_colors,id',
             'police_number' => 'required|max:255|string',
             'year' => 'required|numeric',
             'is_automatic' => 'required|boolean|boolean',
