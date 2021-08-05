@@ -28,6 +28,7 @@ use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('/upload-files', [UploadFileController::class, 'store']);
+
 
 // Perpetrator
 Route::prefix('perpetrators')->group(function () {
