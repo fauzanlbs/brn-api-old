@@ -11,14 +11,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/colors?search=merah&page[number]=1&page[size]=2&sort=-color" \
+    -G "https://api-brn.neosantara.co.id/api/cars/colors?search=merah&page[number]=1&page[size]=2&sort=-color" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/colors"
+    "https://api-brn.neosantara.co.id/api/cars/colors"
 );
 
 let params = {
@@ -46,7 +46,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/colors',
+    'https://api-brn.neosantara.co.id/api/cars/colors',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -154,14 +154,14 @@ Menyortir data ( key_name / -key_name ), default color.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/makes?search=BMW&page[number]=1&page[size]=2&sort=-make" \
+    -G "https://api-brn.neosantara.co.id/api/cars/makes?search=BMW&page[number]=1&page[size]=2&sort=-make" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/makes"
+    "https://api-brn.neosantara.co.id/api/cars/makes"
 );
 
 let params = {
@@ -189,7 +189,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/makes',
+    'https://api-brn.neosantara.co.id/api/cars/makes',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -297,14 +297,14 @@ Menyortir data ( key_name / -key_name ), default make.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/models?search=S40&page[number]=1&page[size]=2&sort=-model&filter[car_make_id]=1" \
+    -G "https://api-brn.neosantara.co.id/api/cars/models?search=S40&page[number]=1&page[size]=2&sort=-model&filter[car_make_id]=1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/models"
+    "https://api-brn.neosantara.co.id/api/cars/models"
 );
 
 let params = {
@@ -333,7 +333,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/models',
+    'https://api-brn.neosantara.co.id/api/cars/models',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -448,14 +448,14 @@ Penyortiran berdasarkan id mobil.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/types?search=Sedan&page[number]=1&page[size]=2&sort=-class" \
+    -G "https://api-brn.neosantara.co.id/api/cars/types?search=Sedan&page[number]=1&page[size]=2&sort=-class" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/types"
+    "https://api-brn.neosantara.co.id/api/cars/types"
 );
 
 let params = {
@@ -483,7 +483,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/types',
+    'https://api-brn.neosantara.co.id/api/cars/types',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -595,14 +595,14 @@ Menyortir data ( key_name / -key_name ), default class.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/cars/fuels?search=Diesel&page[number]=1&page[size]=2&sort=-fuel" \
+    -G "https://api-brn.neosantara.co.id/api/cars/fuels?search=Diesel&page[number]=1&page[size]=2&sort=-fuel" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/cars/fuels"
+    "https://api-brn.neosantara.co.id/api/cars/fuels"
 );
 
 let params = {
@@ -630,7 +630,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/cars/fuels',
+    'https://api-brn.neosantara.co.id/api/cars/fuels',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -738,14 +738,14 @@ Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=illo&filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=corrupti&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://api-brn.neosantara.co.id/api/my-cars"
 );
 
 let params = {
@@ -760,7 +760,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "illo",
+    "filter[equipment]": "corrupti",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -782,7 +782,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-cars',
+    'https://api-brn.neosantara.co.id/api/my-cars',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -800,7 +800,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'illo',
+            'filter[equipment]'=> 'corrupti',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -993,14 +993,14 @@ Penyortiran berdasarkan tanggal dibuat.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-cars/1" \
+    -G "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -1019,7 +1019,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1128,17 +1128,17 @@ Dibagian ini Anda bisa menambahkan mobil pengguna saat ini.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/my-cars" \
+    "https://api-brn.neosantara.co.id/api/my-cars" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"esse","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"labore","files":[{"image":"path"},{"image":"path"}]}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://api-brn.neosantara.co.id/api/my-cars"
 );
 
 let headers = {
@@ -1157,7 +1157,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "esse",
+    "equipment": "labore",
     "files": [
         {
             "image": "path"
@@ -1179,7 +1179,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/my-cars',
+    'https://api-brn.neosantara.co.id/api/my-cars',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1195,7 +1195,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'esse',
+            'equipment' => 'labore',
             'files' => [
                 [
                     'image' => 'path',
@@ -1333,17 +1333,17 @@ Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"maxime","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"recusandae","files":[{"image":"path"},[]]}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -1362,7 +1362,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "maxime",
+    "equipment": "recusandae",
     "files": [
         {
             "image": "path"
@@ -1382,7 +1382,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1398,7 +1398,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'maxime',
+            'equipment' => 'recusandae',
             'files' => [
                 [
                     'image' => 'path',
@@ -1541,14 +1541,14 @@ Dibagian ini Anda bisa menghapus salah satu mobil pengguna saat ini.
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -1567,7 +1567,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1629,14 +1629,14 @@ Dibagian ini Anda bisa menghapus salah satu gambar mobil pengguna saat ini.
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/my-cars/car-images/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/car-images/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-cars/car-images/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/car-images/1"
 );
 
 let headers = {
@@ -1655,7 +1655,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/my-cars/car-images/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/car-images/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

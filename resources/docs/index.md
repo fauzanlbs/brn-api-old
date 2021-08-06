@@ -1,5 +1,5 @@
 ---
-title: Buser Rent Car Nasional Documentation
+title: BRN System Documentation
 
 language_tabs:
 - bash
@@ -33,12 +33,12 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script>
-    var baseUrl = "http://api.brn.com";
+    var baseUrl = "https://api-brn.neosantara.co.id/";
 </script>
 <script src="js/tryitout-2.5.3.js"></script>
 
 > Base URL
 
 ```yaml
-http://api.brn.com
+https://api-brn.neosantara.co.id/
 ```

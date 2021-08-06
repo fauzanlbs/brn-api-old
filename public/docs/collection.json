@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "api.brn.com"
+            "value": "api-brn.neosantara.co.id"
         }
     ],
     "info": {
-        "name": "Buser Rent Car Nasional",
-        "_postman_id": "54a31109-ea24-44fb-9072-29b8a1065d3d",
+        "name": "BRN System",
+        "_postman_id": "55010843-e59d-4690-b4f7-4e7acd01eac0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -23,7 +23,7 @@
                     "name": "Mendapatkan list data artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles",
                             "query": [
@@ -76,7 +76,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
                         },
                         "method": "GET",
                         "header": [
@@ -96,7 +96,7 @@
                             "name": "Mendapatkan list data artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles",
                                     "query": [
@@ -149,7 +149,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -174,11 +174,11 @@
                     "name": "Mendapatkan detail data artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article",
                             "variable": [
                                 {
                                     "id": "article",
@@ -206,11 +206,11 @@
                             "name": "Mendapatkan detail data artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -243,7 +243,7 @@
                     "name": "Mendapatkan list data artikel bedasarkan kategori.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/categories\/:slug",
                             "query": [
@@ -296,12 +296,12 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
                             "variable": [
                                 {
                                     "id": "slug",
                                     "key": "slug",
-                                    "value": "deserunt",
+                                    "value": "et",
                                     "description": ""
                                 }
                             ]
@@ -324,7 +324,7 @@
                             "name": "Mendapatkan list data artikel bedasarkan kategori. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/categories\/:slug",
                                     "query": [
@@ -377,12 +377,12 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/categories\/:slug?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Btitle%5D=Berita+hari+ini&filter%5Bslug%5D=berita-hari-ini&filter%5Bcreated_at%5D=2020-12-24&filter%5Bfeatured%5D=1",
                                     "variable": [
                                         {
                                             "id": "slug",
                                             "key": "slug",
-                                            "value": "deserunt",
+                                            "value": "et",
                                             "description": ""
                                         }
                                     ]
@@ -410,7 +410,7 @@
                     "name": "Mendapatkan list data komentar artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article\/comments",
                             "query": [
@@ -427,7 +427,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "article",
@@ -455,7 +455,7 @@
                             "name": "Mendapatkan list data komentar artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article\/comments",
                                     "query": [
@@ -472,7 +472,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -505,7 +505,7 @@
                     "name": "Mendapatkan list data user yang menyukai artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article\/likes",
                             "query": [
@@ -522,7 +522,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "article",
@@ -550,7 +550,7 @@
                             "name": "Mendapatkan list data user yang menyukai artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article\/likes",
                                     "query": [
@@ -567,7 +567,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -600,11 +600,11 @@
                     "name": "Menambahan komentar artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article\/comments",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
                             "variable": [
                                 {
                                     "id": "article",
@@ -636,11 +636,11 @@
                             "name": "Menambahan komentar artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article\/comments",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/comments",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -677,11 +677,11 @@
                     "name": "Menyukai artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
                             "variable": [
                                 {
                                     "id": "article",
@@ -706,11 +706,11 @@
                             "name": "Menyukai artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -740,11 +740,11 @@
                     "name": "Batalkan menyukai artikel.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/articles\/:article\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
                             "variable": [
                                 {
                                     "id": "article",
@@ -769,11 +769,11 @@
                             "name": "Batalkan menyukai artikel. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/articles\/:article\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/articles\/:article\/liked",
                                     "variable": [
                                         {
                                             "id": "article",
@@ -809,11 +809,11 @@
                     "name": "Check in hari ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/check-in",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/check-in"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/check-in"
                         },
                         "method": "GET",
                         "header": [
@@ -830,11 +830,11 @@
                             "name": "Check in hari ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/check-in",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/check-in"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/check-in"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -862,7 +862,7 @@
                     "name": "Mendapatkan list kategori.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/categories",
                             "query": [
@@ -903,7 +903,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
                         },
                         "method": "GET",
                         "header": [
@@ -923,7 +923,7 @@
                             "name": "Mendapatkan list kategori. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/categories",
                                     "query": [
@@ -964,7 +964,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/categories?search=motivasi&page%5Bnumber%5D=2&page%5Bsize%5D=2&sort=name&filter%5Bname%5D=motivasi&filter%5Bslug%5D=motivasi"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -995,7 +995,7 @@
                     "name": "Mendapatkan list data warna mobil.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/cars\/colors",
                             "query": [
@@ -1024,7 +1024,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
                         },
                         "method": "GET",
                         "header": [
@@ -1041,7 +1041,7 @@
                             "name": "Mendapatkan list data warna mobil. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/cars\/colors",
                                     "query": [
@@ -1070,7 +1070,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/cars\/colors?search=merah&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-color"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1092,7 +1092,7 @@
                     "name": "Mendapatkan list data produsen mobil.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/cars\/makes",
                             "query": [
@@ -1121,7 +1121,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
                         },
                         "method": "GET",
                         "header": [
@@ -1138,7 +1138,7 @@
                             "name": "Mendapatkan list data produsen mobil. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/cars\/makes",
                                     "query": [
@@ -1167,7 +1167,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/cars\/makes?search=BMW&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-make"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1189,7 +1189,7 @@
                     "name": "Mendapatkan list data model mobil.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/cars\/models",
                             "query": [
@@ -1224,7 +1224,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
                         },
                         "method": "GET",
                         "header": [
@@ -1241,7 +1241,7 @@
                             "name": "Mendapatkan list data model mobil. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/cars\/models",
                                     "query": [
@@ -1276,7 +1276,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/cars\/models?search=S40&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-model&filter%5Bcar_make_id%5D=1"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1298,7 +1298,7 @@
                     "name": "Mendapatkan list data jenis kelas mobil.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/cars\/types",
                             "query": [
@@ -1327,7 +1327,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
                         },
                         "method": "GET",
                         "header": [
@@ -1344,7 +1344,7 @@
                             "name": "Mendapatkan list data jenis kelas mobil. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/cars\/types",
                                     "query": [
@@ -1373,7 +1373,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/cars\/types?search=Sedan&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-class"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1395,7 +1395,7 @@
                     "name": "Mendapatkan list data bahan bakar mobil.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/cars\/fuels",
                             "query": [
@@ -1424,7 +1424,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
                         },
                         "method": "GET",
                         "header": [
@@ -1441,7 +1441,7 @@
                             "name": "Mendapatkan list data bahan bakar mobil. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/cars\/fuels",
                                     "query": [
@@ -1470,7 +1470,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/cars\/fuels?search=Diesel&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=-fuel"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1492,7 +1492,7 @@
                     "name": "Mendapatkan list data mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars",
                             "query": [
@@ -1564,7 +1564,7 @@
                                 },
                                 {
                                     "key": "filter%5Bequipment%5D",
-                                    "value": "illo",
+                                    "value": "corrupti",
                                     "description": "Penyortiran berdasarkan equipment.",
                                     "disabled": false
                                 },
@@ -1575,7 +1575,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=illo&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=corrupti&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -1592,7 +1592,7 @@
                             "name": "Mendapatkan list data mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars",
                                     "query": [
@@ -1664,7 +1664,7 @@
                                         },
                                         {
                                             "key": "filter%5Bequipment%5D",
-                                            "value": "illo",
+                                            "value": "corrupti",
                                             "description": "Penyortiran berdasarkan equipment.",
                                             "disabled": false
                                         },
@@ -1675,7 +1675,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=illo&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=carImages&filter%5Bstatus%5D=lost&filter%5Bis_approved%5D=true&filter%5Bpolice_number%5D=Y+3168+XP&filter%5Byear%5D=2015&filter%5Bis_automatic%5D=true&filter%5Bcapacity%5D=4&filter%5Bequipment%5D=corrupti&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -1697,11 +1697,11 @@
                     "name": "Mendapatkan detail data mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars\/:car",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                             "variable": [
                                 {
                                     "id": "car",
@@ -1726,11 +1726,11 @@
                             "name": "Mendapatkan detail data mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars\/:car",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                                     "variable": [
                                         {
                                             "id": "car",
@@ -1760,11 +1760,11 @@
                     "name": "Menambahkan mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars"
                         },
                         "method": "POST",
                         "header": [
@@ -1779,7 +1779,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"esse\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"labore\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                     },
@@ -1788,11 +1788,11 @@
                             "name": "Menambahkan mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars"
                                 },
                                 "method": "POST",
                                 "header": [
@@ -1807,7 +1807,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"esse\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"labore\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        {\n            \"image\": \"path\"\n        }\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan mobil pengguna saat ini."
                             },
@@ -1821,11 +1821,11 @@
                     "name": "Memperbaharui salah satu mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars\/:car",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                             "variable": [
                                 {
                                     "id": "car",
@@ -1848,7 +1848,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"maxime\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                            "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"recusandae\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                         },
                         "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                     },
@@ -1857,11 +1857,11 @@
                             "name": "Memperbaharui salah satu mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars\/:car",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                                     "variable": [
                                         {
                                             "id": "car",
@@ -1884,7 +1884,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"maxime\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
+                                    "raw": "{\n    \"car_make_id\": 1,\n    \"car_type_id\": 1,\n    \"car_fuel_id\": 1,\n    \"car_model_id\": 1,\n    \"car_color_id\": 1,\n    \"police_number\": \"K 7998 UG\",\n    \"year\": \"2015\",\n    \"is_automatic\": false,\n    \"capacity\": \"4\",\n    \"equipment\": \"recusandae\",\n    \"files\": [\n        {\n            \"image\": \"path\"\n        },\n        []\n    ]\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa memperbaharui salah satu mobil pengguna saat ini."
                             },
@@ -1898,11 +1898,11 @@
                     "name": "Menghapus salah satu mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars\/:car",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                             "variable": [
                                 {
                                     "id": "car",
@@ -1927,11 +1927,11 @@
                             "name": "Menghapus salah satu mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars\/:car",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/:car",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/:car",
                                     "variable": [
                                         {
                                             "id": "car",
@@ -1961,11 +1961,11 @@
                     "name": "Menghapus salah satu gambar mobil pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-cars\/car-images\/:carImage",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
                             "variable": [
                                 {
                                     "id": "carImage",
@@ -1990,11 +1990,11 @@
                             "name": "Menghapus salah satu gambar mobil pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-cars\/car-images\/:carImage",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-cars\/car-images\/:carImage",
                                     "variable": [
                                         {
                                             "id": "carImage",
@@ -2030,7 +2030,7 @@
                     "name": "Mendapatkan list data user yang menyukai komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment\/likes",
                             "query": [
@@ -2047,7 +2047,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2075,7 +2075,7 @@
                             "name": "Mendapatkan list data user yang menyukai komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment\/likes",
                                     "query": [
@@ -2092,7 +2092,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2125,7 +2125,7 @@
                     "name": "Mendapatkan list data balasan komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment\/replies",
                             "query": [
@@ -2142,7 +2142,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2167,7 +2167,7 @@
                             "name": "Mendapatkan list data balasan komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment\/replies",
                                     "query": [
@@ -2184,7 +2184,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2214,11 +2214,11 @@
                     "name": "Menambahan Balasan Komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment\/replies",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2250,11 +2250,11 @@
                             "name": "Menambahan Balasan Komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment\/replies",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/replies",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2291,11 +2291,11 @@
                     "name": "Menghapus komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2320,11 +2320,11 @@
                             "name": "Menghapus komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2354,11 +2354,11 @@
                     "name": "Menyukai komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2383,11 +2383,11 @@
                             "name": "Menyukai komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2417,11 +2417,11 @@
                     "name": "Batalkan menyukai komentar.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/comments\/:comment\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
                             "variable": [
                                 {
                                     "id": "comment",
@@ -2446,11 +2446,11 @@
                             "name": "Batalkan menyukai komentar. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/comments\/:comment\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/comments\/:comment\/liked",
                                     "variable": [
                                         {
                                             "id": "comment",
@@ -2486,7 +2486,7 @@
                     "name": "Mendapatkan list data kursus yang diikuti.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-courses",
                             "query": [
@@ -2533,7 +2533,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -2550,7 +2550,7 @@
                             "name": "Mendapatkan list data kursus yang diikuti. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-courses",
                                     "query": [
@@ -2597,7 +2597,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -2619,7 +2619,7 @@
                     "name": "Mendapatkan list data kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses",
                             "query": [
@@ -2666,7 +2666,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -2686,7 +2686,7 @@
                             "name": "Mendapatkan list data kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses",
                                     "query": [
@@ -2733,7 +2733,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&filter%5Bname%5D=Marketing+Di+Social+Media&filter%5Bdescription%5D=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -2758,11 +2758,11 @@
                     "name": "Mendapatkan detail data kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course",
                             "variable": [
                                 {
                                     "id": "course",
@@ -2790,11 +2790,11 @@
                             "name": "Mendapatkan detail data kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -2827,7 +2827,7 @@
                     "name": "Mendapatkan list data komentar kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/comments",
                             "query": [
@@ -2844,7 +2844,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "course",
@@ -2872,7 +2872,7 @@
                             "name": "Mendapatkan list data komentar kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/comments",
                                     "query": [
@@ -2889,7 +2889,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -2922,7 +2922,7 @@
                     "name": "Mendapatkan list data user yang menyukai kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/likes",
                             "query": [
@@ -2939,7 +2939,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "course",
@@ -2967,7 +2967,7 @@
                             "name": "Mendapatkan list data user yang menyukai kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/likes",
                                     "query": [
@@ -2984,7 +2984,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3017,11 +3017,11 @@
                     "name": "Enroll kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/enroll",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3046,11 +3046,11 @@
                             "name": "Enroll kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/enroll",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/enroll",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3080,11 +3080,11 @@
                     "name": "Menambahan komentar kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/comments",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3116,11 +3116,11 @@
                             "name": "Menambahan komentar kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/comments",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/comments",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3157,11 +3157,11 @@
                     "name": "Menyukai kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3186,11 +3186,11 @@
                             "name": "Menyukai kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3220,11 +3220,11 @@
                     "name": "Batalkan menyukai kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3249,11 +3249,11 @@
                             "name": "Batalkan menyukai kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/liked",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3283,7 +3283,7 @@
                     "name": "Mendapatkan list data pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons",
                             "query": [
@@ -3312,7 +3312,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3337,7 +3337,7 @@
                             "name": "Mendapatkan list data pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons",
                                     "query": [
@@ -3366,7 +3366,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons?search=Berita+hari+ini&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3396,7 +3396,7 @@
                     "name": "Mendapatkan list data komentar pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
                             "query": [
@@ -3413,7 +3413,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3444,7 +3444,7 @@
                             "name": "Mendapatkan list data komentar pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
                                     "query": [
@@ -3461,7 +3461,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3497,7 +3497,7 @@
                     "name": "Mendapatkan list data user yang menyukai pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons\/:courseLesson\/likes",
                             "query": [
@@ -3514,7 +3514,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3545,7 +3545,7 @@
                             "name": "Mendapatkan list data user yang menyukai pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons\/:courseLesson\/likes",
                                     "query": [
@@ -3562,7 +3562,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/likes?page%5Bnumber%5D=1&page%5Bsize%5D=2",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3598,11 +3598,11 @@
                     "name": "Menambahan komentar pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3640,11 +3640,11 @@
                             "name": "Menambahan komentar pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons\/:courseLesson\/comments",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/comments",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3687,11 +3687,11 @@
                     "name": "Menyukai pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3722,11 +3722,11 @@
                             "name": "Menyukai pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3762,11 +3762,11 @@
                     "name": "Batalkan menyukai pembelajaran\/video kursus.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
                             "variable": [
                                 {
                                     "id": "course",
@@ -3797,11 +3797,11 @@
                             "name": "Batalkan menyukai pembelajaran\/video kursus. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/courses\/:course\/lessons\/:courseLesson\/liked",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/courses\/:course\/lessons\/:courseLesson\/liked",
                                     "variable": [
                                         {
                                             "id": "course",
@@ -3843,7 +3843,7 @@
                     "name": "Mendapatkan list data laporan kasus pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-case-reports",
                             "query": [
@@ -3896,7 +3896,7 @@
                                     "disabled": false
                                 }
                             ],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
                         },
                         "method": "GET",
                         "header": [
@@ -3913,7 +3913,7 @@
                             "name": "Mendapatkan list data laporan kasus pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-case-reports",
                                     "query": [
@@ -3966,7 +3966,7 @@
                                             "disabled": false
                                         }
                                     ],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports?search=Avansa&page%5Bnumber%5D=1&page%5Bsize%5D=2&sort=created_at&include=et&filter%5Bstatus%5D=pending&filter%5Brequest_delete%5D=1&filter%5Bcreated_at%5D=2020-12-24"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -3988,11 +3988,11 @@
                     "name": "Mendapatkan detail data laporan kasus pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-case-reports\/:caseReport",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
                             "variable": [
                                 {
                                     "id": "caseReport",
@@ -4017,11 +4017,11 @@
                             "name": "Mendapatkan detail data laporan kasus pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-case-reports\/:caseReport",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
                                     "variable": [
                                         {
                                             "id": "caseReport",
@@ -4051,11 +4051,11 @@
                     "name": "Menambahkan laporan kasus pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-case-reports",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports"
                         },
                         "method": "POST",
                         "header": [
@@ -4070,7 +4070,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"molestiae\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"soluta\"\n    }\n}"
+                            "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"neque\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"sunt\"\n    }\n}"
                         },
                         "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
                     },
@@ -4079,11 +4079,11 @@
                             "name": "Menambahkan laporan kasus pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-case-reports",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports"
                                 },
                                 "method": "POST",
                                 "header": [
@@ -4098,7 +4098,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"molestiae\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"soluta\"\n    }\n}"
+                                    "raw": "{\n    \"car_id\": 1,\n    \"location\": \"31.2467601,29.9020376\",\n    \"chronology\": \"neque\",\n    \"perpetrator\": {\n        \"nik\": 123123123,\n        \"name\": \"Arya Anggara\",\n        \"phone_number\": \"0821123213\",\n        \"address\": \"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia\",\n        \"photo\": \"path\",\n        \"information\": \"sunt\"\n    }\n}"
                                 },
                                 "description": "Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini."
                             },
@@ -4112,11 +4112,11 @@
                     "name": "Batalkan laporan kasus pengguna saat ini.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/my-case-reports\/:caseReport",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                            "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
                             "variable": [
                                 {
                                     "id": "caseReport",
@@ -4141,11 +4141,11 @@
                             "name": "Batalkan laporan kasus pengguna saat ini. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/my-case-reports\/:caseReport",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/my-case-reports\/:caseReport",
                                     "variable": [
                                         {
                                             "id": "caseReport",
@@ -4181,11 +4181,11 @@
                     "name": "Mendapatkan list data onboarding.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/onboardings",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/onboardings"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/onboardings"
                         },
                         "method": "GET",
                         "header": [
@@ -4212,11 +4212,11 @@
                     "name": "Mendapatkan list data misi.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/point\/missions",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/point\/missions"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/point\/missions"
                         },
                         "method": "GET",
                         "header": [
@@ -4233,11 +4233,11 @@
                             "name": "Mendapatkan list data misi. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/point\/missions",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/point\/missions"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/point\/missions"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -4259,11 +4259,11 @@
                     "name": "Mendapatkan list data histori point.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/point\/histories",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/point\/histories"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/point\/histories"
                         },
                         "method": "GET",
                         "header": [
@@ -4280,11 +4280,11 @@
                             "name": "Mendapatkan list data histori point. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/point\/histories",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/point\/histories"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/point\/histories"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -4312,11 +4312,11 @@
                     "name": "Ping the server.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/ping",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/ping"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/ping"
                         },
                         "method": "GET",
                         "header": [
@@ -4336,11 +4336,11 @@
                             "name": "Ping the server. Response #1",
                             "originalRequest": {
                                 "url": {
-                                    "protocol": "http",
+                                    "protocol": "https",
                                     "host": "{{baseUrl}}",
                                     "path": "api\/ping",
                                     "query": [],
-                                    "raw": "http:\/\/{{baseUrl}}\/api\/ping"
+                                    "raw": "https:\/\/{{baseUrl}}\/api\/ping"
                                 },
                                 "method": "GET",
                                 "header": [
@@ -4357,7 +4357,7 @@
                             },
                             "header": null,
                             "cookie": [],
-                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-05-07T16:52:30.074215Z\",\n    \"host\": \"127.0.0.1\"\n}"
+                            "body": "{\n    \"status\": \"ok\",\n    \"timestamp\": \"2021-08-02T00:37:21.599756Z\",\n    \"host\": \"127.0.0.1\"\n}"
                         }
                     ]
                 }
@@ -4371,11 +4371,11 @@
                     "name": "Mendapatkan data tentang BRN.",
                     "request": {
                         "url": {
-                            "protocol": "http",
+                            "protocol": "https",
                             "host": "{{baseUrl}}",
                             "path": "api\/about",
                             "query": [],
-                            "raw": "http:\/\/{{baseUrl}}\/api\/about"
+                            "raw": "https:\/\/{{baseUrl}}\/api\/about"
                         },
                         "method": "GET",
                         "header": [

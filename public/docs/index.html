@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Buser Rent Car Nasional Documentation</title>
+    <title>BRN System Documentation</title>
 
     <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
 
@@ -45,7 +45,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: May 7 2021</li>
+            <li>Last updated: August 2 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -57,13 +57,13 @@
 Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari menu navigasi di kiri atas pada ponsel).</aside>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
 <script>
-    var baseUrl = "http://api.brn.com";
+    var baseUrl = "https://api-brn.neosantara.co.id/";
 </script>
 <script src="js/tryitout-2.5.3.js"></script>
 <blockquote>
 <p>Base URL</p>
 </blockquote>
-<pre><code class="language-yaml">http://api.brn.com</code></pre><h1>Authenticating requests</h1>
+<pre><code class="language-yaml">https://api-brn.neosantara.co.id/</code></pre><h1>Authenticating requests</h1>
 <p>Authenticate requests to this API's endpoints by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Artikel</h1>
@@ -73,10 +73,10 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://api-brn.neosantara.co.id/api/articles?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles"
+    "https://api-brn.neosantara.co.id/api/articles"
 );
 
 let params = {
@@ -103,7 +103,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles',
+    'https://api-brn.neosantara.co.id/api/articles',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -252,10 +252,10 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/1" \
+    -G "https://api-brn.neosantara.co.id/api/articles/1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1"
+    "https://api-brn.neosantara.co.id/api/articles/1"
 );
 
 let headers = {
@@ -269,7 +269,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/1',
+    'https://api-brn.neosantara.co.id/api/articles/1',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -352,10 +352,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/categories/deserunt?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://api-brn.neosantara.co.id/api/articles/categories/et?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/categories/deserunt"
+    "https://api-brn.neosantara.co.id/api/articles/categories/et"
 );
 
 let params = {
@@ -382,7 +382,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/categories/deserunt',
+    'https://api-brn.neosantara.co.id/api/articles/categories/et',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -538,10 +538,10 @@ Penyortiran berdasarkan diunggulakan, harus berupa angka 0 atau 1.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/1/comments?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/articles/1/comments?page[number]=1&amp;page[size]=2" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1/comments"
+    "https://api-brn.neosantara.co.id/api/articles/1/comments"
 );
 
 let params = {
@@ -562,7 +562,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/1/comments',
+    'https://api-brn.neosantara.co.id/api/articles/1/comments',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -654,10 +654,10 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/articles/1/likes?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/articles/1/likes?page[number]=1&amp;page[size]=2" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1/likes"
+    "https://api-brn.neosantara.co.id/api/articles/1/likes"
 );
 
 let params = {
@@ -678,7 +678,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/articles/1/likes',
+    'https://api-brn.neosantara.co.id/api/articles/1/likes',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -768,14 +768,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/articles/1/comments" \
+    "https://api-brn.neosantara.co.id/api/articles/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"comment":"Semangat terus :)"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1/comments"
+    "https://api-brn.neosantara.co.id/api/articles/1/comments"
 );
 
 let headers = {
@@ -796,7 +796,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/articles/1/comments',
+    'https://api-brn.neosantara.co.id/api/articles/1/comments',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -860,11 +860,11 @@ isi komentar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/articles/1/liked" \
+    "https://api-brn.neosantara.co.id/api/articles/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1/liked"
+    "https://api-brn.neosantara.co.id/api/articles/1/liked"
 );
 
 let headers = {
@@ -879,7 +879,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/articles/1/liked',
+    'https://api-brn.neosantara.co.id/api/articles/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -932,11 +932,11 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/articles/1/liked" \
+    "https://api-brn.neosantara.co.id/api/articles/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/articles/1/liked"
+    "https://api-brn.neosantara.co.id/api/articles/1/liked"
 );
 
 let headers = {
@@ -951,7 +951,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/articles/1/liked',
+    'https://api-brn.neosantara.co.id/api/articles/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1004,11 +1004,11 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/check-in" \
+    -G "https://api-brn.neosantara.co.id/api/check-in" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/check-in"
+    "https://api-brn.neosantara.co.id/api/check-in"
 );
 
 let headers = {
@@ -1023,7 +1023,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/check-in',
+    'https://api-brn.neosantara.co.id/api/check-in',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1069,10 +1069,10 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/categories?search=motivasi&amp;page[number]=2&amp;page[size]=2&amp;sort=name&amp;filter[name]=motivasi&amp;filter[slug]=motivasi" \
+    -G "https://api-brn.neosantara.co.id/api/categories?search=motivasi&amp;page[number]=2&amp;page[size]=2&amp;sort=name&amp;filter[name]=motivasi&amp;filter[slug]=motivasi" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/categories"
+    "https://api-brn.neosantara.co.id/api/categories"
 );
 
 let params = {
@@ -1097,7 +1097,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/categories',
+    'https://api-brn.neosantara.co.id/api/categories',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -1209,11 +1209,11 @@ Penyortiran berdasarkan slug.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/cars/colors?search=merah&amp;page[number]=1&amp;page[size]=2&amp;sort=-color" \
+    -G "https://api-brn.neosantara.co.id/api/cars/colors?search=merah&amp;page[number]=1&amp;page[size]=2&amp;sort=-color" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/cars/colors"
+    "https://api-brn.neosantara.co.id/api/cars/colors"
 );
 
 let params = {
@@ -1237,7 +1237,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/cars/colors',
+    'https://api-brn.neosantara.co.id/api/cars/colors',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1335,11 +1335,11 @@ Menyortir data ( key_name / -key_name ), default color.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/cars/makes?search=BMW&amp;page[number]=1&amp;page[size]=2&amp;sort=-make" \
+    -G "https://api-brn.neosantara.co.id/api/cars/makes?search=BMW&amp;page[number]=1&amp;page[size]=2&amp;sort=-make" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/cars/makes"
+    "https://api-brn.neosantara.co.id/api/cars/makes"
 );
 
 let params = {
@@ -1363,7 +1363,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/cars/makes',
+    'https://api-brn.neosantara.co.id/api/cars/makes',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1461,11 +1461,11 @@ Menyortir data ( key_name / -key_name ), default make.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/cars/models?search=S40&amp;page[number]=1&amp;page[size]=2&amp;sort=-model&amp;filter[car_make_id]=1" \
+    -G "https://api-brn.neosantara.co.id/api/cars/models?search=S40&amp;page[number]=1&amp;page[size]=2&amp;sort=-model&amp;filter[car_make_id]=1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/cars/models"
+    "https://api-brn.neosantara.co.id/api/cars/models"
 );
 
 let params = {
@@ -1490,7 +1490,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/cars/models',
+    'https://api-brn.neosantara.co.id/api/cars/models',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1595,11 +1595,11 @@ Penyortiran berdasarkan id mobil.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/cars/types?search=Sedan&amp;page[number]=1&amp;page[size]=2&amp;sort=-class" \
+    -G "https://api-brn.neosantara.co.id/api/cars/types?search=Sedan&amp;page[number]=1&amp;page[size]=2&amp;sort=-class" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/cars/types"
+    "https://api-brn.neosantara.co.id/api/cars/types"
 );
 
 let params = {
@@ -1623,7 +1623,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/cars/types',
+    'https://api-brn.neosantara.co.id/api/cars/types',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1725,11 +1725,11 @@ Menyortir data ( key_name / -key_name ), default class.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/cars/fuels?search=Diesel&amp;page[number]=1&amp;page[size]=2&amp;sort=-fuel" \
+    -G "https://api-brn.neosantara.co.id/api/cars/fuels?search=Diesel&amp;page[number]=1&amp;page[size]=2&amp;sort=-fuel" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/cars/fuels"
+    "https://api-brn.neosantara.co.id/api/cars/fuels"
 );
 
 let params = {
@@ -1753,7 +1753,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/cars/fuels',
+    'https://api-brn.neosantara.co.id/api/cars/fuels',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1852,11 +1852,11 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=illo&amp;filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=corrupti&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://api-brn.neosantara.co.id/api/my-cars"
 );
 
 let params = {
@@ -1871,7 +1871,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "illo",
+    "filter[equipment]": "corrupti",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -1889,7 +1889,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/my-cars',
+    'https://api-brn.neosantara.co.id/api/my-cars',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -1907,7 +1907,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'illo',
+            'filter[equipment]'=&gt; 'corrupti',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -2090,11 +2090,11 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/my-cars/1" \
+    -G "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -2109,7 +2109,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2209,14 +2209,14 @@ valid id car.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/my-cars" \
+    "https://api-brn.neosantara.co.id/api/my-cars" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"esse","files":[{"image":"path"},{"image":"path"}]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"labore","files":[{"image":"path"},{"image":"path"}]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars"
+    "https://api-brn.neosantara.co.id/api/my-cars"
 );
 
 let headers = {
@@ -2235,7 +2235,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "esse",
+    "equipment": "labore",
     "files": [
         {
             "image": "path"
@@ -2254,7 +2254,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/my-cars',
+    'https://api-brn.neosantara.co.id/api/my-cars',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2270,7 +2270,7 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'esse',
+            'equipment' =&gt; 'labore',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
@@ -2399,14 +2399,14 @@ file gambar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"maxime","files":[{"image":"path"},[]]}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"recusandae","files":[{"image":"path"},[]]}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -2425,7 +2425,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "maxime",
+    "equipment": "recusandae",
     "files": [
         {
             "image": "path"
@@ -2442,7 +2442,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2458,7 +2458,7 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'maxime',
+            'equipment' =&gt; 'recusandae',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
@@ -2592,11 +2592,11 @@ file gambar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/my-cars/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/1"
 );
 
 let headers = {
@@ -2611,7 +2611,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/my-cars/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2664,11 +2664,11 @@ valid id car. Defaults to 'id'.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/my-cars/car-images/1" \
+    "https://api-brn.neosantara.co.id/api/my-cars/car-images/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-cars/car-images/1"
+    "https://api-brn.neosantara.co.id/api/my-cars/car-images/1"
 );
 
 let headers = {
@@ -2683,7 +2683,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/my-cars/car-images/1',
+    'https://api-brn.neosantara.co.id/api/my-cars/car-images/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2734,10 +2734,10 @@ valid id carImage. Defaults to 'id'.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/comments/1/likes?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/comments/1/likes?page[number]=1&amp;page[size]=2" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1/likes"
+    "https://api-brn.neosantara.co.id/api/comments/1/likes"
 );
 
 let params = {
@@ -2758,7 +2758,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/comments/1/likes',
+    'https://api-brn.neosantara.co.id/api/comments/1/likes',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -2848,11 +2848,11 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/comments/1/replies?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/comments/1/replies?page[number]=1&amp;page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1/replies"
+    "https://api-brn.neosantara.co.id/api/comments/1/replies"
 );
 
 let params = {
@@ -2874,7 +2874,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/comments/1/replies',
+    'https://api-brn.neosantara.co.id/api/comments/1/replies',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -2971,14 +2971,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/comments/1/replies" \
+    "https://api-brn.neosantara.co.id/api/comments/1/replies" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"comment":"Semangat terus :)"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1/replies"
+    "https://api-brn.neosantara.co.id/api/comments/1/replies"
 );
 
 let headers = {
@@ -2999,7 +2999,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/comments/1/replies',
+    'https://api-brn.neosantara.co.id/api/comments/1/replies',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3063,11 +3063,11 @@ isi komentar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/comments/1" \
+    "https://api-brn.neosantara.co.id/api/comments/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1"
+    "https://api-brn.neosantara.co.id/api/comments/1"
 );
 
 let headers = {
@@ -3082,7 +3082,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/comments/1',
+    'https://api-brn.neosantara.co.id/api/comments/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3135,11 +3135,11 @@ valid id comment.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/comments/1/liked" \
+    "https://api-brn.neosantara.co.id/api/comments/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1/liked"
+    "https://api-brn.neosantara.co.id/api/comments/1/liked"
 );
 
 let headers = {
@@ -3154,7 +3154,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/comments/1/liked',
+    'https://api-brn.neosantara.co.id/api/comments/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3207,11 +3207,11 @@ valid id comment.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/comments/1/liked" \
+    "https://api-brn.neosantara.co.id/api/comments/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/comments/1/liked"
+    "https://api-brn.neosantara.co.id/api/comments/1/liked"
 );
 
 let headers = {
@@ -3226,7 +3226,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/comments/1/liked',
+    'https://api-brn.neosantara.co.id/api/comments/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3280,11 +3280,11 @@ valid id comment.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/my-courses?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[name]=Marketing+Di+Social+Media&amp;filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&amp;filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-courses?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[name]=Marketing+Di+Social+Media&amp;filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-courses"
+    "https://api-brn.neosantara.co.id/api/my-courses"
 );
 
 let params = {
@@ -3311,7 +3311,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/my-courses',
+    'https://api-brn.neosantara.co.id/api/my-courses',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3435,10 +3435,10 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[name]=Marketing+Di+Social+Media&amp;filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&amp;filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/courses?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[name]=Marketing+Di+Social+Media&amp;filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&amp;filter[created_at]=2020-12-24" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses"
+    "https://api-brn.neosantara.co.id/api/courses"
 );
 
 let params = {
@@ -3464,7 +3464,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses',
+    'https://api-brn.neosantara.co.id/api/courses',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3583,10 +3583,10 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1" \
+    "https://api-brn.neosantara.co.id/api/courses/1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1"
+    "https://api-brn.neosantara.co.id/api/courses/1"
 );
 
 let headers = {
@@ -3600,7 +3600,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1',
+    'https://api-brn.neosantara.co.id/api/courses/1',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3668,10 +3668,10 @@ valid id course.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses/1/comments?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/comments?page[number]=1&amp;page[size]=2" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/comments"
 );
 
 let params = {
@@ -3692,7 +3692,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/comments',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3784,10 +3784,10 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses/1/likes?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/likes?page[number]=1&amp;page[size]=2" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/likes"
+    "https://api-brn.neosantara.co.id/api/courses/1/likes"
 );
 
 let params = {
@@ -3808,7 +3808,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses/1/likes',
+    'https://api-brn.neosantara.co.id/api/courses/1/likes',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3898,11 +3898,11 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1/enroll" \
+    "https://api-brn.neosantara.co.id/api/courses/1/enroll" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/enroll"
+    "https://api-brn.neosantara.co.id/api/courses/1/enroll"
 );
 
 let headers = {
@@ -3917,7 +3917,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1/enroll',
+    'https://api-brn.neosantara.co.id/api/courses/1/enroll',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -3970,14 +3970,14 @@ valid id course.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1/comments" \
+    "https://api-brn.neosantara.co.id/api/courses/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"comment":"Semangat terus :)"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/comments"
 );
 
 let headers = {
@@ -3998,7 +3998,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/comments',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4062,11 +4062,11 @@ isi komentar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/liked"
 );
 
 let headers = {
@@ -4081,7 +4081,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4134,11 +4134,11 @@ valid id course.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/liked"
 );
 
 let headers = {
@@ -4153,7 +4153,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4207,11 +4207,11 @@ valid id course.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons"
 );
 
 let params = {
@@ -4235,7 +4235,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses/1/lessons',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4341,11 +4341,11 @@ Menyortir data ( key_name / -key_name ), default -created_at.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/comments?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments?page[number]=1&amp;page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments"
 );
 
 let params = {
@@ -4367,7 +4367,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4470,11 +4470,11 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/likes?page[number]=1&amp;page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes?page[number]=1&amp;page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/likes"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes"
 );
 
 let params = {
@@ -4496,7 +4496,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/courses/1/lessons/1/likes',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4596,14 +4596,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/comments" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"comment":"Semangat terus :)"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments"
 );
 
 let headers = {
@@ -4624,7 +4624,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4694,11 +4694,11 @@ isi komentar.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -4713,7 +4713,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4772,11 +4772,11 @@ valid id courseLesson.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -4791,7 +4791,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -4851,11 +4851,11 @@ valid id courseLesson.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=et&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=et&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-case-reports"
+    "https://api-brn.neosantara.co.id/api/my-case-reports"
 );
 
 let params = {
@@ -4883,7 +4883,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/my-case-reports',
+    'https://api-brn.neosantara.co.id/api/my-case-reports',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5028,11 +5028,11 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/my-case-reports/1" \
+    -G "https://api-brn.neosantara.co.id/api/my-case-reports/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-case-reports/1"
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1"
 );
 
 let headers = {
@@ -5047,7 +5047,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/my-case-reports/1',
+    'https://api-brn.neosantara.co.id/api/my-case-reports/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5126,14 +5126,14 @@ valid id caseReport.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "http://api.brn.com/api/my-case-reports" \
+    "https://api-brn.neosantara.co.id/api/my-case-reports" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"molestiae","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"soluta"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"neque","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"sunt"}}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-case-reports"
+    "https://api-brn.neosantara.co.id/api/my-case-reports"
 );
 
 let headers = {
@@ -5145,14 +5145,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "molestiae",
+    "chronology": "neque",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "soluta"
+        "information": "sunt"
     }
 }
 
@@ -5164,7 +5164,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'http://api.brn.com/api/my-case-reports',
+    'https://api-brn.neosantara.co.id/api/my-case-reports',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5173,14 +5173,14 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'car_id' =&gt; 1,
             'location' =&gt; '31.2467601,29.9020376',
-            'chronology' =&gt; 'molestiae',
+            'chronology' =&gt; 'neque',
             'perpetrator' =&gt; [
                 'nik' =&gt; 123123123,
                 'name' =&gt; 'Arya Anggara',
                 'phone_number' =&gt; '0821123213',
                 'address' =&gt; 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' =&gt; 'path',
-                'information' =&gt; 'soluta',
+                'information' =&gt; 'sunt',
             ],
         ],
     ]
@@ -5289,11 +5289,11 @@ informasi tambahan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "http://api.brn.com/api/my-case-reports/1" \
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/my-case-reports/1"
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1"
 );
 
 let headers = {
@@ -5308,7 +5308,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'http://api.brn.com/api/my-case-reports/1',
+    'https://api-brn.neosantara.co.id/api/my-case-reports/1',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5359,10 +5359,10 @@ valid id caseReport. Defaults to 'id'.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/onboardings" \
+    -G "https://api-brn.neosantara.co.id/api/onboardings" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/onboardings"
+    "https://api-brn.neosantara.co.id/api/onboardings"
 );
 
 let headers = {
@@ -5376,7 +5376,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/onboardings',
+    'https://api-brn.neosantara.co.id/api/onboardings',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -5411,11 +5411,11 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/point/missions" \
+    -G "https://api-brn.neosantara.co.id/api/point/missions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/point/missions"
+    "https://api-brn.neosantara.co.id/api/point/missions"
 );
 
 let headers = {
@@ -5430,7 +5430,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/point/missions',
+    'https://api-brn.neosantara.co.id/api/point/missions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5527,11 +5527,11 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/point/histories" \
+    -G "https://api-brn.neosantara.co.id/api/point/histories" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/point/histories"
+    "https://api-brn.neosantara.co.id/api/point/histories"
 );
 
 let headers = {
@@ -5546,7 +5546,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/point/histories',
+    'https://api-brn.neosantara.co.id/api/point/histories',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -5620,10 +5620,10 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/ping" \
+    -G "https://api-brn.neosantara.co.id/api/ping" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/ping"
+    "https://api-brn.neosantara.co.id/api/ping"
 );
 
 let headers = {
@@ -5637,7 +5637,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/ping',
+    'https://api-brn.neosantara.co.id/api/ping',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -5651,7 +5651,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-05-07T16:52:30.074215Z",
+    "timestamp": "2021-08-02T00:37:21.599756Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
@@ -5679,10 +5679,10 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://api.brn.com/api/about" \
+    -G "https://api-brn.neosantara.co.id/api/about" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "http://api.brn.com/api/about"
+    "https://api-brn.neosantara.co.id/api/about"
 );
 
 let headers = {
@@ -5696,7 +5696,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'http://api.brn.com/api/about',
+    'https://api-brn.neosantara.co.id/api/about',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',

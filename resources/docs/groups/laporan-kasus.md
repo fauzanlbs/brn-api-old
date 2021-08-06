@@ -11,14 +11,14 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=et&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=et&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-case-reports"
+    "https://api-brn.neosantara.co.id/api/my-case-reports"
 );
 
 let params = {
@@ -50,7 +50,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-case-reports',
+    'https://api-brn.neosantara.co.id/api/my-case-reports',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -205,14 +205,14 @@ Penyortiran berdasarkan tanggal dibuat.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-case-reports/1" \
+    -G "https://api-brn.neosantara.co.id/api/my-case-reports/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-case-reports/1"
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1"
 );
 
 let headers = {
@@ -231,7 +231,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-case-reports/1',
+    'https://api-brn.neosantara.co.id/api/my-case-reports/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -319,17 +319,17 @@ Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/my-case-reports" \
+    "https://api-brn.neosantara.co.id/api/my-case-reports" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"molestiae","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"soluta"}}'
+    -d '{"car_id":1,"location":"31.2467601,29.9020376","chronology":"neque","perpetrator":{"nik":123123123,"name":"Arya Anggara","phone_number":"0821123213","address":"Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia","photo":"path","information":"sunt"}}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-case-reports"
+    "https://api-brn.neosantara.co.id/api/my-case-reports"
 );
 
 let headers = {
@@ -341,14 +341,14 @@ let headers = {
 let body = {
     "car_id": 1,
     "location": "31.2467601,29.9020376",
-    "chronology": "molestiae",
+    "chronology": "neque",
     "perpetrator": {
         "nik": 123123123,
         "name": "Arya Anggara",
         "phone_number": "0821123213",
         "address": "Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia",
         "photo": "path",
-        "information": "soluta"
+        "information": "sunt"
     }
 }
 
@@ -363,7 +363,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/my-case-reports',
+    'https://api-brn.neosantara.co.id/api/my-case-reports',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -372,14 +372,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'molestiae',
+            'chronology' => 'neque',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => 'path',
-                'information' => 'soluta',
+                'information' => 'sunt',
             ],
         ],
     ]
@@ -497,14 +497,14 @@ Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportCon
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/my-case-reports/1" \
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-case-reports/1"
+    "https://api-brn.neosantara.co.id/api/my-case-reports/1"
 );
 
 let headers = {
@@ -523,7 +523,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/my-case-reports/1',
+    'https://api-brn.neosantara.co.id/api/my-case-reports/1',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

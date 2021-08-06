@@ -11,14 +11,14 @@
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/check-in" \
+    -G "https://api-brn.neosantara.co.id/api/check-in" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/check-in"
+    "https://api-brn.neosantara.co.id/api/check-in"
 );
 
 let headers = {
@@ -37,7 +37,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/check-in',
+    'https://api-brn.neosantara.co.id/api/check-in',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

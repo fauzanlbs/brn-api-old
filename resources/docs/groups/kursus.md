@@ -11,14 +11,14 @@ Dibagian ini Anda bisa mendapatkan list data kurus yang diikuti.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/my-courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/my-courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/my-courses"
+    "https://api-brn.neosantara.co.id/api/my-courses"
 );
 
 let params = {
@@ -49,7 +49,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/my-courses',
+    'https://api-brn.neosantara.co.id/api/my-courses',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -182,13 +182,13 @@ Dibagian ini Anda bisa mendapatkan list data kursus. note: sebelum Anda bisa mel
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
+    -G "https://api-brn.neosantara.co.id/api/courses?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at&filter[name]=Marketing+Di+Social+Media&filter[description]=Di+kursus+ini+anda+akan+belajar+bagaiman+cara+berjualan+online+di+Social+Media&filter[created_at]=2020-12-24" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses"
+    "https://api-brn.neosantara.co.id/api/courses"
 );
 
 let params = {
@@ -218,7 +218,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses',
+    'https://api-brn.neosantara.co.id/api/courses',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -347,13 +347,13 @@ Penyortiran berdasarkan tanggal dibuat.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1" \
+    "https://api-brn.neosantara.co.id/api/courses/1" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1"
+    "https://api-brn.neosantara.co.id/api/courses/1"
 );
 
 let headers = {
@@ -371,7 +371,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1',
+    'https://api-brn.neosantara.co.id/api/courses/1',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -449,13 +449,13 @@ valid id course.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/comments?page[number]=1&page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/comments?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/comments"
 );
 
 let params = {
@@ -480,7 +480,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/comments',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -582,13 +582,13 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/likes?page[number]=1&page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/likes?page[number]=1&page[size]=2" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/likes"
+    "https://api-brn.neosantara.co.id/api/courses/1/likes"
 );
 
 let params = {
@@ -613,7 +613,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/likes',
+    'https://api-brn.neosantara.co.id/api/courses/1/likes',
     [
         'headers' => [
             'Accept' => 'application/json',
@@ -713,14 +713,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/enroll" \
+    "https://api-brn.neosantara.co.id/api/courses/1/enroll" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/enroll"
+    "https://api-brn.neosantara.co.id/api/courses/1/enroll"
 );
 
 let headers = {
@@ -739,7 +739,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/enroll',
+    'https://api-brn.neosantara.co.id/api/courses/1/enroll',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -802,7 +802,7 @@ valid id course.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/comments" \
+    "https://api-brn.neosantara.co.id/api/courses/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -812,7 +812,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/comments"
 );
 
 let headers = {
@@ -836,7 +836,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -910,14 +910,14 @@ isi komentar.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/liked"
 );
 
 let headers = {
@@ -936,7 +936,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -999,14 +999,14 @@ valid id course.
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/courses/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/liked"
 );
 
 let headers = {
@@ -1025,7 +1025,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/courses/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1088,14 +1088,14 @@ Dibagian ini Anda bisa mendapatkan list data pembelajaran/video kursus.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons?search=Berita+hari+ini&page[number]=1&page[size]=2&sort=created_at" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons"
 );
 
 let params = {
@@ -1123,7 +1123,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1239,14 +1239,14 @@ Menyortir data ( key_name / -key_name ), default -created_at.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/comments?page[number]=1&page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments?page[number]=1&page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments"
 );
 
 let params = {
@@ -1272,7 +1272,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1385,14 +1385,14 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X GET \
-    -G "http://api.brn.com/api/courses/1/lessons/1/likes?page[number]=1&page[size]=2" \
+    -G "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes?page[number]=1&page[size]=2" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/likes"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes"
 );
 
 let params = {
@@ -1418,7 +1418,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->get(
-    'http://api.brn.com/api/courses/1/lessons/1/likes',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/likes',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1528,7 +1528,7 @@ Menyesuaikan jumlah data yang ditampilkan.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/comments" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
@@ -1538,7 +1538,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/comments"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments"
 );
 
 let headers = {
@@ -1562,7 +1562,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/lessons/1/comments',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/comments',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1642,14 +1642,14 @@ isi komentar.
 
 ```bash
 curl -X POST \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -1668,7 +1668,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1737,14 +1737,14 @@ valid id courseLesson.
 
 ```bash
 curl -X DELETE \
-    "http://api.brn.com/api/courses/1/lessons/1/liked" \
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://api.brn.com/api/courses/1/lessons/1/liked"
+    "https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked"
 );
 
 let headers = {
@@ -1763,7 +1763,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'http://api.brn.com/api/courses/1/lessons/1/liked',
+    'https://api-brn.neosantara.co.id/api/courses/1/lessons/1/liked',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',

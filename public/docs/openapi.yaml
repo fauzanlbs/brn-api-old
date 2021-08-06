@@ -1,11 +1,11 @@
 openapi: 3.0.3
 info:
-    title: 'Buser Rent Car Nasional'
+    title: 'BRN System'
     description: ''
     version: 1.0.0
 servers:
     -
-        url: 'http://api.brn.com'
+        url: 'https://api-brn.neosantara.co.id'
 paths:
     /api/articles:
         get:
@@ -267,7 +267,7 @@ paths:
                 in: path
                 name: slug
                 description: ''
-                example: deserunt
+                example: et
                 required: true
                 schema:
                     type: string
@@ -1131,12 +1131,12 @@ paths:
                     in: query
                     name: 'filter[equipment]'
                     description: 'Penyortiran berdasarkan equipment.'
-                    example: illo
+                    example: corrupti
                     required: false
                     schema:
                         type: string
                         description: 'Penyortiran berdasarkan equipment.'
-                        example: illo
+                        example: corrupti
                 -
                     in: query
                     name: 'filter[created_at]'
@@ -1262,7 +1262,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: esse
+                                    example: labore
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -1389,7 +1389,7 @@ paths:
                                 equipment:
                                     type: string
                                     description: eqipment.
-                                    example: maxime
+                                    example: recusandae
                                 files:
                                     type: array
                                     description: 'List gambar.'
@@ -2793,12 +2793,12 @@ paths:
                                 chronology:
                                     type: string
                                     description: kronologi.
-                                    example: molestiae
+                                    example: neque
                                 perpetrator:
                                     type: object
                                     description: Pelaku.
                                     example: []
-                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: soluta } }
+                                    properties: { nik: { type: integer, description: NIK., example: 123123123 }, name: { type: string, description: 'Nama lengkap.', example: 'Arya Anggara' }, phone_number: { type: string, description: 'nomor telepon.', example: '0821123213' }, address: { type: string, description: 'Alamat lengkap.', example: 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia' }, photo: { type: image, description: 'file berupa gambar.', example: path }, information: { type: string, description: 'informasi tambahan.', example: sunt } }
                             required:
                                 - car_id
                                 - location
@@ -2987,11 +2987,11 @@ paths:
                                 type: object
                                 example:
                                     status: ok
-                                    timestamp: '2021-05-07T16:52:30.074215Z'
+                                    timestamp: '2021-08-02T00:37:21.599756Z'
                                     host: 127.0.0.1
                                 properties:
                                     status: { type: string, example: ok }
-                                    timestamp: { type: string, example: '2021-05-07T16:52:30.074215Z' }
+                                    timestamp: { type: string, example: '2021-08-02T00:37:21.599756Z' }
                                     host: { type: string, example: 127.0.0.1 }
             tags:
                 - Server
