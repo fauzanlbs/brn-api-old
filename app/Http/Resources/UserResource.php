@@ -16,6 +16,7 @@ class UserResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "active" => $this->active,
             "roles" => RoleResource::collection($this->whenLoaded('roles')),
             "sum_points" => intval($this->points_relation_sum_points),
             "name" => $this->name,
@@ -23,6 +24,7 @@ class UserResource extends JsonResource
             "email_verified_at" => $this->email_verified_at,
             "profile_photo_path" => $this->profile_photo_path,
             "profile_photo_url" => $this->profile_photo_url,
+            "reason_for_inactivity" => $this->reason_for_inactivity,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
             "addresses" =>  AddressResource::collection($this->whenLoaded('addresses')),

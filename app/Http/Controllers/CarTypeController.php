@@ -15,6 +15,7 @@ class CarTypeController extends Controller
 {
     /**
      * Mendapatkan list data jenis kelas mobil.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data jenis kelas mobil. Example: Sedan

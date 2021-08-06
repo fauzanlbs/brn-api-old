@@ -37,4 +37,12 @@ class CourseLesson extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    /**
+     * Get the task questions.
+     */
+    public function taskQuestions()
+    {
+        return $this->hasMany(CourseLessonTaskQuestion::class);
+    }
 }

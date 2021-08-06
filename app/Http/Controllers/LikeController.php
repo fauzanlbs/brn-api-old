@@ -6,6 +6,7 @@ use App\Models\Article;
 use App\Models\Comment;
 use App\Models\Course;
 use App\Models\CourseLesson;
+use App\Models\Discussion;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,60 @@ class LikeController extends Controller
 
 
     /**
+     * Menyukai diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+     * @authenticated
+     *
+     * @group Forum Diskusi
+     *
+     * @urlParam discussion int required valid id discussion. Example: 1
+     *
+     * @param Request $request
+     * @param Discussion $discussion
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil menyukai diskusi.",
+     * }
+     */
+    public function likeDiscussion(Request $request, Discussion $discussion)
+    {
+        $discussion->like($request->user()->id);
+
+        return $this->responseMessage('Berhasil menyukai diskusi.');
+    }
+
+
+    /**
+     * Batalkan menyukai diskusi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+     * @authenticated
+     *
+     * @group Forum Diskusi
+     *
+     * @urlParam discussion int required valid id discussion. Example: 1
+     *
+     * @param Request $request
+     * @param Discussion $discussion
+     *
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": "Berhasil membatalkan menyukai diskusi.",
+     * }
+     */
+    public function unlikeDiscussion(Request $request, Discussion $discussion)
+    {
+        $discussion->unlike($request->user()->id);
+
+        return $this->responseMessage('Berhasil membatalkan menyukai diskusi.');
+    }
+
+
+    /**
      * Menyukai artikel.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Artikel
@@ -44,6 +98,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai artikel.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Artikel
@@ -69,6 +124,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -94,6 +150,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -119,6 +176,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -153,6 +211,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai pembelajaran/video kursus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Kursus
@@ -187,6 +246,7 @@ class LikeController extends Controller
 
     /**
      * Menyukai komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Komentar
@@ -212,6 +272,7 @@ class LikeController extends Controller
 
     /**
      * Batalkan menyukai komentar.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @group Komentar

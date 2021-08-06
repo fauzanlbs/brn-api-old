@@ -17,6 +17,10 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam equipment string  eqipment.
  * @bodyParam files object[] List gambar.
  * @bodyParam files[].image image file gambar. Example: path
+ * @bodyParam stnk_image string  Fotor/Gambar STNK.
+ * @bodyParam machine_number string  Nomor Mesin.
+ * @bodyParam chassis_number string  Nomor Rangka.
+ *
  */
 class CarRequest extends FormRequest
 {
@@ -53,6 +57,9 @@ class CarRequest extends FormRequest
             'equipment' => 'nullable|max:255|string',
             'files' => 'nullable|array',
             'files.*.image' => 'required|image|max:5000',
+            'stnk_image' => 'required',
+            'machine_number' => 'required',
+            'chassis_number' => 'required',
         ];
     }
 }

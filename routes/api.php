@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BlackListController;
 use App\Http\Controllers\CarColorsController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CarFuelController;
@@ -13,11 +16,18 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseLessonController;
+use App\Http\Controllers\CourseLessonTaskQuestionController;
 use App\Http\Controllers\DailyCheckInController;
+use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\LikeController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,9 +41,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Perpetrator
+Route::prefix('perpetrators')->group(function () {
+    Route::get('/', [BlackListController::class, 'index']);
+    Route::get('/{perpetrator}', [BlackListController::class, 'getPerpetratorDetail']);
+});
+
+Route::get('/areas', [AreaController::class, 'index']);
+
+// Regions
+Route::prefix('regions')->group(function () {
+    Route::get('/', [RegionController::class, 'index']);
+    Route::get('/{region}/areas', [RegionController::class, 'getAreaWhereRegion']);
+});
+
+
+// Members
+Route::prefix('members')->group(function () {
+    Route::get('/', [MemberController::class, 'getMembers']);
+    Route::get('/{user}', [MemberController::class, 'memberDetail']);
+});
+
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
 
+// Donation
+Route::get('/donations', [DonationController::class, 'index']);
 
 // Aboout
 Route::get('/about', [AboutController::class, 'getAbout']);
@@ -52,7 +85,7 @@ Route::prefix('articles')->group(function () {
 
     Route::get('/{article}/likes', [ArticleController::class, 'getArticleLikes']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member'])->group(function () {
         Route::post('/{article}/comments', [CommentController::class, 'addCommentArticle']);
 
         Route::post('/{article}/liked', [LikeController::class, 'likeArticle']);
@@ -60,18 +93,62 @@ Route::prefix('articles')->group(function () {
     });
 });
 
+// Agendas
+Route::prefix('agendas')->group(function () {
+    Route::get('/', [AgendaController::class, 'getAgendas']);
+    Route::get('/{agenda}', [AgendaController::class, 'getAgendaDetail']);
+
+    Route::middleware(['auth:sanctum', 'role:korda|korwil|admin'])->group(function () {
+        Route::post('/', [AgendaController::class, 'store']);
+        Route::post('/{agenda}', [AgendaController::class, 'update']);
+        Route::post('/{agenda}/image', [AgendaController::class, 'updateImage']);
+        Route::delete('/{agenda}', [AgendaController::class, 'destroy']);
+        Route::delete('/{agenda}/image', [AgendaController::class, 'destroyImage']);
+        Route::get('/{agenda}/qr-scan', [AgendaController::class, 'qrScan']);
+    });
+});
+
+// Discussion
+Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:member']);
+Route::prefix('discussions')->middleware(['auth:sanctum', 'role:member'])->group(function () {
+    Route::get('/', [DiscussionController::class, 'getDiscussions']);
+    Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
+
+    Route::post('/', [DiscussionController::class, 'store']);
+    Route::post('/case-report', [DiscussionController::class, 'storeDiscussionCaseReport']);
+    Route::get('/{discussion}/case-report/members', [DiscussionController::class, 'getMember']);
+    Route::post('/{discussion}/case-report/members', [DiscussionController::class, 'addMember']);
+    Route::delete('/{discussion}/case-report/members', [DiscussionController::class, 'detachMember']);
+    Route::post('/{discussion}', [DiscussionController::class, 'update']);
+
+    Route::delete('/{discussion}', [DiscussionController::class, 'destroy']);
+    Route::patch('/{discussion}/set-finish', [DiscussionController::class, 'setFinished']);
+
+    Route::get('/{discussion}/comments', [DiscussionController::class, 'getDiscussionComments']);
+
+    Route::get('/{discussion}/likes', [DiscussionController::class, 'getDiscussionLikes']);
+
+    Route::middleware(['auth:sanctum', 'role:member',])->group(function () {
+        Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
+
+        Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
+        Route::delete('/{discussion}/liked', [LikeController::class, 'unlikeDiscussion']);
+    });
+});
+
+
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'getCategories']);
 });
 
-Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware('auth:sanctum');
+Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware(['auth:sanctum', 'role:member']);
 Route::prefix('courses')->group(function () {
     Route::get('/', [CourseController::class, 'getCourses']);
     Route::post('/{course}', [CourseController::class, 'getCourseDetail']);
     Route::get('/{course}/comments', [CourseController::class, 'getCourseComments']);
     Route::get('/{course}/likes', [CourseController::class, 'getCourseLikes']);
 
-    Route::middleware(['auth:sanctum'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:member'])->group(function () {
         Route::post('/{course}/enroll', [CourseController::class, 'enrollCourse']);
         Route::post('/{course}/comments', [CommentController::class, 'addCommentCourse']);
         Route::post('/{course}/liked', [LikeController::class, 'likeCourse']);
@@ -85,14 +162,16 @@ Route::prefix('courses')->group(function () {
             Route::post('/{courseLesson}/comments', [CommentController::class, 'addCommentCourseLesson']);
             Route::post('/{courseLesson}/liked', [LikeController::class, 'likeCourseLesson']);
             Route::delete('/{courseLesson}/liked', [LikeController::class, 'unlikeCourseLesson']);
+            Route::get('/{courseLesson}/task-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestions']);
         });
     });
+    Route::get('/diklat-level-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestionWhereLevel'])->middleware('auth:sanctum');
 });
 
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 
-Route::group(['middleware' => ['auth:sanctum']], function () {
+Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('comments')->group(function () {
         Route::get('/{comment}/replies', [CommentController::class, 'getCommentReplies']);
@@ -126,10 +205,27 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
 
+    Route::get('/case-reports', [CaseReportController::class, 'getCaseReports']);
     Route::prefix('my-case-reports')->group(function () {
         Route::get('/', [CaseReportController::class, 'getUserCaseReports']);
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
+    });
+
+    Route::prefix('perpetrators')->group(function () {
+        Route::middleware(['role:korda|korwil|admin'])->group(function () {
+            Route::post('/', [CaseReportController::class, 'storePerpetrator']);
+            Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
+            Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
+        });
+    });
+
+    Route::prefix('firebase')->group(function () {
+        Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
     });
 });

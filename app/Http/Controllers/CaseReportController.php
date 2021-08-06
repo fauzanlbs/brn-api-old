@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CaseReport\CaseReportRequest;
+use App\Http\Requests\Perpetrator\PerpetratorRequest;
 use App\Http\Resources\CaseReport\CaseReportResource;
+use App\Http\Resources\CaseReport\PerpetratorResource;
 use App\Models\Car;
 use App\Models\CaseReport;
+use App\Models\Perpetrator;
+use App\Repositories\Perpetrator\EloquentPerpetratorRepository;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -18,9 +22,77 @@ class CaseReportController extends Controller
 {
     use ResponseAPI;
 
+    protected $eloquentPerpetrator;
+
+    /**
+     * @param EloquentPerpetratorRepository $eloquentPerpetrator
+     */
+    public function __construct(EloquentPerpetratorRepository $eloquentPerpetrator)
+    {
+        $this->eloquentPerpetrator = $eloquentPerpetrator;
+    }
+
+
+    /**
+     * Mendapatkan list data laporan kasus.
+     * Dibagian ini Anda bisa mendapatkan list data laporan kasus.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+     * @authenticated
+     *
+     * @queryParam search string Mencari data laporan kasus. Example: Avansa
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
+     *
+     * @queryParam include string Include akan memuat relasi, relasi yang tersedia:
+     * <br> #1 <b>in-charge</b> : Penanggung jawab kasus. <br> #1 <b>car</b> : Mobil, Anda bisa mengabukannya dengan (<i>car-make</i>, <i>car-type</i>, <i>car-fuel</i>, <i>car-model</i>, <i>car-color</i>, <i>car-images</i>). contoh car.car-color. <br> #1 <b>perpetrator</b> : tersangka.
+     *
+     * @queryParam filter[status] string Penyortiran berdasarkan status (pending, verified, progress, completed). Example: pending
+     * @queryParam filter[request_delete] int Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false). Example: 1
+     * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     *
+     * @param Request $request
+     * @return CaseReportResource
+     *
+     * @responseFile storage/responses/case-report-resource.response.json
+     */
+    public function getCaseReports(Request $request)
+    {
+        $search = $request->query('search');
+
+        $allowed = [
+            'created_at', 'status', 'request_delete'
+        ];
+
+        $include = [
+            'inCharge', 'perpetrator',
+            'car',
+            'car.carMake',
+            'car.carType',
+            'car.carFuel',
+            'car.carModel',
+            'car.carColor',
+            'car.carImages',
+        ];
+
+        $caseReports = QueryBuilder::for(CaseReport::class)
+            ->when($search, function ($q, $search) {
+                return $q->search($search);
+            })
+            ->allowedIncludes($include)
+            ->allowedFilters($allowed)
+            ->allowedSorts($allowed)
+            ->defaultSort('-' . $allowed[0])
+            ->jsonPaginate();
+
+        return CaseReportResource::collection($caseReports);
+    }
+
+
     /**
      * Mendapatkan list data laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @queryParam search string Mencari data laporan kasus pengguna saat ini. Example: Avansa
@@ -61,7 +133,7 @@ class CaseReportController extends Controller
 
         $uid = $request->user()->id;
 
-        $userCars = QueryBuilder::for(CaseReport::class)
+        $userCaseReports = QueryBuilder::for(CaseReport::class)
             ->where('user_id', $uid)
             ->when($search, function ($q, $search) {
                 return $q->search($search);
@@ -72,12 +144,13 @@ class CaseReportController extends Controller
             ->defaultSort('-' . $allowed[0])
             ->jsonPaginate();
 
-        return CaseReportResource::collection($userCars);
+        return CaseReportResource::collection($userCaseReports);
     }
 
 
     /**
      * Mendapatkan detail data laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @urlParam caseReport int required valid id caseReport. Example: 1
@@ -102,6 +175,7 @@ class CaseReportController extends Controller
     /**
      * Menambahkan laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa menambahkan laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param CaseReportRequest $request
@@ -120,7 +194,11 @@ class CaseReportController extends Controller
 
         $existsCaseReport = CaseReport::where('car_id', $car->id)->exists();
         if ($existsCaseReport) {
-            return $this->responseMessage('Laporan kasus dengan mobil yang dipilih sudah ada.', 404);
+            return $this->responseMessage('Laporan kasus dengan mobil yang dipilih sudah ada.', 400);
+        }
+
+        if ($request->user()->points()->number() == 0) {
+            return $this->responseMessage('Jumlah point anda harus lebih besar dari 0', 400);
         }
 
         $validated = $request->validated();
@@ -155,6 +233,7 @@ class CaseReportController extends Controller
     /**
      * Batalkan laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa membuat permintaan pembatalan laporan kasus CaseReportController.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
@@ -174,5 +253,70 @@ class CaseReportController extends Controller
         ])->save();
 
         return $this->responseMessage('Berhasil.');
+    }
+
+
+    /**
+     * Menambahkan Pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param PerpetratorRequest $request
+     * @return PerpetratorResource
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function storePerpetrator(PerpetratorRequest $request)
+    {
+        $perpetrator = $this->eloquentPerpetrator->createOrUpdate(NULL, $request);
+
+        return (new PerpetratorResource($perpetrator))->additional([
+            'message' => __('messages.created', ['attr' => 'pelaku']),
+        ]);
+    }
+
+
+    /**
+     * Memperbaharui salah satu data pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param PerpetratorRequest $request
+     * @param \App\Models\Perpetrator $perpetrator
+     * @return PerpetratorResource
+     *
+     * @urlParam perpetrator int required valid id perpetrator. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function updatePerpetrator(PerpetratorRequest $request, Perpetrator $perpetrator)
+    {
+        $perpetrator = $this->eloquentPerpetrator->createOrUpdate($perpetrator->id, $request);
+
+        return (new PerpetratorResource($perpetrator))->additional([
+            'message' => __('messages.updated', ['attr' => 'pelaku']),
+        ]);
+    }
+
+
+    /**
+     * Menghapus salah satu pelaku.
+     * <aside class="note">Harus memiliki akses <b>Korda</b> / <b>Korwil </b></aside>
+     * @authenticated
+     *
+     * @param Request $request
+     * @param \App\Models\Perpetrator $perpetrator
+     * @return \Illuminate\Http\Response
+     *
+     * @urlParam car int required valid id car. Defaults to 'id'. Example: 1
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function destroyPerpetrator(Request $request, Perpetrator $perpetrator)
+    {
+        $perpetrator->deleteProfilePhoto();
+        $perpetrator->delete();
+
+        return $this->responseMessage(__('messages.deleted', ['attr' => 'pelaku']));
     }
 }

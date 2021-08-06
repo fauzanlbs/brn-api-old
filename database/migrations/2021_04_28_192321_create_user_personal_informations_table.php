@@ -25,6 +25,12 @@ class CreateUserPersonalInformationsTable extends Migration
             $table->enum('gender', ['male', 'female'])->nullable();
             $table->string('place_of_birth', 45)->nullable();
             $table->date('date_of_birth')->nullable();
+            $table->string('clothes_size')->nullable();
+            $table->integer('number_of_units')->nullable();
+            $table->string('area_dialing_code')->nullable();
+            $table->string('area')->nullable();
+            $table->string('area_code')->nullable();
+            $table->string('region')->nullable();
 
             // user company
             $table->string('company_name')->nullable();

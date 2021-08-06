@@ -14,6 +14,7 @@ class PointController extends Controller
 {
     /**
      * Mendapatkan list data histori point.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @param Request $request
@@ -30,6 +31,7 @@ class PointController extends Controller
 
     /**
      * Mendapatkan list data misi.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
      * @authenticated
      *
      * @return PointResource

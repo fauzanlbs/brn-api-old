@@ -34,6 +34,9 @@ class PersonalInformationRequest extends FormRequest
             'company_logo' => 'nullable|image|max:5000',
             'siupsku_number' => 'nullable|string|max:255',
             'siupsku_image' => 'nullable|image|max:5000',
+            'area' => 'nullable|string|max:255',
+            'area_code' => 'nullable|string|max:255',
+            'region' => 'nullable|string|max:255',
         ];
     }
 }

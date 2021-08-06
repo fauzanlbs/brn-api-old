@@ -84,4 +84,13 @@ class CaseReport extends Model
     {
         return $this->belongsTo(User::class, 'in_charge_id');
     }
+
+
+    /**
+     * Get the discussion this case report.
+     */
+    public function discussion()
+    {
+        return $this->hasOne(Discussion::class);
+    }
 }
