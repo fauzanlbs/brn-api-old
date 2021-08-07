@@ -531,7 +531,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"sit"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"amet"}'
 
 ```
 
@@ -548,7 +548,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "sit"
+    "description": "amet"
 }
 
 fetch(url, {
@@ -570,7 +570,7 @@ $response = $client->post(
         ],
         'json' => [
             'title' => 'diskusi tentang rental mobil',
-            'description' => 'sit',
+            'description' => 'amet',
         ],
     ]
 );
@@ -1078,7 +1078,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"et"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"libero"}'
 
 ```
 
@@ -1095,7 +1095,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "et"
+    "description": "libero"
 }
 
 fetch(url, {
@@ -1117,7 +1117,7 @@ $response = $client->post(
         ],
         'json' => [
             'title' => 'diskusi tentang rental mobil',
-            'description' => 'et',
+            'description' => 'libero',
         ],
     ]
 );

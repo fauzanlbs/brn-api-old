@@ -739,7 +739,7 @@ Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=ea&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=exercitationem&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -761,7 +761,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "ea",
+    "filter[equipment]": "exercitationem",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -801,7 +801,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'ea',
+            'filter[equipment]'=> 'exercitationem',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -1134,7 +1134,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"laudantium","files":[{"image":"path"},[]],"stnk_image":"autem","machine_number":"magni","chassis_number":"commodi"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"est","files":[{"image":"path"},{"image":"path"}],"stnk_image":"perferendis","machine_number":"est","chassis_number":"labore"}'
 
 ```
 
@@ -1159,16 +1159,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "laudantium",
+    "equipment": "est",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ],
-    "stnk_image": "autem",
-    "machine_number": "magni",
-    "chassis_number": "commodi"
+    "stnk_image": "perferendis",
+    "machine_number": "est",
+    "chassis_number": "labore"
 }
 
 fetch(url, {
@@ -1198,16 +1200,18 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'laudantium',
+            'equipment' => 'est',
             'files' => [
                 [
                     'image' => 'path',
                 ],
-                [],
+                [
+                    'image' => 'path',
+                ],
             ],
-            'stnk_image' => 'autem',
-            'machine_number' => 'magni',
-            'chassis_number' => 'commodi',
+            'stnk_image' => 'perferendis',
+            'machine_number' => 'est',
+            'chassis_number' => 'labore',
         ],
     ]
 );
@@ -1360,7 +1364,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"fugit","files":[{"image":"path"},[]],"stnk_image":"ipsa","machine_number":"porro","chassis_number":"dicta"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"esse","files":[{"image":"path"},[]],"stnk_image":"itaque","machine_number":"aut","chassis_number":"est"}'
 
 ```
 
@@ -1385,16 +1389,16 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "fugit",
+    "equipment": "esse",
     "files": [
         {
             "image": "path"
         },
         []
     ],
-    "stnk_image": "ipsa",
-    "machine_number": "porro",
-    "chassis_number": "dicta"
+    "stnk_image": "itaque",
+    "machine_number": "aut",
+    "chassis_number": "est"
 }
 
 fetch(url, {
@@ -1424,16 +1428,16 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'fugit',
+            'equipment' => 'esse',
             'files' => [
                 [
                     'image' => 'path',
                 ],
                 [],
             ],
-            'stnk_image' => 'ipsa',
-            'machine_number' => 'porro',
-            'chassis_number' => 'dicta',
+            'stnk_image' => 'itaque',
+            'machine_number' => 'aut',
+            'chassis_number' => 'est',
         ],
     ]
 );
