@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateStatusRequest;
 use App\Models\Car;
 use App\Models\CaseReport;
+use App\Models\User;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Access\Response;
@@ -41,6 +43,30 @@ class ProfileController extends Controller
                 "count_cars" => $countCars,
                 "count_case_reports" => $countCaseReports,
             ]
-        ], 400);
+        ], 200);
+    }
+
+    /**
+     * Memperbaharui status level diklat.
+     * @authenticated
+     *
+     * @param UpdateStatusRequest $request
+     * @return \Illuminate\Http\Response
+     *
+     * @response {
+     *  "message": 'Berhasil memperbaharui status level diklat',
+     * }
+     */
+    public function updateStatus(UpdateStatusRequest $request)
+    {
+        $uid = $request->user()->id;
+
+        $user = User::find($uid);
+        $user->status_level_diklat = $request->level;
+        $user->save();
+
+        return response()->json([
+            "message" => 'Berhasil memperbaharui status level diklat',
+        ], 200);
     }
 }

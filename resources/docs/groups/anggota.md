@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=laudantium" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=dolor" \
     -H "Accept: application/json"
 ```
 
@@ -21,7 +21,7 @@ const url = new URL(
 
 let params = {
     "include": "addresses,personal-information",
-    "roles": "laudantium",
+    "roles": "dolor",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -48,7 +48,7 @@ $response = $client->get(
         ],
         'query' => [
             'include'=> 'addresses,personal-information',
-            'roles'=> 'laudantium',
+            'roles'=> 'dolor',
         ],
     ]
 );

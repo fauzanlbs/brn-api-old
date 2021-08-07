@@ -231,5 +231,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('profile')->group(function () {
         Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
+        Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
 });
