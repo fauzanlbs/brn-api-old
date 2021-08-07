@@ -17,6 +17,8 @@ class UserResource extends JsonResource
         return [
             "id" => $this->id,
             "active" => $this->active,
+            "status_level_diklat" => $this->status_level_diklat,
+            "is_survey" => $this->is_survey,
             "roles" => RoleResource::collection($this->whenLoaded('roles')),
             "sum_points" => intval($this->points_relation_sum_points),
             "name" => $this->name,

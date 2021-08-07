@@ -10,7 +10,7 @@ Dibagian ini Anda bisa mendapatkan list data agenda.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/agendas?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=user&filter[type]=HUT&filter[title]=tempore&filter[description]=quia&filter[address]=vitae&filter[latitude]=31.2467601&filter[longitude]=29.9020376&filter[start_date]=2020-01-24&filter[end_date]=2020-12-24&filter[start_time]=12%3A00&filter[end_time]=17%3A00&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/agendas?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=user&filter[type]=HUT&filter[title]=ullam&filter[description]=maxime&filter[address]=non&filter[latitude]=31.2467601&filter[longitude]=29.9020376&filter[start_date]=2020-01-24&filter[end_date]=2020-12-24&filter[start_time]=12%3A00&filter[end_time]=17%3A00&filter[created_at]=2020-12-24" \
     -H "Accept: application/json"
 ```
 
@@ -26,9 +26,9 @@ let params = {
     "sort": "created_at",
     "include": "user",
     "filter[type]": "HUT",
-    "filter[title]": "tempore",
-    "filter[description]": "quia",
-    "filter[address]": "vitae",
+    "filter[title]": "ullam",
+    "filter[description]": "maxime",
+    "filter[address]": "non",
     "filter[latitude]": "31.2467601",
     "filter[longitude]": "29.9020376",
     "filter[start_date]": "2020-01-24",
@@ -67,9 +67,9 @@ $response = $client->get(
             'sort'=> 'created_at',
             'include'=> 'user',
             'filter[type]'=> 'HUT',
-            'filter[title]'=> 'tempore',
-            'filter[description]'=> 'quia',
-            'filter[address]'=> 'vitae',
+            'filter[title]'=> 'ullam',
+            'filter[description]'=> 'maxime',
+            'filter[address]'=> 'non',
             'filter[latitude]'=> '31.2467601',
             'filter[longitude]'=> '29.9020376',
             'filter[start_date]'=> '2020-01-24',
@@ -303,7 +303,7 @@ curl -X POST \
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpPwDVwg" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phps86zv5" 
 ```
 
 ```javascript
@@ -390,7 +390,7 @@ $response = $client->post(
             ],
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpPwDVwg', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phps86zv5', 'r')
             ],
         ],
     ]
@@ -525,7 +525,7 @@ curl -X POST \
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpaXuaxv" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpw8hYVB" 
 ```
 
 ```javascript
@@ -612,7 +612,7 @@ $response = $client->post(
             ],
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpaXuaxv', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpw8hYVB', 'r')
             ],
         ],
     ]
@@ -743,7 +743,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: multipart/form-data" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpRWKOM0" 
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpjxrPhw" 
 ```
 
 ```javascript
@@ -780,7 +780,7 @@ $response = $client->post(
         'multipart' => [
             [
                 'name' => 'image',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpRWKOM0', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpjxrPhw', 'r')
             ],
         ],
     ]

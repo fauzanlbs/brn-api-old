@@ -233,4 +233,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
         Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
+    Route::post('/upgrade-member/{user}', [ProfileController::class, 'upgradeMember'])->middleware(['role:korda|korwil|admin']);
+    Route::post('/user-survey/{user}', [ProfileController::class, 'updateIsSurvery'])->middleware(['role:korda|korwil|admin']);
 });
