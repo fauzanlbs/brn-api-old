@@ -200,6 +200,7 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/fuels', [CarFuelController::class, 'index']);
     });
 
+    Route::get('/cars', [CarController::class, 'getCars']);
     Route::prefix('my-cars')->group(function () {
         Route::get('/', [CarController::class, 'getUserCars']);
         Route::get('/{car}', [CarController::class, 'getUserCarDetail']);

@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=saepe&filter[name]=Arya+Anggara&filter[created_at]=2020-12-24&guest=true" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=cum&filter[name]=Arya+Anggara&filter[created_at]=2020-12-24&guest=true" \
     -H "Accept: application/json"
 ```
 
@@ -21,7 +21,7 @@ const url = new URL(
 
 let params = {
     "include": "addresses,personal-information",
-    "roles": "saepe",
+    "roles": "cum",
     "filter[name]": "Arya Anggara",
     "filter[created_at]": "2020-12-24",
     "guest": "true",
@@ -51,7 +51,7 @@ $response = $client->get(
         ],
         'query' => [
             'include'=> 'addresses,personal-information',
-            'roles'=> 'saepe',
+            'roles'=> 'cum',
             'filter[name]'=> 'Arya Anggara',
             'filter[created_at]'=> '2020-12-24',
             'guest'=> 'true',
