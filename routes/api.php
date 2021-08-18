@@ -28,6 +28,7 @@ use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('/upload-files', [UploadFileController::class, 'store']);
+
 
 // Perpetrator
 Route::prefix('perpetrators')->group(function () {
@@ -196,6 +200,7 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/fuels', [CarFuelController::class, 'index']);
     });
 
+    Route::get('/cars', [CarController::class, 'getCars']);
     Route::prefix('my-cars')->group(function () {
         Route::get('/', [CarController::class, 'getUserCars']);
         Route::get('/{car}', [CarController::class, 'getUserCarDetail']);
@@ -227,5 +232,8 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('profile')->group(function () {
         Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
+        Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
+    Route::post('/upgrade-member/{user}', [ProfileController::class, 'upgradeMember'])->middleware(['role:korda|korwil|admin']);
+    Route::post('/user-survey/{user}', [ProfileController::class, 'updateIsSurvery'])->middleware(['role:korda|korwil|admin']);
 });

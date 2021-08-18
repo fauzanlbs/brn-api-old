@@ -40,6 +40,7 @@ class CaseReportController extends Controller
      * @authenticated
      *
      * @queryParam search string Mencari data laporan kasus. Example: Avansa
+     * @queryParam area_code string Filter berdasarkan area code. Example: 1
      * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
      * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
      * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
@@ -59,6 +60,7 @@ class CaseReportController extends Controller
     public function getCaseReports(Request $request)
     {
         $search = $request->query('search');
+        $area_code = $request->query('area_code');
 
         $allowed = [
             'created_at', 'status', 'request_delete'
@@ -78,6 +80,13 @@ class CaseReportController extends Controller
         $caseReports = QueryBuilder::for(CaseReport::class)
             ->when($search, function ($q, $search) {
                 return $q->search($search);
+            })
+            ->when($area_code, function ($q, $area_code) {
+                return $q->whereHas('user', function ($q) use ($area_code) {
+                    $q->whereHas('personalInformation', function ($q) use ($area_code) {
+                        $q->where('area_code', $area_code);
+                    });
+                });
             })
             ->allowedIncludes($include)
             ->allowedFilters($allowed)
