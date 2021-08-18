@@ -28,6 +28,65 @@ class CarController extends Controller
     {
         $this->eloquentCar = $eloquentCar;
     }
+    /**
+     * Mendapatkan list data mobil.
+     * Dibagian ini Anda bisa mendapatkan list data mobil.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+     * @authenticated
+     *
+     * @queryParam search string Mencari data mobil. Example: Avansa
+     * @queryParam area_code string Filter berdasarkan area code. Example: 1
+     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
+     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
+     * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
+     *
+     * @queryParam include string Include akan memuat relasi, relasi yang tersedia: <br> #1 <b>carMake</b> : Produsen mobil. <br> #2 <b>carType</b> : Jenis kelas. <br> #3 <b>carFuel</b> : Bahan bakar. <br> #4 <b>carModel</b> : Model mobil. <br> #5 <b>carColor</b> : Warna. <br> #6 <b>carImages</b> : List gambar mobil. <br>Untuk <b>multiple include</b> Anda cukup menambahkan <i>koma</i> (,). Example: carImages
+     *
+     * @queryParam filter[status] string Penyortiran berdasarkan status. Example: lost
+     * @queryParam filter[is_approved] string Penyortiran berdasarkan diterima (1=true 0=false). Example: true
+     * @queryParam filter[police_number] string Penyortiran berdasarkan nomor polisi. Example: Y 3168 XP
+     * @queryParam filter[year] string Penyortiran berdasarkan tahun mobil. Example: 2015
+     * @queryParam filter[is_automatic] string Penyortiran berdasarkan is automatic (1=true 0=false). Example: true
+     * @queryParam filter[capacity] int Penyortiran berdasarkan kapasitas. Example: 4
+     * @queryParam filter[equipment] string Penyortiran berdasarkan equipment.
+     * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     *
+     * @param Request $request
+     * @return CarResource
+     *
+     * @responseFile storage/responses/car-resource.response.json
+     */
+    public function getCars(Request $request)
+    {
+        $search = $request->query('search');
+        $area_code = $request->query('area_code');
+
+        $allowed = [
+            'created_at', 'status', 'is_approved', 'police_number', 'year', 'is_automatic', 'capacity', 'equipment',
+        ];
+
+        $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages',];
+
+        $userCars = QueryBuilder::for(Car::class)
+            ->when($search, function ($q, $search) {
+                return $q->search($search);
+            })
+            ->when($area_code, function ($q, $area_code) {
+                return $q->whereHas('user', function ($q) use ($area_code) {
+                    $q->whereHas('personalInformation', function ($q) use ($area_code) {
+                        $q->where('area_code', $area_code);
+                    });
+                });
+            })
+            ->allowedIncludes($include)
+            ->allowedFilters($allowed)
+            ->allowedSorts($allowed)
+            ->defaultSort('-' . $allowed[0])
+            ->jsonPaginate();
+
+        return CarResource::collection($userCars);
+    }
+
 
     /**
      * Mendapatkan list data mobil pengguna saat ini.

@@ -728,6 +728,270 @@ Menyortir data ( key_name / -key_name ), default fuel.
 </form>
 
 
+## Mendapatkan list data mobil.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+Dibagian ini Anda bisa mendapatkan list data mobil.
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/cars?search=Avansa&area_code=1&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=modi&filter[created_at]=2020-12-24" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/cars"
+);
+
+let params = {
+    "search": "Avansa",
+    "area_code": "1",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "include": "carImages",
+    "filter[status]": "lost",
+    "filter[is_approved]": "true",
+    "filter[police_number]": "Y 3168 XP",
+    "filter[year]": "2015",
+    "filter[is_automatic]": "true",
+    "filter[capacity]": "4",
+    "filter[equipment]": "modi",
+    "filter[created_at]": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/cars',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'search'=> 'Avansa',
+            'area_code'=> '1',
+            'page[number]'=> '1',
+            'page[size]'=> '2',
+            'sort'=> 'created_at',
+            'include'=> 'carImages',
+            'filter[status]'=> 'lost',
+            'filter[is_approved]'=> 'true',
+            'filter[police_number]'=> 'Y 3168 XP',
+            'filter[year]'=> '2015',
+            'filter[is_automatic]'=> 'true',
+            'filter[capacity]'=> '4',
+            'filter[equipment]'=> 'modi',
+            'filter[created_at]'=> '2020-12-24',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "data": [
+        {
+            "id": 24,
+            "user_id": 1,
+            "status": "lost",
+            "is_approved": true,
+            "police_number": "K 7998 UG",
+            "year": 1984,
+            "is_automatic": false,
+            "capacity": 2,
+            "equipment": null,
+            "created_at": "2021-05-05T12:26:50.000000Z",
+            "updated_at": "2021-05-05T12:26:50.000000Z",
+            "car_make": {
+                "id": 3,
+                "make": "BMW"
+            },
+            "car_type": {
+                "id": 1,
+                "class": "Premium"
+            },
+            "car_fuel": {
+                "id": 3,
+                "fuel": "Electric"
+            },
+            "car_model": {
+                "id": 1,
+                "car_make_id": 1,
+                "model": "A4"
+            },
+            "car_color": {
+                "id": 1,
+                "color": "Phantom Black"
+            },
+            "car_images": [
+                {
+                    "id": 47,
+                    "car_id": 24,
+                    "image": "\/cars\/628078224-K7998UG.png",
+                    "image_url": "http:\/\/api.brn.com\/storage\/cars\/628078224-K7998UG.png"
+                },
+                {
+                    "id": 48,
+                    "car_id": 24,
+                    "image": "\/cars\/194609309-K7998UG.png",
+                    "image_url": "http:\/\/api.brn.com\/storage\/cars\/194609309-K7998UG.png"
+                }
+            ]
+        }
+    ],
+    "links": {
+        "first": "http:\/\/api.brn.com\/api\/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": "http:\/\/api.brn.com\/api\/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http:\/\/api.brn.com\/api\/my-cars",
+        "per_page": 15,
+        "to": 15
+    }
+}
+```
+<div id="execution-results-GETapi-cars" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-cars"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-cars"></code></pre>
+</div>
+<div id="execution-error-GETapi-cars" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-cars"></code></pre>
+</div>
+<form id="form-GETapi-cars" data-method="GET" data-path="api/cars" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-cars', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-cars" onclick="tryItOut('GETapi-cars');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-cars" onclick="cancelTryOut('GETapi-cars');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-cars" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/cars</code></b>
+</p>
+<p>
+<label id="auth-GETapi-cars" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-cars" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Mencari data mobil.
+</p>
+<p>
+<b><code>area_code</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="area_code" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Filter berdasarkan area code.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>include</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="include" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Include akan memuat relasi, relasi yang tersedia: <br> #1 <b>carMake</b> : Produsen mobil. <br> #2 <b>carType</b> : Jenis kelas. <br> #3 <b>carFuel</b> : Bahan bakar. <br> #4 <b>carModel</b> : Model mobil. <br> #5 <b>carColor</b> : Warna. <br> #6 <b>carImages</b> : List gambar mobil. <br>Untuk <b>multiple include</b> Anda cukup menambahkan <i>koma</i> (,).
+</p>
+<p>
+<b><code>filter[status]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[status]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan status.
+</p>
+<p>
+<b><code>filter[is_approved]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[is_approved]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan diterima (1=true 0=false).
+</p>
+<p>
+<b><code>filter[police_number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[police_number]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan nomor polisi.
+</p>
+<p>
+<b><code>filter[year]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[year]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tahun mobil.
+</p>
+<p>
+<b><code>filter[is_automatic]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[is_automatic]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan is automatic (1=true 0=false).
+</p>
+<p>
+<b><code>filter[capacity]</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
+<input type="number" name="filter[capacity]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan kapasitas.
+</p>
+<p>
+<b><code>filter[equipment]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[equipment]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan equipment.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-cars" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+</form>
+
+
 ## Mendapatkan list data mobil pengguna saat ini.
 
 <small class="badge badge-darkred">requires authentication</small>
@@ -739,7 +1003,7 @@ Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=quisquam&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=consectetur&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -761,7 +1025,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "quisquam",
+    "filter[equipment]": "consectetur",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -801,7 +1065,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'quisquam',
+            'filter[equipment]'=> 'consectetur',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -1134,7 +1398,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"voluptatem","files":[{"image":"path"},{"image":"path"}],"stnk_image":"eligendi","machine_number":"itaque","chassis_number":"in"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"et","files":[{"image":"path"},{"image":"path"}],"stnk_image":"eveniet","machine_number":"ea","chassis_number":"dolorem"}'
 
 ```
 
@@ -1159,7 +1423,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "voluptatem",
+    "equipment": "et",
     "files": [
         {
             "image": "path"
@@ -1168,9 +1432,9 @@ let body = {
             "image": "path"
         }
     ],
-    "stnk_image": "eligendi",
-    "machine_number": "itaque",
-    "chassis_number": "in"
+    "stnk_image": "eveniet",
+    "machine_number": "ea",
+    "chassis_number": "dolorem"
 }
 
 fetch(url, {
@@ -1200,7 +1464,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'voluptatem',
+            'equipment' => 'et',
             'files' => [
                 [
                     'image' => 'path',
@@ -1209,9 +1473,9 @@ $response = $client->post(
                     'image' => 'path',
                 ],
             ],
-            'stnk_image' => 'eligendi',
-            'machine_number' => 'itaque',
-            'chassis_number' => 'in',
+            'stnk_image' => 'eveniet',
+            'machine_number' => 'ea',
+            'chassis_number' => 'dolorem',
         ],
     ]
 );
@@ -1364,7 +1628,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"sit","files":[{"image":"path"},[]],"stnk_image":"dolore","machine_number":"asperiores","chassis_number":"aut"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"aut","files":[{"image":"path"},[]],"stnk_image":"dignissimos","machine_number":"laboriosam","chassis_number":"excepturi"}'
 
 ```
 
@@ -1389,16 +1653,16 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "sit",
+    "equipment": "aut",
     "files": [
         {
             "image": "path"
         },
         []
     ],
-    "stnk_image": "dolore",
-    "machine_number": "asperiores",
-    "chassis_number": "aut"
+    "stnk_image": "dignissimos",
+    "machine_number": "laboriosam",
+    "chassis_number": "excepturi"
 }
 
 fetch(url, {
@@ -1428,16 +1692,16 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'sit',
+            'equipment' => 'aut',
             'files' => [
                 [
                     'image' => 'path',
                 ],
                 [],
             ],
-            'stnk_image' => 'dolore',
-            'machine_number' => 'asperiores',
-            'chassis_number' => 'aut',
+            'stnk_image' => 'dignissimos',
+            'machine_number' => 'laboriosam',
+            'chassis_number' => 'excepturi',
         ],
     ]
 );

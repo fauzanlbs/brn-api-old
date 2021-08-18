@@ -20,6 +20,7 @@ class MemberResource extends JsonResource
             "points_relation_sum_points" => intval($this->points_relation_sum_points),
             "roles" => RoleResource::collection($this->whenLoaded('roles')),
             "name" => $this->name,
+            "email" => $this->email,
             "profile_photo_path" => $this->profile_photo_path,
             "profile_photo_url" => $this->profile_photo_url,
             "created_at" => $this->created_at,

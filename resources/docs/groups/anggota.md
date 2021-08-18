@@ -10,7 +10,7 @@
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=iste" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&roles=cum&filter[name]=Arya+Anggara&filter[created_at]=2020-12-24&guest=true" \
     -H "Accept: application/json"
 ```
 
@@ -21,7 +21,10 @@ const url = new URL(
 
 let params = {
     "include": "addresses,personal-information",
-    "roles": "iste",
+    "roles": "cum",
+    "filter[name]": "Arya Anggara",
+    "filter[created_at]": "2020-12-24",
+    "guest": "true",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -48,7 +51,10 @@ $response = $client->get(
         ],
         'query' => [
             'include'=> 'addresses,personal-information',
-            'roles'=> 'iste',
+            'roles'=> 'cum',
+            'filter[name]'=> 'Arya Anggara',
+            'filter[created_at]'=> '2020-12-24',
+            'guest'=> 'true',
         ],
     ]
 );
@@ -116,6 +122,24 @@ Include akan memuat data dengan relasi, relasi yang tersedia: <br> #1 <b>roles</
 <input type="text" name="roles" data-endpoint="GETapi-members" data-component="query"  hidden>
 <br>
 Filter data berdasar kan role
+</p>
+<p>
+<b><code>filter[name]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[name]" data-endpoint="GETapi-members" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan nama.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-members" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
+</p>
+<p>
+<b><code>guest</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="guest" data-endpoint="GETapi-members" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan pengguna yang belum menjadi anggota brn.
 </p>
 </form>
 
