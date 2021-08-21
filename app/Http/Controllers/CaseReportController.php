@@ -317,8 +317,6 @@ class CaseReportController extends Controller
      * @param \App\Models\Perpetrator $perpetrator
      * @return \Illuminate\Http\Response
      *
-     * @urlParam car int required valid id car. Defaults to 'id'. Example: 1
-     *
      * @responseFile storage/responses/only-message.response.json
      */
     public function destroyPerpetrator(Request $request, Perpetrator $perpetrator)
