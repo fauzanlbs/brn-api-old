@@ -38,7 +38,8 @@ class CaseReportPolicy
     {
         if ($model->request_delete) {
             return Response::deny('laporan kasus ini sudah dalam permintaan membatalkan.');
-        } else if ($user->id === $model->user_id) {
+        }
+        if ($user->id != $model->user_id) {
             return  Response::deny(__('messages.cant'));
         }
         return Response::allow();
