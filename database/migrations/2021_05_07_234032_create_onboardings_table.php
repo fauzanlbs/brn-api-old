@@ -20,6 +20,7 @@ class CreateOnboardingsTable extends Migration
             $table->string('description');
             $table->boolean('active')->default(true);
             $table->tinyInteger('order');
+            $table->integer('poin')->default(0);
             $table->timestamps();
         });
     }
