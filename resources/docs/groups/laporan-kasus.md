@@ -12,7 +12,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&area_code=1&page[number]=1&page[size]=2&sort=created_at&include=fuga&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&area_code=1&page[number]=1&page[size]=2&sort=created_at&include=ratione&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -28,7 +28,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "fuga",
+    "include": "ratione",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -64,7 +64,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'fuga',
+            'include'=> 'ratione',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -204,6 +204,208 @@ Penyortiran berdasarkan tanggal dibuat.
 </form>
 
 
+## Mendapatkan data chart laporan kasus .
+
+<small class="badge badge-darkred">requires authentication</small>
+
+<aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/case-reports/chart?date=hari-ini" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/case-reports/chart"
+);
+
+let params = {
+    "date": "hari-ini",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/case-reports/chart',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'date'=> 'hari-ini',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-case-reports-chart" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-case-reports-chart"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-case-reports-chart"></code></pre>
+</div>
+<div id="execution-error-GETapi-case-reports-chart" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-case-reports-chart"></code></pre>
+</div>
+<form id="form-GETapi-case-reports-chart" data-method="GET" data-path="api/case-reports/chart" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-case-reports-chart', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-case-reports-chart" onclick="tryItOut('GETapi-case-reports-chart');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-case-reports-chart" onclick="cancelTryOut('GETapi-case-reports-chart');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-case-reports-chart" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/case-reports/chart</code></b>
+</p>
+<p>
+<label id="auth-GETapi-case-reports-chart" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-case-reports-chart" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="date" data-endpoint="GETapi-case-reports-chart" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal <br>harus salah satu dari hari-ini, 7-hari-terakhir, 30-hari-terakhir, bulan-ini, bulan-lalu.
+</p>
+</form>
+
+
+## Mendapatkan data count laporan kasus pengguna saat ini.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+<aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/case-reports/count?start_date=2020-01-24&end_date=2020-12-24" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/case-reports/count"
+);
+
+let params = {
+    "start_date": "2020-01-24",
+    "end_date": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/case-reports/count',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'start_date'=> '2020-01-24',
+            'end_date'=> '2020-12-24',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-case-reports-count" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-case-reports-count"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-case-reports-count"></code></pre>
+</div>
+<div id="execution-error-GETapi-case-reports-count" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-case-reports-count"></code></pre>
+</div>
+<form id="form-GETapi-case-reports-count" data-method="GET" data-path="api/case-reports/count" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-case-reports-count', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-case-reports-count" onclick="tryItOut('GETapi-case-reports-count');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-case-reports-count" onclick="cancelTryOut('GETapi-case-reports-count');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-case-reports-count" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/case-reports/count</code></b>
+</p>
+<p>
+<label id="auth-GETapi-case-reports-count" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-case-reports-count" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="start_date" data-endpoint="GETapi-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="end_date" data-endpoint="GETapi-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal selesai.
+</p>
+</form>
+
+
 ## Mendapatkan list data laporan kasus pengguna saat ini.
 
 <small class="badge badge-darkred">requires authentication</small>
@@ -215,7 +417,7 @@ Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=quam&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=necessitatibus&filter[status]=pending&filter[request_delete]=1&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -230,7 +432,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "quam",
+    "include": "necessitatibus",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -265,7 +467,7 @@ $response = $client->get(
             'page[number]'=> '1',
             'page[size]'=> '2',
             'sort'=> 'created_at',
-            'include'=> 'quam',
+            'include'=> 'necessitatibus',
             'filter[status]'=> 'pending',
             'filter[request_delete]'=> '1',
             'filter[created_at]'=> '2020-12-24',
@@ -395,6 +597,111 @@ Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).
 <input type="text" name="filter[created_at]" data-endpoint="GETapi-my-case-reports" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan tanggal dibuat.
+</p>
+</form>
+
+
+## Mendapatkan data count laporan kasus pengguna saat ini.
+
+<small class="badge badge-darkred">requires authentication</small>
+
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://brn-api.test/api/my-case-reports/count?start_date=2020-01-24&end_date=2020-12-24" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://brn-api.test/api/my-case-reports/count"
+);
+
+let params = {
+    "start_date": "2020-01-24",
+    "end_date": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response => response.json());
+```
+
+```php
+
+$client = new \GuzzleHttp\Client();
+$response = $client->get(
+    'https://brn-api.test/api/my-case-reports/count',
+    [
+        'headers' => [
+            'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' => 'application/json',
+        ],
+        'query' => [
+            'start_date'=> '2020-01-24',
+            'end_date'=> '2020-12-24',
+        ],
+    ]
+);
+$body = $response->getBody();
+print_r(json_decode((string) $body));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Unauthenticated."
+}
+```
+<div id="execution-results-GETapi-my-case-reports-count" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-my-case-reports-count"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-my-case-reports-count"></code></pre>
+</div>
+<div id="execution-error-GETapi-my-case-reports-count" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-my-case-reports-count"></code></pre>
+</div>
+<form id="form-GETapi-my-case-reports-count" data-method="GET" data-path="api/my-case-reports/count" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-my-case-reports-count', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-my-case-reports-count" onclick="tryItOut('GETapi-my-case-reports-count');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-my-case-reports-count" onclick="cancelTryOut('GETapi-my-case-reports-count');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-my-case-reports-count" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/my-case-reports/count</code></b>
+</p>
+<p>
+<label id="auth-GETapi-my-case-reports-count" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-my-case-reports-count" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="start_date" data-endpoint="GETapi-my-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="end_date" data-endpoint="GETapi-my-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal selesai.
 </p>
 </form>
 
@@ -565,14 +872,14 @@ $response = $client->post(
         'json' => [
             'car_id' => 1,
             'location' => '31.2467601,29.9020376',
-            'chronology' => 'commodi',
+            'chronology' => 'quibusdam',
             'perpetrator' => [
                 'nik' => 123123123,
                 'name' => 'Arya Anggara',
                 'phone_number' => '0821123213',
                 'address' => 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' => null,
-                'information' => 'ad',
+                'information' => 'laudantium',
             ],
         ],
     ]
@@ -788,8 +1095,8 @@ curl -X POST \
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=illo" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpwKgPwb" 
+    -F "information=asperiores" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php4baJHM" 
 ```
 
 ```javascript
@@ -809,7 +1116,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'illo');
+body.append('information', 'asperiores');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -852,11 +1159,11 @@ $response = $client->post(
             ],
             [
                 'name' => 'information',
-                'contents' => 'illo'
+                'contents' => 'asperiores'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpwKgPwb', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php4baJHM', 'r')
             ],
         ],
     ]
@@ -961,8 +1268,8 @@ curl -X POST \
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=corporis" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpp19H8f" 
+    -F "information=et" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpWfptAb" 
 ```
 
 ```javascript
@@ -982,7 +1289,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'corporis');
+body.append('information', 'et');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -1025,11 +1332,11 @@ $response = $client->post(
             ],
             [
                 'name' => 'information',
-                'contents' => 'corporis'
+                'contents' => 'et'
             ],
             [
                 'name' => 'photo',
-                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpp19H8f', 'r')
+                'contents' => fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpWfptAb', 'r')
             ],
         ],
     ]
@@ -1132,14 +1439,14 @@ informasi tambahan.
 
 ```bash
 curl -X DELETE \
-    "https://brn-api.test/api/perpetrators/beatae" \
+    "https://brn-api.test/api/perpetrators/nihil" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "https://brn-api.test/api/perpetrators/beatae"
+    "https://brn-api.test/api/perpetrators/nihil"
 );
 
 let headers = {
@@ -1158,7 +1465,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->delete(
-    'https://brn-api.test/api/perpetrators/beatae',
+    'https://brn-api.test/api/perpetrators/nihil',
     [
         'headers' => [
             'Authorization' => 'Bearer {YOUR_AUTH_KEY}',
@@ -1206,12 +1513,6 @@ print_r(json_decode((string) $body));
 <input type="text" name="perpetrator" data-endpoint="DELETEapi-perpetrators--perpetrator-" data-component="url" required  hidden>
 <br>
 
-</p>
-<p>
-<b><code>car</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="car" data-endpoint="DELETEapi-perpetrators--perpetrator-" data-component="url" required  hidden>
-<br>
-valid id car. Defaults to 'id'.
 </p>
 </form>
 

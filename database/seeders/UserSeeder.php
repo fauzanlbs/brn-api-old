@@ -33,6 +33,49 @@ class UserSeeder extends Seeder
         ]);
         $user->assignRole('user');
 
+        $user = User::create([
+            'name' => 'Korda Role',
+            'email' => 'korda@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+        ]);
+        $user->assignRole('korda');
+
+        $user = User::create([
+            'name' => 'Korwil Role',
+            'email' => 'korwil@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+        ]);
+        $user->assignRole('korwil');
+
+        $user = User::create([
+            'name' => 'Member Role',
+            'email' => 'member@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+        ]);
+        $user->assignRole('member');
+
+        $user = User::create([
+            'name' => 'Member diklat level 1 Role',
+            'email' => 'member@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+            'status_level_diklat' => 1,
+        ]);
+        $user->assignRole('member');
+        $user = User::create([
+            'name' => 'Member diklat level 2 Role',
+            'email' => 'member@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+            'status_level_diklat' => 2,
+        ]);
+        $user->assignRole('member');
+        $user = User::create([
+            'name' => 'Member diklat level 3 Role',
+            'email' => 'member@gmail.com',
+            'password' => Hash::make('user@gmail.com'),
+            'status_level_diklat' => 3,
+        ]);
+        $user->assignRole('member');
+
         // token NQZinBv5k61Yva94F04HIe6PjodTItoXp4jjKy2k
         DB::table('personal_access_tokens')->insert([
             'tokenable_type' => 'App\Models\User',
