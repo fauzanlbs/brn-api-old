@@ -120,11 +120,11 @@ class CommentController extends Controller
             "registration_ids" => $firebaseTokens,
             "notification" => [
                 "title" => 'title',
-                "body" => [
+                "body" => $request['comment'],
+                "data" => [
                     "tag" => 'discussion-comment',
                     "discussion_id" => $discussion->id,
                     "user" => new SimpleUserResource($request->user()),
-                    "comment" => $request['comment']
                 ],
             ]
         ];
