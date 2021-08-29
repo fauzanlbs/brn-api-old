@@ -739,7 +739,7 @@ Dibagian ini Anda bisa mendapatkan list data mobil.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/cars?search=Avansa&area_code=1&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=quaerat&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/cars?search=Avansa&area_code=1&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=omnis&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -762,7 +762,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "quaerat",
+    "filter[equipment]": "omnis",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -803,7 +803,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'quaerat',
+            'filter[equipment]'=> 'omnis',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -1003,7 +1003,7 @@ Dibagian ini Anda bisa mendapatkan list data mobil pengguna saat ini.
 
 ```bash
 curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=totam&filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&page[number]=1&page[size]=2&sort=created_at&include=carImages&filter[status]=lost&filter[is_approved]=true&filter[police_number]=Y+3168+XP&filter[year]=2015&filter[is_automatic]=true&filter[capacity]=4&filter[equipment]=quia&filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"
 ```
@@ -1025,7 +1025,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "totam",
+    "filter[equipment]": "quia",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -1065,7 +1065,7 @@ $response = $client->get(
             'filter[year]'=> '2015',
             'filter[is_automatic]'=> 'true',
             'filter[capacity]'=> '4',
-            'filter[equipment]'=> 'totam',
+            'filter[equipment]'=> 'quia',
             'filter[created_at]'=> '2020-12-24',
         ],
     ]
@@ -1398,7 +1398,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"dolorum","files":[{"image":"path"},[]],"stnk_image":"veniam","machine_number":"aperiam","chassis_number":"natus"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"illo","files":[{"image":"path"},[]],"stnk_image":"quia","machine_number":"qui","chassis_number":"autem"}'
 
 ```
 
@@ -1423,16 +1423,16 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "dolorum",
+    "equipment": "illo",
     "files": [
         {
             "image": "path"
         },
         []
     ],
-    "stnk_image": "veniam",
-    "machine_number": "aperiam",
-    "chassis_number": "natus"
+    "stnk_image": "quia",
+    "machine_number": "qui",
+    "chassis_number": "autem"
 }
 
 fetch(url, {
@@ -1462,16 +1462,16 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'dolorum',
+            'equipment' => 'illo',
             'files' => [
                 [
                     'image' => 'path',
                 ],
                 [],
             ],
-            'stnk_image' => 'veniam',
-            'machine_number' => 'aperiam',
-            'chassis_number' => 'natus',
+            'stnk_image' => 'quia',
+            'machine_number' => 'qui',
+            'chassis_number' => 'autem',
         ],
     ]
 );
@@ -1624,7 +1624,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"aut","files":[{"image":"path"},[]],"stnk_image":"molestiae","machine_number":"quo","chassis_number":"odit"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"qui","files":[{"image":"path"},{"image":"path"}],"stnk_image":"deleniti","machine_number":"voluptatem","chassis_number":"commodi"}'
 
 ```
 
@@ -1649,16 +1649,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "aut",
+    "equipment": "qui",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ],
-    "stnk_image": "molestiae",
-    "machine_number": "quo",
-    "chassis_number": "odit"
+    "stnk_image": "deleniti",
+    "machine_number": "voluptatem",
+    "chassis_number": "commodi"
 }
 
 fetch(url, {
@@ -1688,16 +1690,18 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'aut',
+            'equipment' => 'qui',
             'files' => [
                 [
                     'image' => 'path',
                 ],
-                [],
+                [
+                    'image' => 'path',
+                ],
             ],
-            'stnk_image' => 'molestiae',
-            'machine_number' => 'quo',
-            'chassis_number' => 'odit',
+            'stnk_image' => 'deleniti',
+            'machine_number' => 'voluptatem',
+            'chassis_number' => 'commodi',
         ],
     ]
 );

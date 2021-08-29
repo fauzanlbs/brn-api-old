@@ -158,9 +158,9 @@ class AgendaController extends Controller
      */
     public function store(AgendaRequest $request)
     {
-        $car = $this->eloquentAgenda->createOrUpdate(NULL, $request);
+        $agenda = $this->eloquentAgenda->createOrUpdate(NULL, $request);
 
-        return (new AgendaResource($car))->additional([
+        return (new AgendaResource($agenda))->additional([
             'message' => __('messages.created', ['attr' => 'agenda']),
         ]);
     }

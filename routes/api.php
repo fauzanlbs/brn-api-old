@@ -28,6 +28,7 @@ use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,9 @@ Route::prefix('members')->group(function () {
 
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
+
+// Sliders
+Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
 Route::get('/donations', [DonationController::class, 'index']);

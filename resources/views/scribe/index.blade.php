@@ -45,7 +45,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: August 26 2021</li>
+            <li>Last updated: August 27 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -64,7 +64,7 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <p>Base URL</p>
 </blockquote>
 <pre><code class="language-yaml">https://brn-api.test</code></pre><h1>Authenticating requests</h1>
-<p>This API is authenticated by sending an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
+<p>To authenticate requests, include an <strong><code>Authorization</code></strong> header with the value <strong><code>"Bearer {YOUR_AUTH_KEY}"</code></strong>.</p>
 <p>All authenticated endpoints are marked with a <code>requires authentication</code> badge in the documentation below.</p>
 <p>Anda bisa mendapatkan token Anda dengan cara <b>Login</b>.</p><h1>Agenda</h1>
 <h2>Mendapatkan list data agenda.</h2>
@@ -73,7 +73,7 @@ Anda dapat mengganti bahasa yang digunakan dengan tab di kanan atas (atau dari m
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/agendas?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=user&amp;filter[type]=HUT&amp;filter[title]=voluptatem&amp;filter[description]=accusamus&amp;filter[address]=corporis&amp;filter[latitude]=31.2467601&amp;filter[longitude]=29.9020376&amp;filter[start_date]=2020-01-24&amp;filter[end_date]=2020-12-24&amp;filter[start_time]=12%3A00&amp;filter[end_time]=17%3A00&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/agendas?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=user&amp;filter[type]=HUT&amp;filter[title]=deserunt&amp;filter[description]=magnam&amp;filter[address]=placeat&amp;filter[latitude]=31.2467601&amp;filter[longitude]=29.9020376&amp;filter[start_date]=2020-01-24&amp;filter[end_date]=2020-12-24&amp;filter[start_time]=12%3A00&amp;filter[end_time]=17%3A00&amp;filter[created_at]=2020-12-24" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/agendas"
@@ -86,9 +86,9 @@ let params = {
     "sort": "created_at",
     "include": "user",
     "filter[type]": "HUT",
-    "filter[title]": "voluptatem",
-    "filter[description]": "accusamus",
-    "filter[address]": "corporis",
+    "filter[title]": "deserunt",
+    "filter[description]": "magnam",
+    "filter[address]": "placeat",
     "filter[latitude]": "31.2467601",
     "filter[longitude]": "29.9020376",
     "filter[start_date]": "2020-01-24",
@@ -123,9 +123,9 @@ $response = $client-&gt;get(
             'sort'=&gt; 'created_at',
             'include'=&gt; 'user',
             'filter[type]'=&gt; 'HUT',
-            'filter[title]'=&gt; 'voluptatem',
-            'filter[description]'=&gt; 'accusamus',
-            'filter[address]'=&gt; 'corporis',
+            'filter[title]'=&gt; 'deserunt',
+            'filter[description]'=&gt; 'magnam',
+            'filter[address]'=&gt; 'placeat',
             'filter[latitude]'=&gt; '31.2467601',
             'filter[longitude]'=&gt; '29.9020376',
             'filter[start_date]'=&gt; '2020-01-24',
@@ -335,7 +335,7 @@ valid id agenda.
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpR9XvL7" </code></pre>
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpdnHfjA" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/agendas"
 );
@@ -416,7 +416,7 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'image',
-                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpR9XvL7', 'r')
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpdnHfjA', 'r')
             ],
         ],
     ]
@@ -542,7 +542,7 @@ lokasi (lat, long).
     -F "start_time=08:00:00" \
     -F "end_time=13:20:00" \
     -F "location=31.2467601,29.9020376" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpv0vbil" </code></pre>
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpcMqjWk" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/agendas/1"
 );
@@ -623,7 +623,7 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'image',
-                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpv0vbil', 'r')
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpcMqjWk', 'r')
             ],
         ],
     ]
@@ -745,7 +745,7 @@ lokasi (lat, long).
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: multipart/form-data" \
-    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpYGhAUq" </code></pre>
+    -F "image=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpgDqedf" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/agendas/1/image"
 );
@@ -776,7 +776,7 @@ $response = $client-&gt;post(
         'multipart' =&gt; [
             [
                 'name' =&gt; 'image',
-                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpYGhAUq', 'r')
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpgDqedf', 'r')
             ],
         ],
     ]
@@ -1052,7 +1052,7 @@ valid id agenda.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&amp;roles=nobis&amp;filter[name]=Arya+Anggara&amp;filter[created_at]=2020-12-24&amp;guest=true" \
+    -G "https://brn-api.test/api/members?include=addresses%2Cpersonal-information&amp;roles=repellendus&amp;filter[name]=Arya+Anggara&amp;filter[created_at]=2020-12-24&amp;guest=true" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/members"
@@ -1060,7 +1060,7 @@ valid id agenda.
 
 let params = {
     "include": "addresses,personal-information",
-    "roles": "nobis",
+    "roles": "repellendus",
     "filter[name]": "Arya Anggara",
     "filter[created_at]": "2020-12-24",
     "guest": "true",
@@ -1086,7 +1086,7 @@ $response = $client-&gt;get(
         ],
         'query' =&gt; [
             'include'=&gt; 'addresses,personal-information',
-            'roles'=&gt; 'nobis',
+            'roles'=&gt; 'repellendus',
             'filter[name]'=&gt; 'Arya Anggara',
             'filter[created_at]'=&gt; '2020-12-24',
             'guest'=&gt; 'true',
@@ -1563,10 +1563,10 @@ valid id article.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/articles/categories/minus?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
+    -G "https://brn-api.test/api/articles/categories/iure?search=Berita+hari+ini&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[title]=Berita+hari+ini&amp;filter[slug]=berita-hari-ini&amp;filter[created_at]=2020-12-24&amp;filter[featured]=1" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/articles/categories/minus"
+    "https://brn-api.test/api/articles/categories/iure"
 );
 
 let params = {
@@ -1593,7 +1593,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/articles/categories/minus',
+    'https://brn-api.test/api/articles/categories/iure',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -3301,7 +3301,7 @@ valid id discussion.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"enim"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"voluptatibus"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions"
@@ -3315,7 +3315,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "enim"
+    "description": "voluptatibus"
 }
 
 fetch(url, {
@@ -3334,7 +3334,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'enim',
+            'description' =&gt; 'voluptatibus',
         ],
     ]
 );
@@ -3773,7 +3773,7 @@ List dari id user.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"title":"diskusi tentang rental mobil","description":"rerum"}'
+    -d '{"title":"diskusi tentang rental mobil","description":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/discussions/1"
@@ -3787,7 +3787,7 @@ let headers = {
 
 let body = {
     "title": "diskusi tentang rental mobil",
-    "description": "rerum"
+    "description": "ut"
 }
 
 fetch(url, {
@@ -3806,7 +3806,7 @@ $response = $client-&gt;post(
         ],
         'json' =&gt; [
             'title' =&gt; 'diskusi tentang rental mobil',
-            'description' =&gt; 'rerum',
+            'description' =&gt; 'ut',
         ],
     ]
 );
@@ -5287,7 +5287,7 @@ Menyortir data ( key_name / -key_name ), default fuel.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/cars?search=Avansa&amp;area_code=1&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=quaerat&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/cars?search=Avansa&amp;area_code=1&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=omnis&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5307,7 +5307,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "quaerat",
+    "filter[equipment]": "omnis",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -5344,7 +5344,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'quaerat',
+            'filter[equipment]'=&gt; 'omnis',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -5535,7 +5535,7 @@ Penyortiran berdasarkan tanggal dibuat.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=totam&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-cars?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=carImages&amp;filter[status]=lost&amp;filter[is_approved]=true&amp;filter[police_number]=Y+3168+XP&amp;filter[year]=2015&amp;filter[is_automatic]=true&amp;filter[capacity]=4&amp;filter[equipment]=quia&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -5554,7 +5554,7 @@ let params = {
     "filter[year]": "2015",
     "filter[is_automatic]": "true",
     "filter[capacity]": "4",
-    "filter[equipment]": "totam",
+    "filter[equipment]": "quia",
     "filter[created_at]": "2020-12-24",
 };
 Object.keys(params)
@@ -5590,7 +5590,7 @@ $response = $client-&gt;get(
             'filter[year]'=&gt; '2015',
             'filter[is_automatic]'=&gt; 'true',
             'filter[capacity]'=&gt; '4',
-            'filter[equipment]'=&gt; 'totam',
+            'filter[equipment]'=&gt; 'quia',
             'filter[created_at]'=&gt; '2020-12-24',
         ],
     ]
@@ -5898,7 +5898,7 @@ valid id car.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"dolorum","files":[{"image":"path"},[]],"stnk_image":"veniam","machine_number":"aperiam","chassis_number":"natus"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"illo","files":[{"image":"path"},[]],"stnk_image":"quia","machine_number":"qui","chassis_number":"autem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars"
@@ -5920,16 +5920,16 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "dolorum",
+    "equipment": "illo",
     "files": [
         {
             "image": "path"
         },
         []
     ],
-    "stnk_image": "veniam",
-    "machine_number": "aperiam",
-    "chassis_number": "natus"
+    "stnk_image": "quia",
+    "machine_number": "qui",
+    "chassis_number": "autem"
 }
 
 fetch(url, {
@@ -5956,16 +5956,16 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'dolorum',
+            'equipment' =&gt; 'illo',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
                 [],
             ],
-            'stnk_image' =&gt; 'veniam',
-            'machine_number' =&gt; 'aperiam',
-            'chassis_number' =&gt; 'natus',
+            'stnk_image' =&gt; 'quia',
+            'machine_number' =&gt; 'qui',
+            'chassis_number' =&gt; 'autem',
         ],
     ]
 );
@@ -6109,7 +6109,7 @@ Nomor Rangka.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"aut","files":[{"image":"path"},[]],"stnk_image":"molestiae","machine_number":"quo","chassis_number":"odit"}'
+    -d '{"car_make_id":1,"car_type_id":1,"car_fuel_id":1,"car_model_id":1,"car_color_id":1,"police_number":"K 7998 UG","year":"2015","is_automatic":false,"capacity":"4","equipment":"qui","files":[{"image":"path"},{"image":"path"}],"stnk_image":"deleniti","machine_number":"voluptatem","chassis_number":"commodi"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/my-cars/1"
@@ -6131,16 +6131,18 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "aut",
+    "equipment": "qui",
     "files": [
         {
             "image": "path"
         },
-        []
+        {
+            "image": "path"
+        }
     ],
-    "stnk_image": "molestiae",
-    "machine_number": "quo",
-    "chassis_number": "odit"
+    "stnk_image": "deleniti",
+    "machine_number": "voluptatem",
+    "chassis_number": "commodi"
 }
 
 fetch(url, {
@@ -6167,16 +6169,18 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'aut',
+            'equipment' =&gt; 'qui',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
                 ],
-                [],
+                [
+                    'image' =&gt; 'path',
+                ],
             ],
-            'stnk_image' =&gt; 'molestiae',
-            'machine_number' =&gt; 'quo',
-            'chassis_number' =&gt; 'odit',
+            'stnk_image' =&gt; 'deleniti',
+            'machine_number' =&gt; 'voluptatem',
+            'chassis_number' =&gt; 'commodi',
         ],
     ]
 );
@@ -8852,7 +8856,7 @@ Penyortiran berdasarkan judul.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;area_code=1&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=ratione&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/case-reports?search=Avansa&amp;area_code=1&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=amet&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -8865,7 +8869,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "ratione",
+    "include": "amet",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -8897,7 +8901,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'ratione',
+            'include'=&gt; 'amet',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -9209,7 +9213,7 @@ Penyortiran berdasarkan tanggal selesai.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=necessitatibus&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
+    -G "https://brn-api.test/api/my-case-reports?search=Avansa&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;include=at&amp;filter[status]=pending&amp;filter[request_delete]=1&amp;filter[created_at]=2020-12-24" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -9221,7 +9225,7 @@ let params = {
     "page[number]": "1",
     "page[size]": "2",
     "sort": "created_at",
-    "include": "necessitatibus",
+    "include": "at",
     "filter[status]": "pending",
     "filter[request_delete]": "1",
     "filter[created_at]": "2020-12-24",
@@ -9252,7 +9256,7 @@ $response = $client-&gt;get(
             'page[number]'=&gt; '1',
             'page[size]'=&gt; '2',
             'sort'=&gt; 'created_at',
-            'include'=&gt; 'necessitatibus',
+            'include'=&gt; 'at',
             'filter[status]'=&gt; 'pending',
             'filter[request_delete]'=&gt; '1',
             'filter[created_at]'=&gt; '2020-12-24',
@@ -9610,14 +9614,14 @@ $response = $client-&gt;post(
         'json' =&gt; [
             'car_id' =&gt; 1,
             'location' =&gt; '31.2467601,29.9020376',
-            'chronology' =&gt; 'quibusdam',
+            'chronology' =&gt; 'nesciunt',
             'perpetrator' =&gt; [
                 'nik' =&gt; 123123123,
                 'name' =&gt; 'Arya Anggara',
                 'phone_number' =&gt; '0821123213',
                 'address' =&gt; 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia',
                 'photo' =&gt; null,
-                'information' =&gt; 'laudantium',
+                'information' =&gt; 'provident',
             ],
         ],
     ]
@@ -9808,8 +9812,8 @@ valid id caseReport. Defaults to 'id'.
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=asperiores" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php4baJHM" </code></pre>
+    -F "information=magni" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpzI2I4l" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/perpetrators"
 );
@@ -9826,7 +9830,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'asperiores');
+body.append('information', 'magni');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -9866,11 +9870,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'information',
-                'contents' =&gt; 'asperiores'
+                'contents' =&gt; 'magni'
             ],
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/php4baJHM', 'r')
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpzI2I4l', 'r')
             ],
         ],
     ]
@@ -9966,8 +9970,8 @@ informasi tambahan.
     -F "name=Arya Anggara" \
     -F "phone_number=0821123213" \
     -F "address=Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia" \
-    -F "information=et" \
-    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpWfptAb" </code></pre>
+    -F "information=cum" \
+    -F "photo=@/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBbLLrt" </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/perpetrators/1"
 );
@@ -9984,7 +9988,7 @@ body.append('nik', '123123123');
 body.append('name', 'Arya Anggara');
 body.append('phone_number', '0821123213');
 body.append('address', 'Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia');
-body.append('information', 'et');
+body.append('information', 'cum');
 body.append('photo', document.querySelector('input[name="photo"]').files[0]);
 
 fetch(url, {
@@ -10024,11 +10028,11 @@ $response = $client-&gt;post(
             ],
             [
                 'name' =&gt; 'information',
-                'contents' =&gt; 'et'
+                'contents' =&gt; 'cum'
             ],
             [
                 'name' =&gt; 'photo',
-                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpWfptAb', 'r')
+                'contents' =&gt; fopen('/private/var/folders/p3/bdj9f_k948g94ww7k2bwv1c00000gn/T/phpBbLLrt', 'r')
             ],
         ],
     ]
@@ -10122,11 +10126,11 @@ informasi tambahan.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X DELETE \
-    "https://brn-api.test/api/perpetrators/nihil" \
+    "https://brn-api.test/api/perpetrators/numquam" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/perpetrators/nihil"
+    "https://brn-api.test/api/perpetrators/numquam"
 );
 
 let headers = {
@@ -10141,7 +10145,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;delete(
-    'https://brn-api.test/api/perpetrators/nihil',
+    'https://brn-api.test/api/perpetrators/numquam',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10528,7 +10532,7 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"level":"delectus"}'
+    -d '{"level":"rerum"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://brn-api.test/api/profile/update-status"
@@ -10541,7 +10545,7 @@ let headers = {
 };
 
 let body = {
-    "level": "delectus"
+    "level": "rerum"
 }
 
 fetch(url, {
@@ -10559,7 +10563,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'level' =&gt; 'delectus',
+            'level' =&gt; 'rerum',
         ],
     ]
 );
@@ -10609,11 +10613,11 @@ level.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://brn-api.test/api/upgrade-member/vitae" \
+    "https://brn-api.test/api/upgrade-member/molestiae" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/upgrade-member/vitae"
+    "https://brn-api.test/api/upgrade-member/molestiae"
 );
 
 let headers = {
@@ -10628,7 +10632,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://brn-api.test/api/upgrade-member/vitae',
+    'https://brn-api.test/api/upgrade-member/molestiae',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10681,14 +10685,14 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://brn-api.test/api/user-survey/repellendus" \
+    "https://brn-api.test/api/user-survey/ut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"is_survey":true}'
+    -d '{"is_survey":false}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/user-survey/repellendus"
+    "https://brn-api.test/api/user-survey/ut"
 );
 
 let headers = {
@@ -10698,7 +10702,7 @@ let headers = {
 };
 
 let body = {
-    "is_survey": true
+    "is_survey": false
 }
 
 fetch(url, {
@@ -10709,14 +10713,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://brn-api.test/api/user-survey/repellendus',
+    'https://brn-api.test/api/user-survey/ut',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'is_survey' =&gt; true,
+            'is_survey' =&gt; false,
         ],
     ]
 );
@@ -10804,7 +10808,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-08-26T16:30:08.290270Z",
+    "timestamp": "2021-08-27T13:38:01.700108Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
@@ -10825,6 +10829,124 @@ print_r(json_decode((string) $body));</code></pre>
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/ping</code></b>
+</p>
+</form><h1>Slider</h1>
+<h2>Mendapatkan list data slider yang tersedia.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/sliders?search=Jawa+Barat&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[created_at]=2020-12-24" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/sliders"
+);
+
+let params = {
+    "search": "Jawa Barat",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "filter[created_at]": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/sliders',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'Jawa Barat',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'filter[created_at]'=&gt; '2020-12-24',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [],
+    "links": {
+        "first": "http:\/\/localhost\/api\/sliders?search=Jawa%20Barat&amp;page%5Bsize%5D=2&amp;sort=created_at&amp;filter%5Bcreated_at%5D=2020-12-24&amp;key=value&amp;page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": null,
+        "path": "http:\/\/localhost\/api\/sliders",
+        "per_page": 10,
+        "to": null
+    }
+}</code></pre>
+<div id="execution-results-GETapi-sliders" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-sliders"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-sliders"></code></pre>
+</div>
+<div id="execution-error-GETapi-sliders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-sliders"></code></pre>
+</div>
+<form id="form-GETapi-sliders" data-method="GET" data-path="api/sliders" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-sliders', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-sliders" onclick="tryItOut('GETapi-sliders');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-sliders" onclick="cancelTryOut('GETapi-sliders');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-sliders" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/sliders</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Mencari data slider.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
 </p>
 </form><h1>Tentang BRN</h1>
 <h2>Mendapatkan data tentang BRN.</h2>
