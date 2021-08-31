@@ -45,7 +45,7 @@
                             <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
                     </ul>
             <ul class="toc-footer" id="last-updated">
-            <li>Last updated: August 27 2021</li>
+            <li>Last updated: August 30 2021</li>
         </ul>
 </div>
 <div class="page-wrapper">
@@ -10249,11 +10249,11 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/point/missions" \
+    -G "https://sisko.anggawebs.com/api/point/missions" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/point/missions"
+    "https://sisko.anggawebs.com/api/point/missions"
 );
 
 let headers = {
@@ -10268,7 +10268,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/point/missions',
+    'https://sisko.anggawebs.com/api/point/missions',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10366,11 +10366,11 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/point/histories" \
+    -G "https://sisko.anggawebs.com/api/point/histories" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/point/histories"
+    "https://sisko.anggawebs.com/api/point/histories"
 );
 
 let headers = {
@@ -10385,7 +10385,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/point/histories',
+    'https://sisko.anggawebs.com/api/point/histories',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10460,11 +10460,11 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/profile/count-cars-and-case-reports" \
+    -G "https://sisko.anggawebs.com/api/profile/count-cars-and-case-reports" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/profile/count-cars-and-case-reports"
+    "https://sisko.anggawebs.com/api/profile/count-cars-and-case-reports"
 );
 
 let headers = {
@@ -10479,7 +10479,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/profile/count-cars-and-case-reports',
+    'https://sisko.anggawebs.com/api/profile/count-cars-and-case-reports',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10528,14 +10528,14 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://brn-api.test/api/profile/update-status" \
+    "https://sisko.anggawebs.com/api/profile/update-status" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"level":"rerum"}'
+    -d '{"level":"ut"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/profile/update-status"
+    "https://sisko.anggawebs.com/api/profile/update-status"
 );
 
 let headers = {
@@ -10545,7 +10545,7 @@ let headers = {
 };
 
 let body = {
-    "level": "rerum"
+    "level": "ut"
 }
 
 fetch(url, {
@@ -10556,14 +10556,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://brn-api.test/api/profile/update-status',
+    'https://sisko.anggawebs.com/api/profile/update-status',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'level' =&gt; 'rerum',
+            'level' =&gt; 'ut',
         ],
     ]
 );
@@ -10613,11 +10613,11 @@ level.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://brn-api.test/api/upgrade-member/molestiae" \
+    "https://sisko.anggawebs.com/api/upgrade-member/dolore" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/upgrade-member/molestiae"
+    "https://sisko.anggawebs.com/api/upgrade-member/dolore"
 );
 
 let headers = {
@@ -10632,7 +10632,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://brn-api.test/api/upgrade-member/molestiae',
+    'https://sisko.anggawebs.com/api/upgrade-member/dolore',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10685,14 +10685,14 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://brn-api.test/api/user-survey/ut" \
+    "https://sisko.anggawebs.com/api/user-survey/quaerat" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"is_survey":false}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/user-survey/ut"
+    "https://sisko.anggawebs.com/api/user-survey/quaerat"
 );
 
 let headers = {
@@ -10713,7 +10713,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://brn-api.test/api/user-survey/ut',
+    'https://sisko.anggawebs.com/api/user-survey/quaerat',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10777,10 +10777,10 @@ telah di survey apa belum.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "https://brn-api.test/api/ping" \
+    -G "https://sisko.anggawebs.com/api/ping" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://brn-api.test/api/ping"
+    "https://sisko.anggawebs.com/api/ping"
 );
 
 let headers = {
@@ -10794,7 +10794,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;get(
-    'https://brn-api.test/api/ping',
+    'https://sisko.anggawebs.com/api/ping',
     [
         'headers' =&gt; [
             'Accept' =&gt; 'application/json',
@@ -10808,7 +10808,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-08-27T13:38:01.700108Z",
+    "timestamp": "2021-08-30T08:05:39.760459Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
