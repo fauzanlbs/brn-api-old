@@ -32,3 +32,6 @@ resources/docs/groups/authentication.md
 resources/docs/groups/profile.md
 resources/docs/groups/server.md
 resources/docs/groups/point.md
+
+composer.backup.json
+composer.lock
