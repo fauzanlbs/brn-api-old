@@ -9,5 +9,5 @@ class BrnPayment extends Model
 {
     use HasFactory;
     protected $table = 'brn_payments';
-    protected $fillable = ['transaction_code', 'amount'];
+    protected $fillable = ['paymentable_type', 'paymentable_id', 'amount'];
 }

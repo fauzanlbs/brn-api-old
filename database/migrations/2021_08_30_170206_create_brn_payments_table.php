@@ -15,7 +15,8 @@ class CreateBrnPaymentsTable extends Migration
     {
         Schema::create('brn_payments', function (Blueprint $table) {
             $table->id();
-            $table->string('transaction_code'); // register-brn, donation, olshop
+            // $table->string('transaction_code'); // register-brn, donation, olshop
+            $table->morphs('paymentable');
             $table->integer('amount');
             $table->timestamps();
         });
