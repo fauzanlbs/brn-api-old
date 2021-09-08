@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOnboardingsTable extends Migration
+class Admins extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateOnboardingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('onboardings', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->string('title');
-            $table->string('description');
-            $table->boolean('active')->default(true);
-            $table->tinyInteger('order');
-            $table->integer('poin');
+            $table->string('name', 255); // register-brn, donation, olshop
+            $table->string('username', 255);
+            $table->string('password', 255);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateOnboardingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('onboardings');
+        Schema::dropIfExists('admins');
     }
 }
