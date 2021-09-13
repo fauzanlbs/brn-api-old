@@ -10,7 +10,7 @@
 
 ```bash
 curl -X POST \
-    "https://brn-api.test/api/upload-files" \
+    "https://api-brn.neosantara.co.id/api/upload-files" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d '{"key":"secret","files":[[],[]]}'
@@ -19,7 +19,7 @@ curl -X POST \
 
 ```javascript
 const url = new URL(
-    "https://brn-api.test/api/upload-files"
+    "https://api-brn.neosantara.co.id/api/upload-files"
 );
 
 let headers = {
@@ -46,7 +46,7 @@ fetch(url, {
 
 $client = new \GuzzleHttp\Client();
 $response = $client->post(
-    'https://brn-api.test/api/upload-files',
+    'https://api-brn.neosantara.co.id/api/upload-files',
     [
         'headers' => [
             'Accept' => 'application/json',
