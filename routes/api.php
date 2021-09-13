@@ -28,6 +28,7 @@ use App\Http\Controllers\PingController;
 use App\Http\Controllers\PointController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\SliderController;
 use App\Http\Controllers\UploadFileController;
 use Illuminate\Support\Facades\Route;
 
@@ -68,6 +69,9 @@ Route::prefix('members')->group(function () {
 
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
+
+// Sliders
+Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
 Route::get('/donations', [DonationController::class, 'index']);
@@ -210,9 +214,14 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
 
-    Route::get('/case-reports', [CaseReportController::class, 'getCaseReports']);
+    Route::prefix('case-reports')->middleware(['role:korda|korwil|admin'])->group(function () {
+        Route::get('/', [CaseReportController::class, 'getCaseReports']);
+        Route::get('/chart', [CaseReportController::class, 'getChartCaseReports']);
+        Route::get('/count', [CaseReportController::class, 'getCountCaseReports']);
+    });
     Route::prefix('my-case-reports')->group(function () {
         Route::get('/', [CaseReportController::class, 'getUserCaseReports']);
+        Route::get('/count', [CaseReportController::class, 'getUserCountCaseReports']);
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);

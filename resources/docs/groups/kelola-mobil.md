@@ -1428,9 +1428,7 @@ let body = {
         {
             "image": "path"
         },
-        {
-            "image": "path"
-        }
+        []
     ],
     "stnk_image": "eum",
     "machine_number": "sed",
@@ -1469,9 +1467,7 @@ $response = $client->post(
                 [
                     'image' => 'path',
                 ],
-                [
-                    'image' => 'path',
-                ],
+                [],
             ],
             'stnk_image' => 'eum',
             'machine_number' => 'sed',
@@ -1653,7 +1649,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "aut",
+    "equipment": "qui",
     "files": [
         {
             "image": "path"
@@ -1694,7 +1690,7 @@ $response = $client->post(
             'year' => '2015',
             'is_automatic' => false,
             'capacity' => '4',
-            'equipment' => 'aut',
+            'equipment' => 'qui',
             'files' => [
                 [
                     'image' => 'path',

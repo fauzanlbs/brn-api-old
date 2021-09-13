@@ -38,5 +38,10 @@ class RoleSeeder extends Seeder
             'name' => 'korwil',
             'guard_name' => 'web',
         ]);
+
+        Role::create([
+            'name' => 'tim22',
+            'guard_name' => 'web',
+        ]);
     }
 }

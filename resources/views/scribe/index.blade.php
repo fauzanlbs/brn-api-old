@@ -5925,9 +5925,7 @@ let body = {
         {
             "image": "path"
         },
-        {
-            "image": "path"
-        }
+        []
     ],
     "stnk_image": "eum",
     "machine_number": "sed",
@@ -5963,9 +5961,7 @@ $response = $client-&gt;post(
                 [
                     'image' =&gt; 'path',
                 ],
-                [
-                    'image' =&gt; 'path',
-                ],
+                [],
             ],
             'stnk_image' =&gt; 'eum',
             'machine_number' =&gt; 'sed',
@@ -6135,7 +6131,7 @@ let body = {
     "year": "2015",
     "is_automatic": false,
     "capacity": "4",
-    "equipment": "aut",
+    "equipment": "qui",
     "files": [
         {
             "image": "path"
@@ -6173,7 +6169,7 @@ $response = $client-&gt;post(
             'year' =&gt; '2015',
             'is_automatic' =&gt; false,
             'capacity' =&gt; '4',
-            'equipment' =&gt; 'aut',
+            'equipment' =&gt; 'qui',
             'files' =&gt; [
                 [
                     'image' =&gt; 'path',
@@ -9039,6 +9035,176 @@ Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).
 Penyortiran berdasarkan tanggal dibuat.
 </p>
 </form>
+<h2>Mendapatkan data chart laporan kasus .</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/case-reports/chart?date=hari-ini" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/case-reports/chart"
+);
+
+let params = {
+    "date": "hari-ini",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/case-reports/chart',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'date'=&gt; 'hari-ini',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-case-reports-chart" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-case-reports-chart"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-case-reports-chart"></code></pre>
+</div>
+<div id="execution-error-GETapi-case-reports-chart" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-case-reports-chart"></code></pre>
+</div>
+<form id="form-GETapi-case-reports-chart" data-method="GET" data-path="api/case-reports/chart" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-case-reports-chart', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-case-reports-chart" onclick="tryItOut('GETapi-case-reports-chart');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-case-reports-chart" onclick="cancelTryOut('GETapi-case-reports-chart');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-case-reports-chart" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/case-reports/chart</code></b>
+</p>
+<p>
+<label id="auth-GETapi-case-reports-chart" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-case-reports-chart" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="date" data-endpoint="GETapi-case-reports-chart" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal <br>harus salah satu dari hari-ini, 7-hari-terakhir, 30-hari-terakhir, bulan-ini, bulan-lalu.
+</p>
+</form>
+<h2>Mendapatkan data count laporan kasus pengguna saat ini.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/case-reports/count?start_date=2020-01-24&amp;end_date=2020-12-24" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/case-reports/count"
+);
+
+let params = {
+    "start_date": "2020-01-24",
+    "end_date": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/case-reports/count',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'start_date'=&gt; '2020-01-24',
+            'end_date'=&gt; '2020-12-24',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-case-reports-count" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-case-reports-count"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-case-reports-count"></code></pre>
+</div>
+<div id="execution-error-GETapi-case-reports-count" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-case-reports-count"></code></pre>
+</div>
+<form id="form-GETapi-case-reports-count" data-method="GET" data-path="api/case-reports/count" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-case-reports-count', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-case-reports-count" onclick="tryItOut('GETapi-case-reports-count');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-case-reports-count" onclick="cancelTryOut('GETapi-case-reports-count');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-case-reports-count" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/case-reports/count</code></b>
+</p>
+<p>
+<label id="auth-GETapi-case-reports-count" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-case-reports-count" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="start_date" data-endpoint="GETapi-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="end_date" data-endpoint="GETapi-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal selesai.
+</p>
+</form>
 <h2>Mendapatkan list data laporan kasus pengguna saat ini.</h2>
 <p><small class="badge badge-darkred">requires authentication</small></p>
 <p>Dibagian ini Anda bisa mendapatkan list data laporan kasus pengguna saat ini.</p>
@@ -9216,6 +9382,95 @@ Penyortiran berdasarkan permintaan pembatalan kasus (1=true 0=false).
 <input type="text" name="filter[created_at]" data-endpoint="GETapi-my-case-reports" data-component="query"  hidden>
 <br>
 Penyortiran berdasarkan tanggal dibuat.
+</p>
+</form>
+<h2>Mendapatkan data count laporan kasus pengguna saat ini.</h2>
+<p><small class="badge badge-darkred">requires authentication</small></p>
+<aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/my-case-reports/count?start_date=2020-01-24&amp;end_date=2020-12-24" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/my-case-reports/count"
+);
+
+let params = {
+    "start_date": "2020-01-24",
+    "end_date": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/my-case-reports/count',
+    [
+        'headers' =&gt; [
+            'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'start_date'=&gt; '2020-01-24',
+            'end_date'=&gt; '2020-12-24',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Unauthenticated."
+}</code></pre>
+<div id="execution-results-GETapi-my-case-reports-count" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-my-case-reports-count"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-my-case-reports-count"></code></pre>
+</div>
+<div id="execution-error-GETapi-my-case-reports-count" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-my-case-reports-count"></code></pre>
+</div>
+<form id="form-GETapi-my-case-reports-count" data-method="GET" data-path="api/my-case-reports/count" data-authed="1" data-hasfiles="0" data-headers='{"Authorization":"Bearer {YOUR_AUTH_KEY}","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-my-case-reports-count', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-my-case-reports-count" onclick="tryItOut('GETapi-my-case-reports-count');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-my-case-reports-count" onclick="cancelTryOut('GETapi-my-case-reports-count');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-my-case-reports-count" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/my-case-reports/count</code></b>
+</p>
+<p>
+<label id="auth-GETapi-my-case-reports-count" hidden>Authorization header: <b><code>Bearer </code></b><input type="text" name="Authorization" data-prefix="Bearer " data-endpoint="GETapi-my-case-reports-count" data-component="header"></label>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>start_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="start_date" data-endpoint="GETapi-my-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal mulai.
+</p>
+<p>
+<b><code>end_date</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="end_date" data-endpoint="GETapi-my-case-reports-count" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal selesai.
 </p>
 </form>
 <h2>Mendapatkan detail data laporan kasus pengguna saat ini.</h2>
@@ -9935,12 +10190,6 @@ print_r(json_decode((string) $body));</code></pre>
 <br>
 
 </p>
-<p>
-<b><code>car</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
-<input type="number" name="car" data-endpoint="DELETEapi-perpetrators--perpetrator-" data-component="url" required  hidden>
-<br>
-valid id car. Defaults to 'id'.
-</p>
 </form><h1>Onboarding</h1>
 <h2>Mendapatkan list data onboarding.</h2>
 <blockquote>
@@ -10580,6 +10829,124 @@ print_r(json_decode((string) $body));</code></pre>
 <p>
 <small class="badge badge-green">GET</small>
  <b><code>api/ping</code></b>
+</p>
+</form><h1>Slider</h1>
+<h2>Mendapatkan list data slider yang tersedia.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "https://brn-api.test/api/sliders?search=Jawa+Barat&amp;page[number]=1&amp;page[size]=2&amp;sort=created_at&amp;filter[created_at]=2020-12-24" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://brn-api.test/api/sliders"
+);
+
+let params = {
+    "search": "Jawa Barat",
+    "page[number]": "1",
+    "page[size]": "2",
+    "sort": "created_at",
+    "filter[created_at]": "2020-12-24",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre>
+<pre><code class="language-php">
+$client = new \GuzzleHttp\Client();
+$response = $client-&gt;get(
+    'https://brn-api.test/api/sliders',
+    [
+        'headers' =&gt; [
+            'Accept' =&gt; 'application/json',
+        ],
+        'query' =&gt; [
+            'search'=&gt; 'Jawa Barat',
+            'page[number]'=&gt; '1',
+            'page[size]'=&gt; '2',
+            'sort'=&gt; 'created_at',
+            'filter[created_at]'=&gt; '2020-12-24',
+        ],
+    ]
+);
+$body = $response-&gt;getBody();
+print_r(json_decode((string) $body));</code></pre>
+<blockquote>
+<p>Example response (200):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "data": [],
+    "links": {
+        "first": "http:\/\/localhost\/api\/sliders?search=Jawa%20Barat&amp;page%5Bsize%5D=2&amp;sort=created_at&amp;filter%5Bcreated_at%5D=2020-12-24&amp;key=value&amp;page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": null,
+        "path": "http:\/\/localhost\/api\/sliders",
+        "per_page": 10,
+        "to": null
+    }
+}</code></pre>
+<div id="execution-results-GETapi-sliders" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-sliders"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-sliders"></code></pre>
+</div>
+<div id="execution-error-GETapi-sliders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-sliders"></code></pre>
+</div>
+<form id="form-GETapi-sliders" data-method="GET" data-path="api/sliders" data-authed="0" data-hasfiles="0" data-headers='{"Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-sliders', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-sliders" onclick="tryItOut('GETapi-sliders');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-sliders" onclick="cancelTryOut('GETapi-sliders');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-sliders" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/sliders</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+<p>
+<b><code>search</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="search" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Mencari data slider.
+</p>
+<p>
+<b><code>page[number]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[number]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyesuaikan URI paginator.
+</p>
+<p>
+<b><code>page[size]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="page[size]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyesuaikan jumlah data yang ditampilkan.
+</p>
+<p>
+<b><code>sort</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="sort" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Menyortir data ( key_name / -key_name ), default -created_at.
+</p>
+<p>
+<b><code>filter[created_at]</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
+<input type="text" name="filter[created_at]" data-endpoint="GETapi-sliders" data-component="query"  hidden>
+<br>
+Penyortiran berdasarkan tanggal dibuat.
 </p>
 </form><h1>Tentang BRN</h1>
 <h2>Mendapatkan data tentang BRN.</h2>

@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('profile_photo_path')->nullable();
             $table->string('password_helper_key')->nullable();
             $table->text('reason_for_inactivity')->nullable();
+            $table->tinyInteger('payment_status')->default(0);
             $table->timestamps();
         });
     }

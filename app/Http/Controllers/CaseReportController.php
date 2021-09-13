@@ -10,6 +10,7 @@ use App\Models\Car;
 use App\Models\CaseReport;
 use App\Models\Perpetrator;
 use App\Repositories\Perpetrator\EloquentPerpetratorRepository;
+use App\Traits\Analytics;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Propaganistas\LaravelPhone\PhoneNumber;
@@ -21,6 +22,7 @@ use Spatie\QueryBuilder\QueryBuilder;
 class CaseReportController extends Controller
 {
     use ResponseAPI;
+    use Analytics;
 
     protected $eloquentPerpetrator;
 
@@ -30,6 +32,102 @@ class CaseReportController extends Controller
     public function __construct(EloquentPerpetratorRepository $eloquentPerpetrator)
     {
         $this->eloquentPerpetrator = $eloquentPerpetrator;
+    }
+
+    /**
+     * Mendapatkan data chart laporan kasus .
+     * <aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+     * @authenticated
+     *
+     * @queryParam date string Penyortiran berdasarkan tanggal <br>harus salah satu dari hari-ini, 7-hari-terakhir, 30-hari-terakhir, bulan-ini, bulan-lalu. Example: hari-ini
+     *
+     * @param Request $request
+     *
+     */
+    public function getChartCaseReports(Request $request)
+    {
+        $selectedDate = $request->query('date');
+
+        $allowedDates = [
+            'hari-ini',
+            '7-hari-terakhir',
+            '30-hari-terakhir',
+            'bulan-ini',
+            'bulan-lalu',
+        ];
+
+        if (!in_array($selectedDate, $allowedDates)) {
+            return $this->responseMessage('query param `date` harus salah satu dari hari-ini, 7-hari-terakhir, 30-hari-terakhir, bulan-ini, bulan-lalu.', 400);
+        }
+
+        $chartDatas = $this->getAnalyticsData('case_reports', $selectedDate);
+
+        return $chartDatas;
+    }
+
+    /**
+     * Mendapatkan data count laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Admin / Korda / Korwil </b></aside>
+     * @authenticated
+     *
+     * @queryParam start_date string Penyortiran berdasarkan tanggal mulai. Example: 2020-01-24
+     * @queryParam end_date string Penyortiran berdasarkan tanggal selesai. Example: 2020-12-24
+     *
+     * @param Request $request
+     *
+     */
+    public function getCountCaseReports(Request $request)
+    {
+
+        $start_date = $request->query('start_date');
+        $end_date = $request->query('end_date');
+
+
+        $userCountCaseReports = CaseReport::when($start_date, function ($q, $start_date) {
+            return $q->where('created_at', '<=', $start_date);
+        })
+            ->when($end_date, function ($q, $end_date) {
+                return $q->where('created_at', '>=', $end_date);
+            })
+            ->count();
+
+        return $this->responseMessageWithData('success', [
+            'count' => $userCountCaseReports,
+        ]);
+    }
+
+
+    /**
+     * Mendapatkan data count laporan kasus pengguna saat ini.
+     * <aside class="note">Harus memiliki akses <b>Member</b> / <b>Anggota BRN </b></aside>
+     * @authenticated
+     *
+     * @queryParam start_date string Penyortiran berdasarkan tanggal mulai. Example: 2020-01-24
+     * @queryParam end_date string Penyortiran berdasarkan tanggal selesai. Example: 2020-12-24
+     *
+     * @param Request $request
+     *
+     */
+    public function getUserCountCaseReports(Request $request)
+    {
+
+        $start_date = $request->query('start_date');
+        $end_date = $request->query('end_date');
+
+        $uid = $request->user()->id;
+
+        $userCountCaseReports = CaseReport::where('user_id', $uid)
+            ->when($start_date, function ($q, $start_date) {
+                return $q->where('created_at', '<=', $start_date);
+            })
+            ->when($end_date, function ($q, $end_date) {
+                return $q->where('created_at', '>=', $end_date);
+            })
+            ->count();
+
+        return $this->responseMessageWithData('success', [
+            'count' => $userCountCaseReports,
+        ]);
     }
 
 
@@ -316,8 +414,6 @@ class CaseReportController extends Controller
      * @param Request $request
      * @param \App\Models\Perpetrator $perpetrator
      * @return \Illuminate\Http\Response
-     *
-     * @urlParam car int required valid id car. Defaults to 'id'. Example: 1
      *
      * @responseFile storage/responses/only-message.response.json
      */

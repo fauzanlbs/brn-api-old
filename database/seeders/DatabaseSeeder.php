@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call([
+            sliderSeeder::class,
             OnboardingSeeder::class,
             AboutSeeder::class,
             PointSeeder::class,
@@ -37,6 +38,8 @@ class DatabaseSeeder extends Seeder
             RegionSeeder::class,
             AreaSeeder::class,
             AgendaSeeder::class,
+            CommentSeeder::class,
+            PerpetratorSeeder::class,
         ]);
     }
 }
