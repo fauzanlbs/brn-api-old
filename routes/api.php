@@ -1,36 +1,37 @@
 <?php
 
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\AgendaController;
-use App\Http\Controllers\AreaController;
-use App\Http\Controllers\ArticleController;
-use App\Http\Controllers\BlackListController;
-use App\Http\Controllers\CarColorsController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
-use App\Http\Controllers\CarFuelController;
-use App\Http\Controllers\CarMakeController;
-use App\Http\Controllers\CarModelController;
-use App\Http\Controllers\CarTypeController;
-use App\Http\Controllers\CaseReportController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\CourseLessonController;
-use App\Http\Controllers\CourseLessonTaskQuestionController;
-use App\Http\Controllers\DailyCheckInController;
-use App\Http\Controllers\DiscussionController;
-use App\Http\Controllers\DonationController;
-use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\LikeController;
-use App\Http\Controllers\MemberController;
-use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\PingController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\PointController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\MemberController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CarFuelController;
+use App\Http\Controllers\CarMakeController;
+use App\Http\Controllers\CarTypeController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CarModelController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\BlackListController;
+use App\Http\Controllers\CarColorsController;
+use App\Http\Controllers\CaseReportController;
+use App\Http\Controllers\DiscussionController;
+use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\UploadFileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseLessonController;
+use App\Http\Controllers\DailyCheckInController;
+use App\Http\Controllers\CaseReportExecutionController;
+use App\Http\Controllers\CourseLessonTaskQuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -214,6 +215,9 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
 
+
+
+
     Route::prefix('case-reports')->middleware(['role:korda|korwil|admin'])->group(function () {
         Route::get('/', [CaseReportController::class, 'getCaseReports']);
         Route::get('/chart', [CaseReportController::class, 'getChartCaseReports']);
@@ -225,6 +229,10 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
+    });
+
+    Route::prefix('case-report-executions')->group(function () {
+        Route::post('/', [CaseReportExecutionController::class, 'store']);
     });
 
     Route::prefix('perpetrators')->group(function () {
