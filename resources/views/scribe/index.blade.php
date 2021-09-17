@@ -10532,7 +10532,7 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"level":"ut"}'
+    -d '{"level":"cupiditate"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://sisko.anggawebs.com/api/profile/update-status"
@@ -10545,7 +10545,7 @@ let headers = {
 };
 
 let body = {
-    "level": "ut"
+    "level": "cupiditate"
 }
 
 fetch(url, {
@@ -10563,7 +10563,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'level' =&gt; 'ut',
+            'level' =&gt; 'cupiditate',
         ],
     ]
 );
@@ -10613,11 +10613,11 @@ level.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://sisko.anggawebs.com/api/upgrade-member/dolore" \
+    "https://sisko.anggawebs.com/api/upgrade-member/sit" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://sisko.anggawebs.com/api/upgrade-member/dolore"
+    "https://sisko.anggawebs.com/api/upgrade-member/sit"
 );
 
 let headers = {
@@ -10632,7 +10632,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://sisko.anggawebs.com/api/upgrade-member/dolore',
+    'https://sisko.anggawebs.com/api/upgrade-member/sit',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10685,14 +10685,14 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://sisko.anggawebs.com/api/user-survey/quaerat" \
+    "https://sisko.anggawebs.com/api/user-survey/doloremque" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"is_survey":false}'
+    -d '{"is_survey":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://sisko.anggawebs.com/api/user-survey/quaerat"
+    "https://sisko.anggawebs.com/api/user-survey/doloremque"
 );
 
 let headers = {
@@ -10702,7 +10702,7 @@ let headers = {
 };
 
 let body = {
-    "is_survey": false
+    "is_survey": true
 }
 
 fetch(url, {
@@ -10713,14 +10713,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://sisko.anggawebs.com/api/user-survey/quaerat',
+    'https://sisko.anggawebs.com/api/user-survey/doloremque',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'is_survey' =&gt; false,
+            'is_survey' =&gt; true,
         ],
     ]
 );
@@ -10808,7 +10808,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-08-30T08:05:39.760459Z",
+    "timestamp": "2021-09-17T07:58:45.316628Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
