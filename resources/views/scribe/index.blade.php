@@ -10532,7 +10532,11 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
+<<<<<<< HEAD
     -d '{"level":"voluptates"}'
+=======
+    -d '{"level":"cupiditate"}'
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://api-brn.neosantara.co.id/api/profile/update-status"
@@ -10545,7 +10549,11 @@ let headers = {
 };
 
 let body = {
+<<<<<<< HEAD
     "level": "voluptates"
+=======
+    "level": "cupiditate"
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
 }
 
 fetch(url, {
@@ -10563,7 +10571,11 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
+<<<<<<< HEAD
             'level' =&gt; 'voluptates',
+=======
+            'level' =&gt; 'cupiditate',
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
         ],
     ]
 );
@@ -10613,11 +10625,19 @@ level.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
+<<<<<<< HEAD
     "https://api-brn.neosantara.co.id/api/upgrade-member/aut" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://api-brn.neosantara.co.id/api/upgrade-member/aut"
+=======
+    "https://sisko.anggawebs.com/api/upgrade-member/sit" \
+    -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "https://sisko.anggawebs.com/api/upgrade-member/sit"
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
 );
 
 let headers = {
@@ -10632,7 +10652,11 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
+<<<<<<< HEAD
     'https://api-brn.neosantara.co.id/api/upgrade-member/aut',
+=======
+    'https://sisko.anggawebs.com/api/upgrade-member/sit',
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10685,14 +10709,22 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
+<<<<<<< HEAD
     "https://api-brn.neosantara.co.id/api/user-survey/est" \
+=======
+    "https://sisko.anggawebs.com/api/user-survey/doloremque" \
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"is_survey":false}'
+    -d '{"is_survey":true}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
+<<<<<<< HEAD
     "https://api-brn.neosantara.co.id/api/user-survey/est"
+=======
+    "https://sisko.anggawebs.com/api/user-survey/doloremque"
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
 );
 
 let headers = {
@@ -10702,7 +10734,7 @@ let headers = {
 };
 
 let body = {
-    "is_survey": false
+    "is_survey": true
 }
 
 fetch(url, {
@@ -10713,14 +10745,18 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
+<<<<<<< HEAD
     'https://api-brn.neosantara.co.id/api/user-survey/est',
+=======
+    'https://sisko.anggawebs.com/api/user-survey/doloremque',
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'is_survey' =&gt; false,
+            'is_survey' =&gt; true,
         ],
     ]
 );
@@ -10808,7 +10844,11 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
+<<<<<<< HEAD
     "timestamp": "2021-08-20T03:52:09.445434Z",
+=======
+    "timestamp": "2021-09-17T07:58:45.316628Z",
+>>>>>>> 102e0283ee68abad9640800b168c4b588bdeb13c
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>
