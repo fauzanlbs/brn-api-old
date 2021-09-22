@@ -12,17 +12,18 @@ use App\Http\Requests\CaseReportExecution\CaseReportExecutionRequest;
 /**
  * @group Laporan eksekusi kasus
  */
+
 class CaseReportExecutionController extends Controller
 {
     /**
      * Menambahkan eksekusi laporan kasus pengguna saat ini.
      * Dibagian ini Anda bisa menambahkan laporan eksekusi kasus pengguna saat ini.
      * @authenticated
-     *
+     * 
+     * @queryParam case_id int utkkakaskdak
      * @param CaseReportExecutionRequest $request
      * @return CaseReportExecutionResource
-     *
-     * @responseFile storage/responses/only-message.response.json
+     * 
      */
     public function store(CaseReportExecutionRequest $request)
     {
