@@ -118,8 +118,8 @@ Route::prefix('agendas')->group(function () {
 });
 
 // Discussion
-Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:member']);
-Route::prefix('discussions')->middleware(['auth:sanctum', 'role:member'])->group(function () {
+Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:korda|korwil|admin|member']);
+Route::prefix('discussions')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
     Route::get('/', [DiscussionController::class, 'getDiscussions']);
     Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
 

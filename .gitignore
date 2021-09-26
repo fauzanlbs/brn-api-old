@@ -35,3 +35,4 @@ resources/docs/groups/point.md
 
 composer.backup.json
 composer.lock
+resources/views/scribe/index.blade.php
