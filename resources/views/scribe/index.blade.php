@@ -8859,7 +8859,7 @@ Penyortiran berdasarkan judul.
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"case_report_id":16,"koordinator_user_id":5,"korda_yang_menangani":2,"perpetrator_id":15,"status":"assumenda","uraian_singkat":"et"}'
+    -d '{"case_report_id":18,"koordinator_user_id":10,"korda_yang_menangani":1,"perpetrator_id":11,"status":"'pending', 'verified', 'progress', 'completed'","uraian_singkat":"voluptate"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://sisko.anggawebs.com/api/case-report-executions"
@@ -8872,12 +8872,12 @@ let headers = {
 };
 
 let body = {
-    "case_report_id": 16,
-    "koordinator_user_id": 5,
-    "korda_yang_menangani": 2,
-    "perpetrator_id": 15,
-    "status": "assumenda",
-    "uraian_singkat": "et"
+    "case_report_id": 18,
+    "koordinator_user_id": 10,
+    "korda_yang_menangani": 1,
+    "perpetrator_id": 11,
+    "status": "'pending', 'verified', 'progress', 'completed'",
+    "uraian_singkat": "voluptate"
 }
 
 fetch(url, {
@@ -8895,12 +8895,12 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'case_report_id' =&gt; 16,
-            'koordinator_user_id' =&gt; 5,
-            'korda_yang_menangani' =&gt; 2,
-            'perpetrator_id' =&gt; 15,
-            'status' =&gt; 'assumenda',
-            'uraian_singkat' =&gt; 'et',
+            'case_report_id' =&gt; 18,
+            'koordinator_user_id' =&gt; 10,
+            'korda_yang_menangani' =&gt; 1,
+            'perpetrator_id' =&gt; 11,
+            'status' =&gt; '\'pending\', \'verified\', \'progress\', \'completed\'',
+            'uraian_singkat' =&gt; 'voluptate',
         ],
     ]
 );
@@ -8936,34 +8936,34 @@ print_r(json_decode((string) $body));</code></pre>
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
-<b><code>case_report_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="case_report_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>case_report_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="case_report_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>koordinator_user_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="koordinator_user_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>koordinator_user_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="koordinator_user_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>korda_yang_menangani</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="korda_yang_menangani" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>korda_yang_menangani</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="korda_yang_menangani" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>perpetrator_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="perpetrator_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>perpetrator_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="perpetrator_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>status</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="status" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="status" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
-
+Status.
 </p>
 <p>
 <b><code>uraian_singkat</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
@@ -10657,7 +10657,7 @@ print_r(json_decode((string) $body));</code></pre>
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"level":"labore"}'
+    -d '{"level":"velit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "https://sisko.anggawebs.com/api/profile/update-status"
@@ -10670,7 +10670,7 @@ let headers = {
 };
 
 let body = {
-    "level": "labore"
+    "level": "velit"
 }
 
 fetch(url, {
@@ -10688,7 +10688,7 @@ $response = $client-&gt;post(
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'level' =&gt; 'labore',
+            'level' =&gt; 'velit',
         ],
     ]
 );
@@ -10738,11 +10738,11 @@ level.
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://sisko.anggawebs.com/api/upgrade-member/totam" \
+    "https://sisko.anggawebs.com/api/upgrade-member/rerum" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://sisko.anggawebs.com/api/upgrade-member/totam"
+    "https://sisko.anggawebs.com/api/upgrade-member/rerum"
 );
 
 let headers = {
@@ -10757,7 +10757,7 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://sisko.anggawebs.com/api/upgrade-member/totam',
+    'https://sisko.anggawebs.com/api/upgrade-member/rerum',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
@@ -10810,14 +10810,14 @@ print_r(json_decode((string) $body));</code></pre>
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X POST \
-    "https://sisko.anggawebs.com/api/user-survey/eveniet" \
+    "https://sisko.anggawebs.com/api/user-survey/quaerat" \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"is_survey":true}'
+    -d '{"is_survey":false}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
-    "https://sisko.anggawebs.com/api/user-survey/eveniet"
+    "https://sisko.anggawebs.com/api/user-survey/quaerat"
 );
 
 let headers = {
@@ -10827,7 +10827,7 @@ let headers = {
 };
 
 let body = {
-    "is_survey": true
+    "is_survey": false
 }
 
 fetch(url, {
@@ -10838,14 +10838,14 @@ fetch(url, {
 <pre><code class="language-php">
 $client = new \GuzzleHttp\Client();
 $response = $client-&gt;post(
-    'https://sisko.anggawebs.com/api/user-survey/eveniet',
+    'https://sisko.anggawebs.com/api/user-survey/quaerat',
     [
         'headers' =&gt; [
             'Authorization' =&gt; 'Bearer {YOUR_AUTH_KEY}',
             'Accept' =&gt; 'application/json',
         ],
         'json' =&gt; [
-            'is_survey' =&gt; true,
+            'is_survey' =&gt; false,
         ],
     ]
 );
@@ -10933,7 +10933,7 @@ print_r(json_decode((string) $body));</code></pre>
 </blockquote>
 <pre><code class="language-json">{
     "status": "ok",
-    "timestamp": "2021-09-29T05:37:04.411543Z",
+    "timestamp": "2021-09-29T05:54:43.734766Z",
     "host": "127.0.0.1"
 }</code></pre>
 <div id="execution-results-GETapi-ping" hidden>

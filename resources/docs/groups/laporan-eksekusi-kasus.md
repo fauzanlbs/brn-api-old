@@ -15,7 +15,7 @@ curl -X POST \
     -H "Authorization: Bearer {YOUR_AUTH_KEY}" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
-    -d '{"case_report_id":16,"koordinator_user_id":5,"korda_yang_menangani":2,"perpetrator_id":15,"status":"assumenda","uraian_singkat":"et"}'
+    -d '{"case_report_id":18,"koordinator_user_id":10,"korda_yang_menangani":1,"perpetrator_id":11,"status":"'pending', 'verified', 'progress', 'completed'","uraian_singkat":"voluptate"}'
 
 ```
 
@@ -31,12 +31,12 @@ let headers = {
 };
 
 let body = {
-    "case_report_id": 16,
-    "koordinator_user_id": 5,
-    "korda_yang_menangani": 2,
-    "perpetrator_id": 15,
-    "status": "assumenda",
-    "uraian_singkat": "et"
+    "case_report_id": 18,
+    "koordinator_user_id": 10,
+    "korda_yang_menangani": 1,
+    "perpetrator_id": 11,
+    "status": "'pending', 'verified', 'progress', 'completed'",
+    "uraian_singkat": "voluptate"
 }
 
 fetch(url, {
@@ -57,12 +57,12 @@ $response = $client->post(
             'Accept' => 'application/json',
         ],
         'json' => [
-            'case_report_id' => 16,
-            'koordinator_user_id' => 5,
-            'korda_yang_menangani' => 2,
-            'perpetrator_id' => 15,
-            'status' => 'assumenda',
-            'uraian_singkat' => 'et',
+            'case_report_id' => 18,
+            'koordinator_user_id' => 10,
+            'korda_yang_menangani' => 1,
+            'perpetrator_id' => 11,
+            'status' => '\'pending\', \'verified\', \'progress\', \'completed\'',
+            'uraian_singkat' => 'voluptate',
         ],
     ]
 );
@@ -102,34 +102,34 @@ print_r(json_decode((string) $body));
 </p>
 <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
 <p>
-<b><code>case_report_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="case_report_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>case_report_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="case_report_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>koordinator_user_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="koordinator_user_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>koordinator_user_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="koordinator_user_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>korda_yang_menangani</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="korda_yang_menangani" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>korda_yang_menangani</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="korda_yang_menangani" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>perpetrator_id</code></b>&nbsp;&nbsp;<small>integer</small>     <i>optional</i> &nbsp;
-<input type="number" name="perpetrator_id" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>perpetrator_id</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="perpetrator_id" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
 
 </p>
 <p>
-<b><code>status</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
-<input type="text" name="status" data-endpoint="POSTapi-case-report-executions" data-component="body"  hidden>
+<b><code>status</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="status" data-endpoint="POSTapi-case-report-executions" data-component="body" required  hidden>
 <br>
-
+Status.
 </p>
 <p>
 <b><code>uraian_singkat</code></b>&nbsp;&nbsp;<small>string</small>     <i>optional</i> &nbsp;
