@@ -6,12 +6,12 @@ use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam case_report_id
- * @bodyParam koordinator_user_id
- * @bodyParam korda_yang_menangani
- * @bodyParam perpetrator_id
- * @bodyParam status
- * @bodyParam uraian_singkat
+ * @bodyParam case_report_id int required
+ * @bodyParam koordinator_user_id int required
+ * @bodyParam korda_yang_menangani int required
+ * @bodyParam perpetrator_id int required
+ * @bodyParam status string required Status. Example: 'pending', 'verified', 'progress', 'completed'
+ * @bodyParam uraian_singkat string 
  */
 class CaseReportExecutionRequest extends FormRequest
 {
@@ -38,7 +38,7 @@ class CaseReportExecutionRequest extends FormRequest
             'korda_yang_menangani' => 'required',
             'perpetrator_id' => 'required|exists:perpetrators,id',
             'status' => ['required', Rule::in(['pending', 'verified', 'progress', 'completed'])],
-            // 'uraian_singkat' => ['required'],
+            'uraian_singkat' => ['required'],
         ];
     }
 }
