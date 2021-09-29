@@ -6,12 +6,12 @@ use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam case_report_id
- * @bodyParam koordinator_user_id
- * @bodyParam korda_yang_menangani
- * @bodyParam perpetrator_id
- * @bodyParam status
- * @bodyParam uraian_singkat
+ * @bodyParam case_report_id int
+ * @bodyParam koordinator_user_id int
+ * @bodyParam korda_yang_menangani int
+ * @bodyParam perpetrator_id int
+ * @bodyParam status string
+ * @bodyParam uraian_singkat string
  */
 class CaseReportExecutionRequest extends FormRequest
 {
