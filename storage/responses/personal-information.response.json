@@ -1,0 +1,12 @@
+{
+    "data": {
+        "id_card": "1233123123",
+        "nik_ktp": "317250754107....",
+        "bio": "Together we could be unstoppable.",
+        "phone_number": "+62821...",
+        "gender": "male",
+        "place_of_birth": "Jakarta",
+        "date_of_birth": "2002-12-25"
+    },
+    "message": "Berhasil memperbaharui informasi pribadi."
+}

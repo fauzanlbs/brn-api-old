@@ -129,7 +129,7 @@ return [
      * - "static" will generate a static HTMl page in the /public/docs folder,
      * - "laravel" will generate the documentation as a Blade view, so you can add routing and authentication.
      */
-    'type' => 'static',
+    'type' => 'laravel',
 
     /*
      * Settings for `static` type output.
@@ -156,7 +156,7 @@ return [
          * URL path to use for the docs endpoint (if `add_routes` is true).
          * By default, `/docs` opens the HTML page, `/docs.postman` opens the Postman collection, and `/docs.openapi` the OpenAPI spec.
          */
-        'docs_url' => '/api/docs',
+        'docs_url' => '/docs',
 
         /*
          * Middleware to attach to the docs endpoint (if `add_routes` is true).
@@ -240,9 +240,7 @@ INTRO,
     /*
      * The base URL to be used in examples. If this is empty, Scribe will use the value of config('app.url').
      */
-    // ! Generate api sebelum upload ke hosting
     'base_url' => config('app.url'),
-    // 'base_url' => "https://sisko.anggawebs.com",
 
     /*
      * Generate a Postman collection (v2.1.0) in addition to HTML docs.
