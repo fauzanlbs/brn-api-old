@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Repositories\Donation;
+namespace App\Repositories\DonationUser;
 
 use App\Http\Requests\Donation\DonationRequest;
-use App\Models\Donation;
 use App\Models\DonationUser;
-use App\Repositories\Donation\DonationRepository;
+use App\Repositories\DonationUser\DonationUserRepository;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage;
 
 
-class EloquentDonationRepository implements DonationRepository
+class EloquentDonationUserRepository implements DonationUserRepository
 {
     /**
      * Create user Donation
@@ -21,7 +18,7 @@ class EloquentDonationRepository implements DonationRepository
      *
      * @return Donation
      */
-    public function  create(?int $id, DonationRequest $DonationRequest): Donation
+    public function  create(?int $id, DonationRequest $DonationRequest): DonationUser
     {
         try {
             // Begin Transaction

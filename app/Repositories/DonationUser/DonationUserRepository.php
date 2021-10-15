@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Repositories\Donation;
+namespace App\Repositories\DonationUser;
 
 use App\Http\Requests\Donation\DonationRequest;
-use App\Models\Donation;
+use App\Models\DonationUser;
 
-interface DonationRepository
+interface DonationUserRepository
 {
     /**
      * Create or update Donation
@@ -15,5 +15,5 @@ interface DonationRepository
      *
      * @return Donations
      */
-    public function create(?int $id, DonationRequest $donationRequest): Donation;
+    public function create(?int $id, DonationRequest $donationRequest): DonationUser;
 }

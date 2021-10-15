@@ -9,7 +9,7 @@ use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Requests\Donation\DonationRequest;
-use App\Repositories\Donation\EloquentDonationRepository;
+use App\Repositories\DonationUser\EloquentDonationUserRepository;
 
 
 /**
@@ -18,15 +18,15 @@ use App\Repositories\Donation\EloquentDonationRepository;
 class DonationController extends Controller
 {
     use ResponseAPI;
-    protected $eloquentDonation;
+    protected $eloquentDonationUser;
 
     /**
      * @param EloquentDonationRepository $eloquentDonation
      */
 
-    public function __construct(EloquentDonationRepository $eloquentDonation)
+    public function __construct(EloquentDonationUserRepository $eloquentDonationUser)
     {
-        $this->eloquentDonation = $eloquentDonation;
+        $this->eloquentDonationUser = $eloquentDonationUser;
     }
     /**
      * Mendapatkan list data donasi yang tersedia.
@@ -80,7 +80,7 @@ class DonationController extends Controller
      */
     public function store(DonationRequest $request)
     {
-        $userDonation = $this->eloquentDonation->create(NULL, $request);
+        $userDonation = $this->eloquentDonationUser->create(NULL, $request);
 
         return (new UserDonationResource($userDonation))->additional([
             'message' => __('messages.created', ['attr' => 'userDonation']),
