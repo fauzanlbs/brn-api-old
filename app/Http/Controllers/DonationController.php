@@ -3,16 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\DonationResource;
+use App\Http\Resources\UserDonationResource;
 use App\Models\Donation;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
+use App\Http\Requests\Donation\DonationRequest;
+use App\Repositories\Donation\EloquentDonationRepository;
+
 
 /**
  * @group Donasi
  */
 class DonationController extends Controller
 {
+    use ResponseAPI;
+    protected $eloquentDonation;
+
+    /**
+     * @param EloquentDonationRepository $eloquentDonation
+     */
+
+    public function __construct(EloquentDonationRepository $eloquentDonation)
+    {
+        $this->eloquentDonation = $eloquentDonation;
+    }
     /**
      * Mendapatkan list data donasi yang tersedia.
      *
@@ -52,4 +67,24 @@ class DonationController extends Controller
 
         return DonationResource::collection($articles);
     }
+
+    /**
+     * Menambahkan user yang berdonasi.
+     * Dibagian ini Anda bisa menambahkan user yang ingin donasi.
+     * @authenticated
+     *
+     * @param AgendaRequest $request
+     * @return AgendaResource
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function store(DonationRequest $request)
+    {
+        $userDonation = $this->eloquentDonation->create(NULL, $request);
+
+        return (new UserDonationResource($userDonation))->additional([
+            'message' => __('messages.created', ['attr' => 'userDonation']),
+        ]);
+    }
+
 }

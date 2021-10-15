@@ -75,7 +75,12 @@ Route::get('/onboardings', [OnboardingController::class, 'index']);
 Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
-Route::get('/donations', [DonationController::class, 'index']);
+Route::prefix('donations')->group(function () {
+    Route::get('/', [DonationController::class, 'index']);
+    Route::middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
+        Route::post('/', [DonationController::class, 'store']);
+    });
+});
 
 // Aboout
 Route::get('/about', [AboutController::class, 'getAbout']);
