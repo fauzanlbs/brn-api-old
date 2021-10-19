@@ -309,11 +309,11 @@ class CaseReportController extends Controller
         }
 
         $validated = $request->validated();
-        $validated['perpetrator']['phone_number'] = PhoneNumber::make($validated['perpetrator']['phone_number'], 'ID');
+        // $validated['perpetrator']['phone_number'] = PhoneNumber::make($validated['perpetrator']['phone_number'], 'ID');
         $validated['user_id'] = $request->user()->id;
 
-        $perpetratorRequest = $validated['perpetrator'];
-        unset($validated['perpetrator']);
+        // $perpetratorRequest = $validated['perpetrator'];
+        // unset($validated['perpetrator']);
         $caseReportRequest  = $validated;
 
         $latLong  = explode(",", $validated['location']);
@@ -323,15 +323,15 @@ class CaseReportController extends Controller
 
         $caseReport = CaseReport::create($caseReportRequest);
 
-        $perpetratorRequest['profile_photo_path'] = $perpetratorRequest['photo']->storePublicly(
-            'perpetrator',
-            ['disk' => 'public']
-        );
+        // $perpetratorRequest['profile_photo_path'] = $perpetratorRequest['photo']->storePublicly(
+        //     'perpetrator',
+        //     ['disk' => 'public']
+        // );
 
-        $caseReport->perpetrator()->create($perpetratorRequest);
+        // $caseReport->perpetrator()->create($perpetratorRequest);
 
 
-        return (new CaseReportResource(CaseReport::with('perpetrator')->find($caseReport->id)))->additional([
+        return (new CaseReportResource(CaseReport::find($caseReport->id)))->additional([
             'message' => __('messages.created', ['attr' => 'laporan kasus']),
         ]);
     }

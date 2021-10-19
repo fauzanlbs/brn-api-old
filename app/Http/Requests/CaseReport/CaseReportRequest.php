@@ -9,13 +9,6 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam car_id int required valid id <b>car</b>. Example: 1
  * @bodyParam location string required lokasi (lat, long). Example: 31.2467601,29.9020376
  * @bodyParam chronology string required kronologi.
- * @bodyParam perpetrator object required Pelaku.
- * @bodyParam perpetrator.nik int required NIK. Example: 123123123
- * @bodyParam perpetrator.name string required Nama lengkap. Example: Arya Anggara
- * @bodyParam perpetrator.phone_number string required nomor telepon. Example: 0821123213
- * @bodyParam perpetrator.address string required Alamat lengkap. Example: Jl. Letkol Basir Surya No.71, Tasimalaya, Jawa barat, Indonesia
- * @bodyParam perpetrator.photo file required file berupa gambar.
- * @bodyParam perpetrator.information string required informasi tambahan.
  */
 class CaseReportRequest extends FormRequest
 {
@@ -29,14 +22,7 @@ class CaseReportRequest extends FormRequest
         return [
             'car_id' => 'required|exists:cars,id',
             'location' => ['required', new Location],
-            'chronology' => 'required|string',
-            'perpetrator' => 'required|array',
-            'perpetrator.nik' => 'required|numeric',
-            'perpetrator.name' => 'required|min:3|max:255|string',
-            'perpetrator.phone_number' => 'required|phone:id',
-            'perpetrator.address' => 'required|max:255|string',
-            'perpetrator.photo' => 'required|image|max:5000',
-            'perpetrator.information' => 'nullable|string',
+            'chronology' => 'required|string'
         ];
     }
 }
