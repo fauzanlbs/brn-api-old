@@ -21,6 +21,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\BlackListController;
 use App\Http\Controllers\CarColorsController;
@@ -75,7 +76,12 @@ Route::get('/onboardings', [OnboardingController::class, 'index']);
 Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
-Route::get('/donations', [DonationController::class, 'index']);
+    Route::get('/', [DonationController::class, 'index']);
+Route::prefix('donations')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
+    
+    Route::get('/users', [DonationUserController::class, 'getDonationUser']);
+    Route::post('/users', [DonationUserController::class, 'addDonationUser']);
+});
 
 // Aboout
 Route::get('/about', [AboutController::class, 'getAbout']);
