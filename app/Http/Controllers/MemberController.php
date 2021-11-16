@@ -24,6 +24,7 @@ class MemberController extends Controller
      * @queryParam filter[name] string Penyortiran berdasarkan nama. Example: Arya Anggara
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
      * @queryParam guest string Penyortiran berdasarkan pengguna yang belum menjadi anggota brn. Example: true
+     * @queryParam status string Penyortiran berdasarkan status pengguna expired|registration|approved Example: approved
      *
      * @param Request $request
      * @return MemberResource
@@ -51,10 +52,8 @@ class MemberController extends Controller
         //     ->jsonPaginate();
 
         $guest = filter_var($request->query('guest'), FILTER_VALIDATE_BOOLEAN);
-
-        // dd($guest);
-
         $search = $request->query('search');
+        $status = $request->filled('status') ? $request->get('status') : null;
 
         $allowed = [
             'created_at', 'addresses', 'personal-information', 'roles', 'name',
@@ -71,6 +70,10 @@ class MemberController extends Controller
             })
             ->when($guest == false, function ($q, $search) {
                 return $q->whereHas('roles');
+            })
+            ->when($status !== null, function($q, $search){
+                $status = request()->filled('status') ? request()->get('status') : null;
+                return $q->where('status', $status);
             })
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
