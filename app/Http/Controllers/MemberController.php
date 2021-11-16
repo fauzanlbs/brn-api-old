@@ -50,7 +50,9 @@ class MemberController extends Controller
         //     ->withSum('pointsRelation', 'points')
         //     ->jsonPaginate();
 
-        $guest = $request->query('guest');
+        $guest = filter_var($request->query('guest'), FILTER_VALIDATE_BOOLEAN);
+
+        // dd($guest);
 
         $search = $request->query('search');
 
@@ -59,12 +61,16 @@ class MemberController extends Controller
         ];
 
         $users = QueryBuilder::for(User::class)
+            ->with(['roles'])
             ->withSum('pointsRelation', 'points')
             ->when($search, function ($q, $search) {
                 return $q->search($search);
             })
             ->when($guest == true, function ($q, $search) {
                 return $q->whereDoesntHave('roles');
+            })
+            ->when($guest == false, function ($q, $search) {
+                return $q->whereHas('roles');
             })
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
