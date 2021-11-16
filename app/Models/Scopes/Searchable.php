@@ -26,8 +26,8 @@ trait Searchable
      * Adds a scope to search the table based on the
      * $searchableFields array inside the model
      *
-     * @param [type] $query
-     * @param [type] $search
+     * @param Builder $query
+     * @param string $search
      * @return void
      */
     public function scopeSearch($query, $search)

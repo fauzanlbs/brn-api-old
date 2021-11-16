@@ -8,6 +8,11 @@ return [
      */
     'directories' => [
         base_path('app'),
+        base_path() . '/vendor/rinvex/laravel-addresses/src/',
+        base_path() . '/vendor/beyondcode/laravel-comments/src/',
+        base_path() . '/vendor/cyrildewit/eloquent-viewable/src/',
+        base_path() . '/vendor/laravel/sanctum/src/',
+        base_path() . '/vendor/spatie/laravel-permission/src/Models',
     ],
 
     /*
@@ -77,7 +82,7 @@ return [
     'graph' => [
         'style' => 'filled',
         'bgcolor' => '#F7F7F7',
-        'fontsize' => 10,
+        'fontsize' => 12,
         'labelloc' => 't',
         'concentrate' => true,
         'splines' => 'polyline',
@@ -109,18 +114,37 @@ return [
             'arrowhead' => 'tee',
             'arrowtail' => 'none',
         ],
-        'BelongsTo' => [
-            'dir' => 'both',
-            'color' => '#F77F00',
-            'arrowhead' => 'tee',
-            'arrowtail' => 'crow',
-        ],
         'HasMany' => [
             'dir' => 'both',
             'color' => '#FCBF49',
             'arrowhead' => 'crow',
             'arrowtail' => 'none',
         ],
+        'BelongsTo' => [
+            'dir' => 'both',
+            'color' => '#818CF8',
+            'arrowhead' => 'tee',
+            'arrowtail' => 'crow',
+        ],
+        'BelongsTo' => [
+            'dir' => 'both',
+            'color' => '#1D4ED8',
+            'arrowhead' => 'tee',
+            'arrowtail' => 'crow',
+        ],
+        'MorphMany' => [
+            'dir' => 'both',
+            'color' => '#BE185D',
+            'arrowhead' => 'crow',
+            'arrowtail' => 'none',
+        ],
+        'MorphTo' => [
+            'dir' => 'both',
+            'color' => '#EC4899',
+            'arrowhead' => 'crow',
+            'arrowtail' => 'none',
+        ],
+
     ]
 
 ];

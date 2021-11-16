@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\PerformanceMonitoringController;
-use App\Http\Controllers\TransactionController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,22 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect('/login');
-});
-
-// App Route
-Route::middleware(['auth:sanctum'])->group(function () {
-
-    Route::get('/dashboard', App\Http\Livewire\Dashboard\Show::class)->name('dashboard');
-
-    // Performance Monitoring
-    Route::prefix('performance-monitoring')->group(function () {
-        Route::get('/', [PerformanceMonitoringController::class, 'index'])->name('monitoring.dashboard');
-    });
-
-    // Export
-    Route::prefix('export')->group(function () {
-        Route::get('/customers', [CustomerController::class, 'fileCustomersExport'])->name('export.customers');
-        Route::get('/customer-contacts', [CustomerController::class, 'fileCustomerContactsExport'])->name('export.customer.contacts');
-    });
-});
+    return view('welcome');
+})->name('home');

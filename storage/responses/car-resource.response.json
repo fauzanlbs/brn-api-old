@@ -1,0 +1,65 @@
+{
+    "data": [
+        {
+            "id": 24,
+            "user_id": 1,
+            "status": "lost",
+            "is_approved": true,
+            "police_number": "K 7998 UG",
+            "year": 1984,
+            "is_automatic": false,
+            "capacity": 2,
+            "equipment": null,
+            "created_at": "2021-05-05T12:26:50.000000Z",
+            "updated_at": "2021-05-05T12:26:50.000000Z",
+            "car_make": {
+                "id": 3,
+                "make": "BMW"
+            },
+            "car_type": {
+                "id": 1,
+                "class": "Premium"
+            },
+            "car_fuel": {
+                "id": 3,
+                "fuel": "Electric"
+            },
+            "car_model": {
+                "id": 1,
+                "car_make_id": 1,
+                "model": "A4"
+            },
+            "car_color": {
+                "id": 1,
+                "color": "Phantom Black"
+            },
+            "car_images": [
+                {
+                    "id": 47,
+                    "car_id": 24,
+                    "image": "/cars/628078224-K7998UG.png",
+                    "image_url": "http://api.brn.com/storage/cars/628078224-K7998UG.png"
+                },
+                {
+                    "id": 48,
+                    "car_id": 24,
+                    "image": "/cars/194609309-K7998UG.png",
+                    "image_url": "http://api.brn.com/storage/cars/194609309-K7998UG.png"
+                }
+            ]
+        }
+    ],
+    "links": {
+        "first": "http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": "http://api.brn.com/api/my-cars?include=carMake%2CcarType%2CcarFuel%2CcarModel%2CcarColor%2CcarImages&page%5Bnumber%5D=2"
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http://api.brn.com/api/my-cars",
+        "per_page": 15,
+        "to": 15
+    }
+}

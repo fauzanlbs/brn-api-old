@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "id": 4,
+            "comment": "Semangat Terus !!!",
+            "likes_count": 1,
+            "created_at": "2021-04-30T18:14:44.000000Z",
+            "user": {
+                "id": 1,
+                "name": "Admin Arya Anggara",
+                "email": "aryaanggara.dev@gmail.com",
+                "profile_photo_path": null,
+                "profile_photo_url": "https://ui-avatars.com/api/?name=Admin+Arya+Anggara&color=7F9CF5&background=EBF4FF",
+                "created_at": "2021-04-30T16:05:56.000000Z"
+            }
+        }
+    ],
+    "links": {
+        "first": "http://api.brn.com/api/articles/2/comments?page%5Bnumber%5D=1",
+        "last": null,
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "path": "http://api.brn.com/api/articles/2/comments",
+        "per_page": 15,
+        "to": 2
+    }
+}
