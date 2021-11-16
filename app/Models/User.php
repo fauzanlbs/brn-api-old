@@ -52,7 +52,8 @@ class User extends Authenticatable implements Commentator
         'name',
         'email',
         'password',
-        'profile_photo_path'
+        'profile_photo_path',
+        'status',
     ];
 
     /**

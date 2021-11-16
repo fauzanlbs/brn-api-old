@@ -27,6 +27,7 @@ class MemberResource extends JsonResource
             "reason_for_inactivity" => $this->reason_for_inactivity,
             "addresses" =>  AddressResource::collection($this->whenLoaded('addresses')),
             "personal_information" =>  new MemberPersonalInformationResource($this->whenLoaded('personalInformation')),
+            "status" => $this->status,
         ];
     }
 }
