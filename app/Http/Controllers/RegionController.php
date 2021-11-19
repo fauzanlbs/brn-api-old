@@ -18,8 +18,6 @@ class RegionController extends Controller
      * Mendapatkan list data wilayah yang tersedia.
      *
      * @queryParam search string Mencari data wilayah. Example: Jawa Barat
-     * @queryParam page[number] string Menyesuaikan URI paginator. Example: 1
-     * @queryParam page[size] string Menyesuaikan jumlah data yang ditampilkan. Example: 2
      * @queryParam sort string Menyortir data ( key_name / -key_name ), default -created_at. Example: created_at
      *
      * @queryParam filter[region] string Penyortiran berdasarkan nana wilayah. Example: Jawa Barat
@@ -46,7 +44,8 @@ class RegionController extends Controller
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
             ->defaultSort('-' . $allowed[0])
-            ->jsonPaginate();
+            ->get();
+        // ->jsonPaginate();
 
         return RegionResource::collection($regions);
     }
