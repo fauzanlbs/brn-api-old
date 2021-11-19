@@ -15,8 +15,7 @@ use Illuminate\Foundation\Http\FormRequest;
  * @bodyParam is_automatic bool required apakah automatic?. Example: false
  * @bodyParam capacity string required kapasitas mobil. Example: 4
  * @bodyParam equipment string  eqipment.
- * @bodyParam files object[] List gambar.
- * @bodyParam files[].image image file gambar. Example: path
+ * @bodyParam images[] image file gambar. Example: path
  * @bodyParam stnk_image string  Fotor/Gambar STNK.
  * @bodyParam machine_number string  Nomor Mesin.
  * @bodyParam chassis_number string  Nomor Rangka.
@@ -55,8 +54,8 @@ class CarRequest extends FormRequest
             'is_automatic' => 'required|boolean|boolean',
             'capacity' => 'required|max:255',
             'equipment' => 'nullable|max:255|string',
-            'files' => 'nullable|array',
-            'files.*.image' => 'required|image|max:5000',
+            'images' => 'nullable|array',
+            // 'files.*.image' => 'required|image|max:5000',
             'stnk_image' => 'required',
             'machine_number' => 'required',
             'chassis_number' => 'required',

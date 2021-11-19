@@ -17,7 +17,25 @@ class Car extends Model
      * @var array
      */
     protected $fillable = [
+        // 'user_id',
+        // 'car_make_id',
+        // 'car_type_id',
+        // 'car_fuel_id',
+        // 'car_model_id',
+        // 'car_color_id',
+        // 'status',
+        // 'is_approved',
+        // 'police_number',
+        // 'year',
+        // 'is_automatic',
+        // 'capacity',
+        // 'equipment',
+
+        'id',
         'user_id',
+        'stnk_image',
+        'machine_number',
+        'chassis_number',
         'car_make_id',
         'car_type_id',
         'car_fuel_id',
@@ -30,6 +48,9 @@ class Car extends Model
         'is_automatic',
         'capacity',
         'equipment',
+        'created_at',
+        'updated_at',
+        'stnk_number',
     ];
 
     /**
