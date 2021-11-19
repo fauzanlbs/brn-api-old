@@ -2,10 +2,11 @@
 
 namespace App\Repositories\Car;
 
-use App\Http\Requests\Car\CarRequest;
 use App\Models\Car;
-use App\Repositories\Car\CarRepository;
+use App\Models\CarImage;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\Car\CarRequest;
+use App\Repositories\Car\CarRepository;
 
 class EloquentCarRepository implements CarRepository
 {
@@ -31,18 +32,30 @@ class EloquentCarRepository implements CarRepository
                 $car = Car::create($carRequest->validated());
             };
 
-            if (isset($carRequest['files'])) {
-                $carImages = [];
+            if ($carRequest->filled('images')) {
 
-                foreach ($carRequest->file('files') as $key =>  $value) {
-                    $carImages[$key]['image'] = $value['image']->storePublicly(
-                        'cars',
-                        ['disk' => 'public']
-                    );
+                $images = $carRequest->validated()['images'];
+                foreach ($images as $image) {
+
+                    CarImage::create([
+                        'car_id' => $car->id,
+                        'image' => $image
+                    ]);
                 }
-
-                $car->carImages()->createMany($carImages);
             }
+
+            // if (isset($carRequest['files'])) {
+            //     $carImages = [];
+
+            //     foreach ($carRequest->file('files') as $key =>  $value) {
+            //         $carImages[$key]['image'] = $value['image']->storePublicly(
+            //             'cars',
+            //             ['disk' => 'public']
+            //         );
+            //     }
+
+            //     $car->carImages()->createMany($carImages);
+            // }
 
             DB::commit();
             // End Commit of Transaction
