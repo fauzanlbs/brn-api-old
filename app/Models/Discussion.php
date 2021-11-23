@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\ImageUrlable;
-use App\Models\Scopes\LimitChars;
-use App\Models\Scopes\Searchable;
-use BeyondCode\Comments\Traits\HasComments;
+use App\Traits\HasComments;
 use Conner\Likeable\Likeable;
+use App\Models\Scopes\LimitChars;
+// use BeyondCode\Comments\Traits\HasComments;
+use App\Models\Scopes\Searchable;
+use App\Models\Scopes\ImageUrlable;
+use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Rinvex\Categories\Traits\Categorizable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Rinvex\Categories\Traits\Categorizable;
 
 class Discussion extends Model
 {

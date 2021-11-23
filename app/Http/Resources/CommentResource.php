@@ -16,6 +16,7 @@ class CommentResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "title" => $this->title,
             "comment" => $this->comment,
             "likes_count" =>  $this->likes_count,
             "created_at" => $this->created_at,
