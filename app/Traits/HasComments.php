@@ -38,11 +38,12 @@ trait HasComments
      * @param string $comment
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public function commentAsUser(?Model $user, string $comment)
+    public function commentAsUser(?Model $user, string $title, string $comment)
     {
         $commentClass = config('comments.comment_class');
 
         $comment = new $commentClass([
+            'title' => $title,
             'comment' => $comment,
             'is_approved' => ($user instanceof Commentator) ? !$user->needsCommentApproval($this) : false,
             'user_id' => is_null($user) ? null : $user->getKey(),
