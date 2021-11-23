@@ -104,7 +104,7 @@ class CommentController extends Controller
             return $this->responseMessage('Anda tidak bisa menambahkan komentar ke diskusi yang sudah di tandai sebagai selesai.');
         }
 
-        $newComment = $discussion->commentAsUser($request->user(), $request['comment']);
+        $newComment = $discussion->commentAsUser($request->user(), $request['title'], $request['comment']);
 
         if ($discussion->private) {
             $userIds = $discussion->invitedUsers()

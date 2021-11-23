@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
+ * @bodyParam comment string required judul komentar. Example: Semangat terus :)
  * @bodyParam comment string required isi komentar. Example: Semangat terus :)
  */
 class CommentRequest extends FormRequest
@@ -17,6 +18,7 @@ class CommentRequest extends FormRequest
     public function rules()
     {
         return [
+            // 'title' => 'required|string',
             'comment' => 'required|string',
         ];
     }
