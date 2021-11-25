@@ -44,6 +44,43 @@ class UserPersonalInformation extends Model
         $this->attributes['date'] = (new Carbon($value))->format('Y-m-d');
     }
 
+    /**
+     * Get garage image url attribute
+     *
+     * @return string
+     */
+    public function getGarageImageUrlAttribute()
+    {
+        return $this->garage_image
+            ? Storage::disk('public')->url($this->garage_image)
+            : ('https://ui-avatars.com/api/?name=' . urlencode($this->company_name ?? 'A') . '&color=7F9CF5&background=EBF4FF');
+    }
+
+
+    /**
+     * Get profile image url attribute
+     *
+     * @return string
+     */
+    public function getProfileImageUrlAttribute()
+    {
+        return $this->profile_image
+            ? Storage::disk('public')->url($this->profile_image)
+            : ('https://ui-avatars.com/api/?name=' . urlencode($this->company_name ?? 'A') . '&color=7F9CF5&background=EBF4FF');
+    }
+
+    /**
+     * Get passport image url attribute
+     *
+     * @return string
+     */
+    public function getPassportImageUrlAttribute()
+    {
+        return $this->passport_image
+            ? Storage::disk('public')->url($this->passport_image)
+            : ('https://ui-avatars.com/api/?name=' . urlencode($this->company_name ?? 'A') . '&color=7F9CF5&background=EBF4FF');
+    }
+
 
     /**
      * Get comapany logo url attribute
