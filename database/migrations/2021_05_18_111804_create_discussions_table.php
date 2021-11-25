@@ -27,6 +27,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('title');
             $table->string('slug')->default('');
             $table->text('description')->nullable();
+            $table->string('cover_image')->nullable();
             $table->boolean('featured')->default(0);
             $table->dateTime('finished_at')->nullable();
             $table->timestamps();

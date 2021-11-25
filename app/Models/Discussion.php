@@ -9,6 +9,7 @@ use App\Models\Scopes\LimitChars;
 use App\Models\Scopes\Searchable;
 use App\Models\Scopes\ImageUrlable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Rinvex\Categories\Traits\Categorizable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
@@ -149,5 +150,12 @@ class Discussion extends Model
         }
 
         return $this->title;
+    }
+
+    public function getCoverIMageUrlAttribute()
+    {
+        return $this->cover_image
+            ? Storage::disk('public')->url($this->cover_image)
+            : null;
     }
 }

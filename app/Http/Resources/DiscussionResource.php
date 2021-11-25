@@ -20,6 +20,8 @@ class DiscussionResource extends JsonResource
             "slug" =>  $this->slug,
             "title" =>  $this->title,
             "description" =>  $this->description,
+            "cover_image" =>  $this->cover_image, // path
+            "cover_image_url" =>  $this->cover_image_url, // auto generate url from cover_image path
             "featured" =>  $this->featured,
             "finished_at" =>  $this->finished_at,
             "created_at" =>  $this->created_at,
