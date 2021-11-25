@@ -20,6 +20,7 @@ class DiscussionResource extends JsonResource
             "slug" =>  $this->slug,
             "title" =>  $this->title,
             "description" =>  $this->description,
+            "cover_image" =>  $this->cover_image,
             "featured" =>  $this->featured,
             "finished_at" =>  $this->finished_at,
             "created_at" =>  $this->created_at,

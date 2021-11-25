@@ -7,6 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 /**
  * @bodyParam title string required judul diskusi. Example: diskusi tentang rental mobil
  * @bodyParam description string deskripsi diskusi.
+ * @bodyParam cover_image string cover image diskusi.
  */
 class DiscussionRequest extends FormRequest
 {
