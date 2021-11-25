@@ -14,6 +14,29 @@ class UserResource extends JsonResource
      */
     public function toArray($request)
     {
+        // return [
+        //     "id" => $this->id,
+        //     "active" => $this->active,
+        //     "status_level_diklat" => $this->status_level_diklat,
+        //     "is_survey" => $this->is_survey,
+        //     "roles" => RoleResource::collection($this->whenLoaded('roles')),
+        //     "sum_points" => intval($this->points_relation_sum_points),
+        //     "name" => $this->name,
+        //     "email" => $this->email,
+        //     "email_verified_at" => $this->email_verified_at,
+        //     "profile_photo_path" => $this->profile_photo_path,
+        //     "profile_photo_url" => $this->profile_photo_url,
+        //     "reason_for_inactivity" => $this->reason_for_inactivity,
+        //     "created_at" => $this->created_at,
+        //     "updated_at" => $this->updated_at,
+        //     "reason_for_inactivity" => $this->reason_for_inactivity,
+        //     "payment_status" => $this->payment_status,
+        //     "check_korda" => $this->check_korda,
+        //     "check_korwil" => $this->check_korwil,
+        //     "addresses" =>  AddressResource::collection($this->whenLoaded('addresses')),
+        //     "personal_information" =>  new PersonalInformationResource($this->whenLoaded('personalInformation')),
+        // ];
+
         return [
             "id" => $this->id,
             "active" => $this->active,
@@ -26,9 +49,12 @@ class UserResource extends JsonResource
             "email_verified_at" => $this->email_verified_at,
             "profile_photo_path" => $this->profile_photo_path,
             "profile_photo_url" => $this->profile_photo_url,
-            "reason_for_inactivity" => $this->reason_for_inactivity,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,
+            "reason_for_inactivity" => $this->reason_for_inactivity,
+            "payment_status" => $this->payment_status,
+            "check_korda" => $this->check_korda,
+            "check_korwil" => $this->check_korwil,
             "addresses" =>  AddressResource::collection($this->whenLoaded('addresses')),
             "personal_information" =>  new PersonalInformationResource($this->whenLoaded('personalInformation')),
         ];
