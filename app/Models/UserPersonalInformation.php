@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Area;
+use App\Models\Region;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class UserPersonalInformation extends Model
 {
@@ -33,6 +35,8 @@ class UserPersonalInformation extends Model
         'company_logo_url',
         'siupsku_image_url',
     ];
+
+    public $with = ['korda', 'korwil'];
 
 
     public function setDateAttribute($value)
@@ -79,5 +83,15 @@ class UserPersonalInformation extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function korda()
+    {
+        return $this->belongsTo(Area::class, 'korda_id', 'id');
+    }
+
+    public function korwil()
+    {
+        return $this->belongsTo(Region::class, 'korwil_id', 'id');
     }
 }

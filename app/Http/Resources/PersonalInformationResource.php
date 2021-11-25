@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\AreaResource;
+use App\Http\Resources\RegionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PersonalInformationResource extends JsonResource
@@ -41,6 +43,10 @@ class PersonalInformationResource extends JsonResource
             'garage_image' => $this->garage_image,
             'korwil_id' => $this->korwil_id,
             'korda_id' => $this->korda_id,
+            'korwil' => $this->korwil,
+            'korda' => $this->korda,
+            // 'korwil' => AreaResource::collection($this->whenLoaded('korwil')),
+            // 'korda' => RegionResource::collection($this->whenLoaded('korda')),
         ];
     }
 }
