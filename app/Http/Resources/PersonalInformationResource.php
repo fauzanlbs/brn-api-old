@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\AreaResource;
+use App\Http\Resources\RegionResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PersonalInformationResource extends JsonResource
@@ -32,15 +34,24 @@ class PersonalInformationResource extends JsonResource
             'region' => $this->region,
             'company_name' => $this->company_name,
             'company_logo' => $this->company_logo,
+            'company_logo_url' => $this->company_logo_url,
             'siupsku_number' => $this->siupsku_number,
             'siupsku_image' => $this->siupsku_image,
+            'siupsku_image_url' => $this->siupsku_image_url,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'passport_image' => $this->passport_image,
+            'passport_image_url' => $this->passport_image_url,
             'profile_image' => $this->profile_image,
+            'profile_image_url' => $this->profile_image_url,
             'garage_image' => $this->garage_image,
+            'garage_image_url' => $this->garage_image_url,
             'korwil_id' => $this->korwil_id,
             'korda_id' => $this->korda_id,
+            'korwil' => $this->korwil,
+            'korda' => $this->korda,
+            // 'korwil' => AreaResource::collection($this->whenLoaded('korwil')),
+            // 'korda' => RegionResource::collection($this->whenLoaded('korda')),
         ];
     }
 }
