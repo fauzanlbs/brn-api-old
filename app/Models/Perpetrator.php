@@ -34,6 +34,8 @@ class Perpetrator extends Model
         'profile_photo_url',
     ];
 
+    public $with = ['created_by'];
+
     /**
      * The attributes that are mass searchable.
      *
