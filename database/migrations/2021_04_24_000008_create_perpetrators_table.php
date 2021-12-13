@@ -23,6 +23,8 @@ class CreatePerpetratorsTable extends Migration
             $table->string('profile_photo_path')->nullable();
             $table->mediumText('information')->nullable();
 
+            $table->bigInteger('created_by')->nullable();
+
             $table->timestamps();
         });
     }
