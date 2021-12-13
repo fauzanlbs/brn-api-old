@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
+use App\Models\User;
 use App\Traits\HasProfilePhoto;
+use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -21,6 +22,7 @@ class Perpetrator extends Model
         'address',
         'profile_photo_path',
         'information',
+        'created_by_id',
     ];
 
     /**
@@ -52,5 +54,13 @@ class Perpetrator extends Model
     public function caseReport()
     {
         return $this->belongsTo(CaseReport::class);
+    }
+
+    /**
+     * Get a user that create this perpetrator
+     */
+    public function created_by()
+    {
+        return $this->belongsTo(User::class, 'created_by_id', 'id');
     }
 }
