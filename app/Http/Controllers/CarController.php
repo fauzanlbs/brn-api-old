@@ -109,6 +109,7 @@ class CarController extends Controller
      * @queryParam filter[capacity] int Penyortiran berdasarkan kapasitas. Example: 4
      * @queryParam filter[equipment] string Penyortiran berdasarkan equipment.
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     * @queryParam filter[case_reports.status] string Penyortiran berdasarkan status kasus. Example: pending
      *
      * @param Request $request
      * @return CarResource
@@ -120,10 +121,18 @@ class CarController extends Controller
         $search = $request->query('search');
 
         $allowed = [
-            'created_at', 'status', 'is_approved', 'police_number', 'year', 'is_automatic', 'capacity', 'equipment',
+            'created_at',
+            'status',
+            'is_approved',
+            'police_number',
+            'year',
+            'is_automatic',
+            'capacity',
+            'equipment',
+            'case_reports.status',
         ];
 
-        $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages',];
+        $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages', 'case_reports'];
 
         $uid = $request->user()->id;
 
