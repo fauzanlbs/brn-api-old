@@ -62,10 +62,18 @@ class CarController extends Controller
         $area_code = $request->query('area_code');
 
         $allowed = [
-            'created_at', 'status', 'is_approved', 'police_number', 'year', 'is_automatic', 'capacity', 'equipment',
+            'created_at',
+            'status',
+            'is_approved',
+            'police_number',
+            'year',
+            'is_automatic',
+            'capacity',
+            'equipment',
+            'case_reports.status',
         ];
 
-        $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages',];
+        $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages', 'caseReports'];
 
         $userCars = QueryBuilder::for(Car::class)
             ->when($search, function ($q, $search) {
