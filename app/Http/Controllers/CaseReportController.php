@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
+use App\Traits\Analytics;
+use App\Models\CaseReport;
+use App\Models\Perpetrator;
+use App\Traits\ResponseAPI;
+use Illuminate\Http\Request;
+use Spatie\QueryBuilder\QueryBuilder;
+use Propaganistas\LaravelPhone\PhoneNumber;
 use App\Http\Requests\CaseReport\CaseReportRequest;
 use App\Http\Requests\Perpetrator\PerpetratorRequest;
 use App\Http\Resources\CaseReport\CaseReportResource;
 use App\Http\Resources\CaseReport\PerpetratorResource;
-use App\Models\Car;
-use App\Models\CaseReport;
-use App\Models\Perpetrator;
+use App\Http\Requests\CaseReport\CaseReportUpdateStatusRequest;
 use App\Repositories\Perpetrator\EloquentPerpetratorRepository;
-use App\Traits\Analytics;
-use App\Traits\ResponseAPI;
-use Illuminate\Http\Request;
-use Propaganistas\LaravelPhone\PhoneNumber;
-use Spatie\QueryBuilder\QueryBuilder;
 
 /**
  * @group Laporan kasus
@@ -276,6 +277,27 @@ class CaseReportController extends Controller
         }, 'perpetrator']);
 
         return new CaseReportResource($caseReport);
+    }
+
+    /**
+     * Mengubah status case report
+     * @authenticated
+     * @param CaseReport $caseReport
+     * @param CaseReportUpdateStatusRequest $request
+     * @return CaseReportResource
+     *
+     * @responseFile storage/responses/only-message.response.json
+     */
+    public function updateStatus(CaseReport $caseReport, CaseReportUpdateStatusRequest $request)
+    {
+        $uid = $request->user()->id;
+
+        $caseReport->status($request->get('status'));
+        $caseReport->update();
+
+        return (new CaseReportResource(CaseReport::find($caseReport->id)))->additional([
+            'message' => __('messages.created', ['attr' => 'laporan kasus']),
+        ]);
     }
 
 
