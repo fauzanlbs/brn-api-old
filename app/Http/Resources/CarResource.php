@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\CaseReport\CaseReportResource;
 
 class CarResource extends JsonResource
 {
@@ -35,6 +36,7 @@ class CarResource extends JsonResource
             "car_model" => new CarModelResource($this->whenLoaded('carModel')),
             "car_color" => new CarColorResource($this->whenLoaded('carColor')),
             "car_images" => CarImageResource::collection($this->whenLoaded('carImages')),
+            "case_reports" => CaseReportResource::collection($this->whenLoaded('caseReports')),
         ];
     }
 }

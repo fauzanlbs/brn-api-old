@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\CaseReport;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -52,6 +53,8 @@ class Car extends Model
         'updated_at',
         'stnk_number',
     ];
+
+
 
     /**
      * The attributes that are mass searchable.
@@ -156,5 +159,10 @@ class Car extends Model
     public function carImages()
     {
         return $this->hasMany(CarImage::class);
+    }
+
+    public function caseReports()
+    {
+        return $this->hasMany(CaseReport::class, 'car_id', 'id');
     }
 }
