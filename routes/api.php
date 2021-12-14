@@ -81,6 +81,7 @@ Route::prefix('donations')->middleware(['auth:sanctum', 'role:korda|korwil|admin
     
     Route::get('/users', [DonationUserController::class, 'getDonationUser']);
     Route::post('/users', [DonationUserController::class, 'addDonationUser']);
+
 });
 
 // Aboout
