@@ -76,9 +76,9 @@ Route::get('/onboardings', [OnboardingController::class, 'index']);
 Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
-    Route::get('/', [DonationController::class, 'index']);
+Route::get('/', [DonationController::class, 'index']);
 Route::prefix('donations')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
-    
+
     Route::get('/users', [DonationUserController::class, 'getDonationUser']);
     Route::post('/users', [DonationUserController::class, 'addDonationUser']);
 
@@ -235,6 +235,7 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/count', [CaseReportController::class, 'getUserCountCaseReports']);
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
         Route::post('/', [CaseReportController::class, 'store']);
+        Route::put('/{caseReport}/update_status', [CaseReportController::class, 'updateStatus']);
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
     });
 
