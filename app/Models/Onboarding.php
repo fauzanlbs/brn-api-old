@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Onboarding extends Model
 {
     use HasFactory;
-    use ImageUrlable;
+    // use ImageUrlable;
 
     /**
      * The attributes that should be cast to native types.
@@ -28,4 +28,9 @@ class Onboarding extends Model
     protected $appends = [
         'image_url',
     ];
+
+    public function getImageUrlAttribute()
+    {
+        return env('BACKEND_BASE_URL', 'https://admin.brnjuara.com')  . $this->image;
+    }
 }
