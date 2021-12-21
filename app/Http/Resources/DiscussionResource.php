@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class DiscussionResource extends JsonResource
@@ -29,8 +30,10 @@ class DiscussionResource extends JsonResource
             "likes_count" =>  $this->likes_count,
             "comments_count" =>  $this->comments_count,
             'invited_users_count' => $this->invited_users_count,
+            "invited_users" =>  $this->invitedUsers,
             "user" =>  new SimpleUserResource($this->whenLoaded('user')),
             "case_report" =>  new SimpleUserResource($this->whenLoaded('caseReport')),
+
         ];
     }
 }

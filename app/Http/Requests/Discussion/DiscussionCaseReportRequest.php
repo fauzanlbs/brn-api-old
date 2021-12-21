@@ -5,7 +5,7 @@ namespace App\Http\Requests\Discussion;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
- * @bodyParam invite_user_ids integer[] List dari id user. Example: 1
+ * @bodyParam invite_user_ids integer[] List dari id user. Example: [1]
  * @bodyParam case_report_id integer required valid id laporan kasus. Example: 1
  */
 class DiscussionCaseReportRequest extends FormRequest
