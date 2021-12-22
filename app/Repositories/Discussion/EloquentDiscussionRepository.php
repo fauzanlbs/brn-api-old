@@ -86,7 +86,12 @@ class EloquentDiscussionRepository implements DiscussionRepository
             DB::commit();
             // End Commit of Transaction
 
-            $discussion->load(['user', 'caseReport']);
+            // $discussion->load(['user', 'caseReport', 'invitedUsers']);
+            $discussion = Discussion::with([
+                'user',
+                'caseReport',
+                'invitedUsers',
+            ])->find($discussion->id);
 
             return $discussion;
         } catch (\Exception $e) {

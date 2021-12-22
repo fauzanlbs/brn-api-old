@@ -18,10 +18,7 @@ class CreateDiscussionsTable extends Migration
 
             $table->foreignId('user_id')->constrained();
             $table->unsignedBigInteger('case_report_id')->nullable();
-            $table
-                ->foreign('case_report_id')
-                ->references('id')
-                ->on('case_reports');
+            $table->foreign('case_report_id')->references('id')->on('case_reports');
 
             $table->boolean('private')->default(0);
             $table->string('title');
