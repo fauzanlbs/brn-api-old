@@ -186,6 +186,14 @@ Route::prefix('courses')->group(function () {
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 
+Route::prefix('perpetrators')->group(function () {
+    Route::middleware(['role:korda|korwil|admin'])->group(function () {
+        Route::post('/', [CaseReportController::class, 'storePerpetrator']);
+        Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
+        Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
+    });
+});
+
 Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
 
     Route::prefix('comments')->group(function () {
@@ -242,13 +250,7 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::post('/', [CaseReportExecutionController::class, 'store']);
     });
 
-    Route::prefix('perpetrators')->group(function () {
-        Route::middleware(['role:korda|korwil|admin'])->group(function () {
-            Route::post('/', [CaseReportController::class, 'storePerpetrator']);
-            Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
-            Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
-        });
-    });
+
 
     Route::prefix('firebase')->group(function () {
         Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
