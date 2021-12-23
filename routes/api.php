@@ -48,11 +48,6 @@ use App\Http\Controllers\CourseLessonTaskQuestionController;
 Route::post('/upload-files', [UploadFileController::class, 'store']);
 
 
-// Perpetrator
-Route::prefix('perpetrators')->group(function () {
-    Route::get('/', [BlackListController::class, 'index']);
-    Route::get('/{perpetrator}', [BlackListController::class, 'getPerpetratorDetail']);
-});
 
 Route::get('/areas', [AreaController::class, 'index']);
 
@@ -186,17 +181,12 @@ Route::prefix('courses')->group(function () {
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 
-Route::prefix('perpetrators')->group(function () {
-    Route::middleware(['role:member|korda|korwil|admin'])->group(function () {
-        Route::post('/', [CaseReportController::class, 'storePerpetrator']);
-        Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
-        Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
-    });
-});
+Route::group(['middleware' => [
+    'auth:sanctum',
+    // 'role:member'
+]], function () {
 
-Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
-
-    Route::prefix('comments')->group(function () {
+    Route::prefix('comments')->middleware(['role:member'])->group(function () {
         Route::get('/{comment}/replies', [CommentController::class, 'getCommentReplies']);
         Route::post('/{comment}/replies', [CommentController::class, 'replyComment']);
         Route::delete('/{comment}', [CommentController::class, 'deleteComment']);
@@ -204,14 +194,14 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::delete('/{comment}/liked', [LikeController::class, 'unlikeComment']);
     });
 
-    Route::prefix('point')->group(function () {
+    Route::prefix('point')->middleware(['role:member'])->group(function () {
         Route::get('/missions', [PointController::class, 'missions']);
         Route::get('/histories', [PointController::class, 'histories']);
     });
 
-    Route::get('/check-in', [DailyCheckInController::class, 'checkIn']);
+    Route::get('/check-in', [DailyCheckInController::class, 'checkIn'])->middleware(['role:member']);
 
-    Route::prefix('cars')->group(function () {
+    Route::prefix('cars')->middleware(['role:member'])->group(function () {
         Route::get('/colors', [CarColorsController::class, 'index']);
         Route::get('/makes', [CarMakeController::class, 'index']);
         Route::get('/models', [CarModelController::class, 'index']);
@@ -219,8 +209,9 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/fuels', [CarFuelController::class, 'index']);
     });
 
-    Route::get('/cars', [CarController::class, 'getCars']);
-    Route::prefix('my-cars')->group(function () {
+    Route::get('/cars', [CarController::class, 'getCars'])->middleware(['role:member']);
+
+    Route::prefix('my-cars')->middleware(['role:member'])->group(function () {
         Route::get('/', [CarController::class, 'getUserCars']);
         Route::get('/{car}', [CarController::class, 'getUserCarDetail']);
         Route::post('/', [CarController::class, 'store']);
@@ -237,7 +228,8 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::get('/chart', [CaseReportController::class, 'getChartCaseReports']);
         Route::get('/count', [CaseReportController::class, 'getCountCaseReports']);
     });
-    Route::prefix('my-case-reports')->group(function () {
+
+    Route::prefix('my-case-reports')->middleware(['role:member'])->group(function () {
         Route::get('/', [CaseReportController::class, 'getUserCaseReports']);
         Route::get('/count', [CaseReportController::class, 'getUserCountCaseReports']);
         Route::get('/{caseReport}', [CaseReportController::class, 'getUserCaseReportDetail']);
@@ -246,20 +238,33 @@ Route::group(['middleware' => ['auth:sanctum', 'role:member']], function () {
         Route::delete('/{caseReport}', [CaseReportController::class, 'cancelCaseReport']);
     });
 
-    Route::prefix('case-report-executions')->group(function () {
+    Route::prefix('case-report-executions')->middleware(['role:member'])->group(function () {
         Route::post('/', [CaseReportExecutionController::class, 'store']);
     });
 
+    Route::prefix('perpetrators')->middleware(['role:korda|korwil|admin'])->group(function () {
 
+        Route::post('/', [CaseReportController::class, 'storePerpetrator']);
+        Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
+        Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
+    });
 
-    Route::prefix('firebase')->group(function () {
+    Route::prefix('firebase')->middleware(['role:member'])->group(function () {
         Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
     });
 
-    Route::prefix('profile')->group(function () {
+    Route::prefix('profile')->middleware(['role:member'])->group(function () {
         Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
         Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
+
     Route::post('/upgrade-member/{user}', [ProfileController::class, 'upgradeMember'])->middleware(['role:korda|korwil|admin']);
     Route::post('/user-survey/{user}', [ProfileController::class, 'updateIsSurvery'])->middleware(['role:korda|korwil|admin']);
+});
+
+
+// Perpetrator
+Route::prefix('perpetrators')->group(function () {
+    Route::get('/', [BlackListController::class, 'index']);
+    Route::get('/{perpetrator}', [BlackListController::class, 'getPerpetratorDetail']);
 });
