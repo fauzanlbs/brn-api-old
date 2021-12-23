@@ -223,7 +223,7 @@ Route::group(['middleware' => [
 
 
 
-    Route::prefix('case-reports')->middleware(['role:korda|korwil|admin'])->group(function () {
+    Route::prefix('case-reports')->middleware(['role:korda|korwil|admin|member'])->group(function () {
         Route::get('/', [CaseReportController::class, 'getCaseReports']);
         Route::get('/chart', [CaseReportController::class, 'getChartCaseReports']);
         Route::get('/count', [CaseReportController::class, 'getCountCaseReports']);
@@ -242,7 +242,7 @@ Route::group(['middleware' => [
         Route::post('/', [CaseReportExecutionController::class, 'store']);
     });
 
-    Route::prefix('perpetrators')->middleware(['role:korda|korwil|admin'])->group(function () {
+    Route::prefix('perpetrators')->middleware(['role:korda|korwil|admin|member'])->group(function () {
 
         Route::post('/', [CaseReportController::class, 'storePerpetrator']);
         Route::post('/{perpetrator}', [CaseReportController::class, 'updatePerpetrator']);
@@ -258,8 +258,8 @@ Route::group(['middleware' => [
         Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
 
-    Route::post('/upgrade-member/{user}', [ProfileController::class, 'upgradeMember'])->middleware(['role:korda|korwil|admin']);
-    Route::post('/user-survey/{user}', [ProfileController::class, 'updateIsSurvery'])->middleware(['role:korda|korwil|admin']);
+    Route::post('/upgrade-member/{user}', [ProfileController::class, 'upgradeMember'])->middleware(['role:korda|korwil|admin|member']);
+    Route::post('/user-survey/{user}', [ProfileController::class, 'updateIsSurvery'])->middleware(['role:korda|korwil|admin|member']);
 });
 
 
