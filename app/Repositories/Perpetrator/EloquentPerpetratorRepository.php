@@ -2,10 +2,11 @@
 
 namespace App\Repositories\Perpetrator;
 
-use App\Http\Requests\Perpetrator\PerpetratorRequest;
 use App\Models\Perpetrator;
-use App\Repositories\Perpetrator\PerpetratorRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\Perpetrator\PerpetratorRequest;
+use App\Repositories\Perpetrator\PerpetratorRepository;
 
 class EloquentPerpetratorRepository implements PerpetratorRepository
 {
@@ -31,6 +32,8 @@ class EloquentPerpetratorRepository implements PerpetratorRepository
                     ['disk' => 'public']
                 );
             }
+
+            $perpetrator['created_by_id'] = Auth::user()->id;
 
             // create Or update user Perpetrator
             if (isset($id)) {
