@@ -49,6 +49,7 @@ class User extends Authenticatable implements Commentator
      * @var array
      */
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',
