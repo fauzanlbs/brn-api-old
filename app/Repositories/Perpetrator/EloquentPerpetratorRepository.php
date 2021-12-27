@@ -33,7 +33,12 @@ class EloquentPerpetratorRepository implements PerpetratorRepository
                 );
             }
 
-            $perpetrator['created_by_id'] = Auth::user()->id;
+
+
+            $perpetratorRequest['created_by_id'] = Auth::user()->id;
+            // dd($perpetratorRequest);
+
+
 
             // create Or update user Perpetrator
             if (isset($id)) {
