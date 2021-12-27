@@ -138,12 +138,12 @@ Route::prefix('discussions')->middleware(['auth:sanctum', 'role:korda|korwil|adm
 
     Route::get('/{discussion}/likes', [DiscussionController::class, 'getDiscussionLikes']);
 
-    Route::middleware(['auth:sanctum', 'role:member',])->group(function () {
-        Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
+    // Route::middleware(['auth:sanctum', 'role:member',])->group(function () {
+    Route::post('/{discussion}/comments', [CommentController::class, 'addCommentDiscussion']);
 
-        Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
-        Route::delete('/{discussion}/liked', [LikeController::class, 'unlikeDiscussion']);
-    });
+    Route::post('/{discussion}/liked', [LikeController::class, 'likeDiscussion']);
+    Route::delete('/{discussion}/liked', [LikeController::class, 'unlikeDiscussion']);
+    // });
 });
 
 
