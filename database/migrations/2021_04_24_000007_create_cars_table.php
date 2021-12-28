@@ -17,8 +17,9 @@ class CreateCarsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('stnk_image')->nullable();
-            $table->string('machine_number');
-            $table->string('chassis_number');
+            $table->string('machine_number')->nullable();
+            $table->string('chassis_number')->nullable();
+            $table->string('stnk_number')->nullable();
             $table->unsignedBigInteger('car_make_id')->nullable();
             $table->unsignedBigInteger('car_type_id')->nullable();
             $table->unsignedBigInteger('car_fuel_id')->nullable();
