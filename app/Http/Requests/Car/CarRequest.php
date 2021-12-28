@@ -76,6 +76,7 @@ class CarRequest extends FormRequest
             'stnk_image' => 'required',
             'machine_number' => 'required',
             'chassis_number' => 'required',
+            // 'stnk_number' => 'required',
         ];
     }
 }
