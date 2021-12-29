@@ -18,10 +18,10 @@ use App\Http\Controllers\CarMakeController;
 use App\Http\Controllers\CarTypeController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SponsorController;
 use App\Http\Controllers\CarModelController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DonationController;
-use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\FirebaseController;
 use App\Http\Controllers\BlackListController;
 use App\Http\Controllers\CarColorsController;
@@ -31,6 +31,7 @@ use App\Http\Controllers\OnboardingController;
 use App\Http\Controllers\UploadFileController;
 use App\Http\Controllers\CourseLessonController;
 use App\Http\Controllers\DailyCheckInController;
+use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\CaseReportExecutionController;
 use App\Http\Controllers\CourseLessonTaskQuestionController;
 
@@ -66,6 +67,9 @@ Route::prefix('members')->group(function () {
 
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
+
+// Sponsor
+Route::get('/sponsors', [SponsorController::class, 'index']);
 
 // Sliders
 Route::get('/sliders', [SliderController::class, 'index']);
