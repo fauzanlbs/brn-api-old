@@ -7,8 +7,11 @@ use App\Models\DonationUser;
 use App\Models\Donation;
 use Auth;
 
+/**
+ * @group Donasi
+ */
 class DonationUserController extends Controller
-{ 
+{
     public function getDonationUser(Request $request)
     {
         $id = $request->query('id');
@@ -26,7 +29,7 @@ class DonationUserController extends Controller
             }
         } else {
             $dataUsers = DonationUser::select('donation_id')->groupBy('donation_id')->pluck('donation_id');
-            for ($i=0; $i < count($dataUsers); $i++) { 
+            for ($i = 0; $i < count($dataUsers); $i++) {
                 $donationTitle = Donation::where('id', $dataUsers[$i])->pluck('title')->first();
                 $data[$i]['donation_name'] = $donationTitle;
                 $data[$i]['donation_users'] = DonationUser::where('donation_id', $dataUsers[$i])->get();
@@ -53,7 +56,7 @@ class DonationUserController extends Controller
         } else {
             $result['state'] = 'failed';
         }
-        
+
         return $result;
     }
 }
