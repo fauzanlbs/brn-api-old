@@ -75,9 +75,9 @@ Route::get('/sponsors', [SponsorController::class, 'index']);
 Route::get('/sliders', [SliderController::class, 'index']);
 
 // Donation
-Route::get('/', [DonationController::class, 'index']);
-Route::prefix('donations')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
 
+Route::prefix('donations')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
+    Route::get('/', [DonationController::class, 'index']);
     Route::get('/users', [DonationUserController::class, 'getDonationUser']);
     Route::post('/users', [DonationUserController::class, 'addDonationUser']);
 
