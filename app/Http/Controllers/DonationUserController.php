@@ -42,6 +42,16 @@ class DonationUserController extends Controller
         return $result;
     }
 
+    /**
+     * Melakukan donasi.
+     *
+     * @queryParam donation_id integer id numeric dari donasi.
+     *
+     * @param Request $request
+     * @return DonationResource
+     *
+     * 
+     */
     public function addDonationUser(Request $request)
     {
         $donation = new DonationUser();
