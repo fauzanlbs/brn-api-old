@@ -13,7 +13,7 @@ use App\Repositories\DonationUser\EloquentDonationUserRepository;
 
 
 /**
- * @group Donasi
+ * @group DonasiUser
  */
 class DonationController extends Controller
 {
