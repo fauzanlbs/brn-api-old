@@ -12,6 +12,16 @@ use Auth;
  */
 class DonationUserController extends Controller
 { 
+      /**
+     * Melihat data user dalam donasi.
+     *
+     * @queryParam id integer id numeric dari donasi required.
+     *
+     * @param Request $request
+     * @return DonationResource
+     *
+     * 
+     */
     public function getDonationUser(Request $request)
     {
         $id = $request->query('id');

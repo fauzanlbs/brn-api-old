@@ -73,8 +73,8 @@ class DonationController extends Controller
      * Dibagian ini Anda bisa menambahkan user yang ingin donasi.
      * @authenticated
      *
-     * @param AgendaRequest $request
-     * @return AgendaResource
+     * @param DonationRequest $request
+     * @return DonationResource
      *
      * @responseFile storage/responses/only-message.response.json
      */
