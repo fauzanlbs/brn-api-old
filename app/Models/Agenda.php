@@ -15,7 +15,7 @@ class Agenda extends Model
 {
     use HasFactory;
     use Searchable;
-    use HasImage;
+    // use HasImage;
 
     /**
      * The attributes that are mass assignable.
