@@ -61,7 +61,7 @@ class Agenda extends Model
     public function getQrCodeUrlAttribute()
     {
         return $this->qr_path
-            ? Storage::disk('public')->url($this->qr_path)
+            ? $this->qr_path
             : ('https://ui-avatars.com/api/?name=qr&color=7F9CF5&background=EBF4FF');
     }
 
