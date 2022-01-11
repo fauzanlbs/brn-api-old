@@ -7,6 +7,9 @@ use App\Models\DonationUser;
 use App\Models\Donation;
 use Auth;
 
+/**
+ * @group Donasi User
+ */
 class DonationUserController extends Controller
 { 
     public function getDonationUser(Request $request)
