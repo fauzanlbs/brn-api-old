@@ -8,14 +8,14 @@ use App\Models\Donation;
 use Auth;
 
 /**
- * @group Donasi User
+ * @group DonasiUser
  */
 class DonationUserController extends Controller
 { 
     public function getDonationUser(Request $request)
     {
         $id = $request->query('id');
-        $result;
+        $result = null;
         if ($id) {
             $donationTitle = Donation::where('id', $id)->pluck('title')->first();
             $data[0]['donation_name'] = $donationTitle;
@@ -48,7 +48,7 @@ class DonationUserController extends Controller
     /**
      * Melakukan donasi.
      *
-     * @queryParam donation_id integer id numeric dari donasi.
+     * @queryParam donation_id integer id numeric dari donasi required.
      *
      * @param Request $request
      * @return DonationResource
