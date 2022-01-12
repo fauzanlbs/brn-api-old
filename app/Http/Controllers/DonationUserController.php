@@ -12,7 +12,7 @@ use Auth;
  */
 class DonationUserController extends Controller
 { 
-      /**
+     /**
      * Melihat data user dalam donasi.
      *
      * @queryParam id integer id numeric dari donasi required.
@@ -39,7 +39,7 @@ class DonationUserController extends Controller
             }
         } else {
             $dataUsers = DonationUser::select('donation_id')->groupBy('donation_id')->pluck('donation_id');
-            for ($i=0; $i < count($dataUsers); $i++) { 
+            for ($i = 0; $i < count($dataUsers); $i++) {
                 $donationTitle = Donation::where('id', $dataUsers[$i])->pluck('title')->first();
                 $data[$i]['donation_name'] = $donationTitle;
                 $data[$i]['donation_users'] = DonationUser::where('donation_id', $dataUsers[$i])->get();
@@ -76,7 +76,7 @@ class DonationUserController extends Controller
         } else {
             $result['state'] = 'failed';
         }
-        
+
         return $result;
     }
 }
