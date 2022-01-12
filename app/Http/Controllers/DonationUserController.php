@@ -67,12 +67,37 @@ class DonationUserController extends Controller
      */
     public function addDonationUser(Request $request)
     {
-    $donation = new DonationUser();
+        $donation = new DonationUser();
         $donation->donation_id = $request->donation_id;
         $donation->nominal = $request->nominal;
         $donation->name = Auth::user()->name;
         if ($donation->save()) {
+
+
+            
+            $user = Auth::user();
+
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => 'brn.user.'. $user->id. '.'. strtotime($user->created_at),
+                    'gross_amount' => $donation->nominal,
+                ),
+                'item_details' => [
+                    [
+                        "id" => $user->id,
+                        "price" => $donation->nominal,
+                        "quantity" => 1,
+                        "name" => "Donasi User - ". $user->name,
+                        "brand" => "BRN",
+                    ]
+                ],
+            );
+
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            
             $result['state'] = 'success';
+            $result['snap_token'] = $snapToken;
+            $result['transaction_detail'] = $params;
         } else {
             $result['state'] = 'failed';
         }
