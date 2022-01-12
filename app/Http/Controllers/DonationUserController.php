@@ -67,9 +67,9 @@ class DonationUserController extends Controller
      */
     public function addDonationUser(Request $request)
     {
-        $donation = new DonationUser();
+    $donation = new DonationUser();
         $donation->donation_id = $request->donation_id;
-        $donation->nominal = $request->amount;
+        $donation->nominal = $request->nominal;
         $donation->name = Auth::user()->name;
         if ($donation->save()) {
             $result['state'] = 'success';
