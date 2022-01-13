@@ -73,13 +73,11 @@ class DonationUserController extends Controller
         $donation->name = Auth::user()->name;
         if ($donation->save()) {
 
-
-            
             $user = Auth::user();
 
             $params = array(
                 'transaction_details' => array(
-                    'order_id' => 'brn.user.'. $user->id. '.'. strtotime($user->created_at),
+                    'order_id' => 'brn.user.'. $user->id. '.'. strtotime($donation->created_at),
                     'gross_amount' => $donation->nominal,
                 ),
                 'item_details' => [
