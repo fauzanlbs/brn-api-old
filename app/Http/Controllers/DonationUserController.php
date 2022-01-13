@@ -82,7 +82,7 @@ class DonationUserController extends Controller
                 ),
                 'item_details' => [
                     [
-                        "id" => $user->id,
+                        "id" => $donation->id,
                         "price" => $donation->nominal,
                         "quantity" => 1,
                         "name" => "Donasi User - ". $user->name,
