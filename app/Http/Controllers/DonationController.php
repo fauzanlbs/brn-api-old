@@ -56,12 +56,12 @@ class DonationController extends Controller
         $articles = QueryBuilder::for(Donation::class)
             ->limitChars('description', 100)
             ->withCount(['donationUser',])
-            ->withSum([
-                'donationUser' => function($query){
+            ->withSum(
+                ['donationUser' => function($query){
                     $query->where('payment_status', 1);
-                }, 
+                }],
                 'nominal'
-            ])
+            )
             ->when($search, function ($q, $search) {
                 return $q->search($search);
             })
