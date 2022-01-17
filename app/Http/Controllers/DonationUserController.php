@@ -12,7 +12,7 @@ use Auth;
  */
 class DonationUserController extends Controller
 { 
-      /**
+     /**
      * Melihat data user dalam donasi.
      *
      * @queryParam id integer id numeric dari donasi required.
@@ -39,7 +39,7 @@ class DonationUserController extends Controller
             }
         } else {
             $dataUsers = DonationUser::select('donation_id')->groupBy('donation_id')->pluck('donation_id');
-            for ($i=0; $i < count($dataUsers); $i++) { 
+            for ($i = 0; $i < count($dataUsers); $i++) {
                 $donationTitle = Donation::where('id', $dataUsers[$i])->pluck('title')->first();
                 $data[$i]['donation_name'] = $donationTitle;
                 $data[$i]['donation_users'] = DonationUser::where('donation_id', $dataUsers[$i])->get();
@@ -69,14 +69,37 @@ class DonationUserController extends Controller
     {
         $donation = new DonationUser();
         $donation->donation_id = $request->donation_id;
-        $donation->nominal = $request->amount;
+        $donation->nominal = $request->nominal;
         $donation->name = Auth::user()->name;
         if ($donation->save()) {
+
+            $user = Auth::user();
+
+            $params = array(
+                'transaction_details' => array(
+                    'order_id' => 'brn.user.'. $user->id. '.'. strtotime($donation->created_at),
+                    'gross_amount' => $donation->nominal,
+                ),
+                'item_details' => [
+                    [
+                        "id" => $donation->id,
+                        "price" => $donation->nominal,
+                        "quantity" => 1,
+                        "name" => "Donasi User - ". $user->name,
+                        "brand" => "BRN",
+                    ]
+                ],
+            );
+
+            $snapToken = \Midtrans\Snap::getSnapToken($params);
+            
             $result['state'] = 'success';
+            $result['snap_token'] = $snapToken;
+            $result['transaction_detail'] = $params;
         } else {
             $result['state'] = 'failed';
         }
-        
+
         return $result;
     }
 }
