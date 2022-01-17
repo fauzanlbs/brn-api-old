@@ -33,7 +33,7 @@ class DiscussionResource extends JsonResource
             "invited_users" =>  $this->invitedUsers,
             "user" =>  new SimpleUserResource($this->whenLoaded('user')),
             "case_report" =>  new SimpleUserResource($this->whenLoaded('caseReport')),
-
+            'discussion_type' => $this->discussion_type
         ];
     }
 }

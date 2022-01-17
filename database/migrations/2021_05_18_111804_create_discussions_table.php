@@ -27,6 +27,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('cover_image')->nullable();
             $table->boolean('featured')->default(0);
             $table->dateTime('finished_at')->nullable();
+            $table->string('discussion_type')->default('forum');
             $table->timestamps();
         });
 
