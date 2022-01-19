@@ -159,7 +159,7 @@ Route::prefix('categories')->group(function () {
 Route::get('/my-courses', [CourseController::class, 'getMyCourses'])->middleware(['auth:sanctum', 'role:member']);
 Route::prefix('courses')->group(function () {
     Route::get('/', [CourseController::class, 'getCourses']);
-    Route::post('/{course}', [CourseController::class, 'getCourseDetail']);
+    Route::get('/{course}', [CourseController::class, 'getCourseDetail']);
     Route::get('/{course}/comments', [CourseController::class, 'getCourseComments']);
     Route::get('/{course}/likes', [CourseController::class, 'getCourseLikes']);
 
