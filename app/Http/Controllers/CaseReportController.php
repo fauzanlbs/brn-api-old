@@ -326,9 +326,12 @@ class CaseReportController extends Controller
             return $this->responseMessage('Laporan kasus dengan mobil yang dipilih sudah ada.', 400);
         }
 
-        if ($request->user()->points()->number() == 0) {
-            return $this->responseMessage('Jumlah point anda harus lebih besar dari 0', 400);
+        if($_ENV['DISABLE_POINT'] == false){
+            if ($request->user()->points()->number() == 0) {
+                return $this->responseMessage('Jumlah point anda harus lebih besar dari 0', 400);
+            }
         }
+        
 
         $validated = $request->validated();
         // $validated['perpetrator']['phone_number'] = PhoneNumber::make($validated['perpetrator']['phone_number'], 'ID');

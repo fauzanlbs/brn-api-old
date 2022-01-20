@@ -21,7 +21,7 @@ class CaseReportRequest extends FormRequest
     {
         return [
             'car_id' => 'required|exists:cars,id',
-            'location' => ['required', new Location],
+            // 'location' => ['required', new Location],
             'chronology' => 'required|string'
         ];
     }
