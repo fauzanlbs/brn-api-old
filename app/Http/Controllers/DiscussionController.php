@@ -113,7 +113,7 @@ class DiscussionController extends Controller
         $search = $request->query('search');
 
         $allowed = [
-            'created_at', 'title', 'slug', 'featured',
+            'created_at', 'title', 'slug', 'featured', 'private', 'discussion_type', 'group_code'
         ];
 
         $uid = $request->user()->id;
