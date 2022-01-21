@@ -25,6 +25,9 @@ class DiscussionResource extends JsonResource
             "cover_image_url" =>  $this->cover_image_url, // auto generate url from cover_image path
             "featured" =>  $this->featured,
             "finished_at" =>  $this->finished_at,
+            "private" => $this->private,
+            "discussion_type" => $this->discussion_type,
+            "group_code" => $this->group_code, 
             "created_at" =>  $this->created_at,
             "updated_at" =>  $this->updated_at,
             "likes_count" =>  $this->likes_count,
