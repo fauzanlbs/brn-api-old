@@ -98,6 +98,7 @@ class DiscussionController extends Controller
      *
      * @param Request $request
      * @param bool $isCurrent
+     * 
      *
      * @return DiscussionResource
      */

@@ -16,6 +16,7 @@ class CreateAboutsTable extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
+            $table->text('logo')->nullable();
             $table->string('vesion_app', 10)->nullable();
             $table->string('copyright')->nullable();
             $table->json('histories')->nullable();

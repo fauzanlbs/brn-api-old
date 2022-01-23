@@ -19,8 +19,8 @@ class CreateSponsorsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->boolean('active')->default(true);
-            $table->tinyInteger('order');
-            // $table->integer('poin')->default(0);
+            $table->tinyInteger('order')->nullable();
+            $table->integer('poin')->default(0);
             $table->timestamps();
         });
     }

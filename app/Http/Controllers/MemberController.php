@@ -23,6 +23,7 @@ class MemberController extends Controller
      * @queryParam roles string Filter data berdasar kan role
      * @queryParam filter[name] string Penyortiran berdasarkan nama. Example: Arya Anggara
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     * @queryParam filter[roles] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
      * @queryParam guest string Penyortiran berdasarkan pengguna yang belum menjadi anggota brn. Example: true
      * @queryParam status string Penyortiran berdasarkan status pengguna expired|registration|approved Example: approved
      *

@@ -17,6 +17,7 @@ class CreateFirebasesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('device_token');
+            $table->string('fcm_token');
             $table->timestamps();
         });
     }

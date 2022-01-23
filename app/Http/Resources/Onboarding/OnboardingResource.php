@@ -22,6 +22,7 @@ class OnboardingResource extends JsonResource
             "description" => $this->description,
             "active" => $this->active,
             "order" => $this->order,
+            "group_code" => $this->group_code
         ];
     }
 }

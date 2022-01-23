@@ -28,6 +28,7 @@ class CreateDiscussionsTable extends Migration
             $table->boolean('featured')->default(0);
             $table->dateTime('finished_at')->nullable();
             $table->string('discussion_type')->default('forum');
+            $table->string('group_code')->default('global');
             $table->timestamps();
         });
 

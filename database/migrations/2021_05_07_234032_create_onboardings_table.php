@@ -18,6 +18,7 @@ class CreateOnboardingsTable extends Migration
             $table->string('image')->nullable();
             $table->string('title');
             $table->string('description');
+            $table->string('group_code');// null, onboarding, sponsor
             $table->boolean('active')->default(true);
             $table->tinyInteger('order');
             $table->integer('poin')->default(0);

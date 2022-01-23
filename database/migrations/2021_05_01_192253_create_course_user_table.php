@@ -19,6 +19,8 @@ class CreateCourseUserTable extends Migration
 
             $table->foreignId('user_id')->constrained();
             $table->foreignId('course_id')->constrained();
+            $table->smallInteger('is_finish')->default(0);
+            $table->integer('last_lesson_id')->nullable();
         });
     }
 
