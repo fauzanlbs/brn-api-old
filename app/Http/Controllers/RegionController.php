@@ -53,7 +53,7 @@ class RegionController extends Controller
             'created_at' => date("Y-m-d H:i:s"),
             'update_at' => date("Y-m-d H:i:s")
         );
-        $regions->push((object)$default);
+        $regions->push($default);
 
 
 
@@ -86,7 +86,7 @@ class RegionController extends Controller
             'update_at' => date("Y-m-d H:i:s")
         );
 
-        $areas->push((object)$default);
+        $areas->push($default);
 
 
         return AreaResource::collection($areas);
