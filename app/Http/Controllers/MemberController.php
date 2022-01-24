@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Traits\UrlParamCheck;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
+use Spatie\QueryBuilder\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @group Anggota
@@ -62,10 +64,7 @@ class MemberController extends Controller
         ];
 
         $users = QueryBuilder::for(User::class)
-            ->with(['roles' => function($query){
-                
-                $query->where('type', \Illuminate\Http\Request::query('roles'));
-            }])
+            ->with(['roles'])
             ->withSum('pointsRelation', 'points')
             ->when($search, function ($q, $search) {
                 return $q->search($search);
@@ -79,6 +78,9 @@ class MemberController extends Controller
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
+            })
+            ->whereHas('roles', function (Builder $query) use ($roles) {
+                $query->where('name', $roles);
             })
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
