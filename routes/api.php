@@ -34,6 +34,7 @@ use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\CaseReportExecutionController;
 use App\Http\Controllers\CourseLessonTaskQuestionController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -185,6 +186,7 @@ Route::prefix('courses')->group(function () {
 
 
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
+Route::get('/settings', [SettingsController::class, 'index']);
 
 Route::group(['middleware' => [
     'auth:sanctum',
@@ -254,11 +256,11 @@ Route::group(['middleware' => [
         Route::delete('/{perpetrator}', [CaseReportController::class, 'destroyPerpetrator']);
     });
 
-    Route::prefix('firebase')->middleware(['role:member'])->group(function () {
+    Route::prefix('firebase')->middleware(['role:korda|korwil|admin|member'])->group(function () {
         Route::post('device-token', [FirebaseController::class, 'updateDeviceToken']);
     });
 
-    Route::prefix('profile')->middleware(['role:member'])->group(function () {
+    Route::prefix('profile')->middleware(['role:korda|korwil|admin|member'])->group(function () {
         Route::get('/count-cars-and-case-reports', [ProfileController::class, 'countCarAndCaseReport']);
         Route::post('/update-status', [ProfileController::class, 'updateStatus']);
     });
