@@ -74,7 +74,7 @@ class MemberController extends Controller
                 return $q->whereHas('roles');
             })
             ->when($roles, function ($q, $roles) {
-                return $q->where('roles', $roles);
+                return $q->where('roles.name', $roles);
             })
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
