@@ -15,7 +15,7 @@ class SettingsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('settings')->insert([[
+        DB::table('settings')->upsert([[
             'setting_key' => 'app_name',
             'setting_value' => 'BRN APP',
             'setting_for' => 'all',
@@ -41,6 +41,6 @@ class SettingsSeeder extends Seeder
             'setting_for' => 'all',
             'setting_type' => 'numeric'
         ]
-    ]);
+    ], ['setting_key', 'id']);
     }
 }
