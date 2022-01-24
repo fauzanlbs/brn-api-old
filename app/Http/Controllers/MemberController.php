@@ -61,8 +61,10 @@ class MemberController extends Controller
             'created_at', 'addresses', 'personal-information', 'roles', 'name',
         ];
 
-        $users = QueryBuilder::for(User::class)
-            ->with(['roles'])
+        $users = User::with(['roles' => function($query){
+                
+                $query->where('type', \Illuminate\Http\Request::query('roles'));
+            }])
             ->withSum('pointsRelation', 'points')
             ->when($search, function ($q, $search) {
                 return $q->search($search);
@@ -72,9 +74,6 @@ class MemberController extends Controller
             })
             ->when($guest == false, function ($q, $search) {
                 return $q->whereHas('roles');
-            })
-            ->whereHas('roles', function($query, $roles) {
-                $query->where('name', '=', $roles);
             })
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
