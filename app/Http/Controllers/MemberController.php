@@ -61,7 +61,7 @@ class MemberController extends Controller
         $roles = $request->query('role');
 
         $allowed = [
-            'created_at', 'addresses', 'personal-information', 'roles', 'name', AllowedFilter::custom('permission', new MemberQuery)
+            'created_at', 'addresses', 'personal-information', 'name'
         ];
 
         $users = QueryBuilder::for(User::class)
@@ -80,7 +80,7 @@ class MemberController extends Controller
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
             })
-            ->allowedFilters($allowed)
+            ->allowedFilters(array_merge($allowed, [AllowedFilter::custom('permission', new MemberQuery)]))
             ->allowedSorts($allowed)
             ->allowedIncludes($allowed)
             ->defaultSort('-' . $allowed[0])
