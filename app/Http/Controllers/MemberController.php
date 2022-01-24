@@ -61,7 +61,8 @@ class MemberController extends Controller
             'created_at', 'addresses', 'personal-information', 'roles', 'name',
         ];
 
-        $users = User::with(['roles' => function($query){
+        $users = QueryBuilder::for(User::class)
+            ->with(['roles' => function($query){
                 
                 $query->where('type', \Illuminate\Http\Request::query('roles'));
             }])
