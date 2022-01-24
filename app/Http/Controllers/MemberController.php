@@ -23,10 +23,9 @@ class MemberController extends Controller
      * Mendapatkan list data anggota.
      *
      * @queryParam include string Include akan memuat data dengan relasi, relasi yang tersedia: <br> #1 <b>roles</b> : Mendapatkan informasi wewenang pengguna <br> #2 <b>addresses</b> : Alamat yang didaftarkan. <br> #3 <b>personal-information</b> : Informasi pribadi. Example: addresses,personal-information
-     * @queryParam roles string Filter data berdasar kan role
      * @queryParam filter[name] string Penyortiran berdasarkan nama. Example: Arya Anggara
      * @queryParam filter[created_at] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
-     * @queryParam filter[roles] string Penyortiran berdasarkan tanggal dibuat. Example: 2020-12-24
+     * @queryParam filter[roles] string role group member misal korda, korwil, member, admin
      * @queryParam guest string Penyortiran berdasarkan pengguna yang belum menjadi anggota brn. Example: true
      * @queryParam status string Penyortiran berdasarkan status pengguna expired|registration|approved Example: approved
      *
@@ -80,7 +79,7 @@ class MemberController extends Controller
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
             })
-            ->allowedFilters(array_merge($allowed, [AllowedFilter::custom('permission', new MemberQuery)]))
+            ->allowedFilters(array_merge($allowed, [AllowedFilter::custom('roles', new MemberQuery)]))
             ->allowedSorts($allowed)
             ->allowedIncludes($allowed)
             ->defaultSort('-' . $allowed[0])
