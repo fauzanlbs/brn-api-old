@@ -80,7 +80,7 @@ class MemberController extends Controller
                 return $q->where('status', $status);
             })
             ->whereHas('roles', function (Builder $query) use ($roles) {
-                $query->where('name', $roles);
+                return $query->where('name', $roles);
             })
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
