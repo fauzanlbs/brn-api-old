@@ -46,7 +46,6 @@ class RegionController extends Controller
             ->defaultSort('-' . $allowed[0])
             ->get();
         // ->jsonPaginate();
-
         $default = array(
             'id' => 0,
             'area' => 'Pilih!',
@@ -54,10 +53,12 @@ class RegionController extends Controller
             'created_at' => date("Y-m-d H:i:s"),
             'update_at' => date("Y-m-d H:i:s")
         );
+        $regions->push((object)$default);
 
 
 
-        return RegionResource::collection(array_merge($regions, $default));
+
+        return RegionResource::collection($regions);
     }
 
 
@@ -76,7 +77,7 @@ class RegionController extends Controller
      */
     public function getAreaWhereRegion(Region $region)
     {
-        $areas = Area::where('region_id', $region->id)->jsonPaginate();
+        $areas = Area::where('region_id', $region->id)->get();
 
         $default = array(
             'id' => 0,
@@ -85,7 +86,9 @@ class RegionController extends Controller
             'update_at' => date("Y-m-d H:i:s")
         );
 
+        $areas->push((object)$default);
 
-        return AreaResource::collection(array_merge($areas, $default));
+
+        return AreaResource::collection($areas);
     }
 }
