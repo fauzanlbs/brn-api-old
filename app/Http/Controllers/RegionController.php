@@ -47,7 +47,17 @@ class RegionController extends Controller
             ->get();
         // ->jsonPaginate();
 
-        return RegionResource::collection($regions);
+        $default = array(
+            'id' => 0,
+            'area' => 'Pilih!',
+            'regionId' => 0,
+            'created_at' => date("Y-m-d H:i:s"),
+            'update_at' => date("Y-m-d H:i:s")
+        );
+
+
+
+        return RegionResource::collection(array_merge($regions, $default));
     }
 
 
@@ -68,6 +78,14 @@ class RegionController extends Controller
     {
         $areas = Area::where('region_id', $region->id)->jsonPaginate();
 
-        return AreaResource::collection($areas);
+        $default = array(
+            'id' => 0,
+            'region' => 'Pilih!',
+            'created_at' => date("Y-m-d H:i:s"),
+            'update_at' => date("Y-m-d H:i:s")
+        );
+
+
+        return AreaResource::collection(array_merge($areas, $default));
     }
 }
