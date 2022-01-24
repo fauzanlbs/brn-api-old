@@ -10,7 +10,10 @@ class SettingsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * @field setting_key string unique required
+     * @field setting_value string required
+     * @field setting_for string required default 'all', choice 'all', 'app', 'admin'
+     * @field setting_type string required default 'string', choice 'string', 'boolean', 'numeric'
      * @return void
      */
     public function run()
