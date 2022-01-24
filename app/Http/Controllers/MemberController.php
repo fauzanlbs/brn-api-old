@@ -55,7 +55,7 @@ class MemberController extends Controller
         $guest = filter_var($request->query('guest'), FILTER_VALIDATE_BOOLEAN);
         $search = $request->query('search');
         $status = $request->filled('status') ? $request->get('status') : null;
-        $roles = $request->query('role');
+        // $roles = $request->query('role');
 
         $allowed = [
             'created_at', 'addresses', 'personal-information', 'roles', 'name',
@@ -73,8 +73,8 @@ class MemberController extends Controller
             ->when($guest == false, function ($q, $search) {
                 return $q->whereHas('roles');
             })
-            ->whereHas('roles', function($q, $roles) {
-                return $q->where('name', '=', $roles);
+            ->whereHas('roles', function($query) {
+                $query->where('name', '=', \Illuminate\Http\Request::query('roles'));
             })
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
