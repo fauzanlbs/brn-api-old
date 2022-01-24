@@ -8,7 +8,8 @@ use App\Traits\UrlParamCheck;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use Spatie\QueryBuilder\Filters\Filter;
-use Illuminate\Database\Eloquent\Builder;
+use Spatie\QueryBuilder\AllowedFilter;
+use App\Filters\MemberQuery;
 
 /**
  * @group Anggota
@@ -60,7 +61,7 @@ class MemberController extends Controller
         $roles = $request->query('role');
 
         $allowed = [
-            'created_at', 'addresses', 'personal-information', 'roles', 'name',
+            'created_at', 'addresses', 'personal-information', 'roles', 'name', AllowedFilter::custom('permission', new MemberQuery)
         ];
 
         $users = QueryBuilder::for(User::class)
@@ -78,9 +79,6 @@ class MemberController extends Controller
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
-            })
-            ->whereHas('roles', function (Builder $query) use ($roles) {
-                return $query->where('name', $roles);
             })
             ->allowedFilters($allowed)
             ->allowedSorts($allowed)
