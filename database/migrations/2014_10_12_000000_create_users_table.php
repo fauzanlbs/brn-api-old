@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('password_helper_key')->nullable();
             $table->text('reason_for_inactivity')->nullable();
             $table->tinyInteger('payment_status')->default(0);
+            $table->string('payment_code')->nullable();
             $table->string('status')->default('registration'); // expired|registration|approved
             $table->timestamps();
         });

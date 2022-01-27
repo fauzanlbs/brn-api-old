@@ -91,6 +91,8 @@ class DonationUserController extends Controller
                 ],
             );
 
+            \Midtrans\Config::$overrideNotifUrl = "https://auth.brnjuara.com/api/payment-notification/update/donation?donationuserid=$donation->id";
+
             $snapToken = \Midtrans\Snap::getSnapToken($params);
             
             $result['state'] = 'success';

@@ -22,6 +22,7 @@ class CreateDonationUsersTable extends Migration
             $table->string('prayer')->nullable();
             $table->integer('nominal');
             $table->tinyInteger('payment_status')->default(0);
+            $table->string('payment_code')->nullable();
             $table->timestamps();
         });
     }
