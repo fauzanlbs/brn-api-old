@@ -89,6 +89,12 @@ class DonationUserController extends Controller
                         "brand" => "BRN",
                     ]
                 ],
+                'customer_details' => [
+        				"first_name" => $user->name,
+        				"last_name" => "",
+        				"email" => $user->email,
+        				"phone" => ""
+    				]
             );
 
             \Midtrans\Config::$overrideNotifUrl = "https://auth.brnjuara.com/api/payment-notification/update/donation?donationuserid=$donation->id";
