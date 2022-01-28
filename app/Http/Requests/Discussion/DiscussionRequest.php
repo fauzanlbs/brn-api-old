@@ -24,7 +24,7 @@ class DiscussionRequest extends FormRequest
             'title' => 'required|string',
             'description' => 'nullable|string',
             'cover_image' => 'nullable|string',
-            'discussion_type' => 'nullabel|string',
+            'discussion_type' => 'nullable|string',
             'private' => 'nullable|numeric'
         ];
     }
