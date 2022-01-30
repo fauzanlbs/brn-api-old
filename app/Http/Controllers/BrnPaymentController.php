@@ -17,8 +17,7 @@ class BrnPaymentController extends Controller
     /**
      * Mendapatkan semua data payment.
      *
-     * @queryParam date[start] string tgl mulai filter, filter data berdasarkan tgl. Example: 12-12-2022
-     * @queryParam date[end] string tgl ahir filter, filter data berdasarkan tgl. Example: 12-12-2022
+     * @queryParam date string tgl mulai|selesai filter, filter data berdasarkan tgl. Example: 1-12-2021|1-1-2022
      * @queryParam month integer filter berdarkan bulan. Example: 12
      * @queryParam year integer filter berdarkan tahun, jika bulan diisi, maka default tahun sekarang. Example: 2022
      * @queryParam korda integer filter berdarkan korda. Example: 12
@@ -40,7 +39,7 @@ class BrnPaymentController extends Controller
         $sources = $request->query('source');
         // $detail = $request->query('with')
 
-        print_r($date);exit;
+        // print_r($date);exit;
 
         if($year == null){
             $year = date('Y');
@@ -50,9 +49,10 @@ class BrnPaymentController extends Controller
 
         $data = QueryBuilder::for(BrnPayment::class)
                 ->when($date, function($q, $date){
+                    $date = explode('|', $date);
                     return $q->whereBetween(
                         'created_at', 
-                        array(Carbon::parse(strtotime($date['start'])), Carbon::parse(strtotime($date['end']))));
+                        array(Carbon::parse(strtotime($date[0])), Carbon::parse(strtotime($date[1]))));
                 })
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
