@@ -51,6 +51,7 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
+                ->paymentable()
                 ->when($dateStart, function($q, $date){
                     return $q->whereBetween(
                         'created_at', 
