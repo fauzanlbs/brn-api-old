@@ -105,7 +105,7 @@ class BrnPaymentController extends Controller
                             $q = $q->groupBy('transaction_code');
                         }
                         else if($gr == 'id'){
-                            $q = $q->addSelect('id');
+                            $q = $q->addSelect(DB::raw('id, created_at, updated_at, transaction_code, month(created_at) as month, year(created_at) as year'));
                             $q = $q->groupBy('id');
                         }
                     }
