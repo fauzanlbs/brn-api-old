@@ -93,19 +93,19 @@ class BrnPaymentController extends Controller
                     $group = explode("|", $group);
                     foreach($group as $gr){
                         if($gr == 'month'){
-                            $q = $q->addSelect(DB::raw('month(created_at) as months'));
-                            $q = $q->groupBy(DB::raw('months'));
+                            $q = $q->addSelect('month');
+                            $q = $q->groupBy('month');
                         }
                         else if($gr == 'year'){
-                            $q = $q->addSelect(DB::raw('year(created_at) as years'));
-                            $q = $q->groupBy(DB::raw('years'));
+                            $q = $q->addSelect('year');
+                            $q = $q->groupBy('year');
                         }
                         else if($gr == 'source'){
                             $q = $q->addSelect(DB::raw('transaction_code'));
                             $q = $q->groupBy('transaction_code');
                         }
                         else if($gr == 'id'){
-                            $q = $q->addSelect(DB::raw('id, created_at, updated_at, transaction_code, month(created_at) as month, year(created_at) as year'));
+                            $q = $q->addSelect(DB::raw('id, created_at, updated_at, transaction_code'))->addSelect('month','year');
                             $q = $q->groupBy('id');
                         }
                     }
