@@ -6,6 +6,8 @@ use App\Models\BrnPayment;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
+use App\Http\Resources\BrnPaymentResource;
+
 
 /**
  * @group Keuangan
@@ -25,7 +27,7 @@ class BrnPaymentController extends Controller
      * @queryParam detail integer ambil data dengan detail nya
      * 
      * @param Request $request
-     * @return json
+     * @return BrnPaymentResource
      *
      */
     public function index(Request $request)
@@ -103,7 +105,8 @@ class BrnPaymentController extends Controller
         //     }
         // }
 
-        return json_encode($data);
+        return BrnPaymentResource::collection($data);
+        // return json_encode($data);
         
     }
 }
