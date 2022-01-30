@@ -35,6 +35,7 @@ use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\CaseReportExecutionController;
 use App\Http\Controllers\CourseLessonTaskQuestionController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\BrnPaymentController;
 
 /*
 |--------------------------------------------------------------------------
