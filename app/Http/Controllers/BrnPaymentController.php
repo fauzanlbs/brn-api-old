@@ -55,7 +55,7 @@ class BrnPaymentController extends Controller
 
         $data = QueryBuilder::for(BrnPayment::class)
                 
-                ->when($dateStart, function($q, $date){
+                ->when($dateStart && $date, function($q, $date){
                     return $q->whereBetween(
                         'created_at', 
                         array(Carbon::parse(strtotime($date['start'])), Carbon::parse(strtotime($date['end']))));
