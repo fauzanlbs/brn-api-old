@@ -14,20 +14,11 @@ class BrnPaymentResource extends JsonResource
      */
     public function toArray($request)
     {
-        $detail = [];
-        if($this->whenLoaded('paymentable')){
-            if($this->paymentable_type == 'registration' ||  $this->paymentable_type == 'extension'){
-                $detail = new SimpleUserResource($this->whenLoaded('paymentable'));
-            }else if($this->paymentable_id == 'donation'){
-                $detail = UserDonationResource::collection($this->whenLoaded('paymentable'));
-            }
-        }
-        
         return [
             "id" =>  $this->id,
             "category" => $this->paymentable_type,
             "amount" => $this->amount,
-            "detail" => $detail,
+            "detail" => $this->paymentable,
         ];
     }
 }
