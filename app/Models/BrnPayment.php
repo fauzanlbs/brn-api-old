@@ -25,9 +25,9 @@ class BrnPayment extends Model
     public function paymentable()
     {
         if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
-            return $this->morphMany('App\User', 'payment');
+            return $this->morphTo('App\User', 'payment');
         }else if($this->paymentable_type == 'donation'){
-            return $this->morphMany('App\DonationUser', 'payment');
+            return $this->morphTo('App\DonationUser', 'payment');
         }
     }
 
