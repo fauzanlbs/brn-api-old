@@ -22,14 +22,15 @@ class BrnPayment extends Model
         'month','year','month_year','data_date'
     ];
 
-    // public function paymentable()
-    // {
-    //     if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
-    //         return $this->morphTo('App\User', 'payment');
-    //     }else if($this->paymentable_type == 'donation'){
-    //         return $this->morphTo('App\DonationUser', 'payment');
-    //     }
-    // }
+    public function paymentable()
+    {
+        if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
+            return $this->belongsTo('App\User', 'paymentable_id', 'id');
+            // $this->belongsTo()
+        }else if($this->paymentable_type == 'donation'){
+            return $this->belongsTo('App\DonationUser', 'paymentable_id', 'id');
+        }
+    }
 
     public function getMonthAttribute($value)
     {
