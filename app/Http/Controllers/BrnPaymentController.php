@@ -21,8 +21,6 @@ class BrnPaymentController extends Controller
      * @queryParam date string tgl mulai|selesai filter, filter data berdasarkan tgl. Example: 1-12-2021|1-1-2022
      * @queryParam month integer filter berdarkan bulan. Example: 12
      * @queryParam year integer filter berdarkan tahun, jika bulan diisi, maka default tahun sekarang. Example: 2022
-    //  * @queryParam korda integer filter berdarkan korda. Example: 12
-    //  * @queryParam korwil integer filter berdarkan korwil. Example: 12
      * @queryParam source string filter berdarkan sumber pemasukan, isi dengan registration, extention, regext, olshop, donation. Example: registration
      * @queryParam groupby string, isi dengan month atau year atau source(category) bisa digabung menggunakan | . Example: month|year|source
      * @queryParam sort string asc atau desc
