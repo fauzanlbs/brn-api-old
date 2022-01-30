@@ -50,9 +50,8 @@ class BrnPaymentController extends Controller
         $data = QueryBuilder::for(BrnPayment::class)
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
-                    return $q->whereBetween(
-                        'created_at', 
-                        array(Carbon::parse(strtotime($date[0])), Carbon::parse(strtotime($date[1]))));
+                    return $q->where(
+                        'created_at', '>=', Carbon::parse(strtotime($date[0])))->where('created_at', '<', Carbon::parse(strtotime($date[1])));
                 })
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
