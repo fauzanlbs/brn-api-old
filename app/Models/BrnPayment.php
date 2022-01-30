@@ -29,7 +29,6 @@ class BrnPayment extends Model
         }else if($this->paymentable_type == 'donation'){
             return $this->morphMany('App\DonationUser', 'payment');
         }
-        
     }
 
     public function getMonthAttribute($value)
