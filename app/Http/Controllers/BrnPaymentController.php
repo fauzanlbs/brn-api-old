@@ -48,7 +48,7 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                ->with('users.userPersonalInformations')
+                ->with(['userPersonalInformations', 'users'])
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
                     return $q->where(
