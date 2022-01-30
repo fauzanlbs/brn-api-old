@@ -85,7 +85,7 @@ class BrnPaymentController extends Controller
                         }
                         return $q;
                     }
-                })->groupBy($group)->sortBy($sortBy, $sort)
+                })->groupBy($group)->orderBy($sortBy, $sort)
                 ->jsonPaginate();
 
 
