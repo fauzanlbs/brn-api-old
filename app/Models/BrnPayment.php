@@ -81,10 +81,4 @@ class BrnPayment extends Model
     {
         return $query->where('paymentable_type', 'donation');
     }
-    public function scopeFilterKorda($query, $name)
-    {
-        return $query->whereHas('users.userPersonalInformations', function ($q) use ($name) {
-            $q->where('korda_id', $name);
-        });
-    }
 }
