@@ -103,7 +103,7 @@ class BrnPaymentController extends Controller
                         $q = $q->addSelect('id')->groupBy($group);
                     }
                     return $q;
-                })->orderBy($sortBy, $sort)
+                })
                 ->jsonPaginate();
 
 
