@@ -63,9 +63,9 @@ class BrnPaymentController extends Controller
                     }else{
                         foreach($korda as $i => $kor){
                             if($i == 0){
-                                $q = $q->where('korda_id', $kor);
+                                $q = $q->where('user_personal_informations.korda_id', $kor);
                             }else{
-                                $q = $q->orWhere('korda_id', $kor);
+                                $q = $q->orWhere('user_personal_informations.korda_id', $kor);
                             }
                         }
 
