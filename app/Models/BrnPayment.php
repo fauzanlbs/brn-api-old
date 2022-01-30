@@ -19,45 +19,45 @@ class BrnPayment extends Model
      * @var array
      */
     protected $appends = [
-        'month','year','month_year','data_date'
+        'month', 'year', 'month_year', 'data_date'
     ];
 
     public function paymentable()
     {
-        if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
-            return $this->belongsTo('App\User', 'paymentable_id', 'id');
+        if ($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension') {
+            return $this->morphTo('App\User', 'payment', 'paymentable_id', 'id');
             // $this->belongsTo()
-        }else if($this->paymentable_type == 'donation'){
-            return $this->belongsTo('App\DonationUser', 'paymentable_id', 'id');
+        } else if ($this->paymentable_type == 'donation') {
+            return $this->morphTo('App\DonationUser', 'payment', 'payment', 'paymentable_id', 'id');
         }
     }
 
     public function getMonthAttribute($value)
     {
-        if($this->created_at != "" || $this->created_at != null){
+        if ($this->created_at != "" || $this->created_at != null) {
             return date("m", strtotime($this->created_at));
         }
     }
     public function getYearAttribute($value)
     {
-        if($this->created_at != "" || $this->created_at != null){
+        if ($this->created_at != "" || $this->created_at != null) {
             return date("Y", strtotime($this->created_at));
         }
     }
     public function getMonthYearAttribute($value)
     {
-        if($this->created_at != "" || $this->created_at != null){
+        if ($this->created_at != "" || $this->created_at != null) {
             return date("m-Y", strtotime($this->created_at));
         }
     }
     public function getDataDateAttribute($value)
     {
-        if($this->created_at != "" || $this->created_at != null){
+        if ($this->created_at != "" || $this->created_at != null) {
             return date("Y-m-d", strtotime($this->created_at));
         }
     }
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
