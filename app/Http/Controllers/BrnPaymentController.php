@@ -39,6 +39,7 @@ class BrnPaymentController extends Controller
         $korda = $request->query('korda');
         $korwil = $request->query('korwil');
         $sources = $request->query('source');
+        // $detail = $request->query('with')
 
         // print_r($korda);exit;
 
@@ -53,12 +54,13 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                ->with(['paymentable'])
+                
                 ->when($dateStart, function($q, $date){
                     return $q->whereBetween(
                         'created_at', 
                         array(Carbon::parse(strtotime($date['start'])), Carbon::parse(strtotime($date['end']))));
                 })
+                ->when()
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
