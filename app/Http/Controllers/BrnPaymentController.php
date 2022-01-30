@@ -98,7 +98,7 @@ class BrnPaymentController extends Controller
                         $q = $q->groupBy(DB::raw('year'));
                     }else if($group == 'source'){
                         $q = $q->addSelect(DB::raw('transaction_code, sum(amount) as amount'));
-                        $q = $q->groupBy(DB::raw('year'));
+                        $q = $q->groupBy('transaction_code');
                     }else{
                         $q = $q->addSelect('id')->groupBy($group);
                     }
