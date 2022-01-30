@@ -20,10 +20,12 @@ class BrnPaymentController extends Controller
      * @queryParam date string tgl mulai|selesai filter, filter data berdasarkan tgl. Example: 1-12-2021|1-1-2022
      * @queryParam month integer filter berdarkan bulan. Example: 12
      * @queryParam year integer filter berdarkan tahun, jika bulan diisi, maka default tahun sekarang. Example: 2022
-     * @queryParam korda integer filter berdarkan korda. Example: 12
-     * @queryParam korwil integer filter berdarkan korwil. Example: 12
+    //  * @queryParam korda integer filter berdarkan korda. Example: 12
+    //  * @queryParam korwil integer filter berdarkan korwil. Example: 12
      * @queryParam source string filter berdarkan sumber pemasukan, isi dengan registration, extention, regext, olshop, donation. Example: registration
-     * @queryParam detail integer ambil data dengan detail nya
+     * @queryParam groupby string
+     * @queryParam sortby string
+     * @queryParam sort string asc atau desc
      * 
      * @param Request $request
      * @return BrnPaymentResource
@@ -34,10 +36,22 @@ class BrnPaymentController extends Controller
         $date = $request->query('date');
         $month = $request->query('month');
         $year = $request->query('year');
-        $korda = $request->query('korda');
-        $korwil = $request->query('korwil');
+        // $korda = $request->query('korda');
+        // $korwil = $request->query('korwil');
         $sources = $request->query('source');
         // $detail = $request->query('with')
+        $group = $request->query('groupby');
+        $sortBy = $request->query('sortby');
+        $sort = $request->query('sort');
+        if($group == null){
+            $group = 'id';
+        }
+        if($sortBy == null){
+            $sortBy = 'created_at';
+        }
+        if($sort == null){
+            $sort = 'ASC';
+        }
 
         // print_r($date);exit;
 
@@ -48,7 +62,6 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                ->with(['userPersonalInformations', 'users'])
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
                     return $q->where(
@@ -58,8 +71,27 @@ class BrnPaymentController extends Controller
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
                     return $q->whereYear('created_at', $year);
-                })->allowedFilters(['korda_id', 'korwil_id'])->jsonPaginate();
+                })->when($sources, function($q, $sources){
+                    // return $q->whereYear('created_at', $year);
+                    if(!is_array($sources)){
+                        return $q->where('transaction_code', $sources);
+                    }else if(is_array($sources)){
+                        foreach($sources as $i => $sc){
+                            if($i == 0){
+                                $q = $q->where('transaction_code', $sc);
+                            }else{
+                                $q = $q->orWhere('transaction_code', $sc);
+                            }
+                        }
+                        return $q;
+                    }
+                })->groupBy($group)->sortBy($sortBy, $sort)
+                ->jsonPaginate();
 
+
+
+
+                // $data = $data->allowedFilters(['korda_id', 'korwil_id'])->jsonPaginate();
         // if(!is_array($sources)){
         //     switch ($sources) {
         //         case 'registration':
