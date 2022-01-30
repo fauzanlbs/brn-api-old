@@ -24,5 +24,5 @@ class DonationUser extends Model
     {
         return $this->morphOne('App\BrnPayment', 'paymentable');
     }
-}
+
 }
