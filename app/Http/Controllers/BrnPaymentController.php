@@ -56,7 +56,7 @@ class BrnPaymentController extends Controller
                     return $q->where('month', '=', $month);
                 })->when($year, function($q, $year){
                     return $q->where('year', '=', $year);
-                })->jsonPaginated();
+                })->jsonPaginate();
 
         if(!is_array($sources)){
             switch ($sources) {
