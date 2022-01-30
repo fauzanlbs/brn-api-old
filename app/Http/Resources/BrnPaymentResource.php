@@ -18,7 +18,10 @@ class BrnPaymentResource extends JsonResource
             "id" =>  $this->id,
             "category" => $this->paymentable_type,
             "amount" => $this->amount,
-            "detail" => $this->paymentable,
+            // "detail" => $this->paymentable,
+            "month" => $this->month,
+            "year" => $this->year,
+            "created_at" => $this->created_at
         ];
     }
 }
