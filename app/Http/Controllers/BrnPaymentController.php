@@ -60,7 +60,6 @@ class BrnPaymentController extends Controller
                         'created_at', 
                         array(Carbon::parse(strtotime($date['start'])), Carbon::parse(strtotime($date['end']))));
                 })
-                ->when()
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
