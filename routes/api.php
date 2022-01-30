@@ -69,6 +69,9 @@ Route::prefix('members')->group(function () {
 // Onboarding
 Route::get('/onboardings', [OnboardingController::class, 'index']);
 
+// Payment Report
+Route::get('/payment-report', [BrnPaymentController::class, 'index']);
+
 // Sponsor
 Route::get('/sponsors', [SponsorController::class, 'index']);
 
