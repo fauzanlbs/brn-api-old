@@ -24,10 +24,8 @@ class BrnPaymentController extends Controller
     //  * @queryParam korda integer filter berdarkan korda. Example: 12
     //  * @queryParam korwil integer filter berdarkan korwil. Example: 12
      * @queryParam source string filter berdarkan sumber pemasukan, isi dengan registration, extention, regext, olshop, donation. Example: registration
-     * @queryParam groupby string
-     * @queryParam sortby string
+     * @queryParam groupby string, isi dengan month atau year atau source(category) bisa digabung menggunakan | . Example: month|year|source
      * @queryParam sort string asc atau desc
-     * @queryParam aggregat int isi dengan 1 atau 0 untuk mngambil data agregat saja
      * 
      * @param Request $request
      * @return BrnPaymentResource
