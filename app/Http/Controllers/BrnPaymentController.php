@@ -33,9 +33,9 @@ class BrnPaymentController extends Controller
         $dateEnd = $request->query('dateEnd');
         $month = $request->query('month');
         $year = $request->query('year');
-        $korda = $request->query('korda[]');
-        $korwil = $request->query('korwil[]');
-        $sources = $request->query('source[]');
+        $korda = $request->query('korda');
+        $korwil = $request->query('korwil');
+        $sources = $request->query('source');
 
         print_r($korda);exit;
 
