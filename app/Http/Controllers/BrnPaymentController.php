@@ -40,7 +40,7 @@ class BrnPaymentController extends Controller
         $sources = $request->query('source');
         // $detail = $request->query('with')
 
-        // print_r($korda);exit;
+        print_r($date);exit;
 
         if($year == null){
             $year = date('Y');
@@ -49,7 +49,6 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                
                 ->when($date, function($q, $date){
                     return $q->whereBetween(
                         'created_at', 
