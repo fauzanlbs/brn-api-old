@@ -37,7 +37,7 @@ class BrnPaymentController extends Controller
         $korwil = $request->query('korwil');
         $sources = $request->query('source');
 
-        print_r($korda);exit;
+        // print_r($korda);exit;
 
         if($year == null){
             $year = date('Y');
