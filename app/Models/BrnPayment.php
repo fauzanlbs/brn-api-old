@@ -22,9 +22,14 @@ class BrnPayment extends Model
         'month','year','month_year','data_date'
     ];
 
-    public function paymentable()
+    public function detail()
     {
-        return $this->morphTo();
+        if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
+            return $this->morphMany('App\User', 'payment');
+        }else if($this->paymentable_type == 'donation'){
+            return $this->morphMany('App\DonationUser', 'payment');
+        }
+        
     }
 
     public function getMonthAttribute($value)

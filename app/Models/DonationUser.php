@@ -19,4 +19,9 @@ class DonationUser extends Model
     {
         return $this->belongsTo(Donation::class,'donation_id', 'id');
     }
+
+    public function payment()
+    {
+        return $this->morphTo();
+    }
 }
