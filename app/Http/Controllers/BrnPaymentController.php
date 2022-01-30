@@ -58,33 +58,7 @@ class BrnPaymentController extends Controller
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
                     return $q->whereYear('created_at', $year);
-                })->when($korda, function($q, $korda){
-                    if(!is_array($korda)){
-                        return $q->where('korda_id',$korda);
-                    }else{
-                        foreach($korda as $i => $kor){
-                            if($i == 0){
-                                $q = $q->where('korda_id',$kor);
-                            }else{
-                                $q = $q->where('korda_id',$kor);
-                            }
-                        }
-
-                        return $q;
-                    }
-                    
-                })->when($korwil, function($q, $korwil){
-                    foreach($korwil as $i => $kor){
-                        if($i == 0){
-                            $q = $q->where('korwil_id', $kor);
-                        }else{
-                            $q = $q->orWhere('korwil_id', $kor);
-                        }
-                    }
-
-                    return $q;
-                    
-                })->jsonPaginate();
+                })->allowedFilters(['korda_id', 'korwil_id'])->jsonPaginate();
 
         // if(!is_array($sources)){
         //     switch ($sources) {
