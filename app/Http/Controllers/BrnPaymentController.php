@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BrnPayment;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 
@@ -42,20 +43,23 @@ class BrnPaymentController extends Controller
         if($year == null){
             $year = date('Y');
         }
+        $date = array(
+            'start' => $dateStart,
+            'end' => $dateEnd
+        );
 
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                ->when($dateStart, function($q, $dateStart){
-                    return $q->where('data_date', '>=', $dateStart);
-                })
-                ->when($dateEnd, function($q, $dateEnd){
-                    return $q->where('data_date', '<', $dateEnd);
+                ->when($dateStart, function($q, $date){
+                    return $q->whereBetween(
+                        'created_at', 
+                        array(Carbon::parse(strtotime($date['start'])), Carbon::parse(strtotime($date['end']))));
                 })
                 ->when($month, function($q, $month){
-                    return $q->where('month', '=', $month);
+                    return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
-                    return $q->where('year', '=', $year);
+                    return $q->whereYear('created_at', $year);
                 })->jsonPaginate();
 
         if(!is_array($sources)){
