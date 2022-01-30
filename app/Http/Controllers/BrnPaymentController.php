@@ -64,7 +64,7 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
-                // ->select('amount', 'transaction_code')
+                ->select(DB::raw('sum(amount) as amount'))
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
                     return $q->where(
@@ -90,18 +90,27 @@ class BrnPaymentController extends Controller
                     }
                 })->when($group, function($q, $group){
                     // $q = $q->groupBy($group);
-                    if($group == 'month'){
-                        $q = $q->addSelect(DB::raw('month(created_at) as month, sum(amount) as amount'));
-                        $q = $q->groupBy(DB::raw('month'));
-                    }else if($group == 'year'){
-                        $q = $q->addSelect(DB::raw('year(created_at) as year, sum(amount) as amount'));
-                        $q = $q->groupBy(DB::raw('year'));
-                    }else if($group == 'source'){
-                        $q = $q->addSelect(DB::raw('transaction_code, sum(amount) as amount'));
-                        $q = $q->groupBy('transaction_code');
-                    }else{
-                        $q = $q->addSelect('*')->groupBy($group);
+                    $group = explode("|", $group);
+                    foreach($group as $gr){
+                        if($gr == 'month'){
+                            $q = $q->addSelect(DB::raw('month(created_at) as month'));
+                            $q = $q->groupBy(DB::raw('month'));
+                        }
+                        else if($gr == 'year'){
+                            $q = $q->addSelect(DB::raw('year(created_at) as year'));
+                            $q = $q->groupBy(DB::raw('year'));
+                        }
+                        else if($gr == 'source'){
+                            $q = $q->addSelect(DB::raw('transaction_code'));
+                            $q = $q->groupBy('transaction_code');
+                        }
+                        else if($gr == 'id'){
+                            $q = $q->addSelect('id');
+                            $q = $q->groupBy('id');
+                        }
                     }
+                    
+                    
                     return $q;
                 })
                 ->jsonPaginate();

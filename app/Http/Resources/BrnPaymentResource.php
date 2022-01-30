@@ -16,7 +16,7 @@ class BrnPaymentResource extends JsonResource
     {
         return [
             "id" =>  $this->id,
-            "category" => $this->paymentable_type,
+            "category" => $this->transaction_code,
             "amount" => $this->amount,
             // "detail" => $this->paymentable,
             "month" => $this->month,
