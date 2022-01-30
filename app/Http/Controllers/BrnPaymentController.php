@@ -73,13 +73,27 @@ class BrnPaymentController extends Controller
                 })->when($sources, function($q, $sources){
                     // return $q->whereYear('created_at', $year);
                     if(!is_array($sources)){
-                        return $q->where('transaction_code', $sources);
+                        if($sources != 'all'){
+                            return $q->where('transaction_code', $sources);
+                        }else if($sources == 'regext'){
+                            return $q->where('paymentable_type', 'App\Models\User');
+                        }
+                        
                     }else if(is_array($sources)){
                         foreach($sources as $i => $sc){
                             if($i == 0){
-                                $q = $q->where('transaction_code', $sc);
+                                
+                                if($sources != 'all'){
+                                    $q = $q->where('transaction_code', $sc);
+                                }else if($sources == 'regext'){
+                                    $q = $q->where('paymentable_type', 'App\Models\User');
+                                }
                             }else{
-                                $q = $q->orWhere('transaction_code', $sc);
+                                if($sources != 'all'){
+                                    $q = $q->orWhere('transaction_code', $sc);
+                                }else if($sources == 'regext'){
+                                    $q = $q->orWhere('paymentable_type', 'App\Models\User');
+                                }
                             }
                         }
                         return $q;
