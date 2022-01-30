@@ -22,6 +22,7 @@ class DonationUser extends Model
 
     public function payment()
     {
-        return $this->morphTo();
+        return $this->morphOne('App\BrnPayment', 'paymentable');
     }
+}
 }

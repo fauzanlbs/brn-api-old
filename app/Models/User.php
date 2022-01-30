@@ -177,6 +177,6 @@ class User extends Authenticatable implements Commentator
 
     public function payment()
     {
-        return $this->morphTo();
+        return $this->morphOne('App\BrnPayment', 'paymentable');
     }
 }
