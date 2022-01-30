@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
 use App\Http\Resources\BrnPaymentResource;
+use Illuminate\Support\Facades\DB;
 
 
 /**
@@ -26,6 +27,7 @@ class BrnPaymentController extends Controller
      * @queryParam groupby string
      * @queryParam sortby string
      * @queryParam sort string asc atau desc
+     * @queryParam aggregat int isi dengan 1 atau 0 untuk mngambil data agregat saja
      * 
      * @param Request $request
      * @return BrnPaymentResource
@@ -62,6 +64,7 @@ class BrnPaymentController extends Controller
         $res = [];
 
         $data = QueryBuilder::for(BrnPayment::class)
+                // ->select('amount', 'transaction_code')
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
                     return $q->where(
@@ -85,7 +88,22 @@ class BrnPaymentController extends Controller
                         }
                         return $q;
                     }
-                })->groupBy($group)->orderBy($sortBy, $sort)
+                })->when($group, function($q, $group){
+                    // $q = $q->groupBy($group);
+                    if($group == 'month'){
+                        $q = $q->addSelect(DB::raw('month(created_at) as month, sum(amount) as amount'));
+                        $q = $q->groupBy(DB::raw('month'));
+                    }else if($group == 'year'){
+                        $q = $q->addSelect(DB::raw('year(created_at) as year, sum(amount) as amount'));
+                        $q = $q->groupBy(DB::raw('year'));
+                    }else if($group == 'source'){
+                        $q = $q->addSelect(DB::raw('transaction_code, sum(amount) as amount'));
+                        $q = $q->groupBy(DB::raw('year'));
+                    }else{
+                        $q = $q->addSelect('id')->groupBy($group);
+                    }
+                    return $q;
+                })->orderBy($sortBy, $sort)
                 ->jsonPaginate();
 
 
