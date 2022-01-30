@@ -175,8 +175,8 @@ class User extends Authenticatable implements Commentator
         return $this->belongsToMany(Agendas::class);
     }
 
-    public function payment()
-    {
-        return $this->morphTo();
-    }
+    // public function payment()
+    // {
+    //     return $this->morphTo();
+    // }
 }

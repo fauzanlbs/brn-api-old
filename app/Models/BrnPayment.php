@@ -11,7 +11,7 @@ class BrnPayment extends Model
     protected $table = 'brn_payments';
     protected $fillable = ['paymentable_type', 'paymentable_id', 'amount'];
 
-    public $with = ['paymentable'];
+    // public $with = ['paymentable'];
 
     /**
      * The accessors to append to the model's array form.
@@ -22,14 +22,14 @@ class BrnPayment extends Model
         'month','year','month_year','data_date'
     ];
 
-    public function paymentable()
-    {
-        if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
-            return $this->morphTo('App\User', 'payment');
-        }else if($this->paymentable_type == 'donation'){
-            return $this->morphTo('App\DonationUser', 'payment');
-        }
-    }
+    // public function paymentable()
+    // {
+    //     if($this->paymentable_type == 'registration' || $this->paymentable_type == 'extension'){
+    //         return $this->morphTo('App\User', 'payment');
+    //     }else if($this->paymentable_type == 'donation'){
+    //         return $this->morphTo('App\DonationUser', 'payment');
+    //     }
+    // }
 
     public function getMonthAttribute($value)
     {
