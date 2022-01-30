@@ -59,13 +59,13 @@ class BrnPaymentController extends Controller
                     return $q->whereYear('created_at', $year);
                 })->when($korda, function($q, $korda){
                     if(!is_array($korda)){
-                        return $q->where('user_personal_informations.korda_id', $korda);
+                        return $q->filterKorda($korda);
                     }else{
                         foreach($korda as $i => $kor){
                             if($i == 0){
-                                $q = $q->where('user_personal_informations.korda_id', $kor);
+                                $q = $q->filterKorda($kor);
                             }else{
-                                $q = $q->orWhere('user_personal_informations.korda_id', $kor);
+                                $q = $q->filterKorda($kor);
                             }
                         }
 
