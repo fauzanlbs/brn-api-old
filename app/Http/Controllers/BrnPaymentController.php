@@ -100,7 +100,7 @@ class BrnPaymentController extends Controller
                         $q = $q->addSelect(DB::raw('transaction_code, sum(amount) as amount'));
                         $q = $q->groupBy('transaction_code');
                     }else{
-                        $q = $q->addSelect('id')->groupBy($group);
+                        $q = $q->addSelect('*')->groupBy($group);
                     }
                     return $q;
                 })
