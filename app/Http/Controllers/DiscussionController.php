@@ -124,7 +124,10 @@ class DiscussionController extends Controller
                 return $q->caseReport();
             })
             ->when($isCurrent, function ($q) use ($uid) {
-                return $q->where('user_id', $uid);
+                return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
+            })
+            ->leftJoin('discussion_user', function ($join) {
+                $join->on('discussions.id', '=', 'discussion_user.discussion_id');
             })
             ->limitChars('description', 100)
             ->with(['user.roles'])
