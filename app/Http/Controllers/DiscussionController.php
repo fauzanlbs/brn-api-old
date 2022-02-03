@@ -16,6 +16,7 @@ use App\Repositories\Discussion\EloquentDiscussionRepository;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Forum Diskusi
@@ -122,10 +123,20 @@ class DiscussionController extends Controller
         $discussions = QueryBuilder::for(Discussion::class)
             ->when($only, function ($q) {
                 return $q->caseReport();
-            })->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
-            ->leftJoin('discussion_user', function ($join) {
-                $join->on('discussions.id', '=', 'discussion_user.discussion_id');
             })
+            ->when($isCurrent, function($, $val){
+            	return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
+            		->leftJoin('discussion_user', function ($join) {
+                		$join->on('discussions.id', '=', 'discussion_user.discussion_id');
+            		})
+            		->leftJoin('users', function ($join) {
+                		$join->on('users.id', '=', 'discussion_user.user_id');
+            		})
+            		            		->leftJoin('users', function ($join) {
+                		$join->on('users.id', '=', 'discussions.user_id');
+            		})
+            })
+            
             ->limitChars('description', 100)
             ->with(['user.roles'])
             ->withCount(['likes', 'comments'])
@@ -153,8 +164,23 @@ class DiscussionController extends Controller
      *
      * @responseFile storage/responses/single-discussion-resource.response.json
      */
-    public function getDiscussionDetail(Discussion $discussion)
+    public function getDiscussionDetail(Request $request, Discussion $discussion)
     {
+    	$user = $request->user();
+    	
+    	$inside = DB::table('discussions as dis')->select('dis.id as admin', 'disu.user_id as participant')->where('dis.user_id', $user->id)->orWhere('disu.user_id', $user->id);
+            		->leftJoin('discussion_user as disu', function ($join) {
+                		$join->on('dis.id', '=', 'disu.discussion_id');
+            		})
+            		->leftJoin('users', function ($join) {
+                		$join->on('users.id', '=', 'discussion_user.user_id');
+            		})
+            		            		->leftJoin('users', function ($join) {
+                		$join->on('users.id', '=', 'discussions.user_id');
+            		})->get();
+            if(count($inside) == 0){
+            	return response()->json(['status' => 'error', 'message' => 'Anda tidak terdaftar di forum ini!']);exit;
+            }
         $discussion->load(['user.roles', 'caseReport',]);
         $discussion->loadCount(['likes', 'comments', 'invitedUsers']);
 

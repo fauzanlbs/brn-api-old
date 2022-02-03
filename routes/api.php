@@ -130,9 +130,12 @@ Route::prefix('agendas')->group(function () {
 
 // Discussion
 Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:korda|korwil|admin|member']);
+Route::prefix('discussions')->middleware(['role:korda|korwil|admin|member'])->group(function(){
+	Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
+});
 Route::prefix('discussions')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
     Route::get('/', [DiscussionController::class, 'getDiscussions']);
-    Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
+    
 
     Route::post('/', [DiscussionController::class, 'store']);
     Route::post('/case-report', [DiscussionController::class, 'storeDiscussionCaseReport']);
