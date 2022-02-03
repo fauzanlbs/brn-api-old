@@ -168,7 +168,7 @@ class DiscussionController extends Controller
     {
     	$user = $request->user();
     	
-    	$inside = DB::table('discussions as dis')->select('dis.id as admin', 'disu.user_id as participant')->where('dis.user_id', $user->id)->orWhere('disu.user_id', $user->id);
+    	$inside = DB::table('discussions as dis')->select('dis.id as admin', 'disu.user_id as participant')->where('dis.user_id', $user->id)->orWhere('disu.user_id', $user->id)
             		->leftJoin('discussion_user as disu', function ($join) {
                 		$join->on('dis.id', '=', 'disu.discussion_id');
             		})
