@@ -35,12 +35,17 @@ class SettingsSeeder extends Seeder
             'setting_type' => 'boolean'
         ],[
             'setting_key' => 'register_membership_cost',
-            'setting_value' => '2000000',
+            'setting_value' => 2000000,
             'setting_for' => 'all',
             'setting_type' => 'numeric'
         ],[
             'setting_key' => 'extention_membership_cost',
-            'setting_value' => '150000',
+            'setting_value' => 150000,
+            'setting_for' => 'all',
+            'setting_type' => 'numeric'
+        ],[
+            'setting_key' => 'membership_timeout_year',
+            'setting_value' => 2,
             'setting_for' => 'all',
             'setting_type' => 'numeric'
         ]

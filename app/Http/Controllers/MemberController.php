@@ -36,13 +36,14 @@ class MemberController extends Controller
      */
     public function getMembers(Request $request)
     {
-        // $allowedIncludes = ['addresses', 'personal-information', 'roles'];
-
-        // if ($request->query('include')) {
-        //     $includes = $this->requestParamCheckAndConvert('include', $allowedIncludes, $request->query('include'), true);
-        //     if (!is_array($includes)) return $includes;
-        // }
-
+        $allowedIncludes = ['addresses', 'personal-information', 'roles'];
+        $includes = [];
+        if ($request->query('include')) {
+            $includes = $this->requestParamCheckAndConvert('include', $allowedIncludes, $request->query('include'), true);
+            if (!is_array($includes)) return $includes;
+        }
+        
+        $adr = array_search('addresses', $includes);
         // $roles = ['member'];
         // if ($request->query('roles')) {
         //     array_push($roles, $request->query('roles'));
@@ -60,7 +61,7 @@ class MemberController extends Controller
         $roles = $request->query('role');
 
         $allowed = [
-            'created_at', 'addresses', 'personal-information', 'name'
+            'created_at', 'name'
         ];
 
         $users = QueryBuilder::for(User::class)
@@ -78,10 +79,12 @@ class MemberController extends Controller
             ->when($status !== null, function($q, $search){
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
+            })->when($includes[$adr], function($q, $val){
+                return $q->addSelect('regions.region, areas.area, subdistrict.subdistrict_name')->join('regions', 'addresses.state', '=', 'regions.id')->join('areas', 'addresses.city', '=', 'areas.id')->join('subdistrict', 'addresses.street', '=', 'subdistrict.id');
             })
             ->allowedFilters(array_merge($allowed, [AllowedFilter::custom('roles', new MemberQuery)]))
             ->allowedSorts($allowed)
-            ->allowedIncludes($allowed)
+            ->allowedIncludes($allowedIncludes)
             ->defaultSort('-' . $allowed[0])
             ->jsonPaginate();
 

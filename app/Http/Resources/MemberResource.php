@@ -34,7 +34,7 @@ class MemberResource extends JsonResource
             "status_level_diklat" => $this->status_level_diklat,
             "is_survey" => $this->is_survey,
             "roles" => RoleResource::collection($this->whenLoaded('roles')),
-            // "sum_points" => intval($this->points_relation_sum_points),
+            "sum_points" => intval($this->points_relation_sum_points),
             "points_relation_sum_points" => intval($this->points_relation_sum_points),
             "name" => $this->name,
             "email" => $this->email,
