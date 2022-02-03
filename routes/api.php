@@ -215,7 +215,7 @@ Route::group(['middleware' => [
 
     Route::get('/check-in', [DailyCheckInController::class, 'checkIn'])->middleware(['role:member']);
 
-    Route::prefix('cars')->middleware(['role:member'])->group(function () {
+    Route::prefix('cars')->group(function () {
         Route::get('/colors', [CarColorsController::class, 'index']);
         Route::get('/makes', [CarMakeController::class, 'index']);
         Route::get('/models', [CarModelController::class, 'index']);
