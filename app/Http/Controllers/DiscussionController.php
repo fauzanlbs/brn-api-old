@@ -164,7 +164,7 @@ class DiscussionController extends Controller
      *
      * @responseFile storage/responses/single-discussion-resource.response.json
      */
-    public function getDiscussionDetail(Request $request, Discussion $discussion)
+    public function getDiscussionDetail(Request $request)
     {
     	$user = $request->user();
     	
@@ -181,6 +181,8 @@ class DiscussionController extends Controller
             if(count($inside) == 0){
             	return response()->json(['status' => 'error', 'message' => 'Anda tidak terdaftar di forum ini!']);exit;
             }
+            
+        $discussion = new Discussion();
         $discussion->load(['user.roles', 'caseReport',]);
         $discussion->loadCount(['likes', 'comments', 'invitedUsers']);
 
