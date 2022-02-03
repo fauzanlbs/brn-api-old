@@ -125,7 +125,7 @@ class DiscussionController extends Controller
                 return $q->caseReport();
             })
             ->when($isCurrent, function($, $val){
-            	return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
+            	return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid)
             		->leftJoin('discussion_user', function ($join) {
                 		$join->on('discussions.id', '=', 'discussion_user.discussion_id');
             		})
