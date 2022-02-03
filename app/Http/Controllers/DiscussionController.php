@@ -122,10 +122,7 @@ class DiscussionController extends Controller
         $discussions = QueryBuilder::for(Discussion::class)
             ->when($only, function ($q) {
                 return $q->caseReport();
-            })
-            ->when($isCurrent, function ($q) use ($uid) {
-                return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
-            })
+            })->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid);
             ->leftJoin('discussion_user', function ($join) {
                 $join->on('discussions.id', '=', 'discussion_user.discussion_id');
             })
