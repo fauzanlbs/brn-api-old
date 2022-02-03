@@ -174,9 +174,6 @@ class DiscussionController extends Controller
             		})
             		->leftJoin('users', function ($join) {
                 		$join->on('users.id', '=', 'discussion_user.user_id');
-            		})
-            		->leftJoin('users', function ($join) {
-                		$join->on('users.id', '=', 'discussions.user_id');
             		})->get();
             if(count($inside) == 0){
             	return response()->json(['status' => 'error', 'message' => 'Anda tidak terdaftar di forum ini!']);exit;
