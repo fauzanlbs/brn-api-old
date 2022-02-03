@@ -30,6 +30,9 @@ class AddressResource extends JsonResource
             'is_primary' => $this->is_primary,
             'is_billing' => $this->is_billing,
             'is_shipping' => $this->is_shipping,
+            'street_name' => $this->subdistrict_name,
+            'city_name' => $this->area,
+            'province_name' => $this->region
         ];
     }
 }
