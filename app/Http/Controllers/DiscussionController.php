@@ -124,17 +124,17 @@ class DiscussionController extends Controller
             ->when($only, function ($q) {
                 return $q->caseReport();
             })
-            ->when($isCurrent, function($, $val){
+            ->when($isCurrent && $uid, function($q, $uid){
             	return $q->where('discussions.user_id', $uid)->orWhere("discussion_user.user_id", $uid)
-            		->leftJoin('discussion_user', function ($join) {
+            	    ->leftJoin('discussion_user', function ($join) {
                 		$join->on('discussions.id', '=', 'discussion_user.discussion_id');
             		})
             		->leftJoin('users', function ($join) {
                 		$join->on('users.id', '=', 'discussion_user.user_id');
             		})
-            		            		->leftJoin('users', function ($join) {
+            		->leftJoin('users', function ($join) {
                 		$join->on('users.id', '=', 'discussions.user_id');
-            		})
+            		});
             })
             
             ->limitChars('description', 100)
