@@ -120,7 +120,7 @@ class DiscussionController extends Controller
 
         $uid = $request->user()->id;
 
-        $discussions = QueryBuilder::for(Discussion::class)
+        $discussions = QueryBuilder::for(Discussion::class)->addSelect('users.id as uid', 'discussions.*', 'discussion_user.user_id as participant')
             ->when($only, function ($q) {
                 return $q->caseReport();
             })
