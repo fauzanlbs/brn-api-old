@@ -105,7 +105,7 @@ class MemberController extends Controller
         $user->load(['personalInformation', 'roles', 'addresses']);
         $user->loadSum('pointsRelation', 'points');
 
-        $user->select('regions.region', 'areas.area', 'subdistrict.subdistrict_name', 'users.*')->join('addresses', 'id', '=', 'addresses.addressable_id')->join('regions', 'addresses.state', '=', 'regions.id')->join('areas', 'addresses.city', '=', 'areas.id')->join('subdistrict', 'addresses.street', '=', 'subdistrict.id');
+        $user->select('regions.region', 'areas.area', 'subdistrict.subdistrict_name', 'users.*')->join('addresses', 'users.id', '=', 'addresses.addressable_id')->join('regions', 'addresses.state', '=', 'regions.id')->join('areas', 'addresses.city', '=', 'areas.id')->join('subdistrict', 'addresses.street', '=', 'subdistrict.id');
 
 
         return new MemberResource($user);
