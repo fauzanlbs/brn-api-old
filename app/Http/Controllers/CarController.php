@@ -66,10 +66,6 @@ class CarController extends Controller
             'status',
             'is_approved',
             'police_number',
-            'year',
-            'is_automatic',
-            'capacity',
-            'equipment',
             'case_reports.status',
         ];
 
@@ -81,8 +77,8 @@ class CarController extends Controller
             })
             ->when($area_code, function ($q, $area_code) {
                 return $q->whereHas('user', function ($q) use ($area_code) {
-                    $q->whereHas('personalInformation', function ($q) use ($area_code) {
-                        $q->where('area_code', $area_code);
+                    $q->whereHas('addresses', function ($q) use ($area_code) {
+                        $q->where('state', $area_code);
                     });
                 });
             })

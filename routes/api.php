@@ -50,8 +50,6 @@ use App\Http\Controllers\BrnPaymentController;
 
 Route::post('/upload-files', [UploadFileController::class, 'store']);
 
-
-
 Route::get('/areas', [AreaController::class, 'index']);
 
 // Regions
@@ -130,9 +128,7 @@ Route::prefix('agendas')->group(function () {
 
 // Discussion
 Route::get('/my-discussions', [DiscussionController::class, 'getMyDiscussions'])->middleware(['auth:sanctum', 'role:korda|korwil|admin|member']);
-//Route::prefix('discussionsdetail')->middleware(['role:korda|korwil|admin|member'])->group(function(){
-	//Route::get('/{discussion}', [DiscussionController::class, 'getDiscussionDetail']);
-//});
+
 Route::prefix('discussions')->middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
     Route::get('/', [DiscussionController::class, 'getDiscussions']);
     
@@ -195,6 +191,14 @@ Route::prefix('courses')->group(function () {
 Route::get('comments/{comment}/likes', [CommentController::class, 'getCommentLikes']);
 Route::get('/settings', [SettingsController::class, 'index']);
 
+Route::prefix('cars')->group(function () {
+    Route::get('/colors', [CarColorsController::class, 'index']);
+    Route::get('/makes', [CarMakeController::class, 'index']);
+    Route::get('/models', [CarModelController::class, 'index']);
+    Route::get('/types', [CarTypeController::class, 'index']);
+    Route::get('/fuels', [CarFuelController::class, 'index']);
+});
+
 Route::group(['middleware' => [
     'auth:sanctum',
     // 'role:member'
@@ -215,14 +219,6 @@ Route::group(['middleware' => [
 
     Route::get('/check-in', [DailyCheckInController::class, 'checkIn'])->middleware(['role:member']);
 
-    Route::prefix('cars')->group(function () {
-        Route::get('/colors', [CarColorsController::class, 'index']);
-        Route::get('/makes', [CarMakeController::class, 'index']);
-        Route::get('/models', [CarModelController::class, 'index']);
-        Route::get('/types', [CarTypeController::class, 'index']);
-        Route::get('/fuels', [CarFuelController::class, 'index']);
-    });
-
     Route::get('/cars', [CarController::class, 'getCars'])->middleware(['role:member']);
 
     Route::prefix('my-cars')->middleware(['role:member'])->group(function () {
@@ -233,9 +229,6 @@ Route::group(['middleware' => [
         Route::delete('/{car}', [CarController::class, 'destroy']);
         Route::delete('/car-images/{carImage}', [CarController::class, 'destroyCarImage']);
     });
-
-
-
 
     Route::prefix('case-reports')->middleware(['role:korda|korwil|admin|member'])->group(function () {
         Route::get('/', [CaseReportController::class, 'getCaseReports']);
