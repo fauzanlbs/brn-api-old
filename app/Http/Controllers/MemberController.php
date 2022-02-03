@@ -64,7 +64,7 @@ class MemberController extends Controller
             'created_at', 'name'
         ];
 
-        $users = QueryBuilder::for(User::class)->addSelect('regions.region, areas.area, subdistrict.subdistrict_name')
+        $users = QueryBuilder::for(User::class)->addSelect('regions.region', 'areas.area', 'subdistrict.subdistrict_name', 'users.*')
             ->with(['roles'])
             ->withSum('pointsRelation', 'points')
             ->when($search, function ($q, $search) {
@@ -80,7 +80,7 @@ class MemberController extends Controller
                 $status = request()->filled('status') ? request()->get('status') : null;
                 return $q->where('status', $status);
             })->when(in_array('addresses', $includes), function($q, $val){
-                return $q->join('addresses', 'id', '=', 'addresses.addressable_id')->join('regions', 'addresses.state', '=', 'regions.id')->join('areas', 'addresses.city', '=', 'areas.id')->join('subdistrict', 'addresses.street', '=', 'subdistrict.id');
+                return $q->leftJoin('addresses', 'id', '=', 'addresses.addressable_id')->leftJoin('regions', 'addresses.state', '=', 'regions.id')->leftJoin('areas', 'addresses.city', '=', 'areas.id')->leftJoin('subdistrict', 'addresses.street', '=', 'subdistrict.id');
             })
             ->allowedFilters(array_merge($allowed, [AllowedFilter::custom('roles', new MemberQuery)]))
             ->allowedSorts($allowed)
