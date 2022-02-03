@@ -108,7 +108,7 @@ class DiscussionController extends Controller
         $only = $request->query('only');
         if (isset($only) && $only != 'case-reports') {
             return response()->json([
-                'message' => 'Query paran `only` tidak valid.'
+                'message' => 'Query param `only` tidak valid.'
             ], 400);
         }
 
@@ -175,7 +175,7 @@ class DiscussionController extends Controller
             		->leftJoin('users', function ($join) {
                 		$join->on('users.id', '=', 'discussion_user.user_id');
             		})
-            		            		->leftJoin('users', function ($join) {
+            		->leftJoin('users', function ($join) {
                 		$join->on('users.id', '=', 'discussions.user_id');
             		})->get();
             if(count($inside) == 0){
