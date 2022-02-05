@@ -103,7 +103,7 @@ class AgendaController extends Controller
 
         // return if user already absent in this agenda
         if ($absentExists) {
-            return $this->responseMessage(['id' => $agenda->id, 'message' => 'Anda sudah masuk sebelumnya!', 'status' => 'notice'], 400);
+            return $this->response(['id' => $agenda->id, 'message' => 'Anda sudah masuk sebelumnya!', 'status' => 'notice'], 400);
         }
 
         $agenda->absentUsers()->syncWithoutDetaching($uid);
@@ -123,7 +123,7 @@ class AgendaController extends Controller
                 break;
         }
 
-        return $this->responseMessage(['id' => $agenda->id, 'message' => 'Berhasil absen ke agenda!', 'status' => 'ok'], 200);
+        return $this->response(['id' => $agenda->id, 'message' => 'Berhasil absen ke agenda!', 'status' => 'ok'], 200);
     }
 
 
