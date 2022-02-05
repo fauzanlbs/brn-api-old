@@ -116,7 +116,7 @@ Route::prefix('agendas')->group(function () {
     Route::get('/', [AgendaController::class, 'getAgendas']);
     Route::get('/{agenda}', [AgendaController::class, 'getAgendaDetail']);
 
-    Route::middleware(['auth:sanctum', 'role:korda|korwil|admin'])->group(function () {
+    Route::middleware(['auth:sanctum', 'role:korda|korwil|admin|member'])->group(function () {
         Route::post('/', [AgendaController::class, 'store']);
         Route::post('/{agenda}', [AgendaController::class, 'update']);
         Route::post('/{agenda}/image', [AgendaController::class, 'updateImage']);
