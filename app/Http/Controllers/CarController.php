@@ -67,6 +67,7 @@ class CarController extends Controller
             'is_approved',
             'police_number',
             'case_reports.status',
+            'case_reports'
         ];
 
         $include = ['carMake', 'carType', 'carFuel', 'carModel', 'carColor', 'carImages', 'caseReports'];

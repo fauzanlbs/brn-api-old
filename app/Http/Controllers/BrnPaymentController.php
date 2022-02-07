@@ -34,6 +34,7 @@ class BrnPaymentController extends Controller
         $date = $request->query('date');
         $month = $request->query('month');
         $year = $request->query('year');
+        $inout = $request->query('inout');
         // $korda = $request->query('korda');
         // $korwil = $request->query('korwil');
         $sources = $request->query('source');
@@ -66,6 +67,8 @@ class BrnPaymentController extends Controller
                     return $q->where(
                         'created_at', '>=', Carbon::parse(strtotime($date[0])))->where('created_at', '<', Carbon::parse(strtotime($date[1])));
                 })
+                 ->when($inout, function($q, $inout){
+                    return $q->where('transaction_inout', $inout);
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
