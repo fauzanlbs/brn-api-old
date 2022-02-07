@@ -72,11 +72,11 @@ class CarRequest extends FormRequest
             'capacity' => 'nullable|max:255',
             'equipment' => 'nullable|max:255|string',
             'images' => 'nullable|array',
-            // 'files.*.image' => 'required|image|max:5000',
+            'files.*.image' => 'required|image|max:7000',
             'stnk_image' => 'required',
             'machine_number' => 'required',
             'chassis_number' => 'required',
-            // 'stnk_number' => 'required',
+            'stnk_number' => 'required',
         ];
     }
 }
