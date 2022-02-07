@@ -68,6 +68,7 @@ class BrnPaymentController extends Controller
                 })
                  ->when($inout, function($q, $inout){
                     return $q->where('transaction_inout', $inout);
+                    })
                 ->when($month, function($q, $month){
                     return $q->whereMonth('created_at', $month);
                 })->when($year, function($q, $year){
