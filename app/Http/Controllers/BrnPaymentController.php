@@ -64,8 +64,7 @@ class BrnPaymentController extends Controller
                 ->select(DB::raw('sum(amount) as amount'))
                 ->when($date, function($q, $date){
                     $date = explode('|', $date);
-                    return $q->where(
-                        'created_at', '>=', Carbon::parse(strtotime($date[0])))->where('created_at', '<', Carbon::parse(strtotime($date[1])));
+                    return $q->where('created_at', '>=', Carbon::parse(strtotime($date[0])))->where('created_at', '<', Carbon::parse(strtotime($date[1])));
                 })
                  ->when($inout, function($q, $inout){
                     return $q->where('transaction_inout', $inout);
