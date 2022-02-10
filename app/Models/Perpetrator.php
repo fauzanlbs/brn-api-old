@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\User;
+use App\Models\UserPersonalInformation;
 use App\Traits\HasProfilePhoto;
 use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
@@ -64,5 +65,13 @@ class Perpetrator extends Model
     public function created_by()
     {
         return $this->belongsTo(User::class, 'created_by_id', 'id');
+    }
+
+    /**
+     * Get a user rental info that create this perpetrator
+     */
+    public function rent_created_by()
+    {
+        return $this->belongsTo(UserPersonalInformation::class, 'created_by_id', 'user_id');
     }
 }
