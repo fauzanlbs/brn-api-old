@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\BlackListResource;
+use App\Http\Resources\CaseReport\PerpetratorResource;
 use App\Models\Perpetrator;
 use Illuminate\Http\Request;
 use Spatie\QueryBuilder\QueryBuilder;
@@ -64,6 +65,6 @@ class BlackListController extends Controller
     {
         $perpetrator->load(['caseReport']);
 
-        return new BlackListResource($perpetrator);
+        return new PerpetratorResource($perpetrator);
     }
 }
