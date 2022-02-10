@@ -25,7 +25,9 @@ class PerpetratorResource extends JsonResource
             "address" => $this->address,
             "information" => $this->information,
             "created_by_id" => $this->created_by_id,
-            "input_by" => $this->created_by
+            "input_by" => $this->created_by,
+            "rental" => $this->created_by->personalInformation,
+            "case" => $this->caseReport
         ];
     }
 }
