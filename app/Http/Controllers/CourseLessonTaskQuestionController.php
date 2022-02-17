@@ -63,13 +63,18 @@ class CourseLessonTaskQuestionController extends Controller
      */
     public function getCourseLessonTaskQuestionWhereLevel(Request $request)
     {
+    $uid = $request->user()->id;
         $coursesid = $request->query('coursesid');
         if (!$coursesid) {
             return $this->responseMessage('Course ID dibutuhkan!');
         }
+        $alreadyEnrolled = $course->students()->where('user_id', $uid)->exists();
+        if (!$alreadyEnrolled) {
+            return $this->responseMessage('Anda harus mengikuti kursus dari pembelajaran/video ini terlebih dahulu sebelum melihat komentar.');
+        }
 
         $tasks = CourseLessonTaskQuestion::whereHas('courseLesson', function ($q) use ($level) {
-            $q->where('id', $coursesid);
+            $q->where('course_id', $coursesid);
         })->get();
 
         return response()->json($tasks, 400);
