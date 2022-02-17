@@ -34,6 +34,7 @@ use App\Http\Controllers\DailyCheckInController;
 use App\Http\Controllers\DonationUserController;
 use App\Http\Controllers\CaseReportExecutionController;
 use App\Http\Controllers\CourseLessonTaskQuestionController;
+use App\Http\Controllers\TaskQuestion;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\BrnPaymentController;
 
@@ -184,7 +185,7 @@ Route::prefix('courses')->group(function () {
             Route::get('/{courseLesson}/task-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestions']);
         });
     });
-    Route::get('/diklat-level-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestionWhereLevel'])->middleware('auth:sanctum');
+    Route::get('/diklat-level-questions', [TaskQuestion::class, 'get'])->middleware('auth:sanctum');
 });
 
 
