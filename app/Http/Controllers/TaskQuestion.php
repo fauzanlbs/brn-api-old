@@ -27,7 +27,7 @@ class TaskQuestion extends Controller
      */
     public function get(Request $request, Course $course)
     {
-        print_r('courses task list');exit;
+        // print_r('courses task list');exit;
         $uid = $request->user()->id;
 
         $alreadyEnrolled = $course->students()->where('user_id', $uid)->exists();
