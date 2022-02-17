@@ -60,7 +60,6 @@ class CourseLessonTaskQuestionController extends Controller
      *
      * @param Request $request
      *
-     * @return CourseLessonTaskQuestionResource
      *
      * @responseFile storage/responses/course-lesson-task-resource.response.json
      */
@@ -73,9 +72,9 @@ class CourseLessonTaskQuestionController extends Controller
         }
         
 
-        $tasks = DB::table('course_lesson_task_question')
-                ->join('course_lessons', 'course_lesson_task_question.id', '=', 'course_lessons.course_lesson_id', 'left')
-                ->join('courses', 'courses.id', '=', 'course_lesson_task_question.course_id', 'left')
+        $tasks = DB::table('course_lesson_task_questions')
+                ->join('course_lessons', 'course_lesson_task_questions.id', '=', 'course_lessons.course_lesson_id', 'left')
+                ->join('courses', 'courses.id', '=', 'course_lesson_task_questions.course_id', 'left')
                 ->where('courses.id', $coursesid)->get();
 
         // $tasks = CourseLessonTaskQuestion::whereHas('courseLesson', function ($q) use ($coursesid) {
