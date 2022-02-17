@@ -63,9 +63,16 @@ class CourseLessonTaskQuestionController extends Controller
      *
      * @responseFile storage/responses/course-lesson-task-resource.response.json
      */
-    public function getCourseLessonTaskQuestionWhereLevel(Request $request)
+    public function getCourseLessonTaskQuestionWhereLevel(Request $request, Course $course)
     {
-        // $uid = $request->user()->id;
+        print_r('courses task list');exit;
+        $uid = $request->user()->id;
+
+        $alreadyEnrolled = $course->students()->where('user_id', $uid)->exists();
+        if (!$alreadyEnrolled) {
+            return $this->responseMessage('Anda harus mengikuti kursus dari pembelajaran/video ini terlebih dahulu sebelum melihat komentar.');
+        }
+
         $coursesid = $request->query('coursesid');
         if (!$coursesid) {
             return $this->responseMessage('Course ID dibutuhkan!');
