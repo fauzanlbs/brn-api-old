@@ -275,3 +275,7 @@ Route::prefix('perpetrators')->group(function () {
     Route::get('/', [BlackListController::class, 'index']);
     Route::get('/{perpetrator}', [BlackListController::class, 'getPerpetratorDetail']);
 });
+Route::post('report_case/create', 'App\Http\Controllers\ReportCaseController@store');
+Route::get('report_case/get', 'App\Http\Controllers\ReportCaseController@index');
+Route::post('report_case/return', 'App\Http\Controllers\ReportCaseController@return');
+
