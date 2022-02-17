@@ -48,12 +48,12 @@ class CourseLessonTaskQuestionController extends Controller
 
 
     /**
-     * Mendapatkan list data pertanyaan tugas pembelajaran berdasarkan level diklat.
+     * Mendapatkan list data pertanyaan tugas pembelajaran berdasarkan id diklat.
      * @authenticated
      *
      * @group Kursus
      *
-     * @queryParam level string required Penyortiran berdasarkan judul. Example: Marketing Di Social Media
+     * @queryParam coursesid integer required Penyortiran berdasarkan id courses. Example: 1
      *
      * @param Request $request
      *
@@ -63,15 +63,13 @@ class CourseLessonTaskQuestionController extends Controller
      */
     public function getCourseLessonTaskQuestionWhereLevel(Request $request)
     {
-        $level = $request->query('level');
-        if (!$level) {
-            return $this->responseMessage('Level diklat tidak boleh');
+        $coursesid = $request->query('coursesid');
+        if (!$coursesid) {
+            return $this->responseMessage('Course ID dibutuhkan!');
         }
 
         $tasks = CourseLessonTaskQuestion::whereHas('courseLesson', function ($q) use ($level) {
-            $q->whereHas('course', function ($qq) use ($level) {
-                $qq->where('level', $level);
-            });
+            $q->where('id', $coursesid);
         })->get();
 
         return response()->json($tasks, 400);
