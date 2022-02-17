@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Traits\ResponseAPI;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Resources\CourseLessonTaskQuestionResource;
 use App\Models\Course;
+use App\Models\CourseLesson;
+use App\Models\CourseLessonTaskQuestion;
 
 
 class TaskQuestion extends Controller
@@ -41,14 +44,14 @@ class TaskQuestion extends Controller
         // }
         
 
-        $tasks = DB::table('course_lesson_task_questions')
-                ->join('course_lessons', 'course_lesson_task_questions.id', '=', 'course_lessons.course_lesson_id', 'left')
-                ->join('courses', 'courses.id', '=', 'course_lesson_task_questions.course_id', 'left')
-                ->where('courses.id', $course->id)->get();
+        // $tasks = DB::table('course_lesson_task_questions')
+        //         ->join('course_lessons', 'course_lessons.id', '=', 'course_lesson_task_questions.course_lesson_id', 'left')
+        //         ->join('courses', 'courses.id', '=', 'course_lesson_task_questions.course_id', 'left')
+        //         ->where('courses.id', $course->id)->get();
 
-        // $tasks = CourseLessonTaskQuestion::whereHas('courseLesson', function ($q) use ($coursesid) {
-        //     $q->where('course_id', $coursesid);
-        // })->get();
+        $tasks = CourseLessonTaskQuestion::whereHas('courseLesson', function ($q) use ($course) {
+            $q->where('course_id', $course->id);
+        })->get();
 
         return response()->json($tasks, 400);
 
