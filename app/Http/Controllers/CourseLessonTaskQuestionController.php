@@ -77,7 +77,7 @@ class CourseLessonTaskQuestionController extends Controller
             $q->where('course_id', $coursesid);
         })->get();
 
-        return response()->json($tasks, 400);
+        //return response()->json($tasks, 400);
 
         return CourseLessonTaskQuestionResource::collection($tasks);
     }
