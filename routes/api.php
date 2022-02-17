@@ -173,7 +173,7 @@ Route::prefix('courses')->group(function () {
         Route::post('/{course}/comments', [CommentController::class, 'addCommentCourse']);
         Route::post('/{course}/liked', [LikeController::class, 'likeCourse']);
         Route::delete('/{course}/liked', [LikeController::class, 'unlikeCourse']);
-
+        Route::get('/diklat-level-questions/{course}', [TaskQuestion::class, 'get']);
         Route::prefix('/{course}/lessons')->group(function () {
             Route::get('/', [CourseLessonController::class, 'getCourseLessons']);
             Route::get('/{courseLesson}/comments', [CourseLessonController::class, 'getCourseLessonComments']);
@@ -185,7 +185,7 @@ Route::prefix('courses')->group(function () {
             Route::get('/{courseLesson}/task-questions', [CourseLessonTaskQuestionController::class, 'getCourseLessonTaskQuestions']);
         });
     });
-    Route::get('/diklat-level-questions', [TaskQuestion::class, 'get'])->middleware('auth:sanctum');
+    
 });
 
 
