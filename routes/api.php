@@ -279,4 +279,5 @@ Route::prefix('perpetrators')->group(function () {
 Route::post('report_case/create', 'App\Http\Controllers\ReportCaseController@store');
 Route::get('report_case/get', 'App\Http\Controllers\ReportCaseController@index');
 Route::post('report_case/return', 'App\Http\Controllers\ReportCaseController@return');
+Route::post('report_case/perpetrator', 'App\Http\Controllers\ReportCaseController@perpetrator');
 

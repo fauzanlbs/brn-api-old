@@ -74,4 +74,9 @@ class Perpetrator extends Model
     {
         return $this->belongsTo(UserPersonalInformation::class, 'created_by_id', 'user_id');
     }
+
+    public function reportCase()
+    {
+        return $this->belongsTo(ReportCase::class,'case_report_id');
+    }
 }
