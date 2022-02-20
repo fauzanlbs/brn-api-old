@@ -28,7 +28,7 @@ class ReportCaseResource extends JsonResource
             "korda_pelapor" => $this->korda_pelapor,
             "kronologi_kejadian" =>  $this->kronologi_kejadian,
             "unit_kendaraan" =>  $this->unit_kendaraan,
-            "data_penyewa" => Storage::disk('public')->path($this->data_penyewa),
+            "data_penyewa" => "https://api.brnjuara.com/storage/".$this->data_penyewa,
         // $path = Storage::disk('public')->path($report_cases->data_penyewa);
 
             "nama_sesuai_ktp" => $this->nama_sesuai_ktp,
