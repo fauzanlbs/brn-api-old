@@ -9,6 +9,8 @@ use App\Models\Perpetrator;
 use App\Models\ReturnCar;
 
 use App\Http\Resources\ReportCaseResource;
+use App\Http\Resources\PerpetratorResource;
+
 use Illuminate\Support\Facades\Storage;
 class ReportCaseController extends Controller
 {
@@ -26,6 +28,7 @@ class ReportCaseController extends Controller
         // $report_cases->perpetrator->information ="";
         // if($report_cases->perpetrator->created_by_id == null)
         // $report_cases->perpetrator->created_by_id ="";
+        
         return response()->json(["report_cases"=>ReportCaseResource::collection($report_cases)]);
         
     }
@@ -52,7 +55,8 @@ class ReportCaseController extends Controller
         //   $request->data_penyewa->move(public_path()."/images" , $name);
         //     }
         $report_case=ReportCase::create($input);
-        return response()->json(["report_case"=>$report_case]);
+        return response()->json(["report_case"=>ReportCaseResource::make($report_case)]);
+        // return response()->json(["report_case"=>$report_case]);
     }
 
 
@@ -78,7 +82,8 @@ class ReportCaseController extends Controller
         $perpetrator=Perpetrator::create($input);
         $perpetrator->case_report_id=$request->case_report;
         $perpetrator->save();
-        return response()->json(["perpetrator"=>$perpetrator]);
+        return response()->json(["perpetrator"=>PerpetratorResource::make($perpetrator)]);
+        // return response()->json(["perpetrator"=>$perpetrator]);
     }
 
     // public function perpetrator(Request $request)
