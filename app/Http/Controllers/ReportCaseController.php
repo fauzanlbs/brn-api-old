@@ -6,6 +6,8 @@ use App\Models\ReportCase;
 use Illuminate\Http\Request;
 use Response;
 use App\Models\Perpetrator;
+use App\Models\ReturnCar;
+
 use App\Http\Resources\ReportCaseResource;
 use Illuminate\Support\Facades\Storage;
 class ReportCaseController extends Controller
@@ -92,8 +94,22 @@ public function return(Request $request)
 {
     $validated = $request->validate([
         'id' => 'required|exists:report_cases',
+        'nama_pelapor' => 'required',
+        'korda_pelapor' => 'required',
+        'unit_kendaraan' => 'required',
+        'data_penyewa' => 'required',
+        'koordinator_team' => 'required',
+        'korda_yang_menangani' => 'required',
+        'uraian_singkat' => 'required',
+   
+
+
     ]); 
     $report_case=ReportCase::where('id',$request->id)->update(['status'=>'RETURNED']);
+    $validated['case_report_id']=$validated['id'];
+    unset($validated['id']);
+    // $validated->unset('id');
+    $return_car=ReturnCar::create($validated);
 
         return response()->json(["message"=>'done']);
 

@@ -16,6 +16,11 @@ public function perpetrator()
 {
     return $this->hasOne(Perpetrator::class,'case_report_id');
 }
+public function return()
+{
+    return $this->hasOne(ReturnCar::class,'case_report_id');
+}
+
 
 
 }
