@@ -63,7 +63,7 @@ class BlackListController extends Controller
      */
     public function getPerpetratorDetail(Perpetrator $perpetrator)
     {
-        $perpetrator->load(['caseReport']);
+        $perpetrator->load(['caseReport', 'created_by']);
 
         return new PerpetratorResource($perpetrator);
     }
