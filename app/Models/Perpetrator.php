@@ -23,6 +23,8 @@ class Perpetrator extends Model
         'address',
         'profile_photo_path',
         'information',
+        'birth_date',
+        'chronology',
         'created_by_id',
     ];
 
