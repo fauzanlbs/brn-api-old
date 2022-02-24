@@ -24,6 +24,8 @@ class PerpetratorResource extends JsonResource
             "profile_photo_url" => $this->profile_photo_url?$this->profile_photo_url:"",
             "chronology" => $this->chronology?$this->chronology:"",
             "birth_date" =>  $this->birth_date?$this->birth_date:"",
+            "created_by_id" =>  $this->created_by_id?$this->created_by_id:"",
+
         
         ];
     }
